@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: conda-incubator/setup-miniconda@v3
         with:
-          miniconda-version: "25.1.1"
+          miniconda-version: "latest"
           auto-update-conda: true
           python-version: 3.11
       - name: 创建虚拟环境
