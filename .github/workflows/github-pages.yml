@@ -17,16 +17,25 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v3
         with:
           installer-url: "https://repo.anaconda.com/miniconda/Miniconda3-py311_24.11.1-0-Linux-x86_64.sh"
-          auto-update-conda: true
+          activate-environment: sphinx
           python-version: 3.11
+      - name: Conda info
+        shell: bash -el {0}
+        run: conda info
+      - name: Conda list
+        shell: pwsh
+        run: conda list
       - name: 创建虚拟环境
+        shell: bash -el {0}
         run: |
-          conda --version && git checkout sync-docs && conda env create --file cn_docs/cn_environment.yml pip
+          conda --version && git checkout sync-docs && conda env update --file cn_docs/cn_environment.yml
       - name: 激活虚拟环境
+        shell: bash -el {0}
         run: |
           conda init && conda info --envs && source activate base && conda activate sphinx
       - name: Sphinx 构建
         working-directory: ./
+        shell: bash -el {0}
         run: |
           sphinx-build cn_docs/source build/cn/html
       - name: 部署到 GitHub Pages
