@@ -1,0 +1,657 @@
+@startuml packages_conda
+set namespaceSeparator none
+left to right direction
+skinparam nodesep 5
+skinparam ranksep 5
+package "conda" as conda #77AADD {
+}
+package "conda.__main__" as conda.__main__ #77AADD {
+}
+package "conda.activate" as conda.activate #77AADD {
+}
+package "conda.auxlib" as conda.auxlib #99DDFF {
+}
+package "conda.auxlib.collection" as conda.auxlib.collection #99DDFF {
+}
+package "conda.auxlib.decorators" as conda.auxlib.decorators #99DDFF {
+}
+package "conda.auxlib.entity" as conda.auxlib.entity #99DDFF {
+}
+package "conda.auxlib.exceptions" as conda.auxlib.exceptions #99DDFF {
+}
+package "conda.auxlib.ish" as conda.auxlib.ish #99DDFF {
+}
+package "conda.auxlib.logz" as conda.auxlib.logz #99DDFF {
+}
+package "conda.auxlib.type_coercion" as conda.auxlib.type_coercion #99DDFF {
+}
+package "conda.base" as conda.base #44BB99 {
+}
+package "conda.base.constants" as conda.base.constants #44BB99 {
+}
+package "conda.base.context" as conda.base.context #44BB99 {
+}
+package "conda.cli" as conda.cli #BBCC33 {
+}
+package "conda.cli.actions" as conda.cli.actions #BBCC33 {
+}
+package "conda.cli.common" as conda.cli.common #BBCC33 {
+}
+package "conda.cli.conda_argparse" as conda.cli.conda_argparse #BBCC33 {
+}
+package "conda.cli.find_commands" as conda.cli.find_commands #BBCC33 {
+}
+package "conda.cli.helpers" as conda.cli.helpers #BBCC33 {
+}
+package "conda.cli.install" as conda.cli.install #BBCC33 {
+}
+package "conda.cli.main" as conda.cli.main #BBCC33 {
+}
+package "conda.cli.main_clean" as conda.cli.main_clean #BBCC33 {
+}
+package "conda.cli.main_commands" as conda.cli.main_commands #BBCC33 {
+}
+package "conda.cli.main_compare" as conda.cli.main_compare #BBCC33 {
+}
+package "conda.cli.main_config" as conda.cli.main_config #BBCC33 {
+}
+package "conda.cli.main_create" as conda.cli.main_create #BBCC33 {
+}
+package "conda.cli.main_env" as conda.cli.main_env #BBCC33 {
+}
+package "conda.cli.main_env_config" as conda.cli.main_env_config #BBCC33 {
+}
+package "conda.cli.main_env_create" as conda.cli.main_env_create #BBCC33 {
+}
+package "conda.cli.main_env_list" as conda.cli.main_env_list #BBCC33 {
+}
+package "conda.cli.main_env_remove" as conda.cli.main_env_remove #BBCC33 {
+}
+package "conda.cli.main_env_update" as conda.cli.main_env_update #BBCC33 {
+}
+package "conda.cli.main_env_vars" as conda.cli.main_env_vars #BBCC33 {
+}
+package "conda.cli.main_export" as conda.cli.main_export #BBCC33 {
+}
+package "conda.cli.main_info" as conda.cli.main_info #BBCC33 {
+}
+package "conda.cli.main_init" as conda.cli.main_init #BBCC33 {
+}
+package "conda.cli.main_install" as conda.cli.main_install #BBCC33 {
+}
+package "conda.cli.main_list" as conda.cli.main_list #BBCC33 {
+}
+package "conda.cli.main_mock_activate" as conda.cli.main_mock_activate #BBCC33 {
+}
+package "conda.cli.main_mock_deactivate" as conda.cli.main_mock_deactivate #BBCC33 {
+}
+package "conda.cli.main_notices" as conda.cli.main_notices #BBCC33 {
+}
+package "conda.cli.main_package" as conda.cli.main_package #BBCC33 {
+}
+package "conda.cli.main_pip" as conda.cli.main_pip #BBCC33 {
+}
+package "conda.cli.main_remove" as conda.cli.main_remove #BBCC33 {
+}
+package "conda.cli.main_rename" as conda.cli.main_rename #BBCC33 {
+}
+package "conda.cli.main_run" as conda.cli.main_run #BBCC33 {
+}
+package "conda.cli.main_search" as conda.cli.main_search #BBCC33 {
+}
+package "conda.cli.main_update" as conda.cli.main_update #BBCC33 {
+}
+package "conda.cli.python_api" as conda.cli.python_api #BBCC33 {
+}
+package "conda.common" as conda.common #AAAA00 {
+}
+package "conda.common._logic" as conda.common._logic #AAAA00 {
+}
+package "conda.common._os" as conda.common._os #EEDD88 {
+}
+package "conda.common._os.linux" as conda.common._os.linux #EEDD88 {
+}
+package "conda.common._os.osx" as conda.common._os.osx #EEDD88 {
+}
+package "conda.common._os.unix" as conda.common._os.unix #EEDD88 {
+}
+package "conda.common._os.windows" as conda.common._os.windows #EEDD88 {
+}
+package "conda.common.configuration" as conda.common.configuration #AAAA00 {
+}
+package "conda.common.constants" as conda.common.constants #AAAA00 {
+}
+package "conda.common.disk" as conda.common.disk #AAAA00 {
+}
+package "conda.common.io" as conda.common.io #AAAA00 {
+}
+package "conda.common.iterators" as conda.common.iterators #AAAA00 {
+}
+package "conda.common.logic" as conda.common.logic #AAAA00 {
+}
+package "conda.common.path" as conda.common.path #EE8866 {
+}
+package "conda.common.path._cygpath" as conda.common.path._cygpath #EE8866 {
+}
+package "conda.common.path.directories" as conda.common.path.directories #EE8866 {
+}
+package "conda.common.path.python" as conda.common.path.python #EE8866 {
+}
+package "conda.common.path.windows" as conda.common.path.windows #EE8866 {
+}
+package "conda.common.pkg_formats" as conda.common.pkg_formats #FFAABB {
+}
+package "conda.common.pkg_formats.python" as conda.common.pkg_formats.python #FFAABB {
+}
+package "conda.common.serialize" as conda.common.serialize #AAAA00 {
+}
+package "conda.common.signals" as conda.common.signals #AAAA00 {
+}
+package "conda.common.toposort" as conda.common.toposort #AAAA00 {
+}
+package "conda.common.url" as conda.common.url #AAAA00 {
+}
+package "conda.core" as conda.core #DDDDDD {
+}
+package "conda.core.envs_manager" as conda.core.envs_manager #DDDDDD {
+}
+package "conda.core.index" as conda.core.index #DDDDDD {
+}
+package "conda.core.initialize" as conda.core.initialize #DDDDDD {
+}
+package "conda.core.link" as conda.core.link #DDDDDD {
+}
+package "conda.core.package_cache_data" as conda.core.package_cache_data #DDDDDD {
+}
+package "conda.core.path_actions" as conda.core.path_actions #DDDDDD {
+}
+package "conda.core.portability" as conda.core.portability #DDDDDD {
+}
+package "conda.core.prefix_data" as conda.core.prefix_data #DDDDDD {
+}
+package "conda.core.solve" as conda.core.solve #DDDDDD {
+}
+package "conda.core.subdir_data" as conda.core.subdir_data #DDDDDD {
+}
+package "conda.deprecations" as conda.deprecations #77AADD {
+}
+package "conda.env" as conda.env #77AADD {
+}
+package "conda.env.env" as conda.env.env #77AADD {
+}
+package "conda.env.installers" as conda.env.installers #99DDFF {
+}
+package "conda.env.installers.base" as conda.env.installers.base #99DDFF {
+}
+package "conda.env.installers.conda" as conda.env.installers.conda #99DDFF {
+}
+package "conda.env.installers.pip" as conda.env.installers.pip #99DDFF {
+}
+package "conda.env.pip_util" as conda.env.pip_util #77AADD {
+}
+package "conda.env.specs" as conda.env.specs #44BB99 {
+}
+package "conda.env.specs.binstar" as conda.env.specs.binstar #44BB99 {
+}
+package "conda.env.specs.requirements" as conda.env.specs.requirements #44BB99 {
+}
+package "conda.env.specs.yaml_file" as conda.env.specs.yaml_file #44BB99 {
+}
+package "conda.exception_handler" as conda.exception_handler #77AADD {
+}
+package "conda.exceptions" as conda.exceptions #77AADD {
+}
+package "conda.gateways" as conda.gateways #BBCC33 {
+}
+package "conda.gateways.anaconda_client" as conda.gateways.anaconda_client #BBCC33 {
+}
+package "conda.gateways.connection" as conda.gateways.connection #AAAA00 {
+}
+package "conda.gateways.connection.adapters" as conda.gateways.connection.adapters #EEDD88 {
+}
+package "conda.gateways.connection.adapters.ftp" as conda.gateways.connection.adapters.ftp #EEDD88 {
+}
+package "conda.gateways.connection.adapters.http" as conda.gateways.connection.adapters.http #EEDD88 {
+}
+package "conda.gateways.connection.adapters.localfs" as conda.gateways.connection.adapters.localfs #EEDD88 {
+}
+package "conda.gateways.connection.adapters.s3" as conda.gateways.connection.adapters.s3 #EEDD88 {
+}
+package "conda.gateways.connection.download" as conda.gateways.connection.download #AAAA00 {
+}
+package "conda.gateways.connection.session" as conda.gateways.connection.session #AAAA00 {
+}
+package "conda.gateways.disk" as conda.gateways.disk #EE8866 {
+}
+package "conda.gateways.disk.create" as conda.gateways.disk.create #EE8866 {
+}
+package "conda.gateways.disk.delete" as conda.gateways.disk.delete #EE8866 {
+}
+package "conda.gateways.disk.link" as conda.gateways.disk.link #EE8866 {
+}
+package "conda.gateways.disk.lock" as conda.gateways.disk.lock #EE8866 {
+}
+package "conda.gateways.disk.permissions" as conda.gateways.disk.permissions #EE8866 {
+}
+package "conda.gateways.disk.read" as conda.gateways.disk.read #EE8866 {
+}
+package "conda.gateways.disk.test" as conda.gateways.disk.test #EE8866 {
+}
+package "conda.gateways.disk.update" as conda.gateways.disk.update #EE8866 {
+}
+package "conda.gateways.logging" as conda.gateways.logging #BBCC33 {
+}
+package "conda.gateways.repodata" as conda.gateways.repodata #FFAABB {
+}
+package "conda.gateways.repodata.jlap" as conda.gateways.repodata.jlap #DDDDDD {
+}
+package "conda.gateways.repodata.jlap.core" as conda.gateways.repodata.jlap.core #DDDDDD {
+}
+package "conda.gateways.repodata.jlap.fetch" as conda.gateways.repodata.jlap.fetch #DDDDDD {
+}
+package "conda.gateways.repodata.jlap.interface" as conda.gateways.repodata.jlap.interface #DDDDDD {
+}
+package "conda.gateways.repodata.lock" as conda.gateways.repodata.lock #FFAABB {
+}
+package "conda.gateways.subprocess" as conda.gateways.subprocess #BBCC33 {
+}
+package "conda.history" as conda.history #77AADD {
+}
+package "conda.instructions" as conda.instructions #77AADD {
+}
+package "conda.models" as conda.models #77AADD {
+}
+package "conda.models.channel" as conda.models.channel #77AADD {
+}
+package "conda.models.dist" as conda.models.dist #77AADD {
+}
+package "conda.models.enums" as conda.models.enums #77AADD {
+}
+package "conda.models.leased_path_entry" as conda.models.leased_path_entry #77AADD {
+}
+package "conda.models.match_spec" as conda.models.match_spec #77AADD {
+}
+package "conda.models.package_info" as conda.models.package_info #77AADD {
+}
+package "conda.models.prefix_graph" as conda.models.prefix_graph #77AADD {
+}
+package "conda.models.records" as conda.models.records #77AADD {
+}
+package "conda.models.version" as conda.models.version #77AADD {
+}
+package "conda.notices" as conda.notices #99DDFF {
+}
+package "conda.notices.cache" as conda.notices.cache #99DDFF {
+}
+package "conda.notices.core" as conda.notices.core #99DDFF {
+}
+package "conda.notices.fetch" as conda.notices.fetch #99DDFF {
+}
+package "conda.notices.types" as conda.notices.types #99DDFF {
+}
+package "conda.notices.views" as conda.notices.views #99DDFF {
+}
+package "conda.plan" as conda.plan #77AADD {
+}
+package "conda.plugins" as conda.plugins #44BB99 {
+}
+package "conda.plugins.hookspec" as conda.plugins.hookspec #44BB99 {
+}
+package "conda.plugins.manager" as conda.plugins.manager #44BB99 {
+}
+package "conda.plugins.post_solves" as conda.plugins.post_solves #BBCC33 {
+}
+package "conda.plugins.post_solves.signature_verification" as conda.plugins.post_solves.signature_verification #BBCC33 {
+}
+package "conda.plugins.reporter_backends" as conda.plugins.reporter_backends #AAAA00 {
+}
+package "conda.plugins.reporter_backends.console" as conda.plugins.reporter_backends.console #AAAA00 {
+}
+package "conda.plugins.reporter_backends.json" as conda.plugins.reporter_backends.json #AAAA00 {
+}
+package "conda.plugins.solvers" as conda.plugins.solvers #44BB99 {
+}
+package "conda.plugins.subcommands" as conda.plugins.subcommands #EEDD88 {
+}
+package "conda.plugins.subcommands.doctor" as conda.plugins.subcommands.doctor #EE8866 {
+}
+package "conda.plugins.subcommands.doctor.health_checks" as conda.plugins.subcommands.doctor.health_checks #EE8866 {
+}
+package "conda.plugins.types" as conda.plugins.types #44BB99 {
+}
+package "conda.plugins.virtual_packages" as conda.plugins.virtual_packages #FFAABB {
+}
+package "conda.plugins.virtual_packages.archspec" as conda.plugins.virtual_packages.archspec #FFAABB {
+}
+package "conda.plugins.virtual_packages.conda" as conda.plugins.virtual_packages.conda #FFAABB {
+}
+package "conda.plugins.virtual_packages.cuda" as conda.plugins.virtual_packages.cuda #FFAABB {
+}
+package "conda.plugins.virtual_packages.freebsd" as conda.plugins.virtual_packages.freebsd #FFAABB {
+}
+package "conda.plugins.virtual_packages.linux" as conda.plugins.virtual_packages.linux #FFAABB {
+}
+package "conda.plugins.virtual_packages.osx" as conda.plugins.virtual_packages.osx #FFAABB {
+}
+package "conda.plugins.virtual_packages.windows" as conda.plugins.virtual_packages.windows #FFAABB {
+}
+package "conda.reporters" as conda.reporters #77AADD {
+}
+package "conda.resolve" as conda.resolve #77AADD {
+}
+package "conda.testing" as conda.testing #DDDDDD {
+}
+package "conda.testing.cases" as conda.testing.cases #DDDDDD {
+}
+package "conda.testing.fixtures" as conda.testing.fixtures #DDDDDD {
+}
+package "conda.testing.gateways" as conda.testing.gateways #77AADD {
+}
+package "conda.testing.gateways.fixtures" as conda.testing.gateways.fixtures #77AADD {
+}
+package "conda.testing.helpers" as conda.testing.helpers #DDDDDD {
+}
+package "conda.testing.integration" as conda.testing.integration #DDDDDD {
+}
+package "conda.testing.notices" as conda.testing.notices #99DDFF {
+}
+package "conda.testing.notices.fixtures" as conda.testing.notices.fixtures #99DDFF {
+}
+package "conda.testing.notices.helpers" as conda.testing.notices.helpers #99DDFF {
+}
+package "conda.testing.solver_helpers" as conda.testing.solver_helpers #DDDDDD {
+}
+package "conda.trust" as conda.trust #44BB99 {
+}
+package "conda.trust.constants" as conda.trust.constants #44BB99 {
+}
+package "conda.trust.signature_verification" as conda.trust.signature_verification #44BB99 {
+}
+conda --> conda.exceptions
+conda.__main__ --> conda.cli
+conda.__main__ --> conda.cli.main
+conda.activate --> conda.base.constants
+conda.activate --> conda.base.context
+conda.activate --> conda.cli.conda_argparse
+conda.activate --> conda.cli.find_commands
+conda.activate --> conda.common.path
+conda.activate --> conda.common.path._cygpath
+conda.activate --> conda.deprecations
+conda.activate --> conda.exceptions
+conda.auxlib.entity --> conda.auxlib.collection
+conda.auxlib.entity --> conda.auxlib.exceptions
+conda.auxlib.entity --> conda.auxlib.ish
+conda.auxlib.entity --> conda.auxlib.logz
+conda.auxlib.entity --> conda.auxlib.type_coercion
+conda.auxlib.type_coercion --> conda.auxlib.decorators
+conda.auxlib.type_coercion --> conda.auxlib.exceptions
+conda.base.context --> conda.base.constants
+conda.cli --> conda.cli.main
+conda.cli.actions --> conda.cli.common
+conda.cli.conda_argparse --> conda.cli.actions
+conda.cli.conda_argparse --> conda.cli.common
+conda.cli.conda_argparse --> conda.cli.find_commands
+conda.cli.conda_argparse --> conda.cli.helpers
+conda.cli.conda_argparse --> conda.cli.main_clean
+conda.cli.conda_argparse --> conda.cli.main_commands
+conda.cli.conda_argparse --> conda.cli.main_compare
+conda.cli.conda_argparse --> conda.cli.main_config
+conda.cli.conda_argparse --> conda.cli.main_create
+conda.cli.conda_argparse --> conda.cli.main_env
+conda.cli.conda_argparse --> conda.cli.main_export
+conda.cli.conda_argparse --> conda.cli.main_info
+conda.cli.conda_argparse --> conda.cli.main_init
+conda.cli.conda_argparse --> conda.cli.main_install
+conda.cli.conda_argparse --> conda.cli.main_list
+conda.cli.conda_argparse --> conda.cli.main_mock_activate
+conda.cli.conda_argparse --> conda.cli.main_mock_deactivate
+conda.cli.conda_argparse --> conda.cli.main_notices
+conda.cli.conda_argparse --> conda.cli.main_package
+conda.cli.conda_argparse --> conda.cli.main_remove
+conda.cli.conda_argparse --> conda.cli.main_rename
+conda.cli.conda_argparse --> conda.cli.main_run
+conda.cli.conda_argparse --> conda.cli.main_search
+conda.cli.conda_argparse --> conda.cli.main_update
+conda.cli.find_commands --> conda.cli.common
+conda.cli.helpers --> conda.cli.actions
+conda.cli.helpers --> conda.cli.common
+conda.cli.install --> conda.cli.common
+conda.cli.install --> conda.cli.common
+conda.cli.install --> conda.cli.main_config
+conda.cli.main --> conda.cli.common
+conda.cli.main --> conda.cli.conda_argparse
+conda.cli.main_clean --> conda.cli.actions
+conda.cli.main_clean --> conda.cli.common
+conda.cli.main_clean --> conda.cli.helpers
+conda.cli.main_commands --> conda.cli.conda_argparse
+conda.cli.main_commands --> conda.cli.find_commands
+conda.cli.main_compare --> conda.cli.common
+conda.cli.main_compare --> conda.cli.helpers
+conda.cli.main_config --> conda.cli.common
+conda.cli.main_config --> conda.cli.common
+conda.cli.main_config --> conda.cli.helpers
+conda.cli.main_create --> conda.cli.actions
+conda.cli.main_create --> conda.cli.common
+conda.cli.main_create --> conda.cli.helpers
+conda.cli.main_create --> conda.cli.install
+conda.cli.main_env_config --> conda.cli.main_env_vars
+conda.cli.main_env_create --> conda.cli.common
+conda.cli.main_env_create --> conda.cli.helpers
+conda.cli.main_env_list --> conda.cli.helpers
+conda.cli.main_env_remove --> conda.cli.helpers
+conda.cli.main_env_update --> conda.cli.helpers
+conda.cli.main_env_vars --> conda.cli.helpers
+conda.cli.main_export --> conda.cli.common
+conda.cli.main_export --> conda.cli.common
+conda.cli.main_export --> conda.cli.helpers
+conda.cli.main_info --> conda.cli.common
+conda.cli.main_info --> conda.cli.find_commands
+conda.cli.main_info --> conda.cli.helpers
+conda.cli.main_init --> conda.cli.common
+conda.cli.main_init --> conda.cli.helpers
+conda.cli.main_install --> conda.cli.actions
+conda.cli.main_install --> conda.cli.common
+conda.cli.main_install --> conda.cli.helpers
+conda.cli.main_install --> conda.cli.install
+conda.cli.main_list --> conda.cli.common
+conda.cli.main_list --> conda.cli.helpers
+conda.cli.main_notices --> conda.cli.helpers
+conda.cli.main_package --> conda.cli.common
+conda.cli.main_package --> conda.cli.helpers
+conda.cli.main_pip --> conda.cli.main
+conda.cli.main_remove --> conda.cli.actions
+conda.cli.main_remove --> conda.cli.common
+conda.cli.main_remove --> conda.cli.common
+conda.cli.main_remove --> conda.cli.helpers
+conda.cli.main_remove --> conda.cli.install
+conda.cli.main_rename --> conda.cli.common
+conda.cli.main_rename --> conda.cli.helpers
+conda.cli.main_rename --> conda.cli.install
+conda.cli.main_rename --> conda.deprecations
+conda.cli.main_rename --> conda.exceptions
+conda.cli.main_rename --> conda.gateways.disk.test
+conda.cli.main_run --> conda.cli.actions
+conda.cli.main_run --> conda.cli.common
+conda.cli.main_run --> conda.cli.common
+conda.cli.main_run --> conda.cli.helpers
+conda.cli.main_search --> conda.cli.common
+conda.cli.main_search --> conda.cli.helpers
+conda.cli.main_update --> conda.cli.common
+conda.cli.main_update --> conda.cli.helpers
+conda.cli.main_update --> conda.cli.install
+conda.cli.python_api --> conda.cli.common
+conda.cli.python_api --> conda.cli.conda_argparse
+conda.common._logic --> conda.common.constants
+conda.common._os --> conda.common._os.windows
+conda.common.configuration --> conda.common.constants
+conda.common.configuration --> conda.common.serialize
+conda.common.io --> conda.common.constants
+conda.common.io --> conda.common.io
+conda.common.io --> conda.common.path
+conda.common.logic --> conda.common._logic
+conda.common.path --> conda.common.path.directories
+conda.common.path --> conda.common.path.python
+conda.common.path --> conda.common.path.windows
+conda.common.path --> conda.common.url
+conda.common.path.windows --> conda.common.path._cygpath
+conda.common.serialize --> conda.common.io
+conda.common.url --> conda.common.path
+conda.core.envs_manager --> conda.core.prefix_data
+conda.core.index --> conda.core.package_cache_data
+conda.core.index --> conda.core.prefix_data
+conda.core.index --> conda.core.subdir_data
+conda.core.initialize --> conda.core.portability
+conda.core.link --> conda.core.package_cache_data
+conda.core.link --> conda.core.path_actions
+conda.core.link --> conda.core.prefix_data
+conda.core.package_cache_data --> conda.core.path_actions
+conda.core.path_actions --> conda.core.envs_manager
+conda.core.path_actions --> conda.core.package_cache_data
+conda.core.path_actions --> conda.core.portability
+conda.core.path_actions --> conda.core.prefix_data
+conda.core.solve --> conda.core.index
+conda.core.solve --> conda.core.link
+conda.core.solve --> conda.core.prefix_data
+conda.core.solve --> conda.core.subdir_data
+conda.deprecations --> conda.common.constants
+conda.env.installers.conda --> conda.env.installers.base
+conda.env.specs --> conda.env.specs.requirements
+conda.env.specs --> conda.env.specs.yaml_file
+conda.exception_handler --> conda.auxlib.entity
+conda.exception_handler --> conda.auxlib.type_coercion
+conda.exception_handler --> conda.base.context
+conda.exception_handler --> conda.cli.common
+conda.exception_handler --> conda.cli.main
+conda.exception_handler --> conda.cli.main_info
+conda.exception_handler --> conda.common.io
+conda.exception_handler --> conda.exceptions
+conda.exceptions --> conda.auxlib.entity
+conda.exceptions --> conda.auxlib.ish
+conda.exceptions --> conda.auxlib.logz
+conda.exceptions --> conda.base.constants
+conda.exceptions --> conda.base.context
+conda.exceptions --> conda.cli.find_commands
+conda.exceptions --> conda.cli.main
+conda.exceptions --> conda.common.io
+conda.exceptions --> conda.common.iterators
+conda.exceptions --> conda.common.signals
+conda.exceptions --> conda.common.url
+conda.exceptions --> conda.deprecations
+conda.exceptions --> conda.exception_handler
+conda.exceptions --> conda.models.channel
+conda.exceptions --> conda.models.match_spec
+conda.exceptions --> conda.models.records
+conda.gateways.anaconda_client --> conda.gateways.disk.delete
+conda.gateways.anaconda_client --> conda.gateways.logging
+conda.gateways.connection.download --> conda.gateways.connection.session
+conda.gateways.connection.session --> conda.gateways.connection.adapters.ftp
+conda.gateways.connection.session --> conda.gateways.connection.adapters.http
+conda.gateways.connection.session --> conda.gateways.connection.adapters.localfs
+conda.gateways.connection.session --> conda.gateways.connection.adapters.s3
+conda.gateways.disk --> conda.gateways.logging
+conda.gateways.disk --> conda.gateways.subprocess
+conda.gateways.disk.create --> conda.gateways.disk.delete
+conda.gateways.disk.create --> conda.gateways.disk.link
+conda.gateways.disk.create --> conda.gateways.disk.permissions
+conda.gateways.disk.create --> conda.gateways.disk.update
+conda.gateways.disk.delete --> conda.gateways.disk.link
+conda.gateways.disk.delete --> conda.gateways.disk.permissions
+conda.gateways.disk.permissions --> conda.gateways.disk.link
+conda.gateways.disk.read --> conda.gateways.disk.create
+conda.gateways.disk.read --> conda.gateways.disk.link
+conda.gateways.disk.test --> conda.gateways.disk.create
+conda.gateways.disk.test --> conda.gateways.disk.delete
+conda.gateways.disk.test --> conda.gateways.disk.link
+conda.gateways.disk.update --> conda.gateways.disk.delete
+conda.gateways.disk.update --> conda.gateways.disk.link
+conda.gateways.logging --> conda.gateways.logging
+conda.gateways.repodata --> conda.gateways.connection
+conda.gateways.repodata --> conda.gateways.connection.session
+conda.gateways.repodata --> conda.gateways.disk
+conda.gateways.repodata --> conda.gateways.disk.lock
+conda.gateways.repodata --> conda.gateways.repodata.jlap.interface
+conda.gateways.repodata.jlap.fetch --> conda.common.url
+conda.gateways.repodata.jlap.fetch --> conda.gateways.repodata.jlap.core
+conda.gateways.subprocess --> conda.gateways.logging
+conda.gateways.subprocess --> conda.gateways.subprocess
+conda.history --> conda.auxlib.ish
+conda.history --> conda.base.constants
+conda.history --> conda.base.context
+conda.history --> conda.common.iterators
+conda.history --> conda.common.path
+conda.history --> conda.core.prefix_data
+conda.history --> conda.exceptions
+conda.history --> conda.gateways.disk.update
+conda.history --> conda.models.dist
+conda.history --> conda.models.match_spec
+conda.history --> conda.models.version
+conda.instructions --> conda.core.link
+conda.instructions --> conda.core.package_cache_data
+conda.instructions --> conda.exceptions
+conda.instructions --> conda.gateways.disk.link
+conda.models.dist --> conda.models.channel
+conda.models.dist --> conda.models.match_spec
+conda.models.dist --> conda.models.package_info
+conda.models.dist --> conda.models.records
+conda.models.match_spec --> conda.models.channel
+conda.models.match_spec --> conda.models.records
+conda.models.match_spec --> conda.models.version
+conda.models.package_info --> conda.models.channel
+conda.models.package_info --> conda.models.enums
+conda.models.package_info --> conda.models.records
+conda.models.prefix_graph --> conda.models.enums
+conda.models.prefix_graph --> conda.models.match_spec
+conda.models.records --> conda.models.channel
+conda.models.records --> conda.models.enums
+conda.models.records --> conda.models.match_spec
+conda.notices --> conda.core
+conda.notices.cache --> conda.notices.types
+conda.notices.core --> conda.notices.types
+conda.notices.fetch --> conda.notices.cache
+conda.notices.fetch --> conda.notices.types
+conda.notices.views --> conda.notices.types
+conda.plan --> conda.base.constants
+conda.plan --> conda.base.context
+conda.plan --> conda.common.constants
+conda.plan --> conda.common.io
+conda.plan --> conda.common.iterators
+conda.plan --> conda.core.index
+conda.plan --> conda.core.link
+conda.plan --> conda.deprecations
+conda.plan --> conda.instructions
+conda.plan --> conda.models.channel
+conda.plan --> conda.models.dist
+conda.plan --> conda.models.enums
+conda.plan --> conda.models.match_spec
+conda.plan --> conda.models.records
+conda.plan --> conda.models.version
+conda.plugins --> conda.plugins.hookspec
+conda.plugins --> conda.plugins.types
+conda.plugins.manager --> conda.plugins.hookspec
+conda.plugins.manager --> conda.plugins.subcommands.doctor
+conda.plugins.manager --> conda.plugins.subcommands.doctor.health_checks
+conda.reporters --> conda.base.context
+conda.reporters --> conda.exceptions
+conda.resolve --> conda.auxlib.decorators
+conda.resolve --> conda.base.constants
+conda.resolve --> conda.base.context
+conda.resolve --> conda.common.io
+conda.resolve --> conda.common.iterators
+conda.resolve --> conda.common.logic
+conda.resolve --> conda.common.toposort
+conda.resolve --> conda.exceptions
+conda.resolve --> conda.models.channel
+conda.resolve --> conda.models.enums
+conda.resolve --> conda.models.match_spec
+conda.resolve --> conda.models.records
+conda.resolve --> conda.models.version
+conda.testing --> conda.activate
+conda.testing --> conda.deprecations
+conda.testing --> conda.testing.fixtures
+conda.testing.fixtures --> conda.deprecations
+conda.testing.integration --> conda.testing.gateways
+conda.trust.signature_verification --> conda.trust.constants
+conda.plugins.hookspec ..> conda.plugins.types
+conda.plugins.manager ..> conda.plugins.types
+conda.reporters ..> conda.plugins.types
+@enduml

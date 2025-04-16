@@ -1,0 +1,666 @@
+:py:mod:`constants`
+===================
+
+.. py:module:: conda.base.constants
+
+.. autoapi-nested-parse::
+
+   This file should hold most string literals and magic numbers used throughout the code base.
+   The exception is if a literal is specifically meant to be private to and isolated within a module.
+   Think of this as a "more static" source of configuration information.
+
+   Another important source of "static" configuration is conda/models/enums.py.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   conda.base.constants.SafetyChecks
+   conda.base.constants.PathConflict
+   conda.base.constants.DepsModifier
+   conda.base.constants.UpdateModifier
+   conda.base.constants.ChannelPriorityMeta
+   conda.base.constants.ValueEnum
+   conda.base.constants.ChannelPriority
+   conda.base.constants.SatSolverChoice
+   conda.base.constants.NoticeLevel
+
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   conda.base.constants.PREFIX_PLACEHOLDER
+   conda.base.constants.machine_bits
+   conda.base.constants.APP_NAME
+   conda.base.constants.SEARCH_PATH
+   conda.base.constants.DEFAULT_CHANNEL_ALIAS
+   conda.base.constants.CONDA_HOMEPAGE_URL
+   conda.base.constants.ERROR_UPLOAD_URL
+   conda.base.constants.DEFAULTS_CHANNEL_NAME
+   conda.base.constants.RECOGNIZED_URL_SCHEMES
+   conda.base.constants.DEFAULT_CHANNELS_UNIX
+   conda.base.constants.DEFAULT_CHANNELS_WIN
+   conda.base.constants.DEFAULT_CUSTOM_CHANNELS
+   conda.base.constants.DEFAULT_CHANNELS
+   conda.base.constants.ROOT_ENV_NAME
+   conda.base.constants.UNUSED_ENV_NAME
+   conda.base.constants.ROOT_NO_RM
+   conda.base.constants.DEFAULT_AGGRESSIVE_UPDATE_PACKAGES
+   conda.base.constants.COMPATIBLE_SHELLS
+   conda.base.constants.MAX_CHANNEL_PRIORITY
+   conda.base.constants.CONDA_PACKAGE_EXTENSION_V1
+   conda.base.constants.CONDA_PACKAGE_EXTENSION_V2
+   conda.base.constants.CONDA_PACKAGE_EXTENSIONS
+   conda.base.constants.CONDA_PACKAGE_PARTS
+   conda.base.constants.CONDA_TARBALL_EXTENSION
+   conda.base.constants.CONDA_TEMP_EXTENSION
+   conda.base.constants.CONDA_TEMP_EXTENSIONS
+   conda.base.constants.CONDA_LOGS_DIR
+   conda.base.constants.UNKNOWN_CHANNEL
+   conda.base.constants.REPODATA_FN
+   conda.base.constants.NOTICES_FN
+   conda.base.constants.NOTICES_CACHE_FN
+   conda.base.constants.NOTICES_CACHE_SUBDIR
+   conda.base.constants.NOTICES_DECORATOR_DISPLAY_INTERVAL
+   conda.base.constants.DRY_RUN_PREFIX
+   conda.base.constants.PREFIX_NAME_DISALLOWED_CHARS
+   conda.base.constants.DEFAULT_SOLVER
+   conda.base.constants.CLASSIC_SOLVER
+   conda.base.constants.DEFAULT_JSON_REPORTER_BACKEND
+   conda.base.constants.DEFAULT_CONSOLE_REPORTER_BACKEND
+   conda.base.constants.PACKAGE_CACHE_MAGIC_FILE
+   conda.base.constants.PREFIX_MAGIC_FILE
+   conda.base.constants.PREFIX_STATE_FILE
+   conda.base.constants.PACKAGE_ENV_VARS_DIR
+   conda.base.constants.CONDA_ENV_VARS_UNSET_VAR
+   conda.base.constants.NAMESPACES_MAP
+   conda.base.constants.NAMESPACE_PACKAGE_NAMES
+   conda.base.constants.NAMESPACES
+   conda.base.constants.NO_PLUGINS
+
+
+.. py:data:: PREFIX_PLACEHOLDER
+   :value: '/opt/anaconda1anaconda2anaconda3'
+
+   
+
+.. py:data:: machine_bits
+
+   
+
+.. py:data:: APP_NAME
+   :value: 'conda'
+
+   
+
+.. py:data:: SEARCH_PATH
+   :value: ('C:/ProgramData/conda/.condarc', 'C:/ProgramData/conda/condarc', 'C:/ProgramData/conda/condarc.d')
+
+   
+
+.. py:data:: DEFAULT_CHANNEL_ALIAS
+   :value: 'https://conda.anaconda.org'
+
+   
+
+.. py:data:: CONDA_HOMEPAGE_URL
+   :value: 'https://conda.io'
+
+   
+
+.. py:data:: ERROR_UPLOAD_URL
+   :value: 'https://conda.io/conda-post/unexpected-error'
+
+   
+
+.. py:data:: DEFAULTS_CHANNEL_NAME
+   :value: 'defaults'
+
+   
+
+.. py:data:: RECOGNIZED_URL_SCHEMES
+   :value: ('http', 'https', 'ftp', 's3', 'file')
+
+   
+
+.. py:data:: DEFAULT_CHANNELS_UNIX
+   :value: ('https://repo.anaconda.com/pkgs/main', 'https://repo.anaconda.com/pkgs/r')
+
+   
+
+.. py:data:: DEFAULT_CHANNELS_WIN
+   :value: ('https://repo.anaconda.com/pkgs/main', 'https://repo.anaconda.com/pkgs/r',...
+
+   
+
+.. py:data:: DEFAULT_CUSTOM_CHANNELS
+
+   
+
+.. py:data:: DEFAULT_CHANNELS
+
+   
+
+.. py:data:: ROOT_ENV_NAME
+   :value: 'base'
+
+   
+
+.. py:data:: UNUSED_ENV_NAME
+   :value: 'unused-env-name'
+
+   
+
+.. py:data:: ROOT_NO_RM
+   :value: ('python', 'pycosat', 'ruamel.yaml', 'conda', 'openssl', 'requests')
+
+   
+
+.. py:data:: DEFAULT_AGGRESSIVE_UPDATE_PACKAGES
+   :value: ('ca-certificates', 'certifi', 'openssl')
+
+   
+
+.. py:data:: COMPATIBLE_SHELLS
+   :value: ('bash', 'cmd.exe', 'fish', 'tcsh', 'xonsh', 'zsh', 'powershell')
+
+   
+
+.. py:data:: MAX_CHANNEL_PRIORITY
+   :value: 10000
+
+   
+
+.. py:data:: CONDA_PACKAGE_EXTENSION_V1
+   :value: '.tar.bz2'
+
+   
+
+.. py:data:: CONDA_PACKAGE_EXTENSION_V2
+   :value: '.conda'
+
+   
+
+.. py:data:: CONDA_PACKAGE_EXTENSIONS
+   :value: ()
+
+   
+
+.. py:data:: CONDA_PACKAGE_PARTS
+
+   
+
+.. py:data:: CONDA_TARBALL_EXTENSION
+
+   
+
+.. py:data:: CONDA_TEMP_EXTENSION
+   :value: '.c~'
+
+   
+
+.. py:data:: CONDA_TEMP_EXTENSIONS
+   :value: ()
+
+   
+
+.. py:data:: CONDA_LOGS_DIR
+   :value: '.logs'
+
+   
+
+.. py:data:: UNKNOWN_CHANNEL
+   :value: '<unknown>'
+
+   
+
+.. py:data:: REPODATA_FN
+   :value: 'repodata.json'
+
+   
+
+.. py:data:: NOTICES_FN
+   :value: 'notices.json'
+
+   
+
+.. py:data:: NOTICES_CACHE_FN
+   :value: 'notices.cache'
+
+   
+
+.. py:data:: NOTICES_CACHE_SUBDIR
+   :value: 'notices'
+
+   
+
+.. py:data:: NOTICES_DECORATOR_DISPLAY_INTERVAL
+   :value: 86400
+
+   
+
+.. py:data:: DRY_RUN_PREFIX
+   :value: 'Dry run action:'
+
+   
+
+.. py:data:: PREFIX_NAME_DISALLOWED_CHARS
+
+   
+
+.. py:class:: SafetyChecks(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Create a collection of name/value pairs.
+
+   Example enumeration:
+
+   >>> class Color(Enum):
+   ...     RED = 1
+   ...     BLUE = 2
+   ...     GREEN = 3
+
+   Access them by:
+
+   - attribute access:
+
+     >>> Color.RED
+     <Color.RED: 1>
+
+   - value lookup:
+
+     >>> Color(1)
+     <Color.RED: 1>
+
+   - name lookup:
+
+     >>> Color['RED']
+     <Color.RED: 1>
+
+   Enumerations can be iterated over, and know how many members they have:
+
+   >>> len(Color)
+   3
+
+   >>> list(Color)
+   [<Color.RED: 1>, <Color.BLUE: 2>, <Color.GREEN: 3>]
+
+   Methods can be added to enumerations, and members can have their own
+   attributes -- see the documentation for details.
+
+   .. py:attribute:: disabled
+      :value: 'disabled'
+
+      
+
+   .. py:attribute:: warn
+      :value: 'warn'
+
+      
+
+   .. py:attribute:: enabled
+      :value: 'enabled'
+
+      
+
+   .. py:method:: __str__()
+
+      Return str(self).
+
+
+
+.. py:class:: PathConflict(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Create a collection of name/value pairs.
+
+   Example enumeration:
+
+   >>> class Color(Enum):
+   ...     RED = 1
+   ...     BLUE = 2
+   ...     GREEN = 3
+
+   Access them by:
+
+   - attribute access:
+
+     >>> Color.RED
+     <Color.RED: 1>
+
+   - value lookup:
+
+     >>> Color(1)
+     <Color.RED: 1>
+
+   - name lookup:
+
+     >>> Color['RED']
+     <Color.RED: 1>
+
+   Enumerations can be iterated over, and know how many members they have:
+
+   >>> len(Color)
+   3
+
+   >>> list(Color)
+   [<Color.RED: 1>, <Color.BLUE: 2>, <Color.GREEN: 3>]
+
+   Methods can be added to enumerations, and members can have their own
+   attributes -- see the documentation for details.
+
+   .. py:attribute:: clobber
+      :value: 'clobber'
+
+      
+
+   .. py:attribute:: warn
+      :value: 'warn'
+
+      
+
+   .. py:attribute:: prevent
+      :value: 'prevent'
+
+      
+
+   .. py:method:: __str__()
+
+      Return str(self).
+
+
+
+.. py:class:: DepsModifier(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Flags to enable alternate handling of dependencies.
+
+   .. py:attribute:: NOT_SET
+      :value: 'not_set'
+
+      
+
+   .. py:attribute:: NO_DEPS
+      :value: 'no_deps'
+
+      
+
+   .. py:attribute:: ONLY_DEPS
+      :value: 'only_deps'
+
+      
+
+   .. py:method:: __str__()
+
+      Return str(self).
+
+
+
+.. py:class:: UpdateModifier(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Create a collection of name/value pairs.
+
+   Example enumeration:
+
+   >>> class Color(Enum):
+   ...     RED = 1
+   ...     BLUE = 2
+   ...     GREEN = 3
+
+   Access them by:
+
+   - attribute access:
+
+     >>> Color.RED
+     <Color.RED: 1>
+
+   - value lookup:
+
+     >>> Color(1)
+     <Color.RED: 1>
+
+   - name lookup:
+
+     >>> Color['RED']
+     <Color.RED: 1>
+
+   Enumerations can be iterated over, and know how many members they have:
+
+   >>> len(Color)
+   3
+
+   >>> list(Color)
+   [<Color.RED: 1>, <Color.BLUE: 2>, <Color.GREEN: 3>]
+
+   Methods can be added to enumerations, and members can have their own
+   attributes -- see the documentation for details.
+
+   .. py:attribute:: SPECS_SATISFIED_SKIP_SOLVE
+      :value: 'specs_satisfied_skip_solve'
+
+      
+
+   .. py:attribute:: FREEZE_INSTALLED
+      :value: 'freeze_installed'
+
+      
+
+   .. py:attribute:: UPDATE_DEPS
+      :value: 'update_deps'
+
+      
+
+   .. py:attribute:: UPDATE_SPECS
+      :value: 'update_specs'
+
+      
+
+   .. py:attribute:: UPDATE_ALL
+      :value: 'update_all'
+
+      
+
+   .. py:method:: __str__()
+
+      Return str(self).
+
+
+
+.. py:class:: ChannelPriorityMeta
+
+
+   Bases: :py:obj:`enum.EnumMeta`
+
+   Metaclass for Enum
+
+   .. py:method:: __call__(value, *args, **kwargs)
+
+      Either returns an existing member, or creates a new enum class.
+
+      This method is used both when an enum class is given a value to match
+      to an enumeration member (i.e. Color(3)) and for the functional API
+      (i.e. Color = Enum('Color', names='RED GREEN BLUE')).
+
+      The value lookup branch is chosen if the enum is final.
+
+      When used for the functional API:
+
+      `value` will be the name of the new class.
+
+      `names` should be either a string of white-space/comma delimited names
+      (values will start at `start`), or an iterator/mapping of name, value pairs.
+
+      `module` should be set to the module this class is being created in;
+      if it is not set, an attempt to find that module will be made, but if
+      it fails the class will not be picklable.
+
+      `qualname` should be set to the actual location this class can be found
+      at in its module; by default it is set to the global scope.  If this is
+      not correct, unpickling will fail in some circumstances.
+
+      `type`, if set, will be mixed in as the first base class.
+
+
+
+.. py:class:: ValueEnum(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Subclass of enum that returns the value of the enum as its str representation
+
+   .. py:method:: __str__()
+
+      Return str(self).
+
+
+
+.. py:class:: ChannelPriority(*args, **kwds)
+
+
+   Bases: :py:obj:`ValueEnum`
+
+   Subclass of enum that returns the value of the enum as its str representation
+
+   .. py:attribute:: __name__
+      :value: 'ChannelPriority'
+
+      
+
+   .. py:attribute:: STRICT
+      :value: 'strict'
+
+      
+
+   .. py:attribute:: FLEXIBLE
+      :value: 'flexible'
+
+      
+
+   .. py:attribute:: DISABLED
+      :value: 'disabled'
+
+      
+
+
+.. py:class:: SatSolverChoice(*args, **kwds)
+
+
+   Bases: :py:obj:`ValueEnum`
+
+   Subclass of enum that returns the value of the enum as its str representation
+
+   .. py:attribute:: PYCOSAT
+      :value: 'pycosat'
+
+      
+
+   .. py:attribute:: PYCRYPTOSAT
+      :value: 'pycryptosat'
+
+      
+
+   .. py:attribute:: PYSAT
+      :value: 'pysat'
+
+      
+
+
+.. py:data:: DEFAULT_SOLVER
+   :value: 'libmamba'
+
+   
+
+.. py:data:: CLASSIC_SOLVER
+   :value: 'classic'
+
+   
+
+.. py:data:: DEFAULT_JSON_REPORTER_BACKEND
+   :value: 'json'
+
+   
+
+.. py:data:: DEFAULT_CONSOLE_REPORTER_BACKEND
+   :value: 'classic'
+
+   
+
+.. py:class:: NoticeLevel(*args, **kwds)
+
+
+   Bases: :py:obj:`ValueEnum`
+
+   Subclass of enum that returns the value of the enum as its str representation
+
+   .. py:attribute:: CRITICAL
+      :value: 'critical'
+
+      
+
+   .. py:attribute:: WARNING
+      :value: 'warning'
+
+      
+
+   .. py:attribute:: INFO
+      :value: 'info'
+
+      
+
+
+.. py:data:: PACKAGE_CACHE_MAGIC_FILE
+   :value: 'urls.txt'
+
+   
+
+.. py:data:: PREFIX_MAGIC_FILE
+
+   
+
+.. py:data:: PREFIX_STATE_FILE
+
+   
+
+.. py:data:: PACKAGE_ENV_VARS_DIR
+
+   
+
+.. py:data:: CONDA_ENV_VARS_UNSET_VAR
+   :value: '***unset***'
+
+   
+
+.. py:data:: NAMESPACES_MAP
+
+   
+
+.. py:data:: NAMESPACE_PACKAGE_NAMES
+
+   
+
+.. py:data:: NAMESPACES
+
+   
+
+.. py:data:: NO_PLUGINS
+   :value: False
+
+   
+
