@@ -32,7 +32,8 @@ jobs:
       - name: 激活虚拟环境
         shell: bash -el {0}
         run: |
-          conda init && conda info --envs && source activate base && conda activate sphinx
+          conda info --envs 
+          conda list
       - name: Sphinx 构建
         working-directory: ./
         shell: bash -el {0}
