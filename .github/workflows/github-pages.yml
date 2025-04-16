@@ -16,12 +16,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: conda-incubator/setup-miniconda@v3
         with:
-          miniconda-version: "latest"
+          miniconda-version: "conda 24.11.1"
           auto-update-conda: true
           python-version: 3.11
       - name: 创建虚拟环境
         run: |
-          conda --version && git checkout sync-docs && conda create --name sphinx --file cn_docs/cn_environment.yml
+          conda --version && git checkout sync-docs && conda create --file cn_docs/cn_environment.yml
       - name: 激活虚拟环境
         run: |
           conda activate sphinx
