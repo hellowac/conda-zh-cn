@@ -24,7 +24,7 @@ jobs:
           conda --version && git checkout sync-docs && conda env create --file cn_docs/cn_environment.yml pip
       - name: 激活虚拟环境
         run: |
-          conda activate sphinx
+          conda init && conda info --envs && conda activate sphinx
       - name: Sphinx 构建
         working-directory: ./
         run: |
