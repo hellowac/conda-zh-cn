@@ -45,3 +45,4 @@ rever/
 
 # setuptools-scm
 conda/_version.py
+cn_docs/_build/plantuml.jar
