@@ -58,7 +58,7 @@ Attributes
 
    Create and return a temporary directory.  This has the same
    behavior as mkdtemp but can be used as a context manager.  For
-   .. rubric:: Example
+   .. rubric:: 示例
 
    with TemporaryDirectory() as tmpdir:
        ...

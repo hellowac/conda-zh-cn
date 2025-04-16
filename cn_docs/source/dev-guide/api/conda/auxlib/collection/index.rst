@@ -35,7 +35,7 @@ Functions
 
    Sub-classes dict, and further allows attribute-like access to dictionary items.
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> d = AttrDict({'a': 1})
    >>> d.a, d['a'], d.get('a')
@@ -61,7 +61,7 @@ Functions
 
    Returns: first element in seq that passes key, mutated with optional apply
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> first([0, False, None, [], (), 42])
    42

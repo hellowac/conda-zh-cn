@@ -56,7 +56,7 @@ Attributes
    Used for removing a directory when there are dependent actions (i.e. you need to ensure
    other actions succeed before removing it).
 
-   .. rubric:: Example
+   .. rubric:: 示例
 
    with rename_context(directory):
        # Do dependent actions here

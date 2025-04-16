@@ -141,7 +141,7 @@ Attributes
    - getting it from the 3 first digits in the code
    After a comparison between the two values,
    we can safely set the code or raise a warning.
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    - get_status_code_from_code_response('200 Welcome') == 200
    - multi_line_code = '226-File successfully transferred\n226 0.000 seconds'

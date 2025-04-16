@@ -163,7 +163,7 @@ Attributes
 
       Read the list of installed paths from record or source file.
 
-      .. rubric:: Example
+      .. rubric:: 示例
 
       [(u'skdata/__init__.py', u'sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU', 0),
        (u'skdata/diabetes.py', None, None),
@@ -205,7 +205,7 @@ Attributes
 
    Python distribution installed via distutils.
 
-   .. rubric:: Notes
+   .. rubric:: 备注
 
    - https://www.python.org/dev/peps/pep-0376/
 
@@ -242,7 +242,7 @@ Attributes
 
    Python distribution installed via setuptools.
 
-   .. rubric:: Notes
+   .. rubric:: 备注
 
    - http://peak.telecommunity.com/DevCenter/EggFormats
 
@@ -277,7 +277,7 @@ Attributes
 
    Python distribution installed via setuptools.
 
-   .. rubric:: Notes
+   .. rubric:: 备注
 
    - http://peak.telecommunity.com/DevCenter/EggFormats
 
@@ -297,7 +297,7 @@ Attributes
    create additional files that complement this metadata information, but
    that is handled at the python distribution level.
 
-   .. rubric:: Notes
+   .. rubric:: 备注
 
    - https://packaging.python.org/specifications/core-metadata/
    - Metadata 2.1: https://www.python.org/dev/peps/pep-0566/
@@ -393,7 +393,7 @@ Attributes
 
       This field may be followed by an environment marker after a semicolon.
 
-      .. rubric:: Example
+      .. rubric:: 示例
 
       frozenset(['pkginfo', 'PasteDeploy', 'zope.interface (>3.5.0)',
                  'pywin32 >1.0; sys_platform == "win32"'])
@@ -413,7 +413,7 @@ Attributes
 
       This field may be followed by an environment marker after a semicolon.
 
-      .. rubric:: Example
+      .. rubric:: 示例
 
       frozenset(['>=3', '>2.6,!=3.0.*,!=3.1.*', '~=2.6',
                  '>=3; sys_platform == "win32"'])
@@ -441,7 +441,7 @@ Attributes
 
       Notice that there’s is no particular rule on the strings to be used!
 
-      .. rubric:: Example
+      .. rubric:: 示例
 
       frozenset(['C', 'libpng (>=1.5)', 'make; sys_platform != "win32"'])
 
@@ -454,7 +454,7 @@ Attributes
       Python identifier. May be used to make a dependency conditional on
       hether the optional feature has been requested.
 
-      .. rubric:: Example
+      .. rubric:: 示例
 
       frozenset(['pdf', 'doc', 'test'])
 
@@ -516,11 +516,11 @@ Attributes
 
       Return `Obsoletes` in case `Obsoletes-Dist` is empty.
 
-      .. rubric:: Example
+      .. rubric:: 示例
 
       frozenset(['Gorgon', "OtherProject (<3.0) ; python_version == '2.7'"])
 
-      .. rubric:: Notes
+      .. rubric:: 备注
 
       - [1] https://packaging.python.org/specifications/version-specifiers/
 
@@ -532,7 +532,7 @@ Attributes
 
       This field may be followed by an environment marker after a semicolon.
 
-      .. rubric:: Example
+      .. rubric:: 示例
 
       frozenset(['Development Status :: 4 - Beta',
                  "Environment :: Console (Text Based) ; os_name == "posix"])
@@ -563,7 +563,7 @@ Attributes
    This method does not enforce strict specifications but extracts the
    information which is assumed to be *correct*. As such no errors are raised.
 
-   .. rubric:: Example
+   .. rubric:: 示例
 
    PySpec(name='requests', extras=['security'], constraints='>=3.3.0',
           marker='foo >= 2.7 or bar == 1', url=''])

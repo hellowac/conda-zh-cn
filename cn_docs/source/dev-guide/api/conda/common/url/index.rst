@@ -132,7 +132,7 @@ Attributes
 
    Convert an s3 url to a tuple of bucket and key.
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> url_to_s3_info("s3://bucket-name.bucket/here/is/the/key")
    ('bucket-name.bucket', '/here/is/the/key')
@@ -140,7 +140,7 @@ Attributes
 
 .. py:function:: is_url(url)
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> is_url(None)
    False
@@ -150,7 +150,7 @@ Attributes
 
 .. py:function:: is_ipv4_address(string_ip)
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> [is_ipv4_address(ip) for ip in ('8.8.8.8', '192.168.10.10', '255.255.255.255')]
    [True, True, True]
@@ -160,7 +160,7 @@ Attributes
 
 .. py:function:: is_ipv6_address(string_ip)
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >> [is_ipv6_address(ip) for ip in ('::1', '2001:db8:85a3::370:7334', '1234:'*7+'1234')]
    [True, True, True]
@@ -170,7 +170,7 @@ Attributes
 
 .. py:function:: is_ip_address(string_ip)
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >> is_ip_address('192.168.10.10')
    True
@@ -192,7 +192,7 @@ Attributes
 
 .. py:function:: strip_scheme(url)
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> strip_scheme("https://www.conda.io")
    'www.conda.io'
@@ -205,7 +205,7 @@ Attributes
 
 .. py:function:: split_anaconda_token(url)
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> split_anaconda_token("https://1.2.3.4/t/tk-123-456/path")
    (u'https://1.2.3.4/path', u'tk-123-456')
@@ -223,7 +223,7 @@ Attributes
 
 .. py:function:: split_platform(known_subdirs, url)
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> from conda.base.constants import KNOWN_SUBDIRS
    >>> split_platform(KNOWN_SUBDIRS, "https://1.2.3.4/t/tk-123/linux-ppc64le/path")
@@ -238,7 +238,7 @@ Attributes
 
 .. py:function:: split_scheme_auth_token(url)
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> split_scheme_auth_token("https://u:p@conda.io/t/x1029384756/more/path")
    ('conda.io/more/path', 'https', 'u:p', 'x1029384756')
@@ -267,7 +267,7 @@ Attributes
    By default, does not replace auth if it already exists.  Setting ``force`` to ``True``
    overrides this behavior.
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> maybe_add_auth("https://www.conda.io", "user:passwd")
    'https://user:passwd@www.conda.io'

@@ -44,6 +44,8 @@ extensions = [
     "sphinxcontrib.plantuml",
     "sphinxcontrib.programoutput",
     "sphinx_design",
+    "sphinx_inline_tabs",
+    "sphinx_copybutton",
 ]
 
 templates_path = ["_templates"]
@@ -54,6 +56,8 @@ smartquotes = False
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).
 add_module_names = False
+
+language = 'zh_CN'
 
 
 # -- Options for HTML output ----------------------------------------------

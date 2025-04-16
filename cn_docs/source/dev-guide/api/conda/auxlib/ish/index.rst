@@ -30,7 +30,7 @@ Functions
    Return the value of the first key found in the list of search_maps,
    otherwise return None.
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> from .collection import AttrDict
    >>> d1 = AttrDict({'a': 1, 'b': 2, 'c': 3, 'e': None})

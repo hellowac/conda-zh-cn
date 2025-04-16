@@ -35,7 +35,7 @@ Attributes
 
 .. py:function:: get_signal_name(signum)
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> from signal import SIGINT
    >>> get_signal_name(SIGINT)

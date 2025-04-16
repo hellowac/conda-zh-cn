@@ -200,7 +200,7 @@ Attributes
 
    If `wait` is True, the process will block until completion.
 
-   .. rubric:: Notes
+   .. rubric:: 备注
 
    - no stdin / stdout / stderr pipe support
    - does not automatically quote arguments (i.e. for paths that may contain spaces)

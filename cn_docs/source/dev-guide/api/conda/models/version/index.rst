@@ -139,7 +139,7 @@ Attributes
      to keep numbers and strings in phase, resulting in '1.1.a1' == 1.1.0a1'.
    * The same is repeated for the local version part.
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    1.2g.beta15.rc  =>  [[0], [1], [2, 'g'], [0, 'beta', 15], [0, 'rc']]
    1!2.15.1_ALPHA  =>  [[1], [2], [15], [1, '_alpha']]
@@ -253,7 +253,7 @@ Attributes
 
 .. py:function:: treeify(spec_str)
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> treeify("1.2.3")
    '1.2.3'
@@ -271,7 +271,7 @@ Attributes
 
 .. py:function:: untreeify(spec, _inand=False, depth=0)
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> untreeify('1.2.3')
    '1.2.3'

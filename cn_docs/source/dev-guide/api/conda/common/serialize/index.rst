@@ -37,7 +37,7 @@ Functions
 
 .. py:function:: yaml_safe_load(string)
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> yaml_safe_load("key: value")
    {'key': 'value'}

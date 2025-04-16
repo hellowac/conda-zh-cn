@@ -107,7 +107,7 @@ Attributes
 
       Parse specifications string that use conda<4.5 syntax.
 
-      .. rubric:: Examples
+      .. rubric:: 示例
 
       - "param >=1.5.1,<2.0'"
       - "python>=3.5.1,jupyter >=1.0.0,<2.0,matplotlib >=1.5.1,<2.0"
@@ -120,7 +120,7 @@ Attributes
 
       These lines can be of command type or action type.
 
-      .. rubric:: Examples
+      .. rubric:: 示例
 
       - "# cmd: /scratch/mc3/bin/conda install -c conda-forge param>=1.5.1,<2.0"
       - "# install specs: python>=3.5.1,jupyter >=1.0.0,<2.0,matplotlib >=1.5.1,<2.0"

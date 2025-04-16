@@ -24,7 +24,7 @@ Functions
 
 .. py:function:: numberify(value)
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> [numberify(x) for x in ('1234', 1234, '0755', 0o0755, False, 0, '0', True, 1, '1')]
      [1234, 1234, 755, 493, 0, 0, 0, 1, 1, 1]
@@ -42,7 +42,7 @@ Functions
    :returns: boolean representation of the given value
    :rtype: bool
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> [boolify(x) for x in ('yes', 'no')]
    [True, False]
@@ -68,7 +68,7 @@ Functions
    :param type_hint:
    :type type_hint: type or tuple[type]
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> typify('32')
    32

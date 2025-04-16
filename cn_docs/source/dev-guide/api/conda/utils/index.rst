@@ -60,7 +60,7 @@ Attributes
 
    Return the number of bytes n in more human readable form.
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> human_bytes(42)
    '42 B'

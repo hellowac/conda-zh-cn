@@ -193,10 +193,10 @@ Attributes
    :param stdout: capture target for sys.stdout, one of STRING, None, or file-like object
    :param stderr: capture target for sys.stderr, one of STRING, STDOUT, None, or file-like object
 
-   :Yields: *CapturedText* --
+   :生成器: *CapturedText* --
 
-            has attributes stdout, stderr which are either strings, None or the
-                corresponding file-like function argument.
+         has attributes stdout, stderr which are either strings, None or the
+             corresponding file-like function argument.
 
 
 .. py:function:: argv(args_list)

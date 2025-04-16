@@ -123,7 +123,7 @@ Attributes
      - Otherwise, an exact match to the string is sought.
 
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> str(MatchSpec(name='foo', build='py2*', channel='conda-forge'))
    'conda-forge::foo[build=py2*]'
@@ -276,7 +276,7 @@ Attributes
 .. py:function:: _parse_version_plus_build(v_plus_b)
 
    This should reliably pull the build string out of a version + build string combo.
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> _parse_version_plus_build("=1.2.3 0")
    ('=1.2.3', '0')
@@ -298,7 +298,7 @@ Attributes
 
 .. py:function:: _parse_legacy_dist(dist_str)
 
-   .. rubric:: Examples
+   .. rubric:: 示例
 
    >>> _parse_legacy_dist("_license-1.1-py27_1.tar.bz2")
    ('_license', '1.1', 'py27_1')
