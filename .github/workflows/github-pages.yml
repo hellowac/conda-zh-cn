@@ -21,7 +21,7 @@ jobs:
           python-version: 3.11
       - name: 创建虚拟环境
         run: |
-          conda --version && git checkout sync-docs && conda create -name sphinx --file cn_docs/cn_environment.yml
+          conda --version && git checkout sync-docs && conda env --file cn_docs/cn_environment.yml
       - name: 激活虚拟环境
         run: |
           conda activate sphinx
