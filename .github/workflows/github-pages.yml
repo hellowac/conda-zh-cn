@@ -2,6 +2,7 @@ name: documentation
 
 # see: https://coderefinery.github.io/documentation/gh_workflow/
 # see: https://github.com/actions/setup-python
+# see: https://github.com/marketplace/actions/setup-miniconda
 
 on: [push, pull_request, workflow_dispatch]
 
@@ -13,12 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: conda-incubator/setup-miniconda@v3
         with:
-          python-version: "3.12"
-      - name: 安装依赖
+          auto-update-conda: true
+          python-version: 3.12
+      - name: 创建虚拟环境
         run: |
-          git checkout sync-docs && pip install -r cn_docs/cn_requirements.txt
+          git checkout sync-docs && conda create -f cn_docs/cn_enviroment.yml
+      - name: 激活虚拟环境
+        run: |
+          conda activate sphinx
       - name: Sphinx 构建
         working-directory: ./
         run: |
