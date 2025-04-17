@@ -1,6 +1,8 @@
 ==========
-User guide
+用户指南
 ==========
+
+User guide
 
 .. toctree::
    :maxdepth: 1
