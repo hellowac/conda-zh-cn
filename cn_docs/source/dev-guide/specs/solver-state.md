@@ -2,7 +2,9 @@
 This page of the documentation is not yet finished and only contains a draft of the content.
 ```
 
-# Technical specification: solver state
+# 技术规范：求解器状态
+
+Technical specification: solver state
 
 :::{admonition} Note
 :class: warning

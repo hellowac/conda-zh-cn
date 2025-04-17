@@ -1,8 +1,14 @@
 .. _concepts-conda-environments:
 
 ============
-Environments
+环境
 ============
+
+Environments
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 An environment is a directory that contains a specific
 collection of packages that you have installed. For
@@ -16,11 +22,22 @@ share your environment with someone by giving them a copy of your
 :doc:`../tasks/manage-environments`.
 
 
-Conda directory structure
+Conda 目录结构
 =========================
+
+Conda directory structure
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 ``ROOT_DIR``
 ------------
+
+.. tab:: 中文
+
+.. tab:: 英文
+
 The directory where the conda distribution was installed into.
 
 EXAMPLES:
@@ -33,6 +50,10 @@ EXAMPLES:
 ``/pkgs``
 ---------
 
+.. tab:: 中文
+
+.. tab:: 英文
+
 Also referred to as PKGS_DIR. This directory contains
 decompressed packages, ready to be linked in conda environments.
 Each package resides in a subdirectory corresponding to its
@@ -40,6 +61,10 @@ canonical name.
 
 ``/envs``
 ---------
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The system location for additional conda environments to be
 created.
@@ -56,8 +81,14 @@ environment:
 Other conda environments usually contain the same subdirectories
 as the default environment.
 
-Virtual environments
+虚拟环境
 ====================
+
+Virtual environments
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 A virtual environment is a tool that helps to
 keep dependencies required by different projects
@@ -103,8 +134,14 @@ Some other traits are:
 
 |
 
-Why use venv-based virtual environments
+为什么使用基于 venv 的虚拟环境
 ---------------------------------------
+
+Why use venv-based virtual environments
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 - You prefer their workflow or spec formats.
 - You prefer to use the system Python and libraries.
@@ -113,8 +150,14 @@ Why use venv-based virtual environments
   project maintainers, rather than someone else providing
   builds based on the same code.
 
-Why use conda virtual environments?
+为什么使用 conda 虚拟环境？
 -----------------------------------
+
+Why use conda virtual environments?
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 - You want control over binary compatibility choices.
 - You want to utilize newer language standards, such as C++ 17.
@@ -122,8 +165,14 @@ Why use conda virtual environments?
 - You want to manage packages from languages other than Python
   in the same space.
 
-Workflow differentiators
+工作流程差异
 ========================
+
+Workflow differentiators
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Some questions to consider as you determine your preferred
 workflow and virtual environment:
@@ -134,8 +183,14 @@ workflow and virtual environment:
 - Do you want to ship your environment as an archive of some sort
   containing the actual files of the environment?
 
-Package system differentiators
+软件包系统差异
 ==============================
+
+Package system differentiators
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 There are potential benefits for choosing PyPI or conda.
 

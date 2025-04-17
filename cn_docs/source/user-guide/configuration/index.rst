@@ -1,6 +1,12 @@
 =============
-Configuration
+配置
 =============
+
+Configuration
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. toctree::
    :maxdepth: 1

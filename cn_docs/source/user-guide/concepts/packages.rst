@@ -1,11 +1,23 @@
 ========
-Packages
+软件包
 ========
+
+Packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. _concept-conda-package:
 
-What is a package?
+什么是软件包？
 ==================
+
+What is a package?
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 A package is a compressed tarball file (``.tar.bz2``) or
 ``.conda`` file that contains:
@@ -25,8 +37,14 @@ package. Directories are not included. Directories are created
 and removed as needed, but you cannot create an empty directory
 from the tar archive directly.
 
-.conda file format
+.conda 文件格式
 ==================
+
+.conda file format
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The .conda file format was introduced in conda 4.7 as a more
 compact, and thus faster, alternative to a tarball.
@@ -55,8 +73,14 @@ Read more about the `introduction of the .conda file format <https://www.anacond
   for packages.
 
 
-Using packages
+使用软件包
 ==============
+
+Using packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 * You may search for packages
 
@@ -80,8 +104,14 @@ Using packages
 
 
 
-Package structure
+软件包结构
 =================
+
+Package structure
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. code-block:: bash
 
@@ -106,8 +136,14 @@ Package structure
 
 .. _meta-package:
 
-Metapackages
+元软件包
 ============
+
+Metapackages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 When a conda package is used for metadata alone and does not contain
 any files, it is referred to as a metapackage.
@@ -126,8 +162,14 @@ Anaconda Distribution installer. You can create metapackages with the
 ``conda metapackage`` command. Include the name and version
 in the command.
 
-Anaconda metapackage
+Anaconda 元软件包
 --------------------
+
+Anaconda metapackage
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The Anaconda metapackage is used in the creation of the
 `Anaconda Distribution <https://docs.anaconda.com/anaconda/>`_
@@ -146,8 +188,14 @@ some GUI libraries.
 
 .. _mutex-metapackages:
 
-Mutex metapackages
+互斥元软件包
 ------------------
+
+Mutex metapackages
+
+.. tab:: 中文
+
+.. tab:: 英文
 A mutex metapackage is a very simple package that has a
 name. It need not have any dependencies or build steps.
 Mutex metapackages are frequently an "output" in a recipe
@@ -158,8 +206,14 @@ exclusivity among packages with different names.
 Let's look at some examples for how to use mutex metapackages
 to build NumPy against different BLAS implementations.
 
-Building NumPy with BLAS variants
+使用 BLAS 变体构建 NumPy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Building NumPy with BLAS variants
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you build NumPy with MKL, you also need to build
 SciPy, scikit-learn, and anything else using BLAS
@@ -198,8 +252,14 @@ metapackage with ``run_exports`` helps ensure the library consumers
 (package builders who depend on libraries) will have correct dependency
 information to achieve the unified runtime library collection.
 
-Installing NumPy with BLAS variants
+使用 BLAS 变体安装 NumPy
 ***********************************
+
+Installing NumPy with BLAS variants
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To specify which variant of NumPy that you want, you could potentially
 specify the BLAS library you want::
@@ -232,6 +292,12 @@ served a different purpose.
 
 Track_features
 **************
+
+Track_features
+
+.. tab:: 中文
+
+.. tab:: 英文
 One of conda’s optimization goals is to minimize the number of track_features needed
 to specify the desired specs. By adding track_features to one or more of the options,
 conda will de-prioritize it or “weigh it down.” The lowest priority package is the one
@@ -251,8 +317,14 @@ option, and finally 2 for the least preferred option. However, since you general
 about the one default, it is usually sufficient to add 1 track_feature to all options other
 than the default option.
 
-More info
+更多信息
 *********
+
+More info
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 For reference, the Visual Studio version alignment on Windows also uses mutex metapackages.
 https://github.com/AnacondaRecipes/aggregate/blob/9635228/vs2017/meta.yaml#L24
@@ -260,8 +332,14 @@ https://github.com/AnacondaRecipes/aggregate/blob/9635228/vs2017/meta.yaml#L24
 
 .. _noarch:
 
-Noarch packages
+Noarch 软件包
 ===============
+
+Noarch packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 Noarch packages are packages that are not architecture specific
 and therefore only have to be built once. Noarch packages are
 either generic or Python. Noarch generic packages allow users to
@@ -274,6 +352,12 @@ that qualify to be noarch packages should be declared as such.
 
 Noarch Python
 -------------
+
+Noarch Python
+
+.. tab:: 中文
+
+.. tab:: 英文
 The ``noarch: python`` directive in the build section
 makes pure-Python packages that only need to be built once.
 
@@ -323,16 +407,28 @@ Read more about `conda's noarch packages <https://www.anaconda.com/condas-new-no
 
 .. _link_unlink:
 
-Link and unlink scripts
+链接和取消链接脚本
 =======================
+
+Link and unlink scripts
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You may optionally execute scripts before and after the link
 and unlink steps. For more information, see `Adding pre-link, post-link, and pre-unlink scripts <https://docs.conda.io/projects/conda-build/en/latest/resources/link-scripts.html>`_.
 
 .. _package_specs:
 
-More information
+更多信息
 ================
+
+More information
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 For more information, go for a deeper dive in our :doc:`managing packages guide <../tasks/manage-pkgs>`.
 Learn more about package metadata, repository structure and index,

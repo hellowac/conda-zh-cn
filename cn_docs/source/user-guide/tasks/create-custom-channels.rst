@@ -1,6 +1,12 @@
 ========================
-Creating custom channels
+创建自定义频道
 ========================
+
+Creating custom channels
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 In this tutorial, we walk through how to create your own channel
 that can either be accessed via the local or network file system or served

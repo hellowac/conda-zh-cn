@@ -1,14 +1,26 @@
 ===============
-Managing Python
+管理 Python
 ===============
+
+Managing Python
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda treats Python the same as any other package, so it is easy
 to manage and update multiple installations.
 
 Conda supports Python 3.9, 3.10, 3.11 and 3.12.
 
-Viewing a list of available Python versions
+查看可用的 Python 版本列表
 ===========================================
+
+Viewing a list of available Python versions
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To list the versions of Python that are available to install,
 in your terminal window, run::
@@ -23,8 +35,14 @@ add the ``--full-name`` option. In your terminal window, run::
     conda search --full-name python
 
 
-Installing a different version of Python
+安装其他版本的 Python
 =========================================
+
+Installing a different version of Python
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To install a different version of Python without overwriting the
 current version, create a new environment and install the second
@@ -58,8 +76,14 @@ Python version into it:
 
       python --version
 
-Installing PyPy
+安装 PyPy
 ===============
+
+Installing PyPy
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To use the PyPy builds you can do the following::
 
@@ -69,15 +93,27 @@ To use the PyPy builds you can do the following::
     conda activate pypy
 
 
-Using a different version of Python
+使用其他版本的 Python
 ====================================
+
+Using a different version of Python
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To switch to an environment that has different version of Python,
 :ref:`activate the environment <activate-env>`.
 
 
-Updating Python
+更新 Python
 ===============
+
+Updating Python
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To update Python to the latest version in your environment, run::
 

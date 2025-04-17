@@ -1,6 +1,12 @@
 =========================
-Conda for data scientists
+面向数据科学家的 Conda
 =========================
+
+Conda for data scientists
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda is useful for any packaging process but it stands out from other
 package and environment management systems through its utility for data

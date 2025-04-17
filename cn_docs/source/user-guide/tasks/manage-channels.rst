@@ -1,6 +1,12 @@
 =================
-Managing channels
+管理渠道
 =================
+
+Managing channels
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda channels are the locations where packages are stored.
 They serve as the base for hosting and managing packages.
@@ -90,8 +96,14 @@ bottom of the channel list, making it the lowest priority::
 
 .. _strict:
 
-Strict channel priority
+严格的渠道优先级
 =======================
+
+Strict channel priority
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 As of version 4.6.0, Conda has a strict channel priority feature.
 Strict channel priority can dramatically speed up conda operations and

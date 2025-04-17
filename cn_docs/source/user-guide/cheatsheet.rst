@@ -1,6 +1,12 @@
 ==========
-Cheatsheet
+备忘单
 ==========
+
+Cheatsheet
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The conda cheatsheet contains the most important information about using conda, such as basic commands for creating and managing environments, installing packages, and importing and exporting environments.
 
@@ -22,8 +28,14 @@ See the :download:`conda cheatsheet <conda-cheatsheet.pdf>` PDF (3 MB) for a dow
 
 - :download:`conda 4.6.x <cheatsheets/conda-4.6.pdf>`
 
-Quickstart
+快速入门
 ==========
+
+Quickstart
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. tip::
 
@@ -34,8 +46,14 @@ Quickstart
     :header-rows: 0
     :file: cheatsheets/quickstart.csv
 
-Channels and Packages
+频道和软件包
 =====================
+
+Channels and Packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. tip::
 
@@ -46,8 +64,14 @@ Channels and Packages
     :header-rows: 0
     :file: cheatsheets/channels-and-packages.csv
 
-Working with Conda Environments
+使用 Conda 环境
 ===============================
+
+Working with Conda Environments
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. tip::
 
@@ -58,8 +82,14 @@ Working with Conda Environments
     :header-rows: 0
     :file: cheatsheets/working-with-environments.csv
 
-Environment Management
+环境管理
 ======================
+
+Environment Management
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. tip::
 
@@ -70,8 +100,14 @@ Environment Management
     :header-rows: 0
     :file: cheatsheets/environment-management.csv
 
-Exporting Environments
+导出环境
 ======================
+
+Exporting Environments
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. tip::
 
@@ -82,8 +118,14 @@ Exporting Environments
     :header-rows: 0
     :file: cheatsheets/exporting-environments.csv
 
-Importing Environments
+导入环境
 ======================
+
+Importing Environments
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. tip::
 
@@ -94,8 +136,14 @@ Importing Environments
     :header-rows: 0
     :file: cheatsheets/importing-environments.csv
 
-Additional Hints
+其他提示
 ================
+
+Additional Hints
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. csv-table::
     :widths: 42 58

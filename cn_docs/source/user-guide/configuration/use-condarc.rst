@@ -1,11 +1,23 @@
 ===========================================
-Using the .condarc conda configuration file
+使用 .condarc conda 配置文件
 ===========================================
+
+Using the .condarc conda configuration file
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. _config-overview:
 
-Overview
+概述
 ========
+
+Overview
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The conda configuration file, ``.condarc``, is an optional
 runtime configuration file that allows advanced users to
@@ -37,8 +49,14 @@ The ``.condarc`` file can change many parameters, including:
 
 * What default packages or features to include in new environments.
 
-Creating and editing
+创建和编辑
 ====================
+
+Creating and editing
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The ``.condarc`` file is not included by default, but it is
 automatically created in your home directory the first time you
@@ -92,8 +110,14 @@ version of conda, use the ``conda config --describe`` command.
 
 .. _condarc_search_precedence:
 
-Searching for .condarc
+搜索 .condarc
 ======================
+
+Searching for .condarc
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda looks in the following locations for a ``.condarc`` file:
 
@@ -147,16 +171,28 @@ to $HOME/.config should be used.
    directories need to end in a valid yaml extension (".yml" or ".yaml").
 
 
-Conflict merging strategy
+冲突合并策略
 -------------------------
+
+Conflict merging strategy
+
+.. tab:: 中文
+
+.. tab:: 英文
 When conflicts between configurations arise, the following strategies are employed:
 
 * Lists - merge
 * Dictionaries - merge
 * Primitive - clobber
 
-Precedence
+优先级
 ----------
+
+Precedence
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The precedence by which the conda configuration is built out is shown below.
 Each new arrow takes precedence over the ones before it. For example, config
@@ -168,8 +204,14 @@ will always take precedence over the other 3.
 
    ..
 
-Obtaining information from the .condarc file
+从 .condarc 文件获取信息
 ============================================
+
+Obtaining information from the .condarc file
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You can use the following commands to get the effective settings for conda.
 The effective settings are those that have merged settings from all the sources
@@ -192,8 +234,14 @@ To show all the configuration file sources and their contents::
     conda config --show-sources
 
 
-Saving settings to your .condarc file
+将设置保存到 .condarc 文件
 =====================================
+
+Saving settings to your .condarc file
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The ``.condarc`` file can also be modified via conda commands.
 Below are several examples of how to do this.
@@ -226,8 +274,14 @@ of that environment <config-channels>`.
 
 .. _sample-condarc:
 
-Sample .condarc file
+.condarc 文件示例
 ====================
+
+Sample .condarc file
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Because the ``.condarc`` file is just a YAML file, it means that
 it can be edited directly. Below is an example ``.condarc`` file:

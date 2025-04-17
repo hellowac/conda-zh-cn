@@ -1,6 +1,12 @@
 =======
-Plugins
+插件
 =======
+
+Plugins
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. _concept-plugins:
 
@@ -9,8 +15,14 @@ In order to enable customization and extra features that are compatible with and
 (but do not necessarily ship as a default part of the conda codebase), an official conda plugin mechanism
 has been implemented as of version ``22.11.0``.
 
-Implementation
+实现
 ==============
+
+Implementation
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Plugins in conda integrate the "hook + entry point" structure by utilizing the Pluggy_ Python framework.
 This implementation can be broken down via the following two steps:
@@ -18,8 +30,14 @@ This implementation can be broken down via the following two steps:
 * Define the hook(s) to be registered
 * Register the plugin under the conda entrypoint namespace
 
-Hook
+钩子
 ----
+
+Hook
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Below is an example of a very basic plugin "hook":
 
@@ -33,8 +51,14 @@ Below is an example of a very basic plugin "hook":
    def conda_subcommands(): ...
 
 
-Packaging using a pyproject.toml file
+使用 pyproject.toml 文件打包
 -------------------------------------
+
+Packaging using a pyproject.toml file
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Below is an example that configures ``setuptools`` using a ``pyproject.toml`` file (note that the
 ``setup.py`` file is optional if a ``pyproject.toml`` file is defined, and thus will not be discussed here):
@@ -57,8 +81,14 @@ Below is an example that configures ``setuptools`` using a ``pyproject.toml`` fi
    my-conda-plugin = "my_plugin"
 
 
-Conda plugins use cases
+Conda 插件用例
 =======================
+
+Conda plugins use cases
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The new conda plugin API ecosystem brings about many possibilities, including but not limited to:
 
@@ -72,8 +102,14 @@ The new conda plugin API ecosystem brings about many possibilities, including bu
 * Experimental features that are not currently covered by conda
 
 
-Benefits of conda plugins
+Conda 插件的优势
 =========================
+
+Benefits of conda plugins
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 A conda plugin ecosystem enables contributors across the conda community to develop and share new features,
 thus bringing about more functionality and focus on the user experience. Though the list below is by no means

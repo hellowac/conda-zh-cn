@@ -1,6 +1,12 @@
 -----------------------------------------
-RPM and Debian Repositories for Miniconda
+Miniconda 的 RPM 和 Debian 存储库
 -----------------------------------------
+
+RPM and Debian Repositories for Miniconda
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda is available as either a RedHat RPM or as a Debian package. The packages are the
 equivalent to the Miniconda installer, which only contains conda and its dependencies.

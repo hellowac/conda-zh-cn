@@ -1,19 +1,37 @@
 =====================
-Package specification
+软件包规范
 =====================
+
+Package specification
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. _package_metadata:
 
-Package metadata
+软件包元数据
 ================
+
+Package metadata
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The ``info/`` directory contains all metadata about a package.
 Files in this location are not installed under the install
 prefix. Although you are free to add any file to this directory,
 conda only inspects the content of the files discussed below.
 
-Info
+信息
 ----
+
+Info
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 * files
 
@@ -68,6 +86,12 @@ Info
 
 info/index.json
 ---------------
+
+info/index.json
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 This file contains basic information about the package, such as
 name, version, build string, and dependencies. The content of this
@@ -149,6 +173,12 @@ conda package is composed of the first 3 values, as in:
 info/files
 ----------
 
+info/files
+
+.. tab:: 中文
+
+.. tab:: 英文
+
 Lists all files that are part of the package itself, 1 per line.
 All of these files need to get linked into the environment. Any
 files in the package that are not listed in this file are not
@@ -160,6 +190,12 @@ tarball.
 
 info/has_prefix
 ---------------
+
+info/has_prefix
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Optional file. Lists all files that contain a hard-coded build
 prefix or placeholder prefix, which needs to be replaced by the
@@ -203,10 +239,22 @@ EXAMPLE: On macOS or Linux::
 info/license.txt
 ----------------
 
+info/license.txt
+
+.. tab:: 中文
+
+.. tab:: 英文
+
 Optional file. The software license for the package.
 
 info/no_link
 ------------
+
+info/no_link
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Optional file. Lists all files that cannot be linked - either
 soft-linked or hard-linked - into environments and are copied
@@ -214,6 +262,12 @@ instead.
 
 info/about.json
 ---------------
+
+info/about.json
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Optional file. Contains the entries in the `about section <https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#about-section>`_
 of the ``meta.yaml`` file. The following keys are
@@ -231,10 +285,22 @@ added to ``info/about.json`` if present in the build recipe:
 info/recipe
 -----------
 
+info/recipe
+
+.. tab:: 中文
+
+.. tab:: 英文
+
 A directory containing the full contents of the build recipe.
 
 meta.yaml.rendered
 ------------------
+
+meta.yaml.rendered
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The fully rendered build recipe. See
 `conda render <https://docs.conda.io/projects/conda-build/en/latest/resources/commands/conda-render.html>`_.
@@ -245,8 +311,14 @@ is ``True`` in the `build section <https://docs.conda.io/projects/conda-build/en
 
 .. _repo-si:
 
-Repository structure and index
+代码库结构和索引
 ==============================
+
+Repository structure and index
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 A conda repository - or channel - is a directory tree, usually
 served over HTTPS, which has platform subdirectories, each of
@@ -276,8 +348,14 @@ Windows::
 
 .. _build-version-spec:
 
-Package match specifications
+软件包匹配规范
 ============================
+
+Package match specifications
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 This match specification is not the same as the syntax used at
 the command line with ``conda install``, such as
@@ -351,8 +429,14 @@ EXAMPLE::
   conda install "numpy>=1.8,<2"
 
 
-Examples
+示例
 --------
+
+Examples
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The OR constraint "numpy=1.11.1|1.11.3" matches with 1.11.1 or
 1.11.3.
@@ -388,8 +472,14 @@ numpy-1.8.1-py27_0:
 * numpy 1.8.1 py27_0
 * numpy=1.8.1=py27_0
 
-Version ordering
+版本排序
 ================
+
+Version ordering
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The ``class VersionOrder(object)`` implements an order relation
 between version strings.
@@ -402,8 +492,14 @@ followed by ``!`` - can precede the actual version string
 (this is useful to indicate a change in the versioning
 scheme itself). Version comparison is case-insensitive.
 
-Supported version strings
+支持的版本字符串
 -------------------------
+
+Supported version strings
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda supports six types of version strings:
 
@@ -424,8 +520,14 @@ Conda supports six types of version strings:
      handled in exactly the same manner.
 
 
-Predictable version ordering
+可预测的版本排序
 ----------------------------
+
+Predictable version ordering
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To obtain a predictable version ordering, it is crucial to keep the
 version number scheme of a given package consistent over time.

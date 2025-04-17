@@ -1,11 +1,17 @@
 ========
-Glossary
+术语
 ========
+
+Glossary
 
 .. _condarc-glossary:
 
 .condarc
 ========
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The Conda Runtime Configuration file, an optional ``.yaml`` file
 that allows you to configure many aspects of conda, such as which
@@ -23,6 +29,10 @@ Pronounced "conda r-c".
 
 Activate/Deactivate environment
 ===============================
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda commands used to switch or move between installed
 environments. The ``conda activate`` command prepends the path of your
@@ -45,6 +55,10 @@ environment with just ``program_name``.
 
 Anaconda
 ========
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 A downloadable, free, open-source, high-performance, and optimized
 Python and R distribution. Anaconda includes
@@ -71,6 +85,10 @@ See also :ref:`miniconda-glossary` and :ref:`conda-glossary`.
 Anaconda.org
 ============
 
+.. tab:: 中文
+
+.. tab:: 英文
+
 A web-based, repository hosting service in the cloud. Packages
 created locally can be published to the cloud to be shared with
 others. `Anaconda.org`_ is a public version of Anaconda Repository
@@ -82,6 +100,10 @@ and was formerly known as Anaconda Cloud.
 Anaconda Navigator
 ==================
 
+.. tab:: 中文
+
+.. tab:: 英文
+
 A desktop graphical user interface (GUI) included in all versions
 of Anaconda that allows you to easily manage conda packages,
 environments, channels, and notebooks without a command line
@@ -91,6 +113,10 @@ interface (CLI). See more about `Navigator`_.
 
 Channels
 ========
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The locations of the repositories where conda looks for packages.
 Channels may point to a Cloud repository or a private
@@ -107,6 +133,10 @@ the ``.condarc`` file by the channel name "defaults."
 conda
 =====
 
+.. tab:: 中文
+
+.. tab:: 英文
+
 The package and environment manager program bundled with Anaconda
 that installs and updates conda packages and their dependencies.
 Conda also lets you easily switch between conda environments on
@@ -117,6 +147,10 @@ your local computer.
 
 conda environment
 =================
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 A folder or directory that contains a specific collection of
 conda packages and their dependencies, so they can be maintained
@@ -137,6 +171,10 @@ language packages. Environments can be created from:
 conda package
 =============
 
+.. tab:: 中文
+
+.. tab:: 英文
+
 A compressed file that contains everything that a software
 program needs in order to be installed and run, so that you do
 not have to manually find and install each dependency separately.
@@ -148,6 +186,10 @@ manage conda packages with conda.
 
 conda repository
 ================
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 A cloud-based repository that contains 7,500+ open-source certified
 packages that are easily installed locally with the
@@ -165,6 +207,10 @@ packages that are easily installed locally with the
 Metapackage
 ===========
 
+.. tab:: 中文
+
+.. tab:: 英文
+
 A metapackage is a very simple package that has at least a name
 and a version. It need not have any dependencies or build steps.
 :ref:`meta-package` may list dependencies to several core,
@@ -175,6 +221,10 @@ that are automatically downloaded when executed.
 
 Miniconda
 =========
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 A free minimal installer for conda. `Miniconda`_
 is a small, bootstrap version of Anaconda that includes only conda,
@@ -193,6 +243,10 @@ See also :ref:`anaconda-glossary` and :ref:`conda-glossary`.
 Noarch package
 ==============
 
+.. tab:: 中文
+
+.. tab:: 英文
+
 A conda package that contains nothing specific to any system
 architecture, so it may be installed from any system. When conda
 searches for packages on any system in a channel, conda checks
@@ -204,6 +258,10 @@ the ``noarch`` directory. Noarch is a contraction of "no architecture".
 Package manager
 ===============
 
+.. tab:: 中文
+
+.. tab:: 英文
+
 A collection of software tools that automates the process of
 installing, updating, configuring, and removing computer programs
 for a computer's operating system. Also known as a package management
@@ -214,6 +272,10 @@ system. Conda is a package manager.
 Packages
 ========
 
+.. tab:: 中文
+
+.. tab:: 英文
+
 Software files and information about the software, such as its
 name, the specific version, and a description, bundled into a
 file that can be installed and managed by a package manager.
@@ -222,6 +284,10 @@ file that can be installed and managed by a package manager.
 
 Plugins
 =======
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Plugins, sometimes referred to as add-ons or extensions, are software or modules
 that add new functions to a host program (*e.g.*, conda) without directly altering
@@ -234,6 +300,10 @@ features, and to reduce the size of an application by not loading unused feature
 Repository
 ==========
 
+.. tab:: 中文
+
+.. tab:: 英文
+
 Any storage location from which software assets may be retrieved
 and installed on a local computer. See also
 :ref:`anaconda-org-glossary` and
@@ -243,6 +313,10 @@ and installed on a local computer. See also
 
 Silent mode installation
 ========================
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 When installing Miniconda or Anaconda in silent mode, screen
 prompts are not shown on screen and default settings are

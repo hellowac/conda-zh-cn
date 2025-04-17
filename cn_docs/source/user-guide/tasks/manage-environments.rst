@@ -1,6 +1,12 @@
 =====================
-Managing environments
+管理环境
 =====================
+
+Managing environments
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 With conda, you can create, export, list, remove, and update
 environments that have different versions of Python and/or
@@ -12,8 +18,14 @@ There are many options available for the commands described
 on this page. For a detailed reference on all available commands,
 see :doc:`commands <../../commands/index>`.
 
-Creating an environment with commands
+使用命令创建环境
 =====================================
+
+Creating an environment with commands
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Use the terminal for the following steps:
 
@@ -97,8 +109,14 @@ use the ``--no-default-packages`` flag:
 
 .. _create-env-from-file:
 
-Creating an environment from an environment.yml file
+通过 environment.yml 文件创建环境
 ====================================================
+
+Creating an environment from an environment.yml file
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Use the terminal for the following steps:
 
@@ -125,8 +143,14 @@ Use the terminal for the following steps:
 
 .. _specifying-environment-platform:
 
-Specifying a different target platform for an environment
+为环境指定不同的目标平台
 =========================================================
+
+Specifying a different target platform for an environment
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 By default, ``conda`` will create environments targeting the platform it's
 currently running on. You can check which platform you are currently on by running
@@ -168,8 +192,14 @@ environment on macOS), but we don't recommend its usage outside of
 
 .. _specifying-location:
 
-Specifying a location for an environment
+指定环境的位置
 ========================================
+
+Specifying a location for an environment
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You can control where a conda environment lives by providing a path
 to a target directory when creating the environment. For example,
@@ -234,8 +264,14 @@ generic name, which is the name of the environment's root folder:
 
 .. _update-env:
 
-Updating an environment
+更新环境
 =======================
+
+Updating an environment
+
+.. tab:: 中文
+
+.. tab:: 英文
 You may need to update your environment for a variety of reasons.
 For example, it may be the case that:
 
@@ -259,8 +295,14 @@ command:
    that are no longer required from the environment.
 
 
-Cloning an environment
+克隆环境
 ======================
+
+Cloning an environment
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Use the terminal for the following steps:
 
@@ -287,8 +329,14 @@ source environment and the new copy.
 
 .. _identical-conda-envs:
 
-Building identical conda environments
+构建相同的 conda 环境
 =====================================
+
+Building identical conda environments
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You can use explicit specification files to build an identical
 conda environment on the same operating system platform, either
@@ -354,8 +402,14 @@ Use the terminal for the following steps:
 
 .. _activate-env:
 
-Activating an environment
+激活环境
 =========================
+
+Activating an environment
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Activating environments is essential to making the software in the environments
 work well. Activation entails two primary functions: adding entries to PATH for
@@ -423,6 +477,12 @@ If you experience errors with PATH, review our :ref:`troubleshooting <path-error
 Conda init
 ----------
 
+Conda init
+
+.. tab:: 中文
+
+.. tab:: 英文
+
 Earlier versions of conda introduced scripts to make activation
 behavior uniform across operating systems. Conda 4.4 allowed
 ``conda activate myenv``. Conda 4.6 added extensive initialization
@@ -451,8 +511,14 @@ People sometimes choose this setting to speed up the time their shell takes
 to start up or to keep conda-installed software from automatically
 hiding their other software.
 
-Nested activation
+嵌套激活
 -----------------
+
+Nested activation
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 By default, ``conda activate`` will deactivate the current environment
 before activating the new environment and reactivate it when
@@ -475,8 +541,14 @@ You may specify a larger number for a deeper level of automatic stacking,
 but this is not recommended since deeper levels of stacking are more likely
 to lead to confusion.
 
-Environment variable for DLL loading verification
+用于 DLL 加载验证的环境变量
 -------------------------------------------------
+
+Environment variable for DLL loading verification
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you don't want to activate your environment and you want Python
 to work for DLL loading verification, then follow the
@@ -487,8 +559,14 @@ to work for DLL loading verification, then follow the
    loading and setting environment variables to activate
    scripts will not happen. We only support activation.
 
-Deactivating an environment
+停用环境
 ===========================
+
+Deactivating an environment
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To deactivate an environment, type: ``conda deactivate``
 
@@ -506,8 +584,14 @@ your system command.
 
 .. _determine-current-env:
 
-Determining your current environment
+确定当前环境
 ====================================
+
+Determining your current environment
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Use the terminal for the following steps.
 
@@ -536,8 +620,14 @@ To re-enable this option::
   conda config --set changeps1 true
 
 
-Viewing a list of your environments
+查看环境列表
 ===================================
+
+Viewing a list of your environments
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To see a list of all of your environments, in your terminal window, run:
 
@@ -563,8 +653,14 @@ A list similar to the following is displayed:
 If this command is run by an administrator, a list of all environments
 belonging to all users will be displayed.
 
-Viewing a list of the packages in an environment
+查看环境中的软件包列表
 ================================================
+
+Viewing a list of the packages in an environment
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To see a list of all packages installed in a specific environment:
 
@@ -590,8 +686,14 @@ To see a list of all packages installed in a specific environment:
 
 .. _pip-in-env:
 
-Using pip in an environment
+在环境中使用 pip
 ===========================
+
+Using pip in an environment
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To use pip in your environment, in your terminal window, run:
 
@@ -633,8 +735,14 @@ We recommend that you:
 
 .. _set-env-vars:
 
-Setting environment variables
+设置环境变量
 =============================
+
+Setting environment variables
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you want to associate environment variables with an environment,
 you can use the config API. This is recommended as an alternative to
@@ -683,8 +791,14 @@ as shown here::
       VAR2: valueB
 
 
-Saving environment variables
+保存环境变量
 ============================
+
+Saving environment variables
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda environments can include saved environment variables.
 
@@ -710,6 +824,12 @@ to give the script a name in the form
 
 Windows
 -------
+
+Windows
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 #. Locate the directory for the conda environment in your
    terminal window by running in the command shell ``%CONDA_PREFIX%``.
@@ -739,8 +859,14 @@ When you run ``conda deactivate``, those variables are erased.
 
 .. _macos-linux-save-env-variables:
 
-macOS and Linux
+macOS 和 Linux
 ---------------
+
+macOS and Linux
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 #. Locate the directory for the conda environment in your terminal window by running in the terminal ``echo $CONDA_PREFIX``.
 
@@ -773,8 +899,14 @@ the file. When you run ``conda deactivate``, those variables are
 erased.
 
 
-Sharing an environment
+共享环境
 =======================
+
+Sharing an environment
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You may want to share your environment with someone else---for
 example, so they can re-create a test that you have done. To
@@ -782,8 +914,14 @@ allow them to quickly reproduce your environment, with all of its
 packages and versions, give them a copy of your
 ``environment.yml`` file.
 
-Exporting the environment.yml file
+导出 environment.yml 文件
 ----------------------------------
+
+Exporting the environment.yml file
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. note::
    If you already have an ``environment.yml`` file in your
@@ -807,8 +945,14 @@ Exporting the environment.yml file
 
 .. _export-platform:
 
-Exporting an environment file across platforms
+跨平台导出环境文件
 ----------------------------------------------
+
+Exporting an environment file across platforms
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you want to make your environment file work across platforms,
 you can use the ``conda env export --from-history`` flag. This
@@ -845,8 +989,14 @@ only export those you specifically chose:
 
 .. _create-env-file-manually:
 
-Creating an environment file manually
+手动创建环境文件
 -------------------------------------
+
+Creating an environment file manually
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You can create an environment file (``environment.yml``) manually
 to share with others.
@@ -919,8 +1069,14 @@ environments while changing ``.condarc`` affects them all.
 For details on creating an environment from this
 ``environment.yml`` file, see :ref:`create-env-from-file`.
 
-Restoring an environment
+恢复环境
 ========================
+
+Restoring an environment
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda keeps a history of all the changes made to your environment,
 so you can easily "roll back" to a previous version. To list the history of each change to the current environment:
@@ -935,8 +1091,14 @@ or ``conda install --rev REVNUM``.
 Example:
 If you want to restore your environment to revision 8, run ``conda install --rev 8``.
 
-Removing an environment
+删除环境
 =======================
+
+Removing an environment
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To remove an environment, in your terminal window, run:
 
@@ -957,8 +1119,14 @@ environment.
 
 .. _dry-run-explicit:
 
-Create explicit lockfiles without creating an environment
+在不创建环境的情况下创建显式锁文件
 =========================================================
+
+Create explicit lockfiles without creating an environment
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 ``@EXPLICIT`` lockfiles allow you to (re)create environments without invoking the solver.
 They consist of an ``@EXPLICIT`` header plus a list of conda package URLs, optionally followed

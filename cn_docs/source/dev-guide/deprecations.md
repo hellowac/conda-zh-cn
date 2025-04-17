@@ -1,6 +1,8 @@
 [cep9]: https://github.com/conda-incubator/ceps/blob/main/cep-9.md
 
-# Deprecations
+# 弃用
+
+Deprecations
 
 Conda abides by the Deprecation Schedule defined in [CEP-9][cep9]. To help make deprecations as much of a no-brainer as possible we provide several helper decorators and functions to facilitate the correct deprecation process.
 

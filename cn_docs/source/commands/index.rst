@@ -1,6 +1,12 @@
 ========
-Commands
+命令
 ========
+
+Commands
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda provides many commands for managing packages and environments.
 The links on this page provide help for each command.
@@ -38,8 +44,14 @@ The following commands are part of conda:
    search
    update
 
-Conda vs. pip vs. virtualenv commands
+Conda、pip 和 virtualenv 命令
 =====================================
+
+Conda vs. pip vs. virtualenv commands
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you have used pip and virtualenv in the past, you can use
 conda to perform all of the same operations. Pip is a package

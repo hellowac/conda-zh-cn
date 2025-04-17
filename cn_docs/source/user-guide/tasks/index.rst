@@ -1,6 +1,10 @@
 =====
-Tasks
+任务
 =====
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. toctree::
    :maxdepth: 1
@@ -19,8 +23,12 @@ Tasks
 The tasks section is organized into various pages which cover nearly everything
 you can do with conda.
 
-Common Tasks
+常见任务
 ============
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. glossary::
 
@@ -46,8 +54,12 @@ Common Tasks
         Get help on the command line for any conda command
 
 
-Tutorials
+教程
 =========
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. glossary::
 

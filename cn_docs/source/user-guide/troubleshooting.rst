@@ -1,9 +1,21 @@
 ===============
-Troubleshooting
+故障排除
 ===============
 
-Using conda in Windows Batch script exits early
+Troubleshooting
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+在 Windows 中使用 conda 批处理脚本提前退出
 ===============================================
+
+Using conda in Windows Batch script exits early
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 In conda 4.6+, the way that you interact with conda goes through a batch script (``%PREFIX%\condabin\conda.bat``).
 Unfortunately, this means it's a little complicated to use conda from other batch scripts. When using batch
@@ -29,8 +41,14 @@ https://stackoverflow.com/questions/4798879/how-do-i-run-a-batch-script-from-wit
 
 .. _mkl_library:
 
-NumPy MKL library load failed
+NumPy MKL 库加载失败
 =============================
+
+NumPy MKL library load failed
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Error messages like
 
@@ -44,8 +62,14 @@ or
 
     The ordinal 241 could not be located in the the dynamic link library
 
-Cause
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 NumPy is unable to load the correct MKL or Intel OpenMP runtime libraries. This
 is almost always caused by one of two things:
@@ -55,8 +79,14 @@ is almost always caused by one of two things:
      files into the C:\\Windows\\System32 folder. These files are being loaded
      before Anaconda's and they're not compatible.
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you are not activating your environments, start with doing that. There's more
 info at :ref:`Activating environments <activate-env>`. If you are still stuck, you may need to consider
@@ -119,13 +149,25 @@ If you find others, please let us know. If you're on this list and you want to
 fix things, let us know. In either case, the conda issue tracker at
 https://github.com/conda/conda/issues is the best way to reach us.
 
-SSL connection errors
+SSL 连接错误
 =====================
+
+SSL connection errors
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 This is a broad umbrella of errors with many causes. Here are some we've seen.
 
 CondaHTTPError: HTTP 000 CONNECTION FAILED
 ------------------------------------------
+
+CondaHTTPError: HTTP 000 CONNECTION FAILED
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you're on Windows and you see this error, look a little further down in the
 error text. Do you see something like this?::
@@ -138,8 +180,14 @@ The key part there is the last bit::
 
 Conda is having problems because it can't find the OpenSSL libraries that it needs.
 
-Cause
+原因
 ~~~~~
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You may observe this error cropping up after a conda update. More recent
 versions of conda and more recent builds of Python are more strict about
@@ -187,24 +235,48 @@ Our humble opinion is that activation is the easiest way to ensure that things
 work. See more information on activation in :ref:`Activating environments
 <activate-env>`.
 
-Solution
+解决方案
 ~~~~~~~~
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Use shells opened from Anaconda Navigator. If you use a GUI
 IDE and you see this error, ask the developers of your IDE to add activation for
 conda environments.
 
-SSL certificate errors
+SSL 证书错误
 ----------------------
 
-Cause
+SSL certificate errors
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+原因
 ~~~~~
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Installing packages may produce a "connection failed" error if you do not have
 the certificates for a secure connection to the package repository.
 
-Solution
+解决方案
 ~~~~~~~~
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Pip can use the ``--use-feature=truststore`` option to use the operating system
 certificate store. This may be of help in typically corporate environments with
@@ -291,19 +363,37 @@ Conda has three similar options.
    ``<PATH_TO_ACTIVE_CONDA_ENV>/.condarc``. If ``--env`` is used and no
    environment is active, the user configuration file is used.
 
-SSL verification errors
+SSL 验证错误
 -----------------------
 
-Cause
+SSL verification errors
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+原因
 ~~~~~
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 This error may be caused by lack of activation on Windows or expired
 certifications::
 
     SSL verification error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:590)
 
-Solution
+解决方案
 ~~~~~~~~
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 Make sure your conda is up-to-date: ``conda --version``
 
 If not, run: ``conda update conda``
@@ -333,19 +423,37 @@ the root certificate and any intermediate certificates.
 
 .. _permission-denied:
 
-Permission denied errors during installation
+安装过程中出现权限被拒绝错误
 ============================================
 
-Cause
+Permission denied errors during installation
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The ``umask`` command  determines the mask settings that control
 how file permissions are set for newly created files. If you
 have a very restrictive ``umask``, such as ``077``, you get
 "permission denied" errors.
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Set a less restrictive ``umask`` before calling conda commands.
 Conda was intended as a user space tool, but often users need to
@@ -374,30 +482,60 @@ For more information on ``umask``, see
 
 .. _permission-denied-sudo:
 
-Permission denied errors after using sudo conda command
+使用 sudo conda 命令后出现权限被拒绝错误
 =======================================================
 
-Solution
+Permission denied errors after using sudo conda command
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Once you run conda with sudo, you must use sudo forever. We recommend that you NEVER run conda with sudo.
 
 
 .. _fix-broken-conda:
 
-Already installed error message
+已安装错误消息
 ===============================
 
-Cause
+Already installed error message
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you are trying to fix conda problems without removing the
 current installation and you try to reinstall Miniconda or
 Anaconda to fix it, you get an error message that Miniconda
 or Anaconda is already installed and you cannot continue.
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Install using the ``--force`` option.
 
@@ -423,8 +561,14 @@ for your operating system from the `Miniconda download page
 
 .. _conda-claims-installed:
 
-Conda reports that a package is installed, but it appears not to be
+Conda 报告软件包已安装，但似乎并未安装
 ===================================================================
+
+Conda reports that a package is installed, but it appears not to be
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Sometimes conda claims that a package is already installed but
 it does not appear to be, for example, a Python package that
@@ -433,13 +577,25 @@ gives ImportError.
 There are several possible causes for this problem, each with its
 own solution.
 
-Cause
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You are not in the same conda environment as your package.
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 #. Make sure that you are in the same conda environment as your
    package. The ``conda info`` command tells you what environment
@@ -455,8 +611,14 @@ Solution
       print(sys.prefix)
 
 
-Cause
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 For Python packages, you have set the ``PYTHONPATH`` or ``PYTHONHOME``
 variable. These environment variables cause Python to load files
 from locations other than the standard ones. Conda works best
@@ -466,8 +628,14 @@ is that they cause Python to pick up the wrong or broken
 versions of a library.
 
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 For Python packages, make sure you have not set the ``PYTHONPATH``
 or ``PYTHONHOME`` variables. The command ``conda info -a`` displays
@@ -487,8 +655,14 @@ the values of these environment variables.
     ``$PROFILE``.
 
 
-Cause
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You have site-specific directories or, for Python, you have
 so-called site-specific files. These are typically located in
@@ -498,14 +672,26 @@ site-specific packages, see `PEP 370
 ``PYTHONPATH``, Python may try importing packages from this
 directory, which can cause issues.
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 For Python packages, remove site-specific directories and
 site-specific files.
 
-Cause
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 For C libraries, the following environment variables have been
 set:
@@ -519,14 +705,26 @@ than the conda environment. Conda environments obviate most use
 cases for these variables. The command ``conda info -a`` shows
 what these are set to.
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Unset ``DYLD_LIBRARY_PATH`` or ``LD_LIBRARY_PATH``.
 
 
-Cause
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Occasionally, an installed package becomes corrupted. Conda works
 by unpacking the packages in the ``pkgs`` directory and then
@@ -536,8 +734,14 @@ also break any additional environments since the same files are hard-linked
 each time.
 
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Run the command ``conda install -f`` to unarchive the package
 again and relink it. It also does an MD5 verification on the
@@ -562,13 +766,31 @@ same name, version, and build number.
 pkg_resources.DistributionNotFound: conda==3.6.1-6-gb31b0d4-dirty
 =================================================================
 
-Cause
+pkg_resources.DistributionNotFound: conda==3.6.1-6-gb31b0d4-dirty
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The local version of conda needs updating.
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Force reinstall conda. A useful way to work off the development
 version of conda is to run ``python setup.py develop`` on a
@@ -592,18 +814,36 @@ a git checkout. The version should not include any hashes.
 
 .. _unknown-locale:
 
-macOS error "ValueError unknown locale: UTF-8"
+macOS 错误“ValueError unknown locale: UTF-8”
 ==============================================
 
-Cause
+macOS error "ValueError unknown locale: UTF-8"
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 This is a bug in the macOS Terminal app that shows up only in
 certain locales. Locales are country-language combinations.
 
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 #. Open Terminal in ``/Applications/Utilities``
 
@@ -638,21 +878,39 @@ and also how dates, currencies, and decimals are formatted.
 
 .. _AttributeError-getproxies:
 
-AttributeError or missing getproxies
+AttributeError 或缺失getproxies
 ====================================
+
+AttributeError or missing getproxies
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 When running a command such as ``conda update ipython``, you may
 get an ``AttributeError: 'module' object has no attribute
 'getproxies'``.
 
-Cause
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 This can be caused by an old version of ``requests`` or by having
 the ``PYTHONPATH`` environment variable set.
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Update ``requests`` and be sure ``PYTHONPATH`` is not set:
 
@@ -672,14 +930,26 @@ Update ``requests`` and be sure ``PYTHONPATH`` is not set:
 
 .. _shell-command-location:
 
-Shell commands open from the wrong location
+Shell 命令从错误的位置打开
 ===========================================
+
+Shell commands open from the wrong location
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 When you run a command within a conda environment, conda does not
 access the correct package executable.
 
-Cause
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 In both bash and zsh, when you enter a command, the shell
 searches the paths in PATH one by one until it finds the command.
@@ -694,8 +964,14 @@ using ``conda install``, but the shell still had the old instance
 hashed.
 
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Reactivate the environment or run ``hash -r`` (in bash) or
 ``rehash`` (in zsh).
@@ -727,11 +1003,23 @@ The hash is reset by ``conda activate`` or by ``hash -r`` in bash or
 
 .. _wrong-python:
 
-Programs fail due to invoking conda Python instead of system Python
+由于调用 conda Python 而不是系统 Python，导致程序失败
 ===================================================================
 
-Cause
+Programs fail due to invoking conda Python instead of system Python
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 After installing Anaconda or Miniconda, programs that run
 ``python`` switch from invoking the system Python to invoking the
@@ -742,8 +1030,14 @@ may crash. For example, some users of the Cinnamon desktop
 environment on Linux Mint have reported these crashes.
 
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Edit your ``.bash_profile`` and ``.bashrc`` files so that the
 conda binary directory, such as ``~/miniconda3/bin``, is no
@@ -766,11 +1060,23 @@ including after running ``conda activate root``, running
 
 .. _unsatisfiable:
 
-UnsatisfiableSpecifications error
+UnsatisfiableSpecifications 错误
 =================================
 
-Cause
+UnsatisfiableSpecifications error
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Some conda package installation specifications are impossible to
 satisfy. For example, ``conda create -n tmp python=3 wxpython=3``
@@ -791,8 +1097,14 @@ This indicates that the specification to install wxpython 3
 depends on installing Python 2.7, which conflicts with the
 specification to install Python 3.
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Use ``conda search wxpython --info`` or ``conda search 'wxpython=3' --info``
 to show information about this package and its dependencies::
@@ -828,19 +1140,37 @@ this example, you could install wxPython with Python 2.7::
 
 .. _version-from-channel:
 
-Package installation fails from a specific channel
+从特定渠道安装软件包失败
 ==================================================
 
-Cause
+Package installation fails from a specific channel
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Sometimes it is necessary to install a specific version from a
 specific channel because that version is not available from the
 default channel.
 
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The following example describes the problem in detail and its
 solution.
@@ -952,8 +1282,14 @@ Now you have a software environment sandbox created with Python
 
 .. _auto-upgrade:
 
-Conda automatically upgrades to unwanted version
+Conda 自动升级到不需要的版本
 ================================================
+
+Conda automatically upgrades to unwanted version
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 When making a Python package for an app, you create an
 environment for the app from a file ``req.txt`` that sets a
@@ -961,8 +1297,14 @@ certain version, such as ``python=2.7.9``. However, when you
 ``conda install`` your package, it automatically upgrades to a
 later version, such as ``2.7.10``.
 
-Cause
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you make a conda package for the app using conda-build, you
 can set dependencies with specific version numbers. The
@@ -970,18 +1312,36 @@ requirements lines that say ``- python`` could be
 ``- python ==2.7.9`` instead. It is important to have 1 space
 before the == operator and no space after.
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Exercise caution when coding version requirements.
 
 .. _upgrade-error:
 
-Conda upgrade error
+Conda 升级错误
 ===================
 
-Cause
+Conda upgrade error
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 Downgrading conda from 4.6.1 to 4.5.x and then trying to ``conda install conda`` or  ``conda upgrade conda`` will produce a solving and upgrade error similar to the following:
 
 .. code-block::
@@ -992,8 +1352,14 @@ Downgrading conda from 4.6.1 to 4.5.x and then trying to ``conda install conda``
    current conda version: 4.5.9
    minimum conda version: 4.6
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Change the ``.condarc`` file. Set the parameter by editing the ``.condarc`` file directly:
 ``allow_conda_downgrades: true`` in conda version 4.5.12. This will then let you upgrade. If you have something older than 4.5.12, install conda 4.6.1 again from the package cache.
@@ -1002,43 +1368,91 @@ EXAMPLE: If my conda info says package cache : /opt/conda/pkgs and my Python ver
 
 
 
-ValidationError: Invalid value for timestamp
+ValidationError：时间戳值无效
 ============================================
 
-Cause
+ValidationError: Invalid value for timestamp
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 This happens when certain packages are installed with conda 4.3.28, and then
 conda is downgraded to 4.3.27 or earlier.
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 See https://github.com/conda/conda/issues/6096.
 
 
 
-Unicode error after installing Python 2
+安装 Python 2 后出现 Unicode 错误
 =======================================
+
+Unicode error after installing Python 2
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Example: UnicodeDecodeError: 'ascii' codec can't decode byte 0xd3 in position 1: ordinal not in range(128)
 
-Cause
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Python 2 is incapable of handling unicode properly, especially on Windows. In this case, if any character in your PATH env. var contains anything that is not ASCII then you see this exception.
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Remove all non-ASCII from PATH or switch to Python 3.
 
 
-Windows environment has not been activated
+Windows 环境尚未激活
 ==========================================
 
-Cause
+Windows environment has not been activated
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 You may receive a warning message if you have not activated your environment:
 
 .. code-block::
@@ -1048,8 +1462,14 @@ You may receive a warning message if you have not activated your environment:
    not been activated. Libraries may fail to load. To activate this environment
    please see https://conda.io/activation
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you receive this warning, you need to activate your environment.
 To do so on Windows, on a terminal via PowerShell or the Command Prompt, run:
@@ -1057,17 +1477,35 @@ To do so on Windows, on a terminal via PowerShell or the Command Prompt, run:
 
 .. _path-error:
 
-The system cannot find the path specified on Windows
+系统在 Windows 上找不到指定的路径
 ====================================================
 
-Cause
+The system cannot find the path specified on Windows
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+原因
 -----
+
+Cause
+
+.. tab:: 中文
+
+.. tab:: 英文
 PATH does not contain entries for all of the necessary conda directories.
 PATH may have too many entries from 3rd party software adding itself to
 PATH at install time, despite the user not needing to run the software via PATH lookup.
 
-Solution
+解决方案
 --------
+
+Solution
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Strip PATH to have fewer entries and activate your environment.
 

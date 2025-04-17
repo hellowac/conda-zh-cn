@@ -1,16 +1,34 @@
 =========================================
-Package search and install specifications
+软件包搜索和安装规范
 =========================================
+
+Package search and install specifications
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda supports the following specifications for ``conda search`` and ``conda install``.
 
-Package search
+软件包搜索
 ==============
+
+Package search
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 ``conda search`` for a specific package or set of packages can be accomplished in several ways. This section includes information on the standard specification and the use of key-value pairs.
 
-Standard specification
+标准规范
 ----------------------
+
+Standard specification
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. figure:: ../../img/conda_search.png
     :width: 100%
@@ -30,8 +48,14 @@ Standard specification
 **build**
     (Optional) Package build name. May include the ``*`` wildcard. For example, ``numpy 1.17.3 py38*`` returns all version 1.17.3 numpy packages with a build name that contains the text "py38".
 
-Key-value pairs
+键值对
 ---------------
+
+Key-value pairs
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Package searches can also be performed using what is called "key-value pair notation", which has different rules than the :ref:`Standard specification`
 example image. The search below will return the same list of packages as the standard specification.
@@ -55,22 +79,40 @@ Key-value pair notation can be used at the same time as standard notation.
 
    Any search values using the key-value pair notation will override values in the rest of the search string. For example, ``conda search numpy 1.17.3[version=1.19.2]`` will return packages with the version ``1.19.2``.
 
-Package installation
+软件包安装
 ====================
+
+Package installation
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 When you're installing packages, conda recommends being as concrete as possible. Using ``*`` wildcards and version ranges during an install will most likely cause a conflict.
 
 However, ``*`` wildcards can still be helpful in an install command when used sparingly.
 
-Installing with wildcards
+使用通配符安装
 -------------------------
+
+Installing with wildcards
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Let's say you are working on a project that requires version 2.3 of a package. If you upgrade to 2.4 or 3.0, your project will break. You're also using an environment file to create your environment.
 
 In the version ``2.3.1``, ``2`` is the major version, ``3`` is the minor version, and ``1`` is the patch. Patches typically contain bug fixes, so if you want to keep version ``2.3`` in your environment without updating to ``2.4`` or ``3.0``, but want to take advantage of any bug fixes, using ``2.3.*`` in your environment file would be helpful to you.
 
-Concrete install example
+具体安装示例
 ------------------------
+
+Concrete install example
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Let's take the search from the :ref:`Package search` section.
 

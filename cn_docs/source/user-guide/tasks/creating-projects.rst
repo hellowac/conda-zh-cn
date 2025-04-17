@@ -1,14 +1,26 @@
 =================
-Creating projects
+创建项目
 =================
+
+Creating projects
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 In this tutorial, we will walk through how to set up a new Python project in conda
 using an ``environment.yml`` file. This file will help you keep track of your
 dependencies and share your project with others. We cover how to create your
 project, add a simple Python program and update it with new dependencies.
 
-Requirements
+需求
 ============
+
+Requirements
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To follow along, you will need a working conda installation. Please head
 over to our :doc:`installation guide <../install/index>` for instructions on how
@@ -18,8 +30,14 @@ This tutorial relies heavily on using your computer's terminal (Command Prompt o
 on Windows), so it is also important to have a working familiarity with using basic commands
 such as ``cd`` and ``ls``.
 
-Creating the project's files
+创建项目文件
 ============================
+
+Creating the project's files
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To start off, we will need a directory that will contain the files for our project. This can
 be created with the following command::
@@ -56,8 +74,14 @@ Let's briefly go over what each part of this file means.
         because we know it will be a Python project. We will add more later.
 
 
-Creating our environment
+创建环境
 ========================
+
+Creating our environment
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Now that we have written a basic ``environment.yml`` file, we can create and activate an environment
 from it. To do so, run the following commands::
@@ -66,8 +90,14 @@ from it. To do so, run the following commands::
     conda activate my-project
 
 
-Creating our Python application
+创建 Python 应用程序
 ===============================
+
+Creating our Python application
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 With our new environment with Python installed, we can create a simple Python program.
 In your project folder, create a ``main.py`` file and add the following:
@@ -87,8 +117,14 @@ We can run our simple Python program by running the following command::
     Hello, conda!
 
 
-Updating our project with new dependencies
+使用新的依赖项更新项目
 ==========================================
+
+Updating our project with new dependencies
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you want your project to do more than the simple example above, you can use one of the thousands
 of available packages on conda channels. To demonstrate this, we will add a new dependency
@@ -165,8 +201,14 @@ answer::
     10.69% of Americans live in highly walkable neighborhoods
 
 
-Conclusion
+结论
 ==========
+
+Conclusion
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You have just been introduced to creating your own data analysis project by using
 the ``environment.yml`` file in conda. As the project grows, you may wish to add more dependencies

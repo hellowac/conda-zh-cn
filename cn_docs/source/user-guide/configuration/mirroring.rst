@@ -1,11 +1,23 @@
 ==================
-Mirroring channels
+镜像频道
 ==================
+
+Mirroring channels
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The conda configuration system has several keys that can be used to set up a mirrored context.
 
-The default setup
+默认设置
 =================
+
+The default setup
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 By default, ``conda`` can serve packages from two main locations:
 
@@ -24,8 +36,14 @@ By default, ``conda`` can serve packages from two main locations:
 So, when it comes to mirroring these channels, you have to account for those two locations.
 
 
-Mirror ``defaults``
+镜像 ``defaults``
 ===================
+
+Mirror ``defaults``
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Use ``default_channels`` to overwrite the :doc:`default configuration </configuration>`. For example:
 
@@ -37,8 +55,14 @@ Use ``default_channels`` to overwrite the :doc:`default configuration </configur
         - https://my-mirror.com/pkgs/msys2
 
 
-Mirror all community channels
+镜像所有社区频道
 =============================
+
+Mirror all community channels
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Redefine ``channel_alias`` to point to your mirror. For example:
 
@@ -49,8 +73,14 @@ Redefine ``channel_alias`` to point to your mirror. For example:
 This will make ``conda`` look for all community channels at ``https://my-mirror.com/conda-forge``, ``https://my-mirror.com/bioconda``, etc.
 
 
-Mirror only some community channels
+仅镜像部分社区频道
 ===================================
+
+Mirror only some community channels
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you want to mirror only some community channels, you must use ``custom_channels``.
 This takes precedence over ``channel_alias``. For example:

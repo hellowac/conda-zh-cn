@@ -18,8 +18,14 @@ In this guide, you will learn the about the common tasks involved with using the
 
 .. _first-steps:
 
-First steps
+第一步
 ===========
+
+First steps
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you are brand new to conda, then these are guides that you will want to start with first:
 
@@ -41,8 +47,14 @@ If you are brand new to conda, then these are guides that you will want to start
 
 .. _learn-more:
 
-Learn more
+了解更多
 ==========
+
+Learn more
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. glossary::
 
@@ -57,8 +69,14 @@ Learn more
 
 .. _addl-resources:
 
-Additional resources
+其他资源
 ====================
+
+Additional resources
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. glossary::
 

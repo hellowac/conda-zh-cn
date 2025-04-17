@@ -1,11 +1,23 @@
 ========
-Channels
+频道
 ========
+
+Channels
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. _concepts-channels:
 
-What is a "channel"?
+什么是“频道”？
 ====================
+
+What is a "channel"?
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Channels are the locations where packages are stored.
 They serve as the base for hosting and managing packages.
@@ -32,8 +44,14 @@ recipes.
 
 .. _specifying-channels:
 
-Specifying channels when installing packages
+安装软件包时指定频道
 ============================================
+
+Specifying channels when installing packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 * From the command line use `--channel`
 
@@ -61,8 +79,14 @@ Learn more about :doc:`managing channels <../tasks/manage-channels>`.
 
 .. _rss-feed:
 
-Conda clone channel RSS feed
+Conda 克隆频道 RSS 订阅
 ============================
+
+Conda clone channel RSS feed
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 We offer a RSS feed that represents all the things
 that have been cloned by the channel clone and are

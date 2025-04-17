@@ -1,6 +1,8 @@
 ========
-Concepts
+概念
 ========
+
+Concepts
 
 .. toctree::
    :maxdepth: 1
@@ -16,6 +18,10 @@ Concepts
    conda-performance
    data-science
    conda-plugins
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 In this section, we provide you with detailed information about the fundamental concepts
 in conda, including information about packages, channels, environments, and plugins, among others.

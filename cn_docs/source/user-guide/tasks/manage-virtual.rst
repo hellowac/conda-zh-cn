@@ -1,6 +1,12 @@
 =========================
-Managing virtual packages
+管理虚拟软件包
 =========================
+
+Managing virtual packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 "Virtual" packages are injected into the conda solver to allow real packages
 to depend on features present on the system that cannot be managed directly by
@@ -26,8 +32,14 @@ by a leading double-underscore in the package name.
    :doc:`virtual packages <../../dev-guide/plugins/virtual_packages>` are
    implemented as :doc:`conda plugins <../../user-guide/concepts/conda-plugins>`.
 
-Listing detected virtual packages
+列出检测到的虚拟软件包
 =================================
+
+Listing detected virtual packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Use the terminal for the following steps.
 
@@ -67,8 +79,14 @@ section, as shown in this example::
                offline mode : False
 
 
-Overriding detected packages
+覆盖检测到的软件包
 ============================
+
+Overriding detected packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 For troubleshooting, it is possible to override virtual package detection
 using an environment variable. Supported variables include:

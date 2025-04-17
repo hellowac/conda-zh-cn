@@ -1,4 +1,6 @@
-# Deep dives
+# 深入探索
+
+Deep dives
 
 This section contains a series of deep dives into particularly complex parts
 of conda.

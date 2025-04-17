@@ -1,6 +1,12 @@
 =====================
-Installing with conda
+使用 conda 安装
 =====================
+
+Installing with conda
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. _installing-with-conda:
 
@@ -35,8 +41,14 @@ A graphic illustration of this process is shown below:
 .. image:: /img/installing-with-conda.png
     :align: center
 
-Conda update versus conda install
+Conda 更新与 conda 安装
 =================================
+
+Conda update versus conda install
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 ``conda update`` updates packages to the latest compatible version.
 ``conda install`` can be used to install any version.
@@ -50,8 +62,14 @@ Example:
 Conda uses the same rules for other packages. ``conda update`` always installs the highest version with the same major version number, whereas ``conda install`` always installs the highest version.
 
 
-Installing conda packages offline
+离线安装 conda 软件包
 =================================
+
+Installing conda packages offline
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To install conda packages offline, run:
 ``conda install /path-to-package/package-filename.tar.bz2/``
@@ -68,8 +86,14 @@ Installing packages directly from the file does not resolve
 dependencies.
 
 
-Installing conda packages with a specific build number
+使用特定版本号安装 conda 软件包
 ======================================================
+
+Installing conda packages with a specific build number
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you want to install conda packages with the correct package specification, try
 ``pkg_name=version=build_string``. Read more about `build strings and package naming conventions <https://docs.conda.io/projects/conda-build/en/latest/concepts/package-naming-conv.html#index-2>`_.

@@ -1,6 +1,12 @@
 =============================================
-Administering a multi-user conda installation
+管理多用户 conda 安装
 =============================================
+
+Administering a multi-user conda installation
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 By default, conda and all of the packages it installs are installed locally with a
 user-specific configuration. Administrative privileges are not required, and
@@ -37,8 +43,14 @@ see :doc:`use-condarc`.
 
 .. _admin-inst:
 
-Example administrator-controlled installation
+管理员控制安装示例
 =============================================
+
+Example administrator-controlled installation
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The following example describes how to view the system
 configuration file, review the settings, compare it to a user's
@@ -47,8 +59,14 @@ attempts to access a file from a blocked channel. It then
 describes how the user must modify their configuration file to
 access the channels allowed by the administrator.
 
-System configuration file
+系统配置文件
 -------------------------
+
+System configuration file
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 #. The system configuration file must be in the top-level conda
    installation directory. Check the path where ``conda`` is located, e.g.
@@ -93,8 +111,14 @@ check this in the next procedure.
 
 .. _admin-inst-user:
 
-User configuration file
+用户配置文件
 -----------------------
+
+User configuration file
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 #. Check the location of the user's conda installation:
 

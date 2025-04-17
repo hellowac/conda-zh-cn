@@ -1,6 +1,12 @@
 ========
-Commands
+命令
 ========
+
+Commands
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The ``conda`` command is the primary interface for managing
 installations of various packages. It can:

@@ -1,4 +1,6 @@
-# Releasing
+# 发布
+
+Releasing
 
 Conda's releases may be performed via the [rever command](https://regro.github.io/rever-docs/).
 Rever is configured to perform the activities for a typical conda release.

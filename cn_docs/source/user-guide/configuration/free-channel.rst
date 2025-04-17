@@ -1,6 +1,12 @@
 ======================
-Using the free channel
+使用免费通道
 ======================
+
+Using the free channel
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The free channel contains packages created prior to
 September 26, 2017. Prior to conda 4.7, the free
@@ -48,8 +54,14 @@ old environments, you can re-add the channel following the directions below.
 
 .. _free-channel-default:
 
-Adding the free channel to defaults
+将免费通道添加到默认设置
 ===================================
+
+Adding the free channel to defaults
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you want to add the ``free`` channel back into your default list,
 use the command::
@@ -59,8 +71,14 @@ use the command::
 The order of the channels is important. Using the above
 command will restore the ``free`` channel in the correct order.
 
-Changing .condarc
+更改 .condarc
 =================
+
+Changing .condarc
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You can also add the ``free`` channel back into your defaults by
 changing the ``.condarc`` file itself.
@@ -71,8 +89,14 @@ Add the following to the conda section of your ``.condarc`` file::
 
 Read more about :doc:`use-condarc`.
 
-Package name changes
+包名称变更
 ====================
+
+Package name changes
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Some packages that are available in the ``free`` channel
 have different names in the ``main`` channel.
@@ -99,8 +123,14 @@ have different names in the ``main`` channel.
      - pydot
 
 
-Troubleshooting
+故障排除
 ===============
+
+Troubleshooting
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You may encounter some errors, such as UnsatisfiableError
 or a PackagesNotFoundError.

@@ -1,6 +1,12 @@
 ================
-Installing conda
+安装 conda
 ================
+
+Installing conda
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To install conda, you must first pick the right installer for you.
 The following are the most popular installers currently available:
@@ -41,8 +47,14 @@ The following are the most popular installers currently available:
 
 .. _system-reqs:
 
-System requirements
+系统要求
 ===================
+
+System requirements
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 * A supported operating systems: Windows, macOS, or Linux
 
@@ -57,8 +69,14 @@ System requirements
     You do not need administrative or root permissions to install conda if you select a
     user-writable install location (e.g. ``/Users/my-username/conda`` or ``C:\Users\my-username\conda``).
 
-Regular installation
+常规安装
 ====================
+
+Regular installation
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Follow the instructions for your operating system:
 
@@ -67,8 +85,14 @@ Follow the instructions for your operating system:
 * :doc:`Linux <linux>`
 
 
-Installing in silent mode
+静默安装
 =========================
+
+Installing in silent mode
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You can use :ref:`silent installation <silent-mode-glossary>` of
 Miniconda, Anaconda, or Miniforge for deployment or testing or building
@@ -83,8 +107,14 @@ Follow the silent-mode instructions for your operating system:
 
 .. _hash-verification:
 
-Cryptographic hash verification
+加密哈希验证
 ===============================
+
+Cryptographic hash verification
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 SHA-256 checksums are available for
 `Miniconda <https://docs.anaconda.com/miniconda/>`__ and

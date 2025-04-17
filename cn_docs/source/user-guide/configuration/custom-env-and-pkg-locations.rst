@@ -1,6 +1,12 @@
 ========================================================
-Using Custom Locations for Environment and Package Cache
+使用环境和包缓存的自定义位置
 ========================================================
+
+Using Custom Locations for Environment and Package Cache
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 For any given conda installation, the two largest folders in terms of
 disk space are often the ``envs`` and ``pkgs`` folders

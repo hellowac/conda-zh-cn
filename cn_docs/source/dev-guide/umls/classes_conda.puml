@@ -1328,10 +1328,10 @@ class "Noarch" as conda.models.package_info.Noarch #77AADD {
   entry_points
   type
 }
-class "NoarchField" as conda.models.package_info.NoarchField #77AADD {
+class "NoarchField" as conda.models.records.NoarchField #77AADD {
   box(instance, instance_type, val)
 }
-class "NoarchField" as conda.models.records.NoarchField #77AADD {
+class "NoarchField" as conda.models.package_info.NoarchField #77AADD {
   box(instance, instance_type, val)
 }
 class "NoarchType" as conda.models.enums.NoarchType #77AADD {
@@ -2189,19 +2189,19 @@ class "<color:red>SpecNotFound</color>" as conda.exceptions.SpecNotFound #77AADD
 }
 class "<color:red>SpecsConfigurationConflictError</color>" as conda.exceptions.SpecsConfigurationConflictError #77AADD {
 }
+class "Spinner" as conda.plugins.reporter_backends.console.Spinner #AAAA00 {
+  fh : StringIO, TextIOWrapper
+  show_spin : bool
+  spinner_cycle : cycle
+  start()
+  stop()
+}
 class "Spinner" as conda.common.io.Spinner #AAAA00 {
   enabled : bool
   fail_message : str
   fh : StringIO, TextIOWrapper
   json : bool
   message
-  show_spin : bool
-  spinner_cycle : cycle
-  start()
-  stop()
-}
-class "Spinner" as conda.plugins.reporter_backends.console.Spinner #AAAA00 {
-  fh : StringIO, TextIOWrapper
   show_spin : bool
   spinner_cycle : cycle
   start()
@@ -2383,12 +2383,12 @@ class "UrlsData" as conda.core.package_cache_data.UrlsData #DDDDDD {
   add_url(url)
   get_url(package_path)
 }
-class "<color:red>ValidationError</color>" as conda.auxlib.exceptions.ValidationError #99DDFF {
-}
 class "<color:red>ValidationError</color>" as conda.common.configuration.ValidationError #AAAA00 {
   parameter_name
   parameter_value
   source
+}
+class "<color:red>ValidationError</color>" as conda.auxlib.exceptions.ValidationError #99DDFF {
 }
 class "ValueEnum" as conda.base.constants.ValueEnum #44BB99 {
   name
@@ -2618,8 +2618,6 @@ class "time_recorder" as conda.common.io.time_recorder #AAAA00 {
   total_run_time : defaultdict
   log_totals()
 }
-class "tqdm" as tqdm.auto.tqdm #EEDD88 {
-}
 class "tqdm" as tqdm.std.tqdm #EEDD88 {
   ascii : NoneType, bool
   bar_format : NoneType, str
@@ -2678,6 +2676,8 @@ class "tqdm" as tqdm.std.tqdm #EEDD88 {
   update(n)
   wrapattr(stream, method, total, bytes)
   write(s, file, end, nolock)
+}
+class "tqdm" as tqdm.auto.tqdm #EEDD88 {
 }
 class "tqdm_asyncio" as tqdm.asyncio.tqdm_asyncio #EEDD88 {
   iterable_awaitable : bool

@@ -1,4 +1,6 @@
-# Integration Tests
+# 集成测试
+
+Integration Tests
 
 Integration tests in `conda` test the application from a high level where each test can
 potentially cover large portions of the code. These tests may also use the local

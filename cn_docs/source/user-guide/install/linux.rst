@@ -1,6 +1,12 @@
 ===================
-Installing on Linux
+在 Linux 上安装
 ===================
+
+Installing on Linux
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 #. Download the installer:
 
@@ -32,8 +38,14 @@ Installing on Linux
 
 .. _install-linux-silent:
 
-Using with fish shell
+使用 fish shell
 =====================
+
+Using with fish shell
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To use conda with fish shell, run the following in your terminal:
 
@@ -46,23 +58,41 @@ Configure fish-shell::
 
       conda init fish
 
-Installing in silent mode
+静默安装
 =========================
+
+Installing in silent mode
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 See the instructions for
 :ref:`installing in silent mode on macOS <install-macos-silent>`.
 
 
-Updating conda
+更新 conda
 ==============
+
+Updating conda
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 #. Open a terminal window.
 
 #. Run ``conda update conda``.
 
 
-Uninstalling conda
+卸载 conda
 ==================
+
+Uninstalling conda
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 #. Open a terminal window.
 

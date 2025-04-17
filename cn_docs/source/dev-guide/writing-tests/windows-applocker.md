@@ -1,7 +1,9 @@
 [AppLocker]: https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/applocker/applocker-overview
 [Application Identity Service]: https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/applocker/configure-the-application-identity-service
 
-# Testing with Windows AppLocker
+# 使用 Windows AppLocker 进行测试
+
+Testing with Windows AppLocker
 
 Windows environments with [AppLocker][AppLocker] enabled present unique challenges for `conda` development and testing. This guide explains how to set up a testing environment with AppLocker to ensure `conda` works correctly in these environments.
 

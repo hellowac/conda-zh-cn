@@ -1,6 +1,12 @@
 =====================
-Installing on Windows
+在 Windows 上安装
 =====================
+
+Installing on Windows
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 #. Download the installer:
 
@@ -31,8 +37,14 @@ Installing on Windows
 
 .. _install-win-silent:
 
-Installing in silent mode
+静默安装
 =========================
+
+Installing in silent mode
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. note::
    The following instructions are for Miniconda but should also work
@@ -69,16 +81,28 @@ current user without registering Python as the system's default:
    start /wait "" Miniconda3-latest-Windows-x86_64.exe /InstallationType=JustMe /RegisterPython=0 /S /D=%UserProfile%\Miniconda3
 
 
-Updating conda
+更新 conda
 ==============
+
+Updating conda
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 #. Open Command Prompt or PowerShell from the start menu.
 
 #. Run ``conda update conda``.
 
 
-Uninstalling conda
+卸载 conda
 ==================
+
+Uninstalling conda
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 #. In the Windows Control Panel, click Add or Remove Program.
 

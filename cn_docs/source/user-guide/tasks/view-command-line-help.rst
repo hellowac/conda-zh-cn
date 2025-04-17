@@ -1,6 +1,12 @@
 =========================
-Viewing command-line help
+查看命令行帮助
 =========================
+
+Viewing command-line help
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To see a list of supported conda commands, in your terminal window, run:
 

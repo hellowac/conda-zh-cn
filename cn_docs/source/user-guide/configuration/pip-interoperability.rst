@@ -1,6 +1,12 @@
 ===================================
-Improving interoperability with pip
+提高与 pip 的互操作性
 ===================================
+
+Improving interoperability with pip
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The conda 4.6.0 release added improved support for interoperability between conda and pip.
 This feature is still experimental and is therefore off by default.

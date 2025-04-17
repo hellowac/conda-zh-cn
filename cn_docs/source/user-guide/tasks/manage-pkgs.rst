@@ -1,14 +1,26 @@
 =================
-Managing packages
+管理软件包
 =================
+
+Managing packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. note::
    There are many options available for the commands described
    on this page. For details, see :doc:`commands <../../commands/index>`.
 
 
-Searching for packages
+搜索软件包
 ======================
+
+Searching for packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Use the terminal for the following steps.
 
@@ -35,8 +47,14 @@ and is available for installation:
    conda search --override-channels --channel http://conda.anaconda.org/mutirri iminuit
 
 
-Installing packages
+安装软件包
 ===================
+
+Installing packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Use the terminal for the following steps.
 
@@ -90,8 +108,14 @@ If you want to use a specific Python version, it is best to use
 an environment with that version. For more information,
 see :doc:`../troubleshooting`.
 
-Installing similar packages
+安装类似软件包
 ===========================
+
+Installing similar packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 Installing packages that have similar filenames and serve similar
 purposes may return unexpected results. The package last installed
 will likely determine the outcome, which may be undesirable.
@@ -99,8 +123,14 @@ If the two packages have different names, or if you're building
 variants of packages and need to line up other software in the stack,
 we recommend using :ref:`mutex-metapackages`.
 
-Installing packages from Anaconda.org
+从 Anaconda.org 安装软件包
 =====================================
+
+Installing packages from Anaconda.org
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Packages that are not available using ``conda install`` can be
 obtained from Anaconda.org, a package management service for
@@ -143,8 +173,14 @@ To install a package from Anaconda.org:
    channels, see :doc:`manage-channels`.
 
 
-Installing non-conda packages
+安装非 conda 软件包
 =============================
+
+Installing non-conda packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If a package is not available from conda or Anaconda.org, you may be able to
 find and install the package via conda-forge or with another package manager
@@ -202,8 +238,14 @@ To install a non-conda package:
    and try these commands again.
 
 
-Installing commercial packages
+安装商业软件包
 ==============================
+
+Installing commercial packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Installing a commercial package such as IOPro is the same as
 installing any other package. In your terminal window, run:
@@ -219,8 +261,14 @@ Python processing. Except for academic use, this free trial
 expires after 30 days.
 
 
-Viewing a list of installed packages
+查看已安装软件包列表
 ====================================
+
+Viewing a list of installed packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Use the terminal for the following steps.
 
@@ -236,8 +284,14 @@ To list all of the packages in a deactivated environment:
 
    conda list -n myenv
 
-Listing package dependencies
+列出软件包依赖项
 ============================
+
+Listing package dependencies
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To find what packages are depending on a specific package in
 your environment, there is not one specific conda command.
@@ -270,8 +324,14 @@ Output from the above command::
 Note this also returned “numpydoc” as it contains the string “numpy”. To get a more specific result
 set you can add \< and \>.
 
-Updating packages
+更新软件包
 =================
+
+Updating packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Use ``conda update`` command to check to see if a new update is
 available. If conda tells you an update is available, you can
@@ -323,8 +383,14 @@ update it, type ``y`` to update:
 
 .. _pinning-packages:
 
-Preventing packages from updating (pinning)
+阻止软件包更新（固定）
 ===========================================
+
+Preventing packages from updating (pinning)
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Pinning a package specification in an environment prevents
 packages listed in the ``pinned`` file from being updated.
@@ -355,8 +421,14 @@ install, subsequent ``conda update`` commands without
 ``--no-pin`` will revert NumPy back to the 1.7 series.
 
 
-Adding default packages to new environments automatically
+自动将默认软件包添加到新环境
 =========================================================
+
+Adding default packages to new environments automatically
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To automatically add default packages to each new environment that you create:
 
@@ -370,8 +442,14 @@ by default.
 
 You can override this option at the command prompt with the ``--no-default-packages`` flag.
 
-Removing packages
+删除软件包
 =================
+
+Removing packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Use the terminal for the following steps.
 

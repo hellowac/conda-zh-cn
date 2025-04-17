@@ -1,6 +1,12 @@
 ==========================
-Disabling SSL verification
+禁用 SSL 验证
 ==========================
+
+Disabling SSL verification
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Using conda with SSL is strongly recommended, but it is possible to disable SSL
 and it may be necessary to disable SSL in certain cases.
@@ -55,8 +61,14 @@ advised by your IT department that what you're doing is safe, you may ignore
 these warnings.
 
 =============================================
-Disabling SSL verification via conda settings
+通过 conda 设置禁用 SSL 验证
 =============================================
+
+Disabling SSL verification via conda settings
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 In addition to disabling SSL via environment variables, you can disable it by setting `ssl_verify` to `false` in your config files. To do so, run the following commands to disable and enable it:
 

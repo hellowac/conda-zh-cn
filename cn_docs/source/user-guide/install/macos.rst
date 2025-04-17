@@ -1,6 +1,12 @@
 ===================
-Installing on macOS
+在 macOS 上安装
 ===================
+
+Installing on macOS
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. caution::
     If you use the ``.pkg`` installer for Miniconda, beware that those installers may skip
@@ -40,8 +46,14 @@ Installing on macOS
 
 .. _install-macos-silent:
 
-Installing in silent mode
+静默安装
 =========================
+
+Installing in silent mode
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. note::
    The following instructions are for Miniconda but should also work
@@ -69,16 +81,28 @@ the bash installer. The following arguments are supported:
    ``source <path to conda>/bin/activate`` and then run ``conda init --all``.
 
 
-Updating Anaconda or Miniconda
+更新 Anaconda 或 Miniconda
 ==============================
+
+Updating Anaconda or Miniconda
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 #. Open a terminal window.
 
 #. Run ``conda update conda``.
 
 
-Uninstalling Anaconda or Miniconda
+卸载 Anaconda 或 Miniconda
 ==================================
+
+Uninstalling Anaconda or Miniconda
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 #. Open a terminal window.
 

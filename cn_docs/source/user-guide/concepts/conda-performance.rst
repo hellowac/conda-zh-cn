@@ -1,6 +1,12 @@
 ===========
-Performance
+性能
 ===========
+
+Performance
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda's performance can be affected by a variety of things.
 Unlike many package managers, Anaconda’s repositories generally
@@ -9,8 +15,14 @@ environments to be easily recreated. However, it does mean that the
 index metadata is always growing, and thus conda becomes slower as the
 number of packages increases.
 
-How a package is installed
+软件包的安装方式
 ==========================
+
+How a package is installed
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 While you are waiting, conda is doing a lot of work installing the
 packages. At any point along these steps, performance issues may arise.
@@ -36,8 +48,14 @@ to identify potential causes:
 * Are channels interacting in bad ways?
 
 
-Improving conda performance
+提升 conda 性能
 ===========================
+
+Improving conda performance
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To address these challenges, you can move packages to archive
 channels and follow the methods below to present conda with a smaller, simpler view than
@@ -69,8 +87,14 @@ Read more about `how we made conda faster <https://www.anaconda.com/how-we-made-
 
 .. _concepts-performance-channel-priority:
 
-Set strict channel priority
+设置严格的通道优先级
 ---------------------------
+
+Set strict channel priority
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Setting strict channel priority makes it so that if a package exists on
 a channel, conda will ignore all packages with the same name on lower
@@ -88,8 +112,15 @@ One thing to consider is that setting strict channel priority may make
 environments unsatisfiable. Learn more about :ref:`strict`.
 
 
-Reduce the index
+缩减索引
 ----------------
+
+Reduce the index
+
+.. tab:: 中文
+
+.. tab:: 英文
+
 One option for speeding up conda is to reduce the index. The index is
 reduced by conda based upon the user's input specs. It's likely that
 your repodata contains package data that is not used in the solving stage.

@@ -1,12 +1,24 @@
 ========
-Settings
+设置
 ========
+
+Settings
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 This page contains an overview of many important settings available in conda
 with examples where possible.
 
-General configuration
+常规配置
 =====================
+
+General configuration
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. _config-channels:
 
@@ -44,8 +56,14 @@ path may be::
 
 .. _default-channels:
 
-``default_channels``: Default channels
+``default_channels``：默认频道
 --------------------------------------
+
+``default_channels``: Default channels
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Normally, the defaults channel points to several channels at the
 `repo.anaconda.com <https://repo.anaconda.com/>`_ repository, but if
@@ -67,8 +85,14 @@ repository, an administrator can set both :ref:`channel alias <channel-alias>` a
 
 .. _channel-settings:
 
-``channel_settings``: Extra settings for individual channels
+``channel_settings``：单个频道的额外设置
 ------------------------------------------------------------
+
+``channel_settings``: Extra settings for individual channels
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. versionadded:: 23.3.0
 
@@ -97,8 +121,14 @@ handler called, "test-auth-handler" registered via the aforementioned plugin hoo
    schema must match exactly to the channel URL, so a pattern like ``*`` is not valid.
 
 
-``allowlist_channels`` and ``denylist_channels``: Allow or deny specific channels
+``allowlist_channels`` 和 ``denylist_channels``：允许或拒绝特定频道
 ---------------------------------------------------------------------------------
+
+``allowlist_channels`` and ``denylist_channels``: Allow or deny specific channels
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. versionadded:: 24.9.0
 
@@ -172,8 +202,14 @@ An example to explicitly deny the channels that are hosted on ``repo.anaconda.co
     - https://repo.anaconda.com/pkgs/msys2
 
 
-``auto_update_conda``: Update conda automatically
+``auto_update_conda``：自动更新 conda
 -------------------------------------------------
+
+``auto_update_conda``: Update conda automatically
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 When ``True``, conda updates itself any time a user updates or
 installs a package in the root environment. When ``False``,
@@ -188,8 +224,14 @@ conda updates itself only if the user manually issues a
 
 .. _always-yes:
 
-``always_yes``: Always yes
+``always_yes``：始终启用
 --------------------------
+
+``always_yes``: Always yes
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Choose the ``yes`` option whenever asked to proceed, such as
 when installing. Same as using the ``--yes`` flag at the
@@ -203,8 +245,14 @@ command line. The default is ``False``.
 
 .. _show-channel-urls:
 
-``show_channel_urls``: Show channel URLs
+``show_channel_urls``：显示频道 URL
 ----------------------------------------
+
+``show_channel_urls``: Show channel URLs
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Show channel URLs in ``conda list`` and when displaying what is
 going to be downloaded. The default is ``False``.
@@ -217,8 +265,14 @@ going to be downloaded. The default is ``False``.
 
 .. _change-command-prompt:
 
-``changeps1``: Change command prompt
+``changeps1``：更改命令提示符
 ------------------------------------
+
+``changeps1``: Change command prompt
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 When using ``conda activate``, change the command prompt from ``$PS1``
 to include the activated environment. The default is ``True``.
@@ -231,8 +285,14 @@ to include the activated environment. The default is ``True``.
 
 .. _add-pip-python-dependency:
 
-``add_pip_as_python_dependency``: Add pip as Python dependency
+``add_pip_as_python_dependency``：添加 pip 作为 Python 依赖项
 --------------------------------------------------------------
+
+``add_pip_as_python_dependency``: Add pip as Python dependency
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Add pip, wheel, and setuptools as dependencies of Python. This
 ensures that pip, wheel, and setuptools are always installed any
@@ -246,8 +306,14 @@ time Python is installed. The default is ``True``.
 
 .. _use-pip:
 
-``use_pip``: Use pip
+``use_pip``：使用 pip
 --------------------
+
+``use_pip``: Use pip
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Use pip when listing packages with ``conda list``. This does not
 affect any conda command or functionality other than the output
@@ -261,8 +327,14 @@ of the command ``conda list``. The default is ``True``.
 
 .. _config-proxy:
 
-``proxy_servers``: Configure conda for use behind a proxy server
+``proxy_servers``：配置 conda 以在代理服务器后使用
 ----------------------------------------------------------------
+
+``proxy_servers``: Configure conda for use behind a proxy server
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 By default, proxy settings are pulled from the HTTP_PROXY and
 HTTPS_PROXY environment variables or the system. Setting them
@@ -305,8 +377,14 @@ Be careful not to use ``http`` when you mean ``https`` or
 
 .. _SSL_verification:
 
-``ssl_verify``: SSL verification
+``ssl_verify``：SSL 验证
 --------------------------------
+
+``ssl_verify``: SSL verification
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 If you are behind a proxy that does SSL inspection, such as a
 Cisco IronPort Web Security Appliance (WSA), you may need to use
@@ -342,8 +420,14 @@ which can be used to verify SSL connections:
 
 .. _offline-mode-only:
 
-``offline``: Offline mode only
+``offline``：仅限离线模式
 ------------------------------
+
+``offline``: Offline mode only
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Filters out all channel URLs that do not use the ``file://``
 protocol. The default is ``False``.
@@ -354,13 +438,25 @@ protocol. The default is ``False``.
 
   offline: True
 
-Advanced configuration
+高级配置
 ======================
+
+Advanced configuration
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. _disallow-soft-linking:
 
-``allow_softlinks``: Disallow soft-linking
+``allow_softlinks``：禁止软链接
 ------------------------------------------
+
+``allow_softlinks``: Disallow soft-linking
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 When ``allow_softlinks`` is ``True``, conda uses hard links when
 possible and soft links (symlinks) when hard links are not
@@ -384,8 +480,14 @@ The default is ``True``.
 
 .. _channel-alias:
 
-``channel_alias``: Set a channel alias
+``channel_alias``：设置频道别名
 --------------------------------------
+
+``channel_alias``: Set a channel alias
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Whenever you use the ``-c`` or ``--channel`` flag to give conda a
 channel name that is not a URL, conda prepends the ``channel_alias``
@@ -429,8 +531,14 @@ is the same as::
 
 .. _config-add-default-pkgs:
 
-``create_default_packages``: Always add packages by default
+``create_default_packages``：始终默认添加软件包
 -----------------------------------------------------------
+
+``create_default_packages``: Always add packages by default
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 When creating new environments, add the specified packages by
 default. The default packages are installed in every environment
@@ -449,8 +557,14 @@ include any packages.
 
 .. _track-features:
 
-``track_features``: Track features
+``track_features``：跟踪功能
 ----------------------------------
+
+``track_features``: Track features
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Enable certain features to be tracked by default. The default is
 to not track any features. This is similar to adding MKL to
@@ -465,8 +579,14 @@ the ``create_default_packages`` list.
 
 .. _disable-updating:
 
-``update_dependencies``: Disable updating of dependencies
+``update_dependencies``：禁用依赖项更新
 ---------------------------------------------------------
+
+``update_dependencies``: Disable updating of dependencies
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 By default, ``conda install`` updates the given package to the
 latest version and installs any dependencies necessary for
@@ -501,8 +621,14 @@ better option may be to pin them. For more information, see
 
 .. _disallow-install:
 
-``disallow``: Disallow installation of specific packages
+``disallow``：禁止安装特定软件包
 --------------------------------------------------------
+
+``disallow``: Disallow installation of specific packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Disallow the installation of certain packages. The default is to
 allow installation of all packages.
@@ -516,8 +642,14 @@ allow installation of all packages.
 
 .. _add-anaconda-token:
 
-``add_anaconda_token``: Add Anaconda.org token to automatically see private packages
+``add_anaconda_token``：添加 Anaconda.org 令牌以自动查看私有软件包
 ------------------------------------------------------------------------------------
+
+``add_anaconda_token``: Add Anaconda.org token to automatically see private packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 When the channel alias is Anaconda.org or an Anaconda Server GUI,
 you can set the system configuration so that users automatically
@@ -542,8 +674,14 @@ The default is ``True``.
 
 .. _specify-env-directories:
 
-``envs_dirs``: Specify environment directories
+``envs_dirs``：指定环境目录
 ----------------------------------------------
+
+``envs_dirs``: Specify environment directories
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Specify directories in which environments are located. If this
 key is set, the root prefix ``envs_dir`` is not used unless
@@ -572,8 +710,14 @@ The ``CONDA_ENVS_PATH`` environment variable overwrites the ``envs_dirs`` settin
 
 .. _specify-pkg-directories:
 
-``pkgs_dirs``: Specify package directories
+``pkgs_dirs``：指定软件包目录
 ------------------------------------------
+
+``pkgs_dirs``: Specify package directories
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Specify directories in which packages are located. If this
 key is set, the root prefix ``pkgs_dirs`` is not used unless
@@ -601,8 +745,14 @@ The ``CONDA_PKGS_DIRS`` environment variable overwrites the
 
 .. _use-only-tar-bz2:
 
-``use_only_tar_bz2``: Force conda to download only .tar.bz2 packages
+``use_only_tar_bz2``：强制 conda 仅下载 .tar.bz2 软件包
 --------------------------------------------------------------------
+
+``use_only_tar_bz2``: Force conda to download only .tar.bz2 packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda 4.7 introduced a new ``.conda`` package file format.
 ``.conda`` is a more compact and faster alternative to ``.tar.bz2`` packages.
@@ -626,8 +776,14 @@ The default is ``False``.
 
 .. _console:
 
-``console``: Configure display type
+``console``：配置显示类型
 ---------------------------------------
+
+``console``: Configure display type
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 
 .. versionadded:: 24.11.0
@@ -650,13 +806,25 @@ or specify it on the command line with the ``--console`` option
    conda info --console=colors
 
 
-Conda-build configuration
+Conda-build 配置
 =========================
+
+Conda-build configuration
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 .. _specify-root-dir:
 
-``root-dir``: Specify conda-build output root directory
+``root-dir``：指定 conda-build 输出根目录
 -------------------------------------------------------
+
+``root-dir``: Specify conda-build output root directory
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Build output root directory. You can also set this with the
 ``CONDA_BLD_PATH`` environment variable. The default is
@@ -672,8 +840,14 @@ permissions to ``<CONDA_PREFIX>/conda-bld/``, the default is
       root-dir: ~/conda-builds
 .. _specify-output-folder:
 
-``output_folder``: Specify conda-build build folder (conda-build 3.16.3+)
+``output_folder``：指定 conda-build 构建文件夹（conda-build 3.16.3+）
 -------------------------------------------------------------------------
+
+``output_folder``: Specify conda-build build folder (conda-build 3.16.3+)
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Folder to dump output package to. Packages are moved here if build or test
 succeeds. If unset, the output folder corresponds to the same directory as
@@ -685,8 +859,14 @@ succeeds. If unset, the output folder corresponds to the same directory as
 
 .. _pkg_format:
 
-``pkg_version``: Specify conda-build package version
+``pkg_version``：指定 conda-build 软件包版本
 ----------------------------------------------------
+
+``pkg_version``: Specify conda-build package version
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda package version to create. Use ``2`` for ``.conda`` packages. If not set, conda-build defaults to ``.tar.bz2``.
 
@@ -697,8 +877,14 @@ Conda package version to create. Use ``2`` for ``.conda`` packages. If not set, 
 
 .. _auto-upload:
 
-``anaconda_upload``: Automatically upload conda-build packages to Anaconda.org
+``anaconda_upload``：自动将 conda-build 软件包上传到Anaconda.org
 ------------------------------------------------------------------------------
+
+``anaconda_upload``: Automatically upload conda-build packages to Anaconda.org
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Automatically upload packages built with conda-build to
 `Anaconda.org <http://anaconda.org>`_. The default is ``False``.
@@ -711,8 +897,14 @@ Automatically upload packages built with conda-build to
 
 .. _anaconda-token:
 
-``anaconda_token``: Token to be used for Anaconda.org uploads (conda-build 3.0+)
+``anaconda_token``：用于 Anaconda.org 上传的令牌 (conda-build 3.0+)
 --------------------------------------------------------------------------------
+
+``anaconda_token``: Token to be used for Anaconda.org uploads (conda-build 3.0+)
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Tokens are a means of authenticating with Anaconda.org without logging in.
 You can pass your token to conda-build with this ``.condarc`` setting, or with a CLI
@@ -726,8 +918,14 @@ argument. This is unset by default. Setting it implicitly enables
 
 .. _quiet:
 
-``quiet``: Limit build output verbosity (conda-build 3.0+)
+``quiet``：限制构建输出详细程度 (conda-build 3.0+)
 ----------------------------------------------------------
+
+``quiet``: Limit build output verbosity (conda-build 3.0+)
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda-build's output verbosity can be reduced with the ``quiet`` setting. For
 more verbosity, use the CLI flag ``--debug``.
@@ -739,8 +937,14 @@ more verbosity, use the CLI flag ``--debug``.
 
 .. _filename-hashing:
 
-``filename_hashing``: Disable filename hashing (conda-build 3.0+)
+``filename_hashing``：禁用文件名哈希 (conda-build 3.0+)
 -----------------------------------------------------------------
+
+``filename_hashing``: Disable filename hashing (conda-build 3.0+)
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda-build 3 adds hashes to filenames to allow greater customization of
 dependency versions. If you find this disruptive, you can disable the hashing
@@ -759,8 +963,14 @@ with the following config entry:
 
 .. _no-verify:
 
-``no_verify``: Disable recipe and package verification (conda-build 3.0+)
+``no_verify``：禁用配方和包验证 (conda-build 3.0+)
 -------------------------------------------------------------------------
+
+``no_verify``: Disable recipe and package verification (conda-build 3.0+)
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 By default, conda-build uses conda-verify to ensure that your recipe
 and package meet some minimum sanity checks. You can disable these:
@@ -772,8 +982,14 @@ and package meet some minimum sanity checks. You can disable these:
 
 .. _set-build-id:
 
-``set_build_id``: Disable per-build folder creation (conda-build 3.0+)
+``set_build_id``：禁用每次构建时创建文件夹 (conda-build 3.0+)
 ----------------------------------------------------------------------
+
+``set_build_id``: Disable per-build folder creation (conda-build 3.0+)
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 By default, conda-build creates a new folder for each build, named for the
 package name plus a timestamp. This allows you to do multiple builds at once.
@@ -788,8 +1004,14 @@ You should first try to change the build output root directory with the
 
 .. _skip-existing:
 
-``skip_existing``: Skip building packages that already exist (conda-build 3.0+)
+``skip_existing``：跳过构建已存在的包 (conda-build 3.0+)
 -------------------------------------------------------------------------------
+
+``skip_existing``: Skip building packages that already exist (conda-build 3.0+)
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 By default, conda-build builds all recipes that you specify. You can instead
 skip recipes that are already built. A recipe is skipped if and only if *all* of
@@ -802,8 +1024,14 @@ its outputs are available on your currently configured channels.
 
 .. _include-recipe:
 
-``include_recipe``: Omit recipe from package (conda-build 3.0+)
+``include_recipe``：从包中省略配方 (conda-build 3.0+)
 ---------------------------------------------------------------
+
+``include_recipe``: Omit recipe from package (conda-build 3.0+)
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 By default, conda-build includes the recipe that was used to build the package.
 If this contains sensitive or proprietary information, you can omit the recipe.
@@ -825,8 +1053,14 @@ If this contains sensitive or proprietary information, you can omit the recipe.
 
 .. _disable-activation:
 
-``activate``: Disable activation of environments during build/test (conda-build 3.0+)
+``activate``：禁用构建/测试期间的环境激活 (conda-build 3.0+)
 -------------------------------------------------------------------------------------
+
+``activate``: Disable activation of environments during build/test (conda-build 3.0+)
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 By default, conda-build activates the build and test environments prior to
 executing the build or test scripts. This adds necessary PATH entries, and also
@@ -841,8 +1075,14 @@ recommended, but some people prefer this.
 
 .. _long-test-prefix:
 
-``long_test_prefix``: Disable long prefix during test (conda-build 3.16.3+)
+``long_test_prefix``：禁用构建期间的长前缀测试 (conda-build 3.16.3+)
 ---------------------------------------------------------------------------
+
+``long_test_prefix``: Disable long prefix during test (conda-build 3.16.3+)
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 By default, conda-build uses a long prefix for the test prefix. If you have recipes
 that fail in long prefixes but would still like to test them in short prefixes, you
@@ -857,8 +1097,14 @@ The default is ``true``.
 
 .. _pypi-upload-settings:
 
-``pypirc``: PyPI upload settings (conda-build 3.0+)
+``pypirc``：PyPI 上传设置 (conda-build 3.0+)
 ---------------------------------------------------
+
+``pypirc``: PyPI upload settings (conda-build 3.0+)
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Unset by default. If you have wheel outputs in your recipe, conda-build will
 try to upload them to the PyPI repository specified by the ``pypi_repository``
@@ -871,8 +1117,14 @@ setting using credentials from this file path.
 
 .. _pypi-repository:
 
-``pypi_repository``: PyPI repository to upload to (conda-build 3.0+)
+``pypi_repository``：要上传到的 PyPI 仓库 (conda-build 3.0+)
 --------------------------------------------------------------------
+
+``pypi_repository``: PyPI repository to upload to (conda-build 3.0+)
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Unset by default. If you have wheel outputs in your recipe, conda-build will
 try to upload them to this PyPI repository using credentials from the file
@@ -883,8 +1135,14 @@ specified by the ``pypirc`` setting.
    conda-build:
        pypi_repository: pypi
 
-Expansion of environment variables
+环境变量扩展
 ==================================
+
+Expansion of environment variables
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda expands environment variables in a subset of configuration settings.
 These are:
@@ -915,8 +1173,14 @@ environment variable, like so:
     - https://${USERNAME}:${PASSWORD}@my.private.conda.channel
 .. _threads:
 
-Configuring number of threads
+配置线程数
 =============================
+
+Configuring number of threads
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You can use your ``.condarc`` file or environment variables to
 add configuration to control the number of threads. You may
@@ -928,6 +1192,12 @@ environments and install/remove packages.
 ``repodata_threads``
 --------------------
 
+``repodata_threads``
+
+.. tab:: 中文
+
+.. tab:: 英文
+
 * Default number of threads: None
 * Threads used when downloading, parsing, and creating repodata
   structures from ``repodata.json`` files. Multiple downloads from
@@ -936,6 +1206,12 @@ environments and install/remove packages.
 
 ``verify_threads``
 ------------------
+
+``verify_threads``
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 * Default number of threads: 1
 * Threads used when verifying the integrity of packages and files
@@ -946,6 +1222,12 @@ environments and install/remove packages.
 ``execute_threads``
 -------------------
 
+``execute_threads``
+
+.. tab:: 中文
+
+.. tab:: 英文
+
 * Default number of threads: 1
 * Threads used to unlink, remove, link, or copy files into your
   environment. Defaults to 1, as using multiple threads here can
@@ -953,6 +1235,12 @@ environments and install/remove packages.
 
 ``default_threads``
 -------------------
+
+``default_threads``
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 * Default number of threads: None
 * When set, this value is used for all of the above thread

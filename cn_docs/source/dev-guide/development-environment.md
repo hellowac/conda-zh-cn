@@ -1,4 +1,6 @@
-# Development Environment
+# 开发环境
+
+Development Environment
 
 1. Clone the repo you just forked on GitHub to your local machine. Configure
    your repo to point to both "upstream" (the main conda repo) and your fork

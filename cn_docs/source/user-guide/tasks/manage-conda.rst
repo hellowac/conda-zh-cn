@@ -1,9 +1,21 @@
 ==============
-Managing conda
+管理 conda
 ==============
 
-Verifying that conda is installed
+Managing conda
+
+.. tab:: 中文
+
+.. tab:: 英文
+
+验证 conda 是否已安装
 =================================
+
+Verifying that conda is installed
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To verify that conda is installed, in your terminal window, run:
 
@@ -25,8 +37,14 @@ If you get an error message, make sure of the following:
   installing conda.
 
 
-Determining your conda version
+确定您的 conda 版本
 ==============================
+
+Determining your conda version
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 In addition to the ``conda --version`` command explained above,
 you can determine what conda version is installed by running
@@ -43,8 +61,14 @@ OR
    conda -V
 
 
-Updating conda to the current version
+将 conda 更新至当前版本
 =====================================
+
+Updating conda to the current version
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To update conda, in your terminal window, run:
 
@@ -62,8 +86,14 @@ version is available, type ``y`` to update:
    Proceed ([y]/n)? y
 
 
-Suppressing warning message about updating conda
+隐藏有关更新 conda 的警告消息
 ================================================
+
+Suppressing warning message about updating conda
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To suppress the following warning message when you do not want
 to update conda to the latest version:

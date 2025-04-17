@@ -1,6 +1,12 @@
 ==========================
-Getting started with conda
+conda 入门
 ==========================
+
+Getting started with conda
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda is a powerful command line tool for package and environment management that runs on Windows, macOS, and Linux.
 
@@ -12,8 +18,14 @@ This guide to getting started with conda goes over the basics of starting up and
 
    See `Getting started with Anaconda Navigator <https://docs.anaconda.com/navigator/getting-started/>`__ to learn more.
 
-Before you start
+开始之前
 ================
+
+Before you start
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To bootstrap a ``conda`` installation, use a minimal installer such as `Miniconda <https://docs.anaconda.com/miniconda/>`__ or `Miniforge <https://conda-forge.org/download>`__.
 
@@ -34,8 +46,14 @@ Conda is also included in the `Anaconda Distribution <https://docs.anaconda.com/
     and the `Anaconda Terms of Service FAQ
     <https://www.anaconda.com/pricing/terms-of-service-faqs>`__ to answer your questions.
 
-Starting conda
+启动 conda
 ==============
+
+Starting conda
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda is available on Windows, macOS, or Linux and can be used with any terminal application (or shell).
 
@@ -55,8 +73,14 @@ Conda is available on Windows, macOS, or Linux and can be used with any terminal
 
       Open a terminal window.
 
-Creating environments
+创建环境
 =====================
+
+Creating environments
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda allows you to create separate environments, each containing their own files, packages, and package dependencies. The contents of each environment do not interact with each other.
 
@@ -70,8 +94,14 @@ To add packages while creating an environment, specify them after the environmen
 
 For more information on working with environments, see :doc:`Managing environments <tasks/manage-environments>`.
 
-Listing environments
+列出环境
 ====================
+
+Listing environments
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To see a list of all your environments::
 
@@ -96,8 +126,14 @@ To change your current environment back to the default one::
     and the asterisk (*) returns to the default env. To verify, you can repeat the
     ``conda info --envs`` command.
 
-Installing packages
+安装软件包
 ===================
+
+Installing packages
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 You can also install packages into a previously created environment. To do this, you can either activate the environment you want to modify or specify the environment name on the command line::
 
@@ -110,8 +146,14 @@ You can also install packages into a previously created environment. To do this,
 
 For more information on searching for and installing packages, see :doc:`Managing packages <tasks/manage-pkgs>`.
 
-Specifying channels
+指定频道
 ===================
+
+Specifying channels
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Channels are locations (on your own computer or elsewhere on the Internet) where packages are stored. By default, conda searches for packages in its :ref:`default channels <default-channels>`.
 
@@ -125,8 +167,14 @@ You can also override the default channels in your `.condarc` file. For a direct
 
    Find more packages and channels by searching `Anaconda.org <https://www.anaconda.org>`_.
 
-Updating conda
+更新 conda
 ==============
+
+Updating conda
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 To see your conda version, use the following command::
 
@@ -153,8 +201,14 @@ Conda compares your version to the latest available version and then displays wh
    We recommend that you always keep conda updated to the latest version.
    For conda's official version support policy, see `CEP 10 <https://github.com/conda-incubator/ceps/blob/main/cep-10.md>`_.
 
-More information
+更多信息
 ================
+
+More information
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 * :doc:`Conda cheat sheet <cheatsheet>`
 * `Full documentation <https://conda.io/docs/>`_

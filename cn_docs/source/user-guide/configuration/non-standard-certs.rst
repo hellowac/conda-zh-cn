@@ -1,6 +1,12 @@
 ===============================
-Using non-standard certificates
+使用非标准证书
 ===============================
+
+Using non-standard certificates
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Using conda behind a firewall may require using a non-standard
 set of certificates, which requires custom settings.

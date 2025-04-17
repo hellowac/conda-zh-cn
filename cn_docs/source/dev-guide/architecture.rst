@@ -1,5 +1,11 @@
-Architecture
+架构
 ============
+
+Architecture
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Conda is a complex system of many components and can be hard to
 understand for users and developers alike. The following
@@ -23,8 +29,14 @@ C4 stands for the for levels:
 
 .. _context:
 
-Level 1: Context
+第一层：上下文
 ----------------
+
+Level 1: Context
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 This is the overview, 30,000 feet view on conda, to better understand
 how conda in the center of the diagram interacts with other
@@ -38,8 +50,14 @@ the `C4 model`_ documentation about the `System Context diagram`_.
 
 .. _container:
 
-Level 2: Container
+第二层：容器
 ------------------
+
+Level 2: Container
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 This level is zooming in to conda on a system level, which was
 in the center of the Level 1 diagram, to show the high-level shape
@@ -50,8 +68,14 @@ patterns between the various containers.
 More information about how to interpret the following diagrams can be found
 in the `C4 model`_ documentation about the `Container diagram`_.
 
-Channels
+通道
 ^^^^^^^^
+
+Channels
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 The following diagram focuses on the channels container from the level 1
 diagram.
@@ -61,14 +85,26 @@ diagram.
 Conda
 ^^^^^
 
+Conda
+
+.. tab:: 中文
+
+.. tab:: 英文
+
 The following diagram focuses on the conda container from the level 1 diagram.
 
 .. uml:: umls/container/conda.puml
 
 .. _component:
 
-Level 3: Component
+第三层：组件
 ------------------
+
+Level 3: Component
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 Yet another zoom-in, in which individual containers from Level 2
 are decomposed to show major building blocks in conda and their
@@ -83,8 +119,14 @@ the `C4 model`_ documentation about the `Component diagram`_.
 
 .. _code:
 
-Level 4: Code
+第四层：代码
 -------------
+
+Level 4: Code
+
+.. tab:: 中文
+
+.. tab:: 英文
 
 This part is auto-generated based on the current code and shows
 how the code is structured and how it interacts. For brevity this
