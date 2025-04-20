@@ -2618,6 +2618,8 @@ class "time_recorder" as conda.common.io.time_recorder #AAAA00 {
   total_run_time : defaultdict
   log_totals()
 }
+class "tqdm" as tqdm.auto.tqdm #EEDD88 {
+}
 class "tqdm" as tqdm.std.tqdm #EEDD88 {
   ascii : NoneType, bool
   bar_format : NoneType, str
@@ -2676,8 +2678,6 @@ class "tqdm" as tqdm.std.tqdm #EEDD88 {
   update(n)
   wrapattr(stream, method, total, bytes)
   write(s, file, end, nolock)
-}
-class "tqdm" as tqdm.auto.tqdm #EEDD88 {
 }
 class "tqdm_asyncio" as tqdm.asyncio.tqdm_asyncio #EEDD88 {
   iterable_awaitable : bool
