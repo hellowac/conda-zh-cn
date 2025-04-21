@@ -1,0 +1,1779 @@
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>match_spec &#8212; conda 0.0.0.dev0+placeholder 文档</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/style.css?v=e70ed768" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="icon" sizes="16x16" type="image/ico" href="../../../../../_static/favicon.ico?v=92f50989" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/jspanel.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/custom.css?v=9c5e1b2e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../../../_static/documentation_options.js?v=d571dea1"></script>
+    <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../_static/translations.js?v=beaddf03"></script>
+    <script src="../../../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" data-goatcounter="https://docs-conda-io.goatcounter.com/count" src="../../../../../_static/js/count.js?v=ced7a106"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'dev-guide/api/conda/models/match_spec/index';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.conda.io/projects/conda/en/latest/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'stable';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/jspanel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/modal/jspanel.modal.js"></script>
+    <script src="https://unpkg.com/@panzoom/panzoom@4.4.1/dist/panzoom.min.js"></script>
+    <script src="../../../../../_static/js/panzoom.js?v=74da3ef2"></script>
+    <link rel="canonical" href="https://docs.conda.io/projects/conda/dev-guide/api/conda/models/match_spec/index.html" />
+    <link rel="index" title="索引" href="../../../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../../../search.html" />
+    <link rel="next" title="package_info" href="../package_info/index.html" />
+    <link rel="prev" title="leased_path_entry" href="../leased_path_entry/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="pst-primary-sidebar-checkbox"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="pst-secondary-sidebar-checkbox"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/conda_logo_full.svg" class="logo__image only-light" alt="conda 0.0.0.dev0+placeholder 文档 - Home"/>
+    <script>document.write(`<img src="../../../../../_static/conda_logo_full.svg" class="logo__image only-dark" alt="conda 0.0.0.dev0+placeholder 文档 - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><ul id="navbar-main-elements" class="navbar-nav">
+    <li class="nav-item current active">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda/">Conda</a>
+    </li>
+    <li class="nav-item ">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda-build">Conda-build</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://docs.anaconda.com/free/miniconda/">Miniconda</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://conda.org">conda.org</a>
+    </li>
+</ul></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/conda/conda" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://bit.ly/conda-chat-room" title="Element" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../../../_static/element_logo.svg" class="icon-link-image" alt="Element"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://conda.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discourse</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><ul id="navbar-main-elements" class="navbar-nav">
+    <li class="nav-item current active">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda/">Conda</a>
+    </li>
+    <li class="nav-item ">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda-build">Conda-build</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://docs.anaconda.com/free/miniconda/">Miniconda</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://conda.org">conda.org</a>
+    </li>
+</ul></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/conda/conda" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://bit.ly/conda-chat-room" title="Element" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../../../_static/element_logo.svg" class="icon-link-image" alt="Element"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://conda.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discourse</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="导航">
+  <p class="bd-links__title" role="heading" aria-level="1">导航</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../user-guide/index.html">用户指南</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../user-guide/getting-started.html">conda 入门</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../user-guide/install/index.html">安装 conda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/install/windows.html">在 Windows 上安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/install/macos.html">在 macOS 上安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/install/linux.html">在 Linux 上安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/install/rpm-debian.html">Miniconda 的 RPM 和 Debian 存储库</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../user-guide/tasks/index.html">任务</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/tasks/manage-conda.html">管理 conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/tasks/manage-environments.html">管理环境</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/tasks/manage-channels.html">管理渠道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/tasks/manage-pkgs.html">管理软件包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/tasks/manage-python.html">管理 Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/tasks/manage-virtual.html">管理虚拟软件包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/tasks/create-custom-channels.html">创建自定义渠道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/tasks/creating-projects.html">创建项目</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/tasks/view-command-line-help.html">查看命令行帮助</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../user-guide/configuration/index.html">配置</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/configuration/use-condarc.html">使用 .condarc conda 配置文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/configuration/settings.html">设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/configuration/admin-multi-user-install.html">管理多用户 conda 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/configuration/mirroring.html">镜像渠道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/configuration/disable-ssl-verification.html">禁用 SSL 验证</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/configuration/non-standard-certs.html">使用非标准证书</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/configuration/custom-env-and-pkg-locations.html">使用环境和包缓存的自定义位置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/configuration/pip-interoperability.html">提高与 pip 的互操作性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/configuration/free-channel.html">使用免费通道</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../user-guide/concepts/index.html">概念</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/concepts/conda-commands.html">命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/concepts/packages.html">软件包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/concepts/pkg-specs.html">软件包规范</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/concepts/pkg-search.html">软件包搜索和安装规范</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/concepts/channels.html">频道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/concepts/environments.html">环境</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/concepts/installing-with-conda.html">使用 conda 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/concepts/conda-performance.html">性能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/concepts/data-science.html">面向数据科学家的 Conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/concepts/conda-plugins.html">插件</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../user-guide/troubleshooting.html">故障排除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../user-guide/cheatsheet.html">备忘单</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../configuration.html">配置</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../commands/index.html">命令</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/activate.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/clean.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">clean</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/compare.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">compare</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/config.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/create.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/deactivate.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/doctor.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">doctor</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../commands/env/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../commands/env/config/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../../../commands/env/config/vars/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../commands/env/config/vars/list.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span> <span class="pre">list</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../commands/env/config/vars/set.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span> <span class="pre">set</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../commands/env/config/vars/unset.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span> <span class="pre">unset</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../commands/env/create.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../commands/env/export.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../commands/env/list.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../commands/env/remove.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">remove</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../commands/env/update.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">update</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/info.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/init.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">init</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/install.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/list.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/notices.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">notices</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/package.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">package</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../commands/repoquery/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../commands/repoquery/depends.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span> <span class="pre">depends</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../commands/repoquery/search.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span> <span class="pre">search</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../commands/repoquery/whoneeds.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span> <span class="pre">whoneeds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/remove.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">remove</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/rename.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">rename</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/run.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">run</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/search.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">search</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../commands/update.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../release-notes.html">发行说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary.html">术语</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../../index.html">开发者指南</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../architecture.html">架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../contributing.html">Contributing to conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development-environment.html">开发环境</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../deep-dives/index.html">深入探索</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../deep-dives/install.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../deep-dives/activation.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">init</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../deep-dives/context.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span></code> and context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../deep-dives/solvers.html">Solvers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../deep-dives/logging.html">Logging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../writing-tests/index.html">编写测试</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../writing-tests/integration-tests.html">集成测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../writing-tests/windows-applocker.html">使用 Windows AppLocker 进行测试</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../deprecations.html">弃用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../releasing.html">发布</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../plugins/index.html">插件</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plugins/auth_handlers.html">Auth Handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plugins/health_checks.html">Health Checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plugins/request_headers.html">Request Headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plugins/post_commands.html">Post-commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plugins/pre_commands.html">Pre-commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plugins/reporter_backends.html">Reporter Backends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plugins/settings.html">Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plugins/solvers.html">Solvers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plugins/subcommands.html">Subcommands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plugins/virtual_packages.html">Virtual Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../specs/index.html">规范</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../specs/solver-state.html">技术规范：求解器状态</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../../../api.html">API</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../_vendor/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_vendor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../activate/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">activate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">api</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../auxlib/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auxlib</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../auxlib/collection/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collection</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../auxlib/compat/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">compat</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../auxlib/decorators/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">decorators</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../auxlib/entity/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">entity</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../auxlib/exceptions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exceptions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../auxlib/ish/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ish</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../auxlib/logz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logz</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../auxlib/type_coercion/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">type_coercion</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../base/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../base/constants/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">constants</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../base/context/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">context</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../cli/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cli</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/actions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">common</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/conda_argparse/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda_argparse</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/find_commands/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">find_commands</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">helpers</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/install/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">install</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_clean/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_clean</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_commands/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_commands</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_compare/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_compare</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_config/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_config</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_create/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_create</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_env_config/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_config</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_env_create/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_create</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_env_list/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_list</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_env_remove/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_remove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_env_update/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_update</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_env_vars/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_vars</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_export/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_export</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_info/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_info</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_init/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_init</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_install/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_install</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_list/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_list</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_mock_activate/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_mock_activate</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_mock_deactivate/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_mock_deactivate</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_notices/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_notices</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_package/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_package</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_pip/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_pip</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_remove/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_remove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_rename/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_rename</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_run/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_run</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_search/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_search</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/main_update/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_update</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/python_api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">python_api</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">common</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../common/_logic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_logic</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../common/_os/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_os</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../common/_os/linux/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linux</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../common/_os/osx/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">osx</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../common/_os/unix/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unix</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../common/_os/windows/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">windows</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../common/compat/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">compat</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../common/configuration/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">configuration</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../common/constants/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">constants</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../common/disk/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">disk</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../common/io/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">io</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../common/iterators/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iterators</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../common/logic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logic</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../common/path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">path</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../common/path/_cygpath/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_cygpath</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../common/path/directories/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">directories</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../common/path/python/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">python</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../common/path/windows/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">windows</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../common/pkg_formats/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pkg_formats</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../common/pkg_formats/python/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">python</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../common/serialize/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">serialize</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../common/signals/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signals</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../common/toposort/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">toposort</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../common/url/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">url</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../core/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../core/envs_manager/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">envs_manager</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../core/index/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">index</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../core/initialize/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">initialize</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../core/link/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">link</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../core/package_cache_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">package_cache_data</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../core/path_actions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">path_actions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../core/portability/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">portability</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../core/prefix_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">prefix_data</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../core/solve/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solve</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../core/subdir_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subdir_data</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../../deprecations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">deprecations</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">env</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../env/env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">env</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../env/installers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">installers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../env/installers/base/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../env/installers/conda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../env/installers/pip/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../env/pip_util/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pip_util</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../env/specs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">specs</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../env/specs/binstar/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">binstar</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../env/specs/requirements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">requirements</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../env/specs/yaml_file/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">yaml_file</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../../exception_handler/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exception_handler</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../exceptions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exceptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../exports/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exports</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../gateways/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gateways</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../gateways/anaconda_client/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">anaconda_client</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../gateways/connection/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">connection</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6 has-children"><a class="reference internal" href="../../gateways/connection/adapters/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">adapters</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../gateways/connection/adapters/ftp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ftp</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../gateways/connection/adapters/http/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../gateways/connection/adapters/localfs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">localfs</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../gateways/connection/adapters/s3/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">s3</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l6"><a class="reference internal" href="../../gateways/connection/download/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">download</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../gateways/connection/session/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">session</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../gateways/disk/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">disk</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../gateways/disk/create/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">create</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../gateways/disk/delete/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">delete</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../gateways/disk/link/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">link</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../gateways/disk/lock/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lock</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../gateways/disk/permissions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">permissions</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../gateways/disk/read/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">read</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../gateways/disk/test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../gateways/disk/update/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">update</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../gateways/logging/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../gateways/repodata/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">repodata</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6 has-children"><a class="reference internal" href="../../gateways/repodata/jlap/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">jlap</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../gateways/repodata/jlap/core/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../gateways/repodata/jlap/fetch/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fetch</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../gateways/repodata/jlap/interface/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">interface</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l6"><a class="reference internal" href="../../gateways/repodata/lock/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lock</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../gateways/subprocess/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../../history/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">history</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../instructions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">instructions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../misc/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">misc</span></code></a></li>
+<li class="toctree-l4 current active has-children"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">models</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="../channel/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">channel</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dist/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dist</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../enums/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">enums</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../leased_path_entry/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">leased_path_entry</span></code></a></li>
+<li class="toctree-l5 current active"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">match_spec</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../package_info/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">package_info</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../prefix_graph/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">prefix_graph</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../records/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">records</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../version/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">version</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../notices/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">notices</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../notices/cache/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cache</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../notices/core/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../notices/fetch/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fetch</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../notices/types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../notices/views/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">views</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../../plan/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plan</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../plugins/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plugins</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../plugins/hookspec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">hookspec</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../plugins/manager/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">manager</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../plugins/post_solves/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">post_solves</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../plugins/post_solves/signature_verification/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signature_verification</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../plugins/reporter_backends/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">reporter_backends</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../plugins/reporter_backends/console/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">console</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../plugins/reporter_backends/json/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../plugins/solvers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solvers</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../plugins/subcommands/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subcommands</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6 has-children"><a class="reference internal" href="../../plugins/subcommands/doctor/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">doctor</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../plugins/subcommands/doctor/health_checks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_checks</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../plugins/types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../plugins/virtual_packages/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">virtual_packages</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../plugins/virtual_packages/archspec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">archspec</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../plugins/virtual_packages/conda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../plugins/virtual_packages/cuda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../plugins/virtual_packages/freebsd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">freebsd</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../plugins/virtual_packages/linux/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linux</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../plugins/virtual_packages/osx/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">osx</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../plugins/virtual_packages/windows/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">windows</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../../reporters/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">reporters</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../resolve/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">resolve</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../testing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">testing</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../testing/cases/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cases</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../testing/fixtures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fixtures</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../testing/gateways/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gateways</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../testing/gateways/fixtures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fixtures</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../testing/helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">helpers</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../testing/integration/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">integration</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../testing/notices/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">notices</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../testing/notices/fixtures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fixtures</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../testing/notices/helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">helpers</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../testing/solver_helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solver_helpers</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../trust/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trust</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../trust/constants/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">constants</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../trust/signature_verification/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signature_verification</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../conda_env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda_env</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../conda_env/cli/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cli</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../conda_env/installers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">installers</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../../index.html" class="nav-link">开发者指南</a></li>
+    
+    
+    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link"><code class="xref py py-mod docutils literal notranslate"><span class="pre">models</span></code></a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><code...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="module-conda.models.match_spec">
+<span id="match-spec"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">match_spec</span></code><a class="headerlink" href="#module-conda.models.match_spec" title="Link to this heading">#</a></h1>
+<p>Implements the query language for conda packages (a.k.a, MatchSpec).</p>
+<p>The MatchSpec is the conda package specification (e.g. <cite>conda==23.3</cite>, <cite>python&lt;3.7</cite>,
+<cite>cryptography * *_0</cite>) and is used to communicate the desired packages to install.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.models.match_spec.MatchSpecType" title="conda.models.match_spec.MatchSpecType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MatchSpecType</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.models.match_spec.MatchSpec" title="conda.models.match_spec.MatchSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MatchSpec</span></code></a></p></td>
+<td><p>The query language for conda packages.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.models.match_spec.MatchInterface" title="conda.models.match_spec.MatchInterface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MatchInterface</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.models.match_spec._StrMatchMixin" title="conda.models.match_spec._StrMatchMixin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_StrMatchMixin</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.models.match_spec.ExactStrMatch" title="conda.models.match_spec.ExactStrMatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExactStrMatch</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.models.match_spec.ExactLowerStrMatch" title="conda.models.match_spec.ExactLowerStrMatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExactLowerStrMatch</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.models.match_spec.GlobStrMatch" title="conda.models.match_spec.GlobStrMatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GlobStrMatch</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.models.match_spec.GlobLowerStrMatch" title="conda.models.match_spec.GlobLowerStrMatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GlobLowerStrMatch</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.models.match_spec.SplitStrMatch" title="conda.models.match_spec.SplitStrMatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SplitStrMatch</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.models.match_spec.FeatureMatch" title="conda.models.match_spec.FeatureMatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureMatch</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.models.match_spec.ChannelMatch" title="conda.models.match_spec.ChannelMatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelMatch</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.models.match_spec.CaseInsensitiveStrMatch" title="conda.models.match_spec.CaseInsensitiveStrMatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CaseInsensitiveStrMatch</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.models.match_spec._parse_version_plus_build" title="conda.models.match_spec._parse_version_plus_build"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_parse_version_plus_build</span></code></a>(v_plus_b)</p></td>
+<td><p>This should reliably pull the build string out of a version + build string combo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.models.match_spec._parse_legacy_dist" title="conda.models.match_spec._parse_legacy_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_parse_legacy_dist</span></code></a>(dist_str)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.models.match_spec._parse_channel" title="conda.models.match_spec._parse_channel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_parse_channel</span></code></a>(channel_val)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.models.match_spec._parse_spec_str" title="conda.models.match_spec._parse_spec_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_parse_spec_str</span></code></a>(spec_str)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.models.match_spec._PARSE_CACHE" title="conda.models.match_spec._PARSE_CACHE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_PARSE_CACHE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.models.match_spec._implementors" title="conda.models.match_spec._implementors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_implementors</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpecType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MatchSpecType</span></span><a class="headerlink" href="#conda.models.match_spec.MatchSpecType" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="（在 Python v3.13）"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpecType.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec_arg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpecType.__call__" title="Link to this definition">#</a></dt>
+<dd><p>Call self as a function.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MatchSpec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optional</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec" title="Link to this definition">#</a></dt>
+<dd><p>The query language for conda packages.</p>
+<p>Any of the fields that comprise a <code class="xref py py-class docutils literal notranslate"><span class="pre">PackageRecord</span></code> can be used to compose a
+<a class="reference internal" href="#conda.models.match_spec.MatchSpec" title="conda.models.match_spec.MatchSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatchSpec</span></code></a>.</p>
+<p><a class="reference internal" href="#conda.models.match_spec.MatchSpec" title="conda.models.match_spec.MatchSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatchSpec</span></code></a> can be composed with keyword arguments, where keys are any of the
+attributes of <code class="xref py py-class docutils literal notranslate"><span class="pre">PackageRecord</span></code>.  Values for keyword arguments are the exact values the
+attribute should match against.  Many fields can also be matched against non-exact values--by
+including wildcard <cite>*</cite> and <cite>&gt;</cite>/<cite>&lt;</cite> ranges--where supported.  Any non-specified field is
+the equivalent of a full wildcard match.</p>
+<p><a class="reference internal" href="#conda.models.match_spec.MatchSpec" title="conda.models.match_spec.MatchSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatchSpec</span></code></a> can also be composed using a single positional argument, with optional
+keyword arguments.  Keyword arguments also override any conflicting information provided in
+the positional argument.  The positional argument can be either an existing <a class="reference internal" href="#conda.models.match_spec.MatchSpec" title="conda.models.match_spec.MatchSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatchSpec</span></code></a>
+instance or a string.  Conda has historically supported more than one string representation
+for equivalent <a class="reference internal" href="#conda.models.match_spec.MatchSpec" title="conda.models.match_spec.MatchSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatchSpec</span></code></a> queries.  This <a class="reference internal" href="#conda.models.match_spec.MatchSpec" title="conda.models.match_spec.MatchSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatchSpec</span></code></a> should accept any existing
+valid spec string, and correctly compose a <a class="reference internal" href="#conda.models.match_spec.MatchSpec" title="conda.models.match_spec.MatchSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatchSpec</span></code></a> instance.</p>
+<p>A series of rules are now followed for creating the canonical string representation of a
+<a class="reference internal" href="#conda.models.match_spec.MatchSpec" title="conda.models.match_spec.MatchSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatchSpec</span></code></a> instance.  The canonical string representation can generically be
+represented by</p>
+<blockquote>
+<div><p>(channel(/subdir):(namespace):)name(version(build))[key1=value1,key2=value2]</p>
+</div></blockquote>
+<p>where <cite>()</cite> indicate optional fields.  The rules for constructing a canonical string
+representation are:</p>
+<ol class="arabic simple">
+<li><p><cite>name</cite> (i.e. &quot;package name&quot;) is required, but its value can be '*'.  Its position is always
+outside the key-value brackets.</p></li>
+<li><p>If <cite>version</cite> is an exact version, it goes outside the key-value brackets and is prepended
+by <cite>==</cite>. If <cite>version</cite> is a &quot;fuzzy&quot; value (e.g. <cite>1.11.*</cite>), it goes outside the key-value
+brackets with the <cite>.*</cite> left off and is prepended by <cite>=</cite>.  Otherwise <cite>version</cite> is included
+inside key-value brackets.</p></li>
+<li><p>If <cite>version</cite> is an exact version, and <cite>build</cite> is an exact value, <cite>build</cite> goes outside
+key-value brackets prepended by a <cite>=</cite>.  Otherwise, <cite>build</cite> goes inside key-value brackets.
+<cite>build_string</cite> is an alias for <cite>build</cite>.</p></li>
+<li><p>The <cite>namespace</cite> position is being held for a future conda feature.</p></li>
+<li><p>If <cite>channel</cite> is included and is an exact value, a <cite>::</cite> separator is ued between <cite>channel</cite>
+and <cite>name</cite>.  <cite>channel</cite> can either be a canonical channel name or a channel url.  In the
+canonical string representation, the canonical channel name will always be used.</p></li>
+<li><p>If <cite>channel</cite> is an exact value and <cite>subdir</cite> is an exact value, <cite>subdir</cite> is appended to
+<cite>channel</cite> with a <cite>/</cite> separator.  Otherwise, <cite>subdir</cite> is included in the key-value brackets.</p></li>
+<li><p>Key-value brackets can be delimited by comma, space, or comma+space.  Value can optionally
+be wrapped in single or double quotes, but must be wrapped if <cite>value</cite> contains a comma,
+space, or equal sign.  The canonical format uses comma delimiters and single quotes.</p></li>
+<li><p>When constructing a <a class="reference internal" href="#conda.models.match_spec.MatchSpec" title="conda.models.match_spec.MatchSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatchSpec</span></code></a> instance from a string, any key-value pair given
+inside the key-value brackets overrides any matching parameter given outside the brackets.</p></li>
+</ol>
+<p>When <a class="reference internal" href="#conda.models.match_spec.MatchSpec" title="conda.models.match_spec.MatchSpec"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatchSpec</span></code></a> attribute values are simple strings, the are interpreted using the
+following conventions:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If the string begins with <cite>^</cite> and ends with <cite>$</cite>, it is converted to a regex.</p></li>
+<li><p>If the string contains an asterisk (<cite>*</cite>), it is transformed from a glob to a regex.</p></li>
+<li><p>Otherwise, an exact match to the string is sought.</p></li>
+</ul>
+</div></blockquote>
+<p class="rubric">示例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">MatchSpec</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="n">build</span><span class="o">=</span><span class="s1">&#39;py2*&#39;</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="s1">&#39;conda-forge&#39;</span><span class="p">))</span>
+<span class="go">&#39;conda-forge::foo[build=py2*]&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">MatchSpec</span><span class="p">(</span><span class="s1">&#39;foo 1.0 py27_0&#39;</span><span class="p">))</span>
+<span class="go">&#39;foo==1.0=py27_0&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">MatchSpec</span><span class="p">(</span><span class="s1">&#39;foo=1.0=py27_0&#39;</span><span class="p">))</span>
+<span class="go">&#39;foo==1.0=py27_0&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">MatchSpec</span><span class="p">(</span><span class="s1">&#39;conda-forge::foo[version=1.0.*]&#39;</span><span class="p">))</span>
+<span class="go">&#39;conda-forge::foo=1.0&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">MatchSpec</span><span class="p">(</span><span class="s1">&#39;conda-forge/linux-64::foo&gt;=1.0&#39;</span><span class="p">))</span>
+<span class="go">&quot;conda-forge/linux-64::foo[version=&#39;&gt;=1.0&#39;]&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">MatchSpec</span><span class="p">(</span><span class="s1">&#39;*/linux-64::foo&gt;=1.0&#39;</span><span class="p">))</span>
+<span class="go">&quot;foo[subdir=linux-64,version=&#39;&gt;=1.0&#39;]&quot;</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>To fully-specify a package with a full, exact spec, the fields</dt><dd><ul class="simple">
+<li><p>channel</p></li>
+<li><p>subdir</p></li>
+<li><p>name</p></li>
+<li><p>version</p></li>
+<li><p>build</p></li>
+</ul>
+</dd>
+</dl>
+<p>must be given as exact values.  In the future, the namespace field will be added to this list.
+Alternatively, an exact spec is given by '<a href="#id1"><span class="problematic" id="id2">*</span></a>[md5=12345678901234567890123456789012]'
+or '<a href="#id3"><span class="problematic" id="id4">*</span></a>[sha256=f453db4ffe2271ec492a2913af4e61d4a6c118201f07de757df0eff769b65d2e]'.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.is_name_only_spec">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_name_only_spec</span></span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.is_name_only_spec" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.optional">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">optional</span></span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.optional" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.target">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target</span></span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.target" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.original_spec_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">original_spec_str</span></span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.original_spec_str" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.strictness">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">strictness</span></span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.strictness" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.spec">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spec</span></span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.spec" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.version">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.version" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.fn">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fn</span></span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.fn" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.FIELD_NAMES">
+<span class="sig-name descname"><span class="pre">FIELD_NAMES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('channel',</span> <span class="pre">'subdir',</span> <span class="pre">'name',</span> <span class="pre">'version',</span> <span class="pre">'build',</span> <span class="pre">'build_number',</span> <span class="pre">'track_features',</span> <span class="pre">'features',...</span></em><a class="headerlink" href="#conda.models.match_spec.MatchSpec.FIELD_NAMES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.FIELD_NAMES_SET">
+<span class="sig-name descname"><span class="pre">FIELD_NAMES_SET</span></span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.FIELD_NAMES_SET" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec._MATCHER_CACHE">
+<span class="sig-name descname"><span class="pre">_MATCHER_CACHE</span></span><a class="headerlink" href="#conda.models.match_spec.MatchSpec._MATCHER_CACHE" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.from_dist_str">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dist_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dist_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.from_dist_str" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.get_exact_value">
+<span class="sig-name descname"><span class="pre">get_exact_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.get_exact_value" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.get_raw_value">
+<span class="sig-name descname"><span class="pre">get_raw_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.get_raw_value" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.get" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.dist_str">
+<span class="sig-name descname"><span class="pre">dist_str</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.dist_str" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.match">
+<span class="sig-name descname"><span class="pre">match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.match" title="Link to this definition">#</a></dt>
+<dd><p>Accepts a <cite>PackageRecord</cite> or a dict, and matches can pull from any field
+in that record.  Returns True for a match, and False for no match.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec._match_individual">
+<span class="sig-name descname"><span class="pre">_match_individual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_component</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec._match_individual" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec._is_simple">
+<span class="sig-name descname"><span class="pre">_is_simple</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec._is_simple" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec._is_single">
+<span class="sig-name descname"><span class="pre">_is_single</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec._is_single" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec._to_filename_do_not_use">
+<span class="sig-name descname"><span class="pre">_to_filename_do_not_use</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec._to_filename_do_not_use" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.__repr__" title="Link to this definition">#</a></dt>
+<dd><p>Return repr(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.__str__" title="Link to this definition">#</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.__json__">
+<span class="sig-name descname"><span class="pre">__json__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.__json__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.conda_build_form">
+<span class="sig-name descname"><span class="pre">conda_build_form</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.conda_build_form" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.__eq__">
+<span class="sig-name descname"><span class="pre">__eq__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.__eq__" title="Link to this definition">#</a></dt>
+<dd><p>Return self==value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.__hash__">
+<span class="sig-name descname"><span class="pre">__hash__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.__hash__" title="Link to this definition">#</a></dt>
+<dd><p>Return hash(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec._hash_key">
+<span class="sig-name descname"><span class="pre">_hash_key</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec._hash_key" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.__contains__">
+<span class="sig-name descname"><span class="pre">__contains__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.__contains__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec._build_components">
+<span class="sig-name descname"><span class="pre">_build_components</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec._build_components" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec._make_component">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_make_component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec._make_component" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.merge">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">match_specs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">union</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.merge" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec.union">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">union</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">match_specs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec.union" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchSpec._merge">
+<span class="sig-name descname"><span class="pre">_merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">union</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchSpec._merge" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.models.match_spec._parse_version_plus_build">
+<span class="sig-name descname"><span class="pre">_parse_version_plus_build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_plus_b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec._parse_version_plus_build" title="Link to this definition">#</a></dt>
+<dd><p>This should reliably pull the build string out of a version + build string combo.
+.. rubric:: 示例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">_parse_version_plus_build</span><span class="p">(</span><span class="s2">&quot;=1.2.3 0&quot;</span><span class="p">)</span>
+<span class="go">(&#39;=1.2.3&#39;, &#39;0&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_parse_version_plus_build</span><span class="p">(</span><span class="s2">&quot;1.2.3=0&quot;</span><span class="p">)</span>
+<span class="go">(&#39;1.2.3&#39;, &#39;0&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_parse_version_plus_build</span><span class="p">(</span><span class="s2">&quot;&gt;=1.0 , &lt; 2.0 py34_0&quot;</span><span class="p">)</span>
+<span class="go">(&#39;&gt;=1.0,&lt;2.0&#39;, &#39;py34_0&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_parse_version_plus_build</span><span class="p">(</span><span class="s2">&quot;&gt;=1.0 , &lt; 2.0 =py34_0&quot;</span><span class="p">)</span>
+<span class="go">(&#39;&gt;=1.0,&lt;2.0&#39;, &#39;py34_0&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_parse_version_plus_build</span><span class="p">(</span><span class="s2">&quot;=1.2.3 &quot;</span><span class="p">)</span>
+<span class="go">(&#39;=1.2.3&#39;, None)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_parse_version_plus_build</span><span class="p">(</span><span class="s2">&quot;&gt;1.8,&lt;2|==1.7&quot;</span><span class="p">)</span>
+<span class="go">(&#39;&gt;1.8,&lt;2|==1.7&#39;, None)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_parse_version_plus_build</span><span class="p">(</span><span class="s2">&quot;* openblas_0&quot;</span><span class="p">)</span>
+<span class="go">(&#39;*&#39;, &#39;openblas_0&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_parse_version_plus_build</span><span class="p">(</span><span class="s2">&quot;* *&quot;</span><span class="p">)</span>
+<span class="go">(&#39;*&#39;, &#39;*&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.models.match_spec._parse_legacy_dist">
+<span class="sig-name descname"><span class="pre">_parse_legacy_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dist_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec._parse_legacy_dist" title="Link to this definition">#</a></dt>
+<dd><p class="rubric">示例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">_parse_legacy_dist</span><span class="p">(</span><span class="s2">&quot;_license-1.1-py27_1.tar.bz2&quot;</span><span class="p">)</span>
+<span class="go">(&#39;_license&#39;, &#39;1.1&#39;, &#39;py27_1&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_parse_legacy_dist</span><span class="p">(</span><span class="s2">&quot;_license-1.1-py27_1&quot;</span><span class="p">)</span>
+<span class="go">(&#39;_license&#39;, &#39;1.1&#39;, &#39;py27_1&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.models.match_spec._parse_channel">
+<span class="sig-name descname"><span class="pre">_parse_channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec._parse_channel" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.models.match_spec._PARSE_CACHE">
+<span class="sig-name descname"><span class="pre">_PARSE_CACHE</span></span><a class="headerlink" href="#conda.models.match_spec._PARSE_CACHE" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.models.match_spec._parse_spec_str">
+<span class="sig-name descname"><span class="pre">_parse_spec_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec._parse_spec_str" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchInterface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MatchInterface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchInterface" title="Link to this definition">#</a></dt>
+<dd><dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchInterface.raw_value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">raw_value</span></span><a class="headerlink" href="#conda.models.match_spec.MatchInterface.raw_value" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchInterface.exact_value">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exact_value</span></span><a class="headerlink" href="#conda.models.match_spec.MatchInterface.exact_value" title="Link to this definition">#</a></dt>
+<dd><p>If the match value is an exact specification, returns the value.
+Otherwise returns None.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchInterface.match">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchInterface.match" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchInterface.matches">
+<span class="sig-name descname"><span class="pre">matches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchInterface.matches" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchInterface.merge">
+<span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchInterface.merge" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.MatchInterface.union">
+<span class="sig-name descname"><span class="pre">union</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.MatchInterface.union" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.models.match_spec._StrMatchMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_StrMatchMixin</span></span><a class="headerlink" href="#conda.models.match_spec._StrMatchMixin" title="Link to this definition">#</a></dt>
+<dd><dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec._StrMatchMixin.exact_value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exact_value</span></span><a class="headerlink" href="#conda.models.match_spec._StrMatchMixin.exact_value" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec._StrMatchMixin.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec._StrMatchMixin.__str__" title="Link to this definition">#</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec._StrMatchMixin.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec._StrMatchMixin.__repr__" title="Link to this definition">#</a></dt>
+<dd><p>Return repr(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec._StrMatchMixin.__eq__">
+<span class="sig-name descname"><span class="pre">__eq__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec._StrMatchMixin.__eq__" title="Link to this definition">#</a></dt>
+<dd><p>Return self==value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec._StrMatchMixin.__hash__">
+<span class="sig-name descname"><span class="pre">__hash__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec._StrMatchMixin.__hash__" title="Link to this definition">#</a></dt>
+<dd><p>Return hash(self).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.models.match_spec.ExactStrMatch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ExactStrMatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.ExactStrMatch" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conda.models.match_spec._StrMatchMixin" title="conda.models.match_spec._StrMatchMixin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_StrMatchMixin</span></code></a>, <a class="reference internal" href="#conda.models.match_spec.MatchInterface" title="conda.models.match_spec.MatchInterface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MatchInterface</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.models.match_spec.ExactStrMatch.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('_raw_value',)</span></em><a class="headerlink" href="#conda.models.match_spec.ExactStrMatch.__slots__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.ExactStrMatch.match">
+<span class="sig-name descname"><span class="pre">match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.ExactStrMatch.match" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.models.match_spec.ExactLowerStrMatch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ExactLowerStrMatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.ExactLowerStrMatch" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conda.models.match_spec.ExactStrMatch" title="conda.models.match_spec.ExactStrMatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExactStrMatch</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.ExactLowerStrMatch.match">
+<span class="sig-name descname"><span class="pre">match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.ExactLowerStrMatch.match" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.models.match_spec.GlobStrMatch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GlobStrMatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.GlobStrMatch" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conda.models.match_spec._StrMatchMixin" title="conda.models.match_spec._StrMatchMixin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_StrMatchMixin</span></code></a>, <a class="reference internal" href="#conda.models.match_spec.MatchInterface" title="conda.models.match_spec.MatchInterface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MatchInterface</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.GlobStrMatch.exact_value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exact_value</span></span><a class="headerlink" href="#conda.models.match_spec.GlobStrMatch.exact_value" title="Link to this definition">#</a></dt>
+<dd><p>If the match value is an exact specification, returns the value.
+Otherwise returns None.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.GlobStrMatch.matches_all">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">matches_all</span></span><a class="headerlink" href="#conda.models.match_spec.GlobStrMatch.matches_all" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.models.match_spec.GlobStrMatch.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('_raw_value',</span> <span class="pre">'_re_match')</span></em><a class="headerlink" href="#conda.models.match_spec.GlobStrMatch.__slots__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.GlobStrMatch.match">
+<span class="sig-name descname"><span class="pre">match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.GlobStrMatch.match" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.GlobStrMatch.merge">
+<span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.GlobStrMatch.merge" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.models.match_spec.GlobLowerStrMatch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GlobLowerStrMatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.GlobLowerStrMatch" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conda.models.match_spec.GlobStrMatch" title="conda.models.match_spec.GlobStrMatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GlobStrMatch</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.models.match_spec.SplitStrMatch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SplitStrMatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.SplitStrMatch" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conda.models.match_spec.MatchInterface" title="conda.models.match_spec.MatchInterface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MatchInterface</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.SplitStrMatch.exact_value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exact_value</span></span><a class="headerlink" href="#conda.models.match_spec.SplitStrMatch.exact_value" title="Link to this definition">#</a></dt>
+<dd><p>If the match value is an exact specification, returns the value.
+Otherwise returns None.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.models.match_spec.SplitStrMatch.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('_raw_value',)</span></em><a class="headerlink" href="#conda.models.match_spec.SplitStrMatch.__slots__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.SplitStrMatch._convert">
+<span class="sig-name descname"><span class="pre">_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.SplitStrMatch._convert" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.SplitStrMatch.match">
+<span class="sig-name descname"><span class="pre">match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.SplitStrMatch.match" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.SplitStrMatch.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.SplitStrMatch.__repr__" title="Link to this definition">#</a></dt>
+<dd><p>Return repr(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.SplitStrMatch.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.SplitStrMatch.__str__" title="Link to this definition">#</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.SplitStrMatch.__eq__">
+<span class="sig-name descname"><span class="pre">__eq__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.SplitStrMatch.__eq__" title="Link to this definition">#</a></dt>
+<dd><p>Return self==value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.SplitStrMatch.__hash__">
+<span class="sig-name descname"><span class="pre">__hash__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.SplitStrMatch.__hash__" title="Link to this definition">#</a></dt>
+<dd><p>Return hash(self).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.models.match_spec.FeatureMatch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FeatureMatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.FeatureMatch" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conda.models.match_spec.MatchInterface" title="conda.models.match_spec.MatchInterface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MatchInterface</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.models.match_spec.FeatureMatch.exact_value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exact_value</span></span><a class="headerlink" href="#conda.models.match_spec.FeatureMatch.exact_value" title="Link to this definition">#</a></dt>
+<dd><p>If the match value is an exact specification, returns the value.
+Otherwise returns None.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.models.match_spec.FeatureMatch.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('_raw_value',)</span></em><a class="headerlink" href="#conda.models.match_spec.FeatureMatch.__slots__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.FeatureMatch._convert">
+<span class="sig-name descname"><span class="pre">_convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.FeatureMatch._convert" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.FeatureMatch.match">
+<span class="sig-name descname"><span class="pre">match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.FeatureMatch.match" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.FeatureMatch.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.FeatureMatch.__repr__" title="Link to this definition">#</a></dt>
+<dd><p>Return repr(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.FeatureMatch.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.FeatureMatch.__str__" title="Link to this definition">#</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.FeatureMatch.__eq__">
+<span class="sig-name descname"><span class="pre">__eq__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.FeatureMatch.__eq__" title="Link to this definition">#</a></dt>
+<dd><p>Return self==value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.FeatureMatch.__hash__">
+<span class="sig-name descname"><span class="pre">__hash__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.FeatureMatch.__hash__" title="Link to this definition">#</a></dt>
+<dd><p>Return hash(self).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.models.match_spec.ChannelMatch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ChannelMatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.ChannelMatch" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conda.models.match_spec.GlobStrMatch" title="conda.models.match_spec.GlobStrMatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GlobStrMatch</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.ChannelMatch.match">
+<span class="sig-name descname"><span class="pre">match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.ChannelMatch.match" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.ChannelMatch.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.ChannelMatch.__str__" title="Link to this definition">#</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.ChannelMatch.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.ChannelMatch.__repr__" title="Link to this definition">#</a></dt>
+<dd><p>Return repr(self).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.models.match_spec.CaseInsensitiveStrMatch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CaseInsensitiveStrMatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.CaseInsensitiveStrMatch" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conda.models.match_spec.GlobLowerStrMatch" title="conda.models.match_spec.GlobLowerStrMatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GlobLowerStrMatch</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.models.match_spec.CaseInsensitiveStrMatch.match">
+<span class="sig-name descname"><span class="pre">match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.models.match_spec.CaseInsensitiveStrMatch.match" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.models.match_spec._implementors">
+<span class="sig-name descname"><span class="pre">_implementors</span></span><a class="headerlink" href="#conda.models.match_spec._implementors" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpecType"><code class="docutils literal notranslate"><span class="pre">MatchSpecType</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpecType.__call__"><code class="docutils literal notranslate"><span class="pre">MatchSpecType.__call__()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec"><code class="docutils literal notranslate"><span class="pre">MatchSpec</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.is_name_only_spec"><code class="docutils literal notranslate"><span class="pre">MatchSpec.is_name_only_spec</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.optional"><code class="docutils literal notranslate"><span class="pre">MatchSpec.optional</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.target"><code class="docutils literal notranslate"><span class="pre">MatchSpec.target</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.original_spec_str"><code class="docutils literal notranslate"><span class="pre">MatchSpec.original_spec_str</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.name"><code class="docutils literal notranslate"><span class="pre">MatchSpec.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.strictness"><code class="docutils literal notranslate"><span class="pre">MatchSpec.strictness</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.spec"><code class="docutils literal notranslate"><span class="pre">MatchSpec.spec</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.version"><code class="docutils literal notranslate"><span class="pre">MatchSpec.version</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.fn"><code class="docutils literal notranslate"><span class="pre">MatchSpec.fn</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.FIELD_NAMES"><code class="docutils literal notranslate"><span class="pre">MatchSpec.FIELD_NAMES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.FIELD_NAMES_SET"><code class="docutils literal notranslate"><span class="pre">MatchSpec.FIELD_NAMES_SET</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec._MATCHER_CACHE"><code class="docutils literal notranslate"><span class="pre">MatchSpec._MATCHER_CACHE</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.from_dist_str"><code class="docutils literal notranslate"><span class="pre">MatchSpec.from_dist_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.get_exact_value"><code class="docutils literal notranslate"><span class="pre">MatchSpec.get_exact_value()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.get_raw_value"><code class="docutils literal notranslate"><span class="pre">MatchSpec.get_raw_value()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.get"><code class="docutils literal notranslate"><span class="pre">MatchSpec.get()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.dist_str"><code class="docutils literal notranslate"><span class="pre">MatchSpec.dist_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.match"><code class="docutils literal notranslate"><span class="pre">MatchSpec.match()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec._match_individual"><code class="docutils literal notranslate"><span class="pre">MatchSpec._match_individual()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec._is_simple"><code class="docutils literal notranslate"><span class="pre">MatchSpec._is_simple()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec._is_single"><code class="docutils literal notranslate"><span class="pre">MatchSpec._is_single()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec._to_filename_do_not_use"><code class="docutils literal notranslate"><span class="pre">MatchSpec._to_filename_do_not_use()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.__repr__"><code class="docutils literal notranslate"><span class="pre">MatchSpec.__repr__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.__str__"><code class="docutils literal notranslate"><span class="pre">MatchSpec.__str__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.__json__"><code class="docutils literal notranslate"><span class="pre">MatchSpec.__json__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.conda_build_form"><code class="docutils literal notranslate"><span class="pre">MatchSpec.conda_build_form()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.__eq__"><code class="docutils literal notranslate"><span class="pre">MatchSpec.__eq__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.__hash__"><code class="docutils literal notranslate"><span class="pre">MatchSpec.__hash__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec._hash_key"><code class="docutils literal notranslate"><span class="pre">MatchSpec._hash_key()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.__contains__"><code class="docutils literal notranslate"><span class="pre">MatchSpec.__contains__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec._build_components"><code class="docutils literal notranslate"><span class="pre">MatchSpec._build_components()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec._make_component"><code class="docutils literal notranslate"><span class="pre">MatchSpec._make_component()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.merge"><code class="docutils literal notranslate"><span class="pre">MatchSpec.merge()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec.union"><code class="docutils literal notranslate"><span class="pre">MatchSpec.union()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchSpec._merge"><code class="docutils literal notranslate"><span class="pre">MatchSpec._merge()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec._parse_version_plus_build"><code class="docutils literal notranslate"><span class="pre">_parse_version_plus_build()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec._parse_legacy_dist"><code class="docutils literal notranslate"><span class="pre">_parse_legacy_dist()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec._parse_channel"><code class="docutils literal notranslate"><span class="pre">_parse_channel()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec._PARSE_CACHE"><code class="docutils literal notranslate"><span class="pre">_PARSE_CACHE</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec._parse_spec_str"><code class="docutils literal notranslate"><span class="pre">_parse_spec_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchInterface"><code class="docutils literal notranslate"><span class="pre">MatchInterface</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchInterface.raw_value"><code class="docutils literal notranslate"><span class="pre">MatchInterface.raw_value</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchInterface.exact_value"><code class="docutils literal notranslate"><span class="pre">MatchInterface.exact_value</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchInterface.match"><code class="docutils literal notranslate"><span class="pre">MatchInterface.match()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchInterface.matches"><code class="docutils literal notranslate"><span class="pre">MatchInterface.matches()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchInterface.merge"><code class="docutils literal notranslate"><span class="pre">MatchInterface.merge()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.MatchInterface.union"><code class="docutils literal notranslate"><span class="pre">MatchInterface.union()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec._StrMatchMixin"><code class="docutils literal notranslate"><span class="pre">_StrMatchMixin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec._StrMatchMixin.exact_value"><code class="docutils literal notranslate"><span class="pre">_StrMatchMixin.exact_value</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec._StrMatchMixin.__str__"><code class="docutils literal notranslate"><span class="pre">_StrMatchMixin.__str__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec._StrMatchMixin.__repr__"><code class="docutils literal notranslate"><span class="pre">_StrMatchMixin.__repr__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec._StrMatchMixin.__eq__"><code class="docutils literal notranslate"><span class="pre">_StrMatchMixin.__eq__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec._StrMatchMixin.__hash__"><code class="docutils literal notranslate"><span class="pre">_StrMatchMixin.__hash__()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.ExactStrMatch"><code class="docutils literal notranslate"><span class="pre">ExactStrMatch</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.ExactStrMatch.__slots__"><code class="docutils literal notranslate"><span class="pre">ExactStrMatch.__slots__</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.ExactStrMatch.match"><code class="docutils literal notranslate"><span class="pre">ExactStrMatch.match()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.ExactLowerStrMatch"><code class="docutils literal notranslate"><span class="pre">ExactLowerStrMatch</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.ExactLowerStrMatch.match"><code class="docutils literal notranslate"><span class="pre">ExactLowerStrMatch.match()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.GlobStrMatch"><code class="docutils literal notranslate"><span class="pre">GlobStrMatch</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.GlobStrMatch.exact_value"><code class="docutils literal notranslate"><span class="pre">GlobStrMatch.exact_value</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.GlobStrMatch.matches_all"><code class="docutils literal notranslate"><span class="pre">GlobStrMatch.matches_all</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.GlobStrMatch.__slots__"><code class="docutils literal notranslate"><span class="pre">GlobStrMatch.__slots__</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.GlobStrMatch.match"><code class="docutils literal notranslate"><span class="pre">GlobStrMatch.match()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.GlobStrMatch.merge"><code class="docutils literal notranslate"><span class="pre">GlobStrMatch.merge()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.GlobLowerStrMatch"><code class="docutils literal notranslate"><span class="pre">GlobLowerStrMatch</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.SplitStrMatch"><code class="docutils literal notranslate"><span class="pre">SplitStrMatch</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.SplitStrMatch.exact_value"><code class="docutils literal notranslate"><span class="pre">SplitStrMatch.exact_value</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.SplitStrMatch.__slots__"><code class="docutils literal notranslate"><span class="pre">SplitStrMatch.__slots__</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.SplitStrMatch._convert"><code class="docutils literal notranslate"><span class="pre">SplitStrMatch._convert()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.SplitStrMatch.match"><code class="docutils literal notranslate"><span class="pre">SplitStrMatch.match()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.SplitStrMatch.__repr__"><code class="docutils literal notranslate"><span class="pre">SplitStrMatch.__repr__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.SplitStrMatch.__str__"><code class="docutils literal notranslate"><span class="pre">SplitStrMatch.__str__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.SplitStrMatch.__eq__"><code class="docutils literal notranslate"><span class="pre">SplitStrMatch.__eq__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.SplitStrMatch.__hash__"><code class="docutils literal notranslate"><span class="pre">SplitStrMatch.__hash__()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.FeatureMatch"><code class="docutils literal notranslate"><span class="pre">FeatureMatch</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.FeatureMatch.exact_value"><code class="docutils literal notranslate"><span class="pre">FeatureMatch.exact_value</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.FeatureMatch.__slots__"><code class="docutils literal notranslate"><span class="pre">FeatureMatch.__slots__</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.FeatureMatch._convert"><code class="docutils literal notranslate"><span class="pre">FeatureMatch._convert()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.FeatureMatch.match"><code class="docutils literal notranslate"><span class="pre">FeatureMatch.match()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.FeatureMatch.__repr__"><code class="docutils literal notranslate"><span class="pre">FeatureMatch.__repr__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.FeatureMatch.__str__"><code class="docutils literal notranslate"><span class="pre">FeatureMatch.__str__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.FeatureMatch.__eq__"><code class="docutils literal notranslate"><span class="pre">FeatureMatch.__eq__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.FeatureMatch.__hash__"><code class="docutils literal notranslate"><span class="pre">FeatureMatch.__hash__()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.ChannelMatch"><code class="docutils literal notranslate"><span class="pre">ChannelMatch</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.ChannelMatch.match"><code class="docutils literal notranslate"><span class="pre">ChannelMatch.match()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.ChannelMatch.__str__"><code class="docutils literal notranslate"><span class="pre">ChannelMatch.__str__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.ChannelMatch.__repr__"><code class="docutils literal notranslate"><span class="pre">ChannelMatch.__repr__()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.CaseInsensitiveStrMatch"><code class="docutils literal notranslate"><span class="pre">CaseInsensitiveStrMatch</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec.CaseInsensitiveStrMatch.match"><code class="docutils literal notranslate"><span class="pre">CaseInsensitiveStrMatch.match()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.models.match_spec._implementors"><code class="docutils literal notranslate"><span class="pre">_implementors</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/conda/conda/edit/main/docs/source/dev-guide/api/conda/models/match_spec/index.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../../../_sources/dev-guide/api/conda/models/match_spec/index.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> 显示源代码
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2017, Anaconda, Inc.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7创建。
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+<a href="https://docs-conda-io.goatcounter.com" title="Analytics Dashboard">
+    Analytics Dashboard <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-27761864-11', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

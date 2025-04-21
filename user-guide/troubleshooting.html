@@ -1,0 +1,2119 @@
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>故障排除 &#8212; conda 0.0.0.dev0+placeholder 文档</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/style.css?v=e70ed768" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="icon" sizes="16x16" type="image/ico" href="../_static/favicon.ico?v=92f50989" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/jspanel.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=9c5e1b2e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=d571dea1"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" data-goatcounter="https://docs-conda-io.goatcounter.com/count" src="../_static/js/count.js?v=ced7a106"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/troubleshooting';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.conda.io/projects/conda/en/latest/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'stable';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/jspanel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/modal/jspanel.modal.js"></script>
+    <script src="https://unpkg.com/@panzoom/panzoom@4.4.1/dist/panzoom.min.js"></script>
+    <script src="../_static/js/panzoom.js?v=74da3ef2"></script>
+    <link rel="canonical" href="https://docs.conda.io/projects/conda/user-guide/troubleshooting.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="备忘单" href="cheatsheet.html" />
+    <link rel="prev" title="插件" href="concepts/conda-plugins.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="pst-primary-sidebar-checkbox"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="pst-secondary-sidebar-checkbox"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/conda_logo_full.svg" class="logo__image only-light" alt="conda 0.0.0.dev0+placeholder 文档 - Home"/>
+    <script>document.write(`<img src="../_static/conda_logo_full.svg" class="logo__image only-dark" alt="conda 0.0.0.dev0+placeholder 文档 - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><ul id="navbar-main-elements" class="navbar-nav">
+    <li class="nav-item current active">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda/">Conda</a>
+    </li>
+    <li class="nav-item ">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda-build">Conda-build</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://docs.anaconda.com/free/miniconda/">Miniconda</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://conda.org">conda.org</a>
+    </li>
+</ul></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/conda/conda" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://bit.ly/conda-chat-room" title="Element" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/element_logo.svg" class="icon-link-image" alt="Element"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://conda.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discourse</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><ul id="navbar-main-elements" class="navbar-nav">
+    <li class="nav-item current active">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda/">Conda</a>
+    </li>
+    <li class="nav-item ">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda-build">Conda-build</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://docs.anaconda.com/free/miniconda/">Miniconda</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://conda.org">conda.org</a>
+    </li>
+</ul></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/conda/conda" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://bit.ly/conda-chat-room" title="Element" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/element_logo.svg" class="icon-link-image" alt="Element"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://conda.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discourse</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="导航">
+  <p class="bd-links__title" role="heading" aria-level="1">导航</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">用户指南</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html">conda 入门</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="install/index.html">安装 conda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="install/windows.html">在 Windows 上安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/macos.html">在 macOS 上安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/linux.html">在 Linux 上安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install/rpm-debian.html">Miniconda 的 RPM 和 Debian 存储库</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tasks/index.html">任务</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="tasks/manage-conda.html">管理 conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks/manage-environments.html">管理环境</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks/manage-channels.html">管理渠道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks/manage-pkgs.html">管理软件包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks/manage-python.html">管理 Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks/manage-virtual.html">管理虚拟软件包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks/create-custom-channels.html">创建自定义渠道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks/creating-projects.html">创建项目</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tasks/view-command-line-help.html">查看命令行帮助</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="configuration/index.html">配置</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration/use-condarc.html">使用 .condarc conda 配置文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/settings.html">设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/admin-multi-user-install.html">管理多用户 conda 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/mirroring.html">镜像渠道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/disable-ssl-verification.html">禁用 SSL 验证</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="configuration/non-standard-certs.html">使用非标准证书</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/custom-env-and-pkg-locations.html">使用环境和包缓存的自定义位置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/pip-interoperability.html">提高与 pip 的互操作性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/free-channel.html">使用免费通道</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="concepts/index.html">概念</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="concepts/conda-commands.html">命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/packages.html">软件包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/pkg-specs.html">软件包规范</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/pkg-search.html">软件包搜索和安装规范</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/channels.html">频道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/environments.html">环境</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/installing-with-conda.html">使用 conda 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/conda-performance.html">性能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/data-science.html">面向数据科学家的 Conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="concepts/conda-plugins.html">插件</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">故障排除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cheatsheet.html">备忘单</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">配置</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../commands/index.html">命令</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands/activate.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/clean.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">clean</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/compare.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">compare</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/config.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/create.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/deactivate.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/doctor.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">doctor</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../commands/env/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../commands/env/config/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../commands/env/config/vars/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../commands/env/config/vars/list.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span> <span class="pre">list</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../commands/env/config/vars/set.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span> <span class="pre">set</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../commands/env/config/vars/unset.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span> <span class="pre">unset</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands/env/create.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands/env/export.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands/env/list.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands/env/remove.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">remove</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands/env/update.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">update</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/info.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/init.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">init</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/install.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/list.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/notices.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">notices</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/package.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">package</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../commands/repoquery/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands/repoquery/depends.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span> <span class="pre">depends</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands/repoquery/search.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span> <span class="pre">search</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands/repoquery/whoneeds.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span> <span class="pre">whoneeds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/remove.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">remove</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/rename.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">rename</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/run.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">run</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/search.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">search</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands/update.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">发行说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">术语</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dev-guide/index.html">开发者指南</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dev-guide/architecture.html">架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev-guide/contributing.html">Contributing to conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev-guide/development-environment.html">开发环境</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev-guide/deep-dives/index.html">深入探索</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/deep-dives/install.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/deep-dives/activation.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">init</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/deep-dives/context.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span></code> and context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/deep-dives/solvers.html">Solvers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/deep-dives/logging.html">Logging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev-guide/writing-tests/index.html">编写测试</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/writing-tests/integration-tests.html">集成测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/writing-tests/windows-applocker.html">使用 Windows AppLocker 进行测试</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev-guide/deprecations.html">弃用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev-guide/releasing.html">发布</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev-guide/plugins/index.html">插件</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/plugins/auth_handlers.html">Auth Handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/plugins/health_checks.html">Health Checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/plugins/request_headers.html">Request Headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/plugins/post_commands.html">Post-commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/plugins/pre_commands.html">Pre-commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/plugins/reporter_backends.html">Reporter Backends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/plugins/settings.html">Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/plugins/solvers.html">Solvers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/plugins/subcommands.html">Subcommands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/plugins/virtual_packages.html">Virtual Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev-guide/specs/index.html">规范</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dev-guide/specs/solver-state.html">技术规范：求解器状态</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dev-guide/api.html">API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../dev-guide/api/conda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/_vendor/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_vendor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/activate/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">activate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">api</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../dev-guide/api/conda/auxlib/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auxlib</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/auxlib/collection/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collection</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/auxlib/compat/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">compat</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/auxlib/decorators/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">decorators</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/auxlib/entity/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">entity</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/auxlib/exceptions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exceptions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/auxlib/ish/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ish</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/auxlib/logz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logz</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/auxlib/type_coercion/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">type_coercion</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../dev-guide/api/conda/base/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/base/constants/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">constants</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/base/context/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">context</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../dev-guide/api/conda/cli/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cli</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/actions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">common</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/conda_argparse/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda_argparse</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/find_commands/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">find_commands</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">helpers</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/install/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">install</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_clean/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_clean</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_commands/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_commands</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_compare/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_compare</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_config/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_config</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_create/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_create</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_env_config/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_config</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_env_create/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_create</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_env_list/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_list</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_env_remove/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_remove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_env_update/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_update</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_env_vars/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_vars</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_export/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_export</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_info/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_info</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_init/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_init</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_install/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_install</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_list/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_list</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_mock_activate/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_mock_activate</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_mock_deactivate/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_mock_deactivate</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_notices/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_notices</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_package/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_package</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_pip/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_pip</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_remove/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_remove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_rename/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_rename</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_run/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_run</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_search/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_search</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/main_update/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_update</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/cli/python_api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">python_api</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../dev-guide/api/conda/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">common</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/common/_logic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_logic</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../dev-guide/api/conda/common/_os/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_os</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/common/_os/linux/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linux</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/common/_os/osx/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">osx</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/common/_os/unix/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unix</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/common/_os/windows/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">windows</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/common/compat/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">compat</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/common/configuration/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">configuration</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/common/constants/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">constants</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/common/disk/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">disk</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/common/io/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">io</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/common/iterators/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iterators</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/common/logic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logic</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../dev-guide/api/conda/common/path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">path</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/common/path/_cygpath/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_cygpath</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/common/path/directories/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">directories</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/common/path/python/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">python</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/common/path/windows/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">windows</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../dev-guide/api/conda/common/pkg_formats/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pkg_formats</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/common/pkg_formats/python/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">python</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/common/serialize/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">serialize</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/common/signals/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signals</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/common/toposort/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">toposort</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/common/url/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">url</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../dev-guide/api/conda/core/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/core/envs_manager/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">envs_manager</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/core/index/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">index</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/core/initialize/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">initialize</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/core/link/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">link</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/core/package_cache_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">package_cache_data</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/core/path_actions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">path_actions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/core/portability/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">portability</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/core/prefix_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">prefix_data</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/core/solve/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solve</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/core/subdir_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subdir_data</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/deprecations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">deprecations</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../dev-guide/api/conda/env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">env</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/env/env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">env</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../dev-guide/api/conda/env/installers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">installers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/env/installers/base/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/env/installers/conda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/env/installers/pip/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/env/pip_util/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pip_util</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../dev-guide/api/conda/env/specs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">specs</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/env/specs/binstar/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">binstar</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/env/specs/requirements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">requirements</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/env/specs/yaml_file/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">yaml_file</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/exception_handler/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exception_handler</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/exceptions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exceptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/exports/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exports</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../dev-guide/api/conda/gateways/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gateways</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/gateways/anaconda_client/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">anaconda_client</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../dev-guide/api/conda/gateways/connection/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">connection</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6 has-children"><a class="reference internal" href="../dev-guide/api/conda/gateways/connection/adapters/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">adapters</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l7"><a class="reference internal" href="../dev-guide/api/conda/gateways/connection/adapters/ftp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ftp</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../dev-guide/api/conda/gateways/connection/adapters/http/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../dev-guide/api/conda/gateways/connection/adapters/localfs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">localfs</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../dev-guide/api/conda/gateways/connection/adapters/s3/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">s3</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/gateways/connection/download/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">download</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/gateways/connection/session/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">session</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../dev-guide/api/conda/gateways/disk/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">disk</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/gateways/disk/create/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">create</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/gateways/disk/delete/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">delete</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/gateways/disk/link/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">link</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/gateways/disk/lock/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lock</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/gateways/disk/permissions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">permissions</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/gateways/disk/read/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">read</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/gateways/disk/test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/gateways/disk/update/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">update</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/gateways/logging/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../dev-guide/api/conda/gateways/repodata/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">repodata</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6 has-children"><a class="reference internal" href="../dev-guide/api/conda/gateways/repodata/jlap/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">jlap</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l7"><a class="reference internal" href="../dev-guide/api/conda/gateways/repodata/jlap/core/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../dev-guide/api/conda/gateways/repodata/jlap/fetch/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fetch</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../dev-guide/api/conda/gateways/repodata/jlap/interface/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">interface</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/gateways/repodata/lock/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lock</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/gateways/subprocess/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/history/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">history</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/instructions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">instructions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/misc/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">misc</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../dev-guide/api/conda/models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">models</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/models/channel/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">channel</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/models/dist/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dist</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/models/enums/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">enums</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/models/leased_path_entry/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">leased_path_entry</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/models/match_spec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">match_spec</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/models/package_info/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">package_info</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/models/prefix_graph/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">prefix_graph</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/models/records/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">records</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/models/version/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">version</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../dev-guide/api/conda/notices/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">notices</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/notices/cache/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cache</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/notices/core/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/notices/fetch/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fetch</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/notices/types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/notices/views/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">views</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/plan/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plan</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../dev-guide/api/conda/plugins/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plugins</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/plugins/hookspec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">hookspec</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/plugins/manager/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">manager</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../dev-guide/api/conda/plugins/post_solves/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">post_solves</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/plugins/post_solves/signature_verification/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signature_verification</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../dev-guide/api/conda/plugins/reporter_backends/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">reporter_backends</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/plugins/reporter_backends/console/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">console</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/plugins/reporter_backends/json/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/plugins/solvers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solvers</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../dev-guide/api/conda/plugins/subcommands/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subcommands</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6 has-children"><a class="reference internal" href="../dev-guide/api/conda/plugins/subcommands/doctor/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">doctor</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l7"><a class="reference internal" href="../dev-guide/api/conda/plugins/subcommands/doctor/health_checks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_checks</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/plugins/types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../dev-guide/api/conda/plugins/virtual_packages/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">virtual_packages</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/plugins/virtual_packages/archspec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">archspec</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/plugins/virtual_packages/conda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/plugins/virtual_packages/cuda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/plugins/virtual_packages/freebsd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">freebsd</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/plugins/virtual_packages/linux/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linux</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/plugins/virtual_packages/osx/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">osx</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/plugins/virtual_packages/windows/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">windows</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/reporters/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">reporters</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/resolve/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">resolve</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../dev-guide/api/conda/testing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">testing</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/testing/cases/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cases</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/testing/fixtures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fixtures</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../dev-guide/api/conda/testing/gateways/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gateways</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/testing/gateways/fixtures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fixtures</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/testing/helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">helpers</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/testing/integration/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">integration</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../dev-guide/api/conda/testing/notices/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">notices</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/testing/notices/fixtures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fixtures</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../dev-guide/api/conda/testing/notices/helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">helpers</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/testing/solver_helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solver_helpers</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../dev-guide/api/conda/trust/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trust</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/trust/constants/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">constants</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../dev-guide/api/conda/trust/signature_verification/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signature_verification</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda/utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../dev-guide/api/conda_env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda_env</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda_env/cli/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cli</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dev-guide/api/conda_env/installers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">installers</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">用户指南</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">故障排除</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="id1">
+<h1>故障排除<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>Troubleshooting</p>
+<section id="windows-conda">
+<h2>在 Windows 中使用 conda 批处理脚本提前退出<a class="headerlink" href="#windows-conda" title="Link to this heading">#</a></h2>
+<p>Using conda in Windows Batch script exits early</p>
+<p>In conda 4.6+, the way that you interact with conda goes through a batch script (<code class="docutils literal notranslate"><span class="pre">%PREFIX%\condabin\conda.bat</span></code>).
+Unfortunately, this means it's a little complicated to use conda from other batch scripts. When using batch
+scripts from within batch scripts, you must prefix your command with <code class="docutils literal notranslate"><span class="pre">CALL</span></code>. If you do not do this, your batch
+script that calls conda will exit immediately after the conda usage. In other words, if you write this in a .bat file:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="n">myenv</span> <span class="n">python</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">myenv</span>
+<span class="n">echo</span> <span class="n">test</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Neither the activation, nor the echo will happen. You must write this in your batch script:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CALL</span> <span class="n">conda</span> <span class="n">create</span> <span class="n">myenv</span> <span class="n">python</span>
+<span class="n">CALL</span> <span class="n">conda</span> <span class="n">activate</span> <span class="n">myenv</span>
+<span class="n">echo</span> <span class="n">test</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>This is known behavior with cmd.exe, and we have not found any way to change it.
+<a class="reference external" href="https://stackoverflow.com/questions/4798879/how-do-i-run-a-batch-script-from-within-a-batch-script/4798965">https://stackoverflow.com/questions/4798879/how-do-i-run-a-batch-script-from-within-a-batch-script/4798965</a></p>
+</section>
+<section id="numpy-mkl">
+<span id="mkl-library"></span><h2>NumPy MKL 库加载失败<a class="headerlink" href="#numpy-mkl" title="Link to this heading">#</a></h2>
+<p>NumPy MKL library load failed</p>
+<p>Error messages like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Intel</span> <span class="n">MKL</span> <span class="n">FATAL</span> <span class="n">ERROR</span><span class="p">:</span> <span class="n">Cannot</span> <span class="n">load</span> <span class="n">mkl_intel_thread</span><span class="o">.</span><span class="n">dll</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">ordinal</span> <span class="mi">241</span> <span class="n">could</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">located</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">the</span> <span class="n">dynamic</span> <span class="n">link</span> <span class="n">library</span>
+</pre></div>
+</div>
+<section id="id2">
+<h3>原因<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>NumPy is unable to load the correct MKL or Intel OpenMP runtime libraries. This
+is almost always caused by one of two things:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>The environment with NumPy has not been activated.</p></li>
+<li><p>Another software vendor has installed MKL or Intel OpenMP (libiomp5md.dll)
+files into the C:\Windows\System32 folder. These files are being loaded
+before Anaconda's and they're not compatible.</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="id3">
+<h3>解决方案<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>If you are not activating your environments, start with doing that. There's more
+info at <a class="reference internal" href="tasks/manage-environments.html#activate-env"><span class="std std-ref">Activating environments</span></a>. If you are still stuck, you may need to consider
+more drastic measures.</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Remove any MKL-related files from C:\Windows\System32. We recommend
+renaming them to add .bak to the filename to effectively hide them. Observe
+if any other software breaks. Try moving the DLL files alongside the .exe of
+the software that broke. If it works again, you can keep things in the
+moved state - Anaconda doesn't need MKL in System32, and no other software should need it either. If
+you identify software that is installing software here, please contact the
+creators of that software. Inform them that their practice of installing
+MKL to a global location is fragile and is breaking other people's software
+and wasting a lot of time. See the list of guilty parties below.</p></li>
+<li><p>You may try a special DLL loading mode that Anaconda builds into Python.
+This changes the DLL search path from System32 first to System32 as another
+entry on PATH, allowing libraries in your conda environment to be found
+before the libraries in System32. Control of this feature is done with
+environment variables. Only Python builds beyond these builds will react to
+these environment variables:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Python 2.7.15 build 14</p></li>
+<li><p>Python 3.6.8 build 7</p></li>
+<li><p>Python 3.7.2 build 8</p></li>
+</ul>
+</div></blockquote>
+<p>To update Python from the defaults channel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">update</span> <span class="o">-</span><span class="n">c</span> <span class="n">defaults</span> <span class="n">python</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Anaconda has built special patches into its builds of Python to enable
+this functionality. If you get your Python package from somewhere else
+(e.g. conda-forge), these flags may not do anything.</p>
+</div>
+<p>Control environment variables:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CONDA_DLL_SEARCH_MODIFICATION_ENABLE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONDA_DLL_SEARCH_MODIFICATION_DEBUG</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONDA_DLL_SEARCH_MODIFICATION_NEVER_ADD_WINDOWS_DIRECTORY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONDA_DLL_SEARCH_MODIFICATION_NEVER_ADD_CWD</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>To set variables on Windows, you may use either the CLI or a Windows GUI.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>CLI: <a class="reference external" href="https://superuser.com/questions/79612/setting-and-getting-windows-environment-variables-from-the-command-prompt/79614">https://superuser.com/questions/79612/setting-and-getting-windows-environment-variables-from-the-command-prompt/79614</a></p></li>
+<li><p>GUI: <a class="reference external" href="http://www.dowdandassociates.com/blog/content/howto-set-an-environment-variable-in-windows-gui/">http://www.dowdandassociates.com/blog/content/howto-set-an-environment-variable-in-windows-gui/</a></p></li>
+</ul>
+</div></blockquote>
+<p>These should be set to a value of <code class="docutils literal notranslate"><span class="pre">1</span></code> to enable them.  For example, in a terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">CONDA_DLL_SEARCH_MODIFICATION_ENABLE</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Only <code class="docutils literal notranslate"><span class="pre">CONDA_DLL_SEARCH_MODIFICATION_ENABLE</span></code> should be set finally.</p>
+</div>
+</div></blockquote>
+</div></blockquote>
+<p>List of known software that installs Intel libraries to C:\Windows\System32:</p>
+<ul class="simple">
+<li><p>Amplitube, by IK Multimedia</p></li>
+<li><p>ASIO4ALL, by Michael Tippach</p></li>
+</ul>
+<p>If you find others, please let us know. If you're on this list and you want to
+fix things, let us know. In either case, the conda issue tracker at
+<a class="github reference external" href="https://github.com/conda/conda/issues">conda/conda#issues</a> is the best way to reach us.</p>
+</section>
+</section>
+<section id="ssl">
+<h2>SSL 连接错误<a class="headerlink" href="#ssl" title="Link to this heading">#</a></h2>
+<p>SSL connection errors</p>
+<p>This is a broad umbrella of errors with many causes. Here are some we've seen.</p>
+<section id="condahttperror-http-000-connection-failed">
+<h3>CondaHTTPError: HTTP 000 CONNECTION FAILED<a class="headerlink" href="#condahttperror-http-000-connection-failed" title="Link to this heading">#</a></h3>
+<p>CondaHTTPError: HTTP 000 CONNECTION FAILED</p>
+<p>If you're on Windows and you see this error, look a little further down in the
+error text. Do you see something like this?:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SSLError</span><span class="p">(</span><span class="n">MaxRetryError</span><span class="p">(</span><span class="s1">&#39;HTTPSConnectionPool(host=</span><span class="se">\&#39;</span><span class="s1">repo.anaconda.com</span><span class="se">\&#39;</span><span class="s1">, port=443): Max retries exceeded with url: /pkgs/r/win-32/repodata.json.bz2 (Caused by SSLError(&quot;Can</span><span class="se">\&#39;</span><span class="s1">t connect to HTTPS URL because the SSL module is not available.&quot;))&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The key part there is the last bit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Caused</span> <span class="n">by</span> <span class="n">SSLError</span><span class="p">(</span><span class="s2">&quot;Can</span><span class="se">\&#39;</span><span class="s2">t connect to HTTPS URL because the SSL module is not available.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Conda is having problems because it can't find the OpenSSL libraries that it needs.</p>
+<section id="id4">
+<h4>原因<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p>Cause</p>
+<p>You may observe this error cropping up after a conda update. More recent
+versions of conda and more recent builds of Python are more strict about
+requiring activation of environments. We're working on better error messages for
+them, but here's the story for now. Windows relies on the PATH environment
+variable as the way to locate libraries that are not in the immediate folder,
+and also not in the C:\Windows\System32 folder. Searching for libraries in the
+PATH folders goes from left to right. If you choose to put Anaconda's folders on
+PATH, there are several of them:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>(install root)</p></li>
+<li><p>(install root)/Library/(MSYS2 env)/bin ## dependent on MSYS2 packages</p></li>
+<li><p>(install root)/Library/mingw-w64/bin</p></li>
+<li><p>(install root)/Library/usr/bin</p></li>
+<li><p>(install root)/Library/bin</p></li>
+<li><p>(install root)/Scripts</p></li>
+<li><p>(install root)/bin</p></li>
+<li><p>(install root)/condabin</p></li>
+</ul>
+</div></blockquote>
+<p>Early installers for Anaconda put these on PATH. That was ultimately fragile
+because Anaconda isn't the only software on the system. If other software had
+similarly named executables or libraries, and came earlier on PATH, Anaconda
+could break. On the flip side, Anaconda could break other software if Anaconda
+were earlier in the PATH order and shadowed any other executables or libraries.
+To make this easier, we began recommending &quot;activation&quot; instead of modifying
+PATH. Activation is a tool where conda sets your PATH, and also runs any custom
+package scripts which are often used to set additional environment variables
+that are necessary for software to run (e.g. <code class="docutils literal notranslate"><span class="pre">JAVA_HOME</span></code>). Because activation runs
+only in a local terminal session (as opposed to the permanent PATH entry), it is
+safe to put Anaconda's PATH entries first. That means that Anaconda's libraries
+get higher priority when you're running Anaconda but Anaconda doesn't interfere
+with other software when you're not running Anaconda.</p>
+<p>Anaconda's Python interpreter included a patch for a long time that added the
+(install root)/Library/bin folder to that Python's PATH. Unfortunately, this
+interfered with reasoning about PATH at all when using that Python interpreter.
+We removed that patch in Python 3.7.0, and we regret that this has caused
+problems for people who are not activating their environments and who otherwise
+do not have the proper entries on PATH. We're experimenting with approaches that
+will allow our executables to be less dependent on PATH and more self-aware of
+their needed library load paths. For now, though, the only solutions to this
+problem are to manage PATH properly.</p>
+<p>Our humble opinion is that activation is the easiest way to ensure that things
+work. See more information on activation in <a class="reference internal" href="tasks/manage-environments.html#activate-env"><span class="std std-ref">Activating environments</span></a>.</p>
+</section>
+<section id="id5">
+<h4>解决方案<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>Solution</p>
+<p>Use shells opened from Anaconda Navigator. If you use a GUI
+IDE and you see this error, ask the developers of your IDE to add activation for
+conda environments.</p>
+</section>
+</section>
+<section id="id6">
+<h3>SSL 证书错误<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>SSL certificate errors</p>
+<section id="id7">
+<h4>原因<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<p>Cause</p>
+<p>Installing packages may produce a &quot;connection failed&quot; error if you do not have
+the certificates for a secure connection to the package repository.</p>
+</section>
+<section id="id8">
+<h4>解决方案<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<p>Solution</p>
+<p>Pip can use the <code class="docutils literal notranslate"><span class="pre">--use-feature=truststore</span></code> option to use the operating system
+certificate store. This may be of help in typically corporate environments with
+https traffic inspection, where the corporate CA is installed in the operating
+system certificate store:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">use</span><span class="o">-</span><span class="n">feature</span><span class="o">=</span><span class="n">truststore</span>
+</pre></div>
+</div>
+<p>Conda has a similar option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="nb">set</span> <span class="n">ssl_verify</span> <span class="n">truststore</span>
+</pre></div>
+</div>
+<p>Alternatively, pip can use the <code class="docutils literal notranslate"><span class="pre">--trusted-host</span></code> option to indicate that the URL of the
+repository is trusted:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">trusted</span><span class="o">-</span><span class="n">host</span> <span class="n">pypi</span><span class="o">.</span><span class="n">org</span>
+</pre></div>
+</div>
+<p>Conda has three similar options.</p>
+<ol class="arabic">
+<li><p>The option <code class="docutils literal notranslate"><span class="pre">--insecure</span></code> or <code class="docutils literal notranslate"><span class="pre">-k</span></code> ignores certificate validation errors for all hosts.</p>
+<p>Running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--help</span></code> shows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Networking</span> <span class="n">Options</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="o">--</span><span class="n">insecure</span>        <span class="n">Allow</span> <span class="n">conda</span> <span class="n">to</span> <span class="n">perform</span> <span class="s2">&quot;insecure&quot;</span> <span class="n">SSL</span> <span class="n">connections</span> <span class="ow">and</span>
+                        <span class="n">transfers</span><span class="o">.</span> <span class="n">Equivalent</span> <span class="n">to</span> <span class="n">setting</span> <span class="s1">&#39;ssl_verify&#39;</span> <span class="n">to</span>
+                        <span class="s1">&#39;False&#39;</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>The configuration option <code class="docutils literal notranslate"><span class="pre">ssl_verify</span></code> can be set to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--describe</span> <span class="pre">ssl_verify</span></code> shows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># # ssl_verify (bool, str)</span>
+<span class="c1"># #   aliases: verify_ssl</span>
+<span class="c1"># #   conda verifies SSL certificates for HTTPS requests, just like a web</span>
+<span class="c1"># #   browser. By default, SSL verification is enabled and conda operations</span>
+<span class="c1"># #   will fail if a required URL&#39;s certificate cannot be verified. Setting</span>
+<span class="c1"># #   ssl_verify to False disables certification verification. The value for</span>
+<span class="c1"># #   ssl_verify can also be (1) a path to a CA bundle file, (2) a path to a</span>
+<span class="c1"># #   directory containing certificates of trusted CA, or (3) &#39;truststore&#39;</span>
+<span class="c1"># #   to use the operating system certificate store.</span>
+<span class="c1"># #</span>
+<span class="c1"># ssl_verify: true</span>
+</pre></div>
+</div>
+<p>Running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--set</span> <span class="pre">ssl_verify</span> <span class="pre">false</span></code> modifies <code class="docutils literal notranslate"><span class="pre">~/.condarc</span></code> and
+sets the <code class="docutils literal notranslate"><span class="pre">-k</span></code> flag for all future conda operations performed by that user.
+Running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--help</span></code> shows other configuration scope options.</p>
+<p>When using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span></code>, the user's conda configuration file at
+<code class="docutils literal notranslate"><span class="pre">~/.condarc</span></code> is used by default. The flag <code class="docutils literal notranslate"><span class="pre">--system</span></code> will instead write
+to the system configuration file for all users at
+<code class="docutils literal notranslate"><span class="pre">&lt;CONDA_BASE_ENV&gt;/.condarc</span></code>. The flag <code class="docutils literal notranslate"><span class="pre">--env</span></code> will instead write to the
+active conda environment's configuration file at
+<code class="docutils literal notranslate"><span class="pre">&lt;PATH_TO_ACTIVE_CONDA_ENV&gt;/.condarc</span></code>. If <code class="docutils literal notranslate"><span class="pre">--env</span></code> is used and no
+environment is active, the user configuration file is used.</p>
+</li>
+<li><p>The configuration option <code class="docutils literal notranslate"><span class="pre">ssl_verify</span></code> can be used to install new certificates.</p>
+<p>Running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--describe</span> <span class="pre">ssl_verify</span></code> shows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># # ssl_verify (bool, str)</span>
+<span class="c1"># #   aliases: verify_ssl</span>
+<span class="c1"># #   conda verifies SSL certificates for HTTPS requests, just like a web</span>
+<span class="c1"># #   browser. By default, SSL verification is enabled, and conda operations</span>
+<span class="c1"># #   will fail if a required URL&#39;s certificate cannot be verified. Setting</span>
+<span class="c1"># #   ssl_verify to False disables certification verification. The value for</span>
+<span class="c1"># #   ssl_verify can also be (1) a path to a CA bundle file, (2) a path to a</span>
+<span class="c1"># #   directory containing certificates of trusted CA, or (3) &#39;truststore&#39;</span>
+<span class="c1"># #   to use the operating system certificate store.</span>
+<span class="c1"># #</span>
+<span class="c1"># ssl_verify: true</span>
+</pre></div>
+</div>
+<p>Your network administrator can give you a certificate bundle for your
+network's firewall. Then <code class="docutils literal notranslate"><span class="pre">ssl_verify</span></code> can be set to the path of that
+certificate authority (CA) bundle and package installation operations will
+complete without connection errors.</p>
+<p>When using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span></code>, the user's conda configuration file at
+<code class="docutils literal notranslate"><span class="pre">~/.condarc</span></code> is used by default. The flag <code class="docutils literal notranslate"><span class="pre">--system</span></code> will instead write
+to the system configuration file for all users at
+<code class="docutils literal notranslate"><span class="pre">&lt;CONDA_BASE_ENV&gt;/.condarc</span></code>. The flag <code class="docutils literal notranslate"><span class="pre">--env</span></code> will instead write to the
+active conda environment's configuration file at
+<code class="docutils literal notranslate"><span class="pre">&lt;PATH_TO_ACTIVE_CONDA_ENV&gt;/.condarc</span></code>. If <code class="docutils literal notranslate"><span class="pre">--env</span></code> is used and no
+environment is active, the user configuration file is used.</p>
+</li>
+</ol>
+</section>
+</section>
+<section id="id9">
+<h3>SSL 验证错误<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>SSL verification errors</p>
+<section id="id10">
+<h4>原因<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<p>Cause</p>
+<p>This error may be caused by lack of activation on Windows or expired
+certifications:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SSL</span> <span class="n">verification</span> <span class="n">error</span><span class="p">:</span> <span class="p">[</span><span class="n">SSL</span><span class="p">:</span> <span class="n">CERTIFICATE_VERIFY_FAILED</span><span class="p">]</span> <span class="n">certificate</span> <span class="n">verify</span> <span class="n">failed</span> <span class="p">(</span><span class="n">_ssl</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">590</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id11">
+<h4>解决方案<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<p>Solution</p>
+<p>Make sure your conda is up-to-date: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">--version</span></code></p>
+<p>If not, run: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">conda</span></code></p>
+<p>Try using the operating system certificate store. Set you <code class="docutils literal notranslate"><span class="pre">ssl_verify</span></code> variable to <code class="docutils literal notranslate"><span class="pre">truststore</span></code>
+using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="nb">set</span> <span class="n">ssl_verify</span> <span class="n">truststore</span>
+</pre></div>
+</div>
+<p>If using the operating system certificate store does not solve your issue, temporarily
+set your <code class="docutils literal notranslate"><span class="pre">ssl_verify</span></code> variable to false, upgrade the requests package, and then
+set <code class="docutils literal notranslate"><span class="pre">ssl_verify</span></code> back to <code class="docutils literal notranslate"><span class="pre">true</span></code> using the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="nb">set</span> <span class="n">ssl_verify</span> <span class="n">false</span>
+<span class="n">conda</span> <span class="n">update</span> <span class="n">requests</span>
+<span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="nb">set</span> <span class="n">ssl_verify</span> <span class="n">true</span>
+</pre></div>
+</div>
+<p>You can also set <code class="docutils literal notranslate"><span class="pre">ssl_verify</span></code> to a string path to a certificate, which can be used to verify
+SSL connections. Modify your <code class="docutils literal notranslate"><span class="pre">.condarc</span></code> and include the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssl_verify</span><span class="p">:</span> <span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">cert</span><span class="o">/</span><span class="n">chain</span><span class="o">/</span><span class="n">filename</span><span class="o">.</span><span class="n">ext</span>
+</pre></div>
+</div>
+<p>If the repository uses a self-signed certificate, use the actual path to the certificate.
+If the repository is signed by a private certificate authority (CA), the file needs to include
+the root certificate and any intermediate certificates.</p>
+</section>
+</section>
+</section>
+<section id="permission-denied">
+<span id="id12"></span><h2>安装过程中出现权限被拒绝错误<a class="headerlink" href="#permission-denied" title="Link to this heading">#</a></h2>
+<p>Permission denied errors during installation</p>
+<section id="id13">
+<h3>原因<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">umask</span></code> command  determines the mask settings that control
+how file permissions are set for newly created files. If you
+have a very restrictive <code class="docutils literal notranslate"><span class="pre">umask</span></code>, such as <code class="docutils literal notranslate"><span class="pre">077</span></code>, you get
+&quot;permission denied&quot; errors.</p>
+</section>
+<section id="id14">
+<h3>解决方案<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>Set a less restrictive <code class="docutils literal notranslate"><span class="pre">umask</span></code> before calling conda commands.
+Conda was intended as a user space tool, but often users need to
+use it in a global environment. One place this can go awry is
+with restrictive file permissions. Conda creates links when you
+install files that have to be read by others on the system.</p>
+<p>To give yourself full permissions for files and directories but
+prevent the group and other users from having access:</p>
+<ol class="arabic">
+<li><p>Before installing, set the <code class="docutils literal notranslate"><span class="pre">umask</span></code> to <code class="docutils literal notranslate"><span class="pre">007</span></code>.</p></li>
+<li><p>Install conda.</p></li>
+<li><p>Return the <code class="docutils literal notranslate"><span class="pre">umask</span></code> to the original setting:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">umask</span> <span class="mi">007</span>
+<span class="n">conda</span> <span class="n">install</span>
+<span class="n">umask</span> <span class="mi">077</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>For more information on <code class="docutils literal notranslate"><span class="pre">umask</span></code>, see
+<a class="reference external" href="http://en.wikipedia.org/wiki/Umask">http://en.wikipedia.org/wiki/Umask</a>.</p>
+</section>
+</section>
+<section id="sudo-conda">
+<span id="permission-denied-sudo"></span><h2>使用 sudo conda 命令后出现权限被拒绝错误<a class="headerlink" href="#sudo-conda" title="Link to this heading">#</a></h2>
+<p>Permission denied errors after using sudo conda command</p>
+<section id="id15">
+<h3>解决方案<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>Once you run conda with sudo, you must use sudo forever. We recommend that you NEVER run conda with sudo.</p>
+</section>
+</section>
+<section id="fix-broken-conda">
+<span id="id16"></span><h2>已安装错误消息<a class="headerlink" href="#fix-broken-conda" title="Link to this heading">#</a></h2>
+<p>Already installed error message</p>
+<section id="id17">
+<h3>原因<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>If you are trying to fix conda problems without removing the
+current installation and you try to reinstall Miniconda or
+Anaconda to fix it, you get an error message that Miniconda
+or Anaconda is already installed and you cannot continue.</p>
+</section>
+<section id="id18">
+<h3>解决方案<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>Install using the <code class="docutils literal notranslate"><span class="pre">--force</span></code> option.</p>
+<p>Download and install the appropriate Miniconda
+for your operating system from the <a class="reference external" href="https://docs.anaconda.com/miniconda/">Miniconda download page</a> using the force option
+<code class="docutils literal notranslate"><span class="pre">--force</span></code> or <code class="docutils literal notranslate"><span class="pre">-f</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="n">Miniconda3</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="n">MacOSX</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">f</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Substitute the appropriate filename and version for your
+operating system.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Be sure that you install to the same location as
+your existing install so it overwrites the core conda files and
+does not install a duplicate in a new folder.</p>
+</div>
+</section>
+</section>
+<section id="conda">
+<span id="conda-claims-installed"></span><h2>Conda 报告软件包已安装，但似乎并未安装<a class="headerlink" href="#conda" title="Link to this heading">#</a></h2>
+<p>Conda reports that a package is installed, but it appears not to be</p>
+<p>Sometimes conda claims that a package is already installed but
+it does not appear to be, for example, a Python package that
+gives ImportError.</p>
+<p>There are several possible causes for this problem, each with its
+own solution.</p>
+<section id="id19">
+<h3>原因<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>You are not in the same conda environment as your package.</p>
+</section>
+<section id="id20">
+<h3>解决方案<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<ol class="arabic">
+<li><p>Make sure that you are in the same conda environment as your
+package. The <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span></code> command tells you what environment
+is currently active under <code class="docutils literal notranslate"><span class="pre">default</span> <span class="pre">environment</span></code>.</p></li>
+<li><p>Verify that you are using the Python from the correct
+environment by running:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">prefix</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="id21">
+<h3>原因<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>For Python packages, you have set the <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> or <code class="docutils literal notranslate"><span class="pre">PYTHONHOME</span></code>
+variable. These environment variables cause Python to load files
+from locations other than the standard ones. Conda works best
+when these environment variables are not set, as their typical
+use cases are obviated by conda environments and a common issue
+is that they cause Python to pick up the wrong or broken
+versions of a library.</p>
+</section>
+<section id="id22">
+<h3>解决方案<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>For Python packages, make sure you have not set the <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>
+or <code class="docutils literal notranslate"><span class="pre">PYTHONHOME</span></code> variables. The command <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span> <span class="pre">-a</span></code> displays
+the values of these environment variables.</p>
+<ul class="simple">
+<li><p>To unset these environment variables temporarily for the
+current terminal session, run <code class="docutils literal notranslate"><span class="pre">unset</span> <span class="pre">PYTHONPATH</span></code>.</p></li>
+<li><p>To unset them permanently, check for lines in the files:</p>
+<ul>
+<li><p>If you use bash---<code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>, <code class="docutils literal notranslate"><span class="pre">~/.bash_profile</span></code>,
+<code class="docutils literal notranslate"><span class="pre">~/.profile</span></code>.</p></li>
+<li><p>If you use zsh---<code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code>.</p></li>
+<li><p>If you use PowerShell on Windows, the file output by
+<code class="docutils literal notranslate"><span class="pre">$PROFILE</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id23">
+<h3>原因<a class="headerlink" href="#id23" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>You have site-specific directories or, for Python, you have
+so-called site-specific files. These are typically located in
+<code class="docutils literal notranslate"><span class="pre">~/.local</span></code> on macOS and Linux. For a full description of the locations of
+site-specific packages, see <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0370/">PEP 370</a>. As with
+<code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>, Python may try importing packages from this
+directory, which can cause issues.</p>
+</section>
+<section id="id24">
+<h3>解决方案<a class="headerlink" href="#id24" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>For Python packages, remove site-specific directories and
+site-specific files.</p>
+</section>
+<section id="id25">
+<h3>原因<a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>For C libraries, the following environment variables have been
+set:</p>
+<ul class="simple">
+<li><p>macOS---<code class="docutils literal notranslate"><span class="pre">DYLD_LIBRARY_PATH</span></code>.</p></li>
+<li><p>Linux---<code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code>.</p></li>
+</ul>
+<p>These act similarly to <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> for Python. If they are
+set, they can cause libraries to be loaded from locations other
+than the conda environment. Conda environments obviate most use
+cases for these variables. The command <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span> <span class="pre">-a</span></code> shows
+what these are set to.</p>
+</section>
+<section id="id26">
+<h3>解决方案<a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>Unset <code class="docutils literal notranslate"><span class="pre">DYLD_LIBRARY_PATH</span></code> or <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code>.</p>
+</section>
+<section id="id27">
+<h3>原因<a class="headerlink" href="#id27" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>Occasionally, an installed package becomes corrupted. Conda works
+by unpacking the packages in the <code class="docutils literal notranslate"><span class="pre">pkgs</span></code> directory and then
+hard-linking them to the environment. Sometimes these get
+corrupted, breaking all environments that use them. They
+also break any additional environments since the same files are hard-linked
+each time.</p>
+</section>
+<section id="id28">
+<h3>解决方案<a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>Run the command <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-f</span></code> to unarchive the package
+again and relink it. It also does an MD5 verification on the
+package. Usually if this is different it is because your
+channels have changed and there is a different package with the
+same name, version, and build number.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This breaks the links to any other environments that
+already had this package installed, so you have to reinstall it
+there, too. It also means that running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-f</span></code> a lot
+can use up significant disk space if you have many environments.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-f</span></code> flag to <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> (<code class="docutils literal notranslate"><span class="pre">--force</span></code>) implies
+<code class="docutils literal notranslate"><span class="pre">--no-deps</span></code>, so <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-f</span> <span class="pre">package</span></code> does not reinstall
+any of the dependencies of <code class="docutils literal notranslate"><span class="pre">package</span></code>.</p>
+</div>
+</section>
+</section>
+<section id="pkg-resources-distributionnotfound-conda-3-6-1-6-gb31b0d4-dirty">
+<span id="distributionnotfound"></span><h2>pkg_resources.DistributionNotFound: conda==3.6.1-6-gb31b0d4-dirty<a class="headerlink" href="#pkg-resources-distributionnotfound-conda-3-6-1-6-gb31b0d4-dirty" title="Link to this heading">#</a></h2>
+<p>pkg_resources.DistributionNotFound: conda==3.6.1-6-gb31b0d4-dirty</p>
+<section id="id29">
+<h3>原因<a class="headerlink" href="#id29" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>The local version of conda needs updating.</p>
+</section>
+<section id="id30">
+<h3>解决方案<a class="headerlink" href="#id30" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>Force reinstall conda. A useful way to work off the development
+version of conda is to run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">develop</span></code> on a
+checkout of the <a class="reference external" href="https://github.com/conda/conda">conda GitHub repository</a>. However, if you are not
+regularly running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>, it is a good idea to un-develop,
+as you will otherwise not get any regular updates to conda. The
+normal way to do this is to run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">develop</span> <span class="pre">-u</span></code>.</p>
+<p>However, this command does not replace the <code class="docutils literal notranslate"><span class="pre">conda</span></code> script
+itself. With other packages, this is not an issue, as you can
+just reinstall them with <code class="docutils literal notranslate"><span class="pre">conda</span></code>, but conda cannot be used if
+conda is installed.</p>
+<p>The fix is to use the <code class="docutils literal notranslate"><span class="pre">./bin/conda</span></code> executable in the conda
+git repository to force reinstall conda. That is, run
+<code class="docutils literal notranslate"><span class="pre">./bin/conda</span> <span class="pre">install</span> <span class="pre">-f</span> <span class="pre">conda</span></code>. You can then verify with
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span></code> that you have the latest version of conda, and not
+a git checkout. The version should not include any hashes.</p>
+</section>
+</section>
+<section id="macos-valueerror-unknown-locale-utf-8">
+<span id="unknown-locale"></span><h2>macOS 错误“ValueError unknown locale: UTF-8”<a class="headerlink" href="#macos-valueerror-unknown-locale-utf-8" title="Link to this heading">#</a></h2>
+<p>macOS error &quot;ValueError unknown locale: UTF-8&quot;</p>
+<section id="id31">
+<h3>原因<a class="headerlink" href="#id31" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>This is a bug in the macOS Terminal app that shows up only in
+certain locales. Locales are country-language combinations.</p>
+</section>
+<section id="id32">
+<h3>解决方案<a class="headerlink" href="#id32" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<ol class="arabic">
+<li><p>Open Terminal in <code class="docutils literal notranslate"><span class="pre">/Applications/Utilities</span></code></p></li>
+<li><p>Clear the Set locale environment variables on startup checkbox.</p>
+<figure class="align-default">
+<img alt="../_images/conda_locale.jpg" src="../_images/conda_locale.jpg" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+</ol>
+<p>This sets your <code class="docutils literal notranslate"><span class="pre">LANG</span></code> environment variable to be empty. This may
+cause Terminal to use incorrect settings for your locale. The
+<code class="docutils literal notranslate"><span class="pre">locale</span></code> command in Terminal tells you what settings are used.</p>
+<p>To use the correct language, add a line to your bash profile,
+which is typically <code class="docutils literal notranslate"><span class="pre">~/.profile</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">LANG</span><span class="o">=</span><span class="n">your</span><span class="o">-</span><span class="n">lang</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">your-lang</span></code> with the correct locale specifier for
+your language.</p>
+</div>
+<p>The command <code class="docutils literal notranslate"><span class="pre">locale</span> <span class="pre">-a</span></code> displays all the specifiers. For
+example, the language code for US English is <code class="docutils literal notranslate"><span class="pre">en_US.UTF-8</span></code>. The
+locale affects what translations are used when they are available
+and also how dates, currencies, and decimals are formatted.</p>
+</section>
+</section>
+<section id="attributeerror-getproxies">
+<span id="id33"></span><h2>AttributeError 或缺失getproxies<a class="headerlink" href="#attributeerror-getproxies" title="Link to this heading">#</a></h2>
+<p>AttributeError or missing getproxies</p>
+<p>When running a command such as <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">ipython</span></code>, you may
+get an <code class="docutils literal notranslate"><span class="pre">AttributeError:</span> <span class="pre">'module'</span> <span class="pre">object</span> <span class="pre">has</span> <span class="pre">no</span> <span class="pre">attribute</span>
+<span class="pre">'getproxies'</span></code>.</p>
+<section id="id34">
+<h3>原因<a class="headerlink" href="#id34" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>This can be caused by an old version of <code class="docutils literal notranslate"><span class="pre">requests</span></code> or by having
+the <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> environment variable set.</p>
+</section>
+<section id="id35">
+<h3>解决方案<a class="headerlink" href="#id35" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>Update <code class="docutils literal notranslate"><span class="pre">requests</span></code> and be sure <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> is not set:</p>
+<ol class="arabic simple">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span> <span class="pre">-a</span></code> to show the <code class="docutils literal notranslate"><span class="pre">requests</span></code> version and
+various environment variables such as <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>.</p></li>
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">requests</span></code> version with
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">requests</span></code>.</p></li>
+<li><p>Clear <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>:</p>
+<ul class="simple">
+<li><p>On Windows, clear it the environment variable settings.</p></li>
+<li><p>On macOS and Linux, clear it by removing it from the bash
+profile and restarting the shell.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="shell">
+<span id="shell-command-location"></span><h2>Shell 命令从错误的位置打开<a class="headerlink" href="#shell" title="Link to this heading">#</a></h2>
+<p>Shell commands open from the wrong location</p>
+<p>When you run a command within a conda environment, conda does not
+access the correct package executable.</p>
+<section id="id36">
+<h3>原因<a class="headerlink" href="#id36" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>In both bash and zsh, when you enter a command, the shell
+searches the paths in PATH one by one until it finds the command.
+The shell then caches the location, which is called hashing in
+shell terminology. When you run command again, the shell does not
+have to search the PATH again.</p>
+<p>The problem is that before you installed the program, you ran a command which
+loaded and hashed another version of that program in some other location on
+the PATH, such as <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code>. Then you installed the program
+using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>, but the shell still had the old instance
+hashed.</p>
+</section>
+<section id="id37">
+<h3>解决方案<a class="headerlink" href="#id37" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>Reactivate the environment or run <code class="docutils literal notranslate"><span class="pre">hash</span> <span class="pre">-r</span></code> (in bash) or
+<code class="docutils literal notranslate"><span class="pre">rehash</span></code> (in zsh).</p>
+<p>When you run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code>, conda automatically runs
+<code class="docutils literal notranslate"><span class="pre">hash</span> <span class="pre">-r</span></code> in bash and <code class="docutils literal notranslate"><span class="pre">rehash</span></code> in zsh to clear the hashed
+commands, so conda finds things in the new path on the PATH. But
+there is no way to do this when <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> is run because
+the command must be run inside the shell itself, meaning either
+you have to run the command yourself or used a source file that
+contains the command.</p>
+<p>This is a relatively rare problem, since this happens only in the
+following circumstances:</p>
+<ol class="arabic simple">
+<li><p>You activate an environment or use the default environment, and
+then run a command from somewhere else.</p></li>
+<li><p>Then you <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> a program, and then try to run the
+program again without running <code class="docutils literal notranslate"><span class="pre">activate</span></code> or
+<code class="docutils literal notranslate"><span class="pre">deactivate</span></code>.</p></li>
+</ol>
+<p>The command <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">command_name</span></code> always tells you exactly what
+is being run. This is better than <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">command_name</span></code>, which
+ignores hashed commands and searches the PATH directly.
+The hash is reset by <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code> or by <code class="docutils literal notranslate"><span class="pre">hash</span> <span class="pre">-r</span></code> in bash or
+<code class="docutils literal notranslate"><span class="pre">rehash</span></code> in zsh.</p>
+</section>
+</section>
+<section id="conda-python-python">
+<span id="wrong-python"></span><h2>由于调用 conda Python 而不是系统 Python，导致程序失败<a class="headerlink" href="#conda-python-python" title="Link to this heading">#</a></h2>
+<p>Programs fail due to invoking conda Python instead of system Python</p>
+<section id="id38">
+<h3>原因<a class="headerlink" href="#id38" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>After installing Anaconda or Miniconda, programs that run
+<code class="docutils literal notranslate"><span class="pre">python</span></code> switch from invoking the system Python to invoking the
+Python in the root conda environment. If these programs rely on
+the system Python to have certain configurations or dependencies
+that are not in the root conda environment Python, the programs
+may crash. For example, some users of the Cinnamon desktop
+environment on Linux Mint have reported these crashes.</p>
+</section>
+<section id="id39">
+<h3>解决方案<a class="headerlink" href="#id39" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>Edit your <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> and <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> files so that the
+conda binary directory, such as <code class="docutils literal notranslate"><span class="pre">~/miniconda3/bin</span></code>, is no
+longer added to the PATH environment variable. You can still run
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code> by using their full
+path names, such as <code class="docutils literal notranslate"><span class="pre">~/miniconda3/bin/conda</span></code>.</p>
+<p>You may also create a folder with symbolic links to <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code>
+and <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code> and then edit your
+<code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> or <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file to add this folder to your
+PATH. If you do this, running <code class="docutils literal notranslate"><span class="pre">python</span></code> will invoke the system
+Python, but running <code class="docutils literal notranslate"><span class="pre">conda</span></code> commands, <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">MyEnv</span></code>,
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">root</span></code>, or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code> will work
+normally.</p>
+<p>After running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code> to activate any environment,
+including after running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">root</span></code>, running
+<code class="docutils literal notranslate"><span class="pre">python</span></code> will invoke the Python in the active conda environment.</p>
+</section>
+</section>
+<section id="unsatisfiablespecifications">
+<span id="unsatisfiable"></span><h2>UnsatisfiableSpecifications 错误<a class="headerlink" href="#unsatisfiablespecifications" title="Link to this heading">#</a></h2>
+<p>UnsatisfiableSpecifications error</p>
+<section id="id40">
+<h3>原因<a class="headerlink" href="#id40" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>Some conda package installation specifications are impossible to
+satisfy. For example, <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">tmp</span> <span class="pre">python=3</span> <span class="pre">wxpython=3</span></code>
+produces an &quot;Unsatisfiable Specifications&quot; error because wxPython
+3 depends on Python 2.7, so the specification to install Python 3
+conflicts with the specification to install wxPython 3.</p>
+<p>When an unsatisfiable request is made to conda, conda shows a
+message such as this one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>The following specifications were found to be in conflict:
+- python 3*
+- wxpython 3* -&gt; python 2.7*
+Use ``conda search &lt;package&gt; --info`` to see the dependencies
+for each package.
+</pre></div>
+</div>
+<p>This indicates that the specification to install wxpython 3
+depends on installing Python 2.7, which conflicts with the
+specification to install Python 3.</p>
+</section>
+<section id="id41">
+<h3>解决方案<a class="headerlink" href="#id41" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">search</span> <span class="pre">wxpython</span> <span class="pre">--info</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">search</span> <span class="pre">'wxpython=3'</span> <span class="pre">--info</span></code>
+to show information about this package and its dependencies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wxpython</span> <span class="mf">3.0</span> <span class="n">py27_0</span>
+<span class="o">-------------------</span>
+<span class="n">file</span> <span class="n">name</span>   <span class="p">:</span> <span class="n">wxpython</span><span class="o">-</span><span class="mf">3.0</span><span class="o">-</span><span class="n">py27_0</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">bz2</span>
+<span class="n">name</span>        <span class="p">:</span> <span class="n">wxpython</span>
+<span class="n">version</span>     <span class="p">:</span> <span class="mf">3.0</span>
+<span class="n">build</span> <span class="n">number</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">build</span> <span class="n">string</span><span class="p">:</span> <span class="n">py27_0</span>
+<span class="n">channel</span>     <span class="p">:</span> <span class="n">defaults</span>
+<span class="n">size</span>        <span class="p">:</span> <span class="mf">34.1</span> <span class="n">MB</span>
+<span class="n">date</span>        <span class="p">:</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">10</span>
+<span class="n">fn</span>          <span class="p">:</span> <span class="n">wxpython</span><span class="o">-</span><span class="mf">3.0</span><span class="o">-</span><span class="n">py27_0</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">bz2</span>
+<span class="n">license_family</span><span class="p">:</span> <span class="n">Other</span>
+<span class="n">md5</span>         <span class="p">:</span> <span class="n">adc6285edfd29a28224c410a39d4bdad</span>
+<span class="n">priority</span>    <span class="p">:</span> <span class="mi">2</span>
+<span class="n">schannel</span>    <span class="p">:</span> <span class="n">defaults</span>
+<span class="n">url</span>         <span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="o">.</span><span class="n">continuum</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">pkgs</span><span class="o">/</span><span class="n">free</span><span class="o">/</span><span class="n">osx</span><span class="o">-</span><span class="mi">64</span><span class="o">/</span><span class="n">wxpython</span><span class="o">-</span><span class="mf">3.0</span><span class="o">-</span><span class="n">py27_0</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">bz2</span>
+<span class="n">dependencies</span><span class="p">:</span>
+    <span class="n">python</span> <span class="mf">2.7</span><span class="o">*</span>
+    <span class="n">python</span><span class="o">.</span><span class="n">app</span>
+</pre></div>
+</div>
+<p>By examining the dependencies of each package, you should be able
+to determine why the installation request produced a conflict and
+modify the request so it can be satisfied without conflicts. In
+this example, you could install wxPython with Python 2.7:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">tmp</span> <span class="n">python</span><span class="o">=</span><span class="mf">2.7</span> <span class="n">wxpython</span><span class="o">=</span><span class="mi">3</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="version-from-channel">
+<span id="id42"></span><h2>从特定渠道安装软件包失败<a class="headerlink" href="#version-from-channel" title="Link to this heading">#</a></h2>
+<p>Package installation fails from a specific channel</p>
+<section id="id43">
+<h3>原因<a class="headerlink" href="#id43" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>Sometimes it is necessary to install a specific version from a
+specific channel because that version is not available from the
+default channel.</p>
+</section>
+<section id="id44">
+<h3>解决方案<a class="headerlink" href="#id44" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>The following example describes the problem in detail and its
+solution.</p>
+<p>Suppose you have a specific need to install the Python
+<code class="docutils literal notranslate"><span class="pre">cx_freeze</span></code> module with Python 3.4. A first step is to create a
+Python 3.4 environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">py34</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.4</span>
+</pre></div>
+</div>
+<p>Using this environment you should first attempt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">n</span> <span class="n">py34</span> <span class="n">cx_freeze</span>
+</pre></div>
+</div>
+<p>However, when you do this you get the following error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Using</span> <span class="n">Anaconda</span> <span class="n">Cloud</span> <span class="n">api</span> <span class="n">site</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">anaconda</span><span class="o">.</span><span class="n">org</span>
+<span class="n">Fetching</span> <span class="n">package</span> <span class="n">metadata</span> <span class="o">.........</span>
+<span class="n">Solving</span> <span class="n">package</span> <span class="n">specifications</span><span class="p">:</span> <span class="o">.</span>
+<span class="n">Error</span><span class="p">:</span> <span class="n">Package</span> <span class="n">missing</span> <span class="ow">in</span> <span class="n">current</span> <span class="n">osx</span><span class="o">-</span><span class="mi">64</span> <span class="n">channels</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">cx_freeze</span>
+
+<span class="n">You</span> <span class="n">can</span> <span class="n">search</span> <span class="k">for</span> <span class="n">packages</span> <span class="n">on</span> <span class="n">anaconda</span><span class="o">.</span><span class="n">org</span> <span class="k">with</span>
+
+  <span class="n">anaconda</span> <span class="n">search</span> <span class="o">-</span><span class="n">t</span> <span class="n">conda</span> <span class="n">cx_freeze</span>
+</pre></div>
+</div>
+<p>The message indicates that <code class="docutils literal notranslate"><span class="pre">cx_freeze</span></code> cannot be found in the
+default package channels. However, there may be a
+community-created version available and you can search for it by
+running the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ anaconda search -t conda cx_freeze
+Using Anaconda Cloud api site https://api.anaconda.org
+Run &#39;anaconda show &lt;USER/PACKAGE&gt;&#39; to get more details:
+Packages:
+     Name                      |  Version | Package Types   | Platforms
+     ------------------------- |   ------ | --------------- | ---------------
+     inso/cx_freeze            |    4.3.3 | conda           | linux-64
+     pyzo/cx_freeze            |    4.3.3 | conda           | linux-64, win-32, win-64, linux-32, osx-64
+                                          : http://cx-freeze.sourceforge.net/
+     silg2/cx_freeze           |    4.3.4 | conda           | linux-64
+                                          : create standalone executables from Python scripts
+     takluyver/cx_freeze       |    4.3.3 | conda           | linux-64
+Found 4 packages
+</pre></div>
+</div>
+<p>In this example, there are 4 different places that you could try
+to get the package. None of them are officially supported or
+endorsed by Anaconda, but members of the conda community have
+provided many valuable packages. If you want to go with public
+opinion, then <a class="reference external" href="https://anaconda.org/search?q=cx_freeze">the web interface</a> provides more
+information:</p>
+<figure class="align-default">
+<img alt="cx_freeze packages on anaconda.org" src="../_images/conda_package-popularity.png" />
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">pyzo</span></code> organization has by far the most
+downloads, so you might choose to use their package. If so, you
+can add their organization's channel by specifying it on the
+command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create -c pyzo -n cxfreeze_py34 cx_freeze python=3.4
+Using Anaconda Cloud api site https://api.anaconda.org
+Fetching package metadata: ..........
+Solving package specifications: .........
+
+Package plan for installation in environment /Users/username/anaconda/envs/cxfreeze_py34:
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    cx_freeze-4.3.3            |           py34_4         1.8 MB
+    setuptools-20.7.0          |           py34_0         459 KB
+    ------------------------------------------------------------
+                                           Total:         2.3 MB
+
+The following NEW packages will be INSTALLED:
+
+    cx_freeze:  4.3.3-py34_4
+    openssl:    1.0.2h-0
+    pip:        8.1.1-py34_1
+    python:     3.4.4-0
+    readline:   6.2-2
+    setuptools: 20.7.0-py34_0
+    sqlite:     3.9.2-0
+    tk:         8.5.18-0
+    wheel:      0.29.0-py34_0
+    xz:         5.0.5-1
+    zlib:       1.2.8-0
+</pre></div>
+</div>
+<p>Now you have a software environment sandbox created with Python
+3.4 and <code class="docutils literal notranslate"><span class="pre">cx_freeze</span></code>.</p>
+</section>
+</section>
+<section id="auto-upgrade">
+<span id="id45"></span><h2>Conda 自动升级到不需要的版本<a class="headerlink" href="#auto-upgrade" title="Link to this heading">#</a></h2>
+<p>Conda automatically upgrades to unwanted version</p>
+<p>When making a Python package for an app, you create an
+environment for the app from a file <code class="docutils literal notranslate"><span class="pre">req.txt</span></code> that sets a
+certain version, such as <code class="docutils literal notranslate"><span class="pre">python=2.7.9</span></code>. However, when you
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> your package, it automatically upgrades to a
+later version, such as <code class="docutils literal notranslate"><span class="pre">2.7.10</span></code>.</p>
+<section id="id46">
+<h3>原因<a class="headerlink" href="#id46" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>If you make a conda package for the app using conda-build, you
+can set dependencies with specific version numbers. The
+requirements lines that say <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">python</span></code> could be
+<code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">python</span> <span class="pre">==2.7.9</span></code> instead. It is important to have 1 space
+before the == operator and no space after.</p>
+</section>
+<section id="id47">
+<h3>解决方案<a class="headerlink" href="#id47" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>Exercise caution when coding version requirements.</p>
+</section>
+</section>
+<section id="upgrade-error">
+<span id="id48"></span><h2>Conda 升级错误<a class="headerlink" href="#upgrade-error" title="Link to this heading">#</a></h2>
+<p>Conda upgrade error</p>
+<section id="id49">
+<h3>原因<a class="headerlink" href="#id49" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>Downgrading conda from 4.6.1 to 4.5.x and then trying to <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">conda</span></code> or  <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">upgrade</span> <span class="pre">conda</span></code> will produce a solving and upgrade error similar to the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Solving</span> <span class="n">environment</span><span class="p">:</span> <span class="n">failed</span>
+<span class="n">CondaUpgradeError</span><span class="p">:</span> <span class="n">This</span> <span class="n">environment</span> <span class="n">has</span> <span class="n">previously</span> <span class="n">been</span> <span class="n">operated</span> <span class="n">on</span> <span class="n">by</span> <span class="n">a</span> <span class="n">conda</span> <span class="n">version</span> <span class="n">that</span><span class="s1">&#39;s newer than the conda currently being used. A newer version of conda is required.</span>
+<span class="n">target</span> <span class="n">environment</span> <span class="n">location</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">conda</span>
+<span class="n">current</span> <span class="n">conda</span> <span class="n">version</span><span class="p">:</span> <span class="mf">4.5.9</span>
+<span class="n">minimum</span> <span class="n">conda</span> <span class="n">version</span><span class="p">:</span> <span class="mf">4.6</span>
+</pre></div>
+</div>
+</section>
+<section id="id50">
+<h3>解决方案<a class="headerlink" href="#id50" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>Change the <code class="docutils literal notranslate"><span class="pre">.condarc</span></code> file. Set the parameter by editing the <code class="docutils literal notranslate"><span class="pre">.condarc</span></code> file directly:
+<code class="docutils literal notranslate"><span class="pre">allow_conda_downgrades:</span> <span class="pre">true</span></code> in conda version 4.5.12. This will then let you upgrade. If you have something older than 4.5.12, install conda 4.6.1 again from the package cache.</p>
+<p>EXAMPLE: If my conda info says package cache : /opt/conda/pkgs and my Python version is 3.7, then on the command line, type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">/opt/conda/pkgs/conda-4.6.1-py37_0.tar.bz2</span></code> to resolve the issue.</p>
+</section>
+</section>
+<section id="validationerror">
+<h2>ValidationError：时间戳值无效<a class="headerlink" href="#validationerror" title="Link to this heading">#</a></h2>
+<p>ValidationError: Invalid value for timestamp</p>
+<section id="id51">
+<h3>原因<a class="headerlink" href="#id51" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>This happens when certain packages are installed with conda 4.3.28, and then
+conda is downgraded to 4.3.27 or earlier.</p>
+</section>
+<section id="id52">
+<h3>解决方案<a class="headerlink" href="#id52" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>See <a class="github reference external" href="https://github.com/conda/conda/issues/6096">conda/conda#6096</a>.</p>
+</section>
+</section>
+<section id="python-2-unicode">
+<h2>安装 Python 2 后出现 Unicode 错误<a class="headerlink" href="#python-2-unicode" title="Link to this heading">#</a></h2>
+<p>Unicode error after installing Python 2</p>
+<p>Example: UnicodeDecodeError: 'ascii' codec can't decode byte 0xd3 in position 1: ordinal not in range(128)</p>
+<section id="id53">
+<h3>原因<a class="headerlink" href="#id53" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>Python 2 is incapable of handling unicode properly, especially on Windows. In this case, if any character in your PATH env. var contains anything that is not ASCII then you see this exception.</p>
+</section>
+<section id="id54">
+<h3>解决方案<a class="headerlink" href="#id54" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>Remove all non-ASCII from PATH or switch to Python 3.</p>
+</section>
+</section>
+<section id="windows">
+<h2>Windows 环境尚未激活<a class="headerlink" href="#windows" title="Link to this heading">#</a></h2>
+<p>Windows environment has not been activated</p>
+<section id="id55">
+<h3>原因<a class="headerlink" href="#id55" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>You may receive a warning message if you have not activated your environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">Warning</span><span class="p">:</span>
+<span class="n">This</span> <span class="n">Python</span> <span class="n">interpreter</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">conda</span> <span class="n">environment</span><span class="p">,</span> <span class="n">but</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">has</span>
+<span class="ow">not</span> <span class="n">been</span> <span class="n">activated</span><span class="o">.</span> <span class="n">Libraries</span> <span class="n">may</span> <span class="n">fail</span> <span class="n">to</span> <span class="n">load</span><span class="o">.</span> <span class="n">To</span> <span class="n">activate</span> <span class="n">this</span> <span class="n">environment</span>
+<span class="n">please</span> <span class="n">see</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">conda</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">activation</span>
+</pre></div>
+</div>
+</section>
+<section id="id56">
+<h3>解决方案<a class="headerlink" href="#id56" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>If you receive this warning, you need to activate your environment.
+To do so on Windows, on a terminal via PowerShell or the Command Prompt, run:
+<code class="docutils literal notranslate"><span class="pre">call</span> <span class="pre">&lt;your</span> <span class="pre">anaconda/miniconda</span> <span class="pre">install</span> <span class="pre">location&gt;\Scripts\activate</span></code>.</p>
+</section>
+</section>
+<section id="path-error">
+<span id="id57"></span><h2>系统在 Windows 上找不到指定的路径<a class="headerlink" href="#path-error" title="Link to this heading">#</a></h2>
+<p>The system cannot find the path specified on Windows</p>
+<section id="id58">
+<h3>原因<a class="headerlink" href="#id58" title="Link to this heading">#</a></h3>
+<p>Cause</p>
+<p>PATH does not contain entries for all of the necessary conda directories.
+PATH may have too many entries from 3rd party software adding itself to
+PATH at install time, despite the user not needing to run the software via PATH lookup.</p>
+</section>
+<section id="id59">
+<h3>解决方案<a class="headerlink" href="#id59" title="Link to this heading">#</a></h3>
+<p>Solution</p>
+<p>Strip PATH to have fewer entries and activate your environment.</p>
+<p>If there's some software that needs to be found on PATH (you run it via
+the CLI), we recommend that you create your own batch files to set PATH
+dynamically within a console session, rather than permanently modifying
+PATH in the system settings.</p>
+<p>For example, a new conda prompt batch file that first strips PATH, then
+calls the correct activation procedure could look like:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">set</span>
+<span class="go">PATH=”%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;&lt;3rd-party-entries&gt;”</span>
+<span class="go">call “&lt;miniconda/anaconda root&gt;\Scripts\activate”</span>
+</pre></div>
+</div>
+<p>If you need to run 3rd party software (software other than Windows
+built-ins and Anaconda) from this custom conda prompt, then you should add
+those entries (and only those strictly necessary) to the set PATH entry
+above. Note that only the quotes wrapping the entire expression should be
+there. That is how variables are properly set in batch scripts, and these
+account for any spaces in any entries in PATH. No additional quotes should
+be within the value assigned to PATH.</p>
+<p>To make 3rd party software take precedence over the same-named programs
+as supplied by conda, add it to PATH after activating conda:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">set</span>
+<span class="go">“PATH=%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\”</span>
+<span class="go">call “&lt;miniconda/anaconda root&gt;\Scripts\activate”</span>
+<span class="go">set “PATH=&lt;3rd-party-entries&gt;;%PATH%”</span>
+</pre></div>
+</div>
+<p>To make conda software take precedence, call the activation script last.
+Because activation prepends the conda environment PATH entries,
+they have priority.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">set</span>
+<span class="go">PATH=”%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;&lt;3rd-party-entries&gt;”</span>
+<span class="go">call “&lt;miniconda/anaconda root&gt;\Scripts\activate”</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-conda">在 Windows 中使用 conda 批处理脚本提前退出</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-mkl">NumPy MKL 库加载失败</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssl">SSL 连接错误</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condahttperror-http-000-connection-failed">CondaHTTPError: HTTP 000 CONNECTION FAILED</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">原因</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">SSL 证书错误</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">原因</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">SSL 验证错误</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">原因</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">解决方案</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permission-denied">安装过程中出现权限被拒绝错误</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sudo-conda">使用 sudo conda 命令后出现权限被拒绝错误</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fix-broken-conda">已安装错误消息</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">Conda 报告软件包已安装，但似乎并未安装</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">解决方案</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">解决方案</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">解决方案</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">解决方案</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pkg-resources-distributionnotfound-conda-3-6-1-6-gb31b0d4-dirty">pkg_resources.DistributionNotFound: conda==3.6.1-6-gb31b0d4-dirty</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macos-valueerror-unknown-locale-utf-8">macOS 错误“ValueError unknown locale: UTF-8”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributeerror-getproxies">AttributeError 或缺失getproxies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shell">Shell 命令从错误的位置打开</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda-python-python">由于调用 conda Python 而不是系统 Python，导致程序失败</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id39">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsatisfiablespecifications">UnsatisfiableSpecifications 错误</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-from-channel">从特定渠道安装软件包失败</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id43">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id44">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-upgrade">Conda 自动升级到不需要的版本</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id46">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id47">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#upgrade-error">Conda 升级错误</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id49">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id50">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validationerror">ValidationError：时间戳值无效</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id51">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id52">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-2-unicode">安装 Python 2 后出现 Unicode 错误</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id53">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id54">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows 环境尚未激活</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id55">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id56">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#path-error">系统在 Windows 上找不到指定的路径</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id58">原因</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id59">解决方案</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/conda/conda/edit/main/docs/source/user-guide/troubleshooting.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/user-guide/troubleshooting.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> 显示源代码
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2017, Anaconda, Inc.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7创建。
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+<a href="https://docs-conda-io.goatcounter.com" title="Analytics Dashboard">
+    Analytics Dashboard <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-27761864-11', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,246 @@
+:py:mod:`dist`
+==============
+
+.. py:module:: conda.models.dist
+
+.. autoapi-nested-parse::
+
+   (Legacy) Low-level implementation of a Channel.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   conda.models.dist.DistDetails
+   conda.models.dist.DistType
+   conda.models.dist.Dist
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   conda.models.dist.strip_extension
+   conda.models.dist.split_extension
+   conda.models.dist.dist_str_to_quad
+
+
+
+.. py:class:: DistDetails
+
+
+   Bases: :py:obj:`NamedTuple`
+
+   .. py:attribute:: name
+      :type: str
+
+      
+
+   .. py:attribute:: version
+      :type: str
+
+      
+
+   .. py:attribute:: build_string
+      :type: str
+
+      
+
+   .. py:attribute:: build_number
+      :type: str
+
+      
+
+   .. py:attribute:: dist_name
+      :type: str
+
+      
+
+   .. py:attribute:: fmt
+      :type: str
+
+      
+
+
+.. py:class:: DistType(name, bases, attr)
+
+
+   Bases: :py:obj:`conda.auxlib.entity.EntityType`
+
+   .. py:method:: __call__(*args, **kwargs)
+
+      Call self as a function.
+
+
+
+.. py:function:: strip_extension(original_dist)
+
+
+.. py:function:: split_extension(original_dist)
+
+
+.. py:class:: Dist(channel, dist_name=None, name=None, version=None, build_string=None, build_number=None, base_url=None, platform=None, fmt='.tar.bz2')
+
+
+   Bases: :py:obj:`conda.auxlib.entity.Entity`
+
+   .. py:property:: full_name
+
+
+   .. py:property:: build
+
+
+   .. py:property:: subdir
+
+
+   .. py:property:: pair
+
+
+   .. py:property:: quad
+
+
+   .. py:property:: is_feature_package
+
+
+   .. py:property:: is_channel
+
+
+   .. py:property:: fn
+
+
+   .. py:attribute:: _cache_
+
+      
+
+   .. py:attribute:: _lazy_validate
+      :value: True
+
+      
+
+   .. py:attribute:: channel
+
+      
+
+   .. py:attribute:: dist_name
+
+      
+
+   .. py:attribute:: name
+
+      
+
+   .. py:attribute:: fmt
+
+      
+
+   .. py:attribute:: version
+
+      
+
+   .. py:attribute:: build_string
+
+      
+
+   .. py:attribute:: build_number
+
+      
+
+   .. py:attribute:: base_url
+
+      
+
+   .. py:attribute:: platform
+
+      
+
+   .. py:method:: to_package_ref()
+
+
+   .. py:method:: __str__()
+
+      Return str(self).
+
+
+   .. py:method:: to_filename(extension=None)
+
+
+   .. py:method:: to_matchspec()
+
+
+   .. py:method:: to_match_spec()
+
+
+   .. py:method:: from_string(string, channel_override=NULL)
+      :classmethod:
+
+
+   .. py:method:: parse_dist_name(string)
+      :staticmethod:
+
+
+   .. py:method:: from_url(url)
+      :classmethod:
+
+
+   .. py:method:: to_url()
+
+
+   .. py:method:: __key__()
+
+
+   .. py:method:: __lt__(other)
+
+      Return self<value.
+
+
+   .. py:method:: __gt__(other)
+
+      Return self>value.
+
+
+   .. py:method:: __le__(other)
+
+      Return self<=value.
+
+
+   .. py:method:: __ge__(other)
+
+      Return self>=value.
+
+
+   .. py:method:: __hash__()
+
+      Return hash(self).
+
+
+   .. py:method:: __eq__(other)
+
+      Return self==value.
+
+
+   .. py:method:: __ne__(other)
+
+      Return self!=value.
+
+
+   .. py:method:: split(sep=None, maxsplit=-1)
+
+
+   .. py:method:: rsplit(sep=None, maxsplit=-1)
+
+
+   .. py:method:: startswith(match)
+
+
+   .. py:method:: __contains__(item)
+
+
+
+.. py:function:: dist_str_to_quad(dist_str)
+
+

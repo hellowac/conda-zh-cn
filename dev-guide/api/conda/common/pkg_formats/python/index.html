@@ -1,0 +1,1832 @@
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>python &#8212; conda 0.0.0.dev0+placeholder 文档</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/style.css?v=e70ed768" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="icon" sizes="16x16" type="image/ico" href="../../../../../../_static/favicon.ico?v=92f50989" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/jspanel.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/custom.css?v=9c5e1b2e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../../../../_static/documentation_options.js?v=d571dea1"></script>
+    <script src="../../../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../../../_static/translations.js?v=beaddf03"></script>
+    <script src="../../../../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" data-goatcounter="https://docs-conda-io.goatcounter.com/count" src="../../../../../../_static/js/count.js?v=ced7a106"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'dev-guide/api/conda/common/pkg_formats/python/index';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.conda.io/projects/conda/en/latest/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'stable';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/jspanel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/modal/jspanel.modal.js"></script>
+    <script src="https://unpkg.com/@panzoom/panzoom@4.4.1/dist/panzoom.min.js"></script>
+    <script src="../../../../../../_static/js/panzoom.js?v=74da3ef2"></script>
+    <link rel="canonical" href="https://docs.conda.io/projects/conda/dev-guide/api/conda/common/pkg_formats/python/index.html" />
+    <link rel="index" title="索引" href="../../../../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../../../../search.html" />
+    <link rel="next" title="serialize" href="../../serialize/index.html" />
+    <link rel="prev" title="pkg_formats" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="pst-primary-sidebar-checkbox"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="pst-secondary-sidebar-checkbox"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../../_static/conda_logo_full.svg" class="logo__image only-light" alt="conda 0.0.0.dev0+placeholder 文档 - Home"/>
+    <script>document.write(`<img src="../../../../../../_static/conda_logo_full.svg" class="logo__image only-dark" alt="conda 0.0.0.dev0+placeholder 文档 - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><ul id="navbar-main-elements" class="navbar-nav">
+    <li class="nav-item current active">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda/">Conda</a>
+    </li>
+    <li class="nav-item ">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda-build">Conda-build</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://docs.anaconda.com/free/miniconda/">Miniconda</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://conda.org">conda.org</a>
+    </li>
+</ul></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/conda/conda" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://bit.ly/conda-chat-room" title="Element" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../../../../_static/element_logo.svg" class="icon-link-image" alt="Element"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://conda.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discourse</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><ul id="navbar-main-elements" class="navbar-nav">
+    <li class="nav-item current active">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda/">Conda</a>
+    </li>
+    <li class="nav-item ">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda-build">Conda-build</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://docs.anaconda.com/free/miniconda/">Miniconda</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://conda.org">conda.org</a>
+    </li>
+</ul></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/conda/conda" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://bit.ly/conda-chat-room" title="Element" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../../../../../_static/element_logo.svg" class="icon-link-image" alt="Element"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://conda.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discourse</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="导航">
+  <p class="bd-links__title" role="heading" aria-level="1">导航</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../../user-guide/index.html">用户指南</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../user-guide/getting-started.html">conda 入门</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../../user-guide/install/index.html">安装 conda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/install/windows.html">在 Windows 上安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/install/macos.html">在 macOS 上安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/install/linux.html">在 Linux 上安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/install/rpm-debian.html">Miniconda 的 RPM 和 Debian 存储库</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../../user-guide/tasks/index.html">任务</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/tasks/manage-conda.html">管理 conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/tasks/manage-environments.html">管理环境</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/tasks/manage-channels.html">管理渠道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/tasks/manage-pkgs.html">管理软件包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/tasks/manage-python.html">管理 Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/tasks/manage-virtual.html">管理虚拟软件包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/tasks/create-custom-channels.html">创建自定义渠道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/tasks/creating-projects.html">创建项目</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/tasks/view-command-line-help.html">查看命令行帮助</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../../user-guide/configuration/index.html">配置</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/configuration/use-condarc.html">使用 .condarc conda 配置文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/configuration/settings.html">设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/configuration/admin-multi-user-install.html">管理多用户 conda 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/configuration/mirroring.html">镜像渠道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/configuration/disable-ssl-verification.html">禁用 SSL 验证</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/configuration/non-standard-certs.html">使用非标准证书</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/configuration/custom-env-and-pkg-locations.html">使用环境和包缓存的自定义位置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/configuration/pip-interoperability.html">提高与 pip 的互操作性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/configuration/free-channel.html">使用免费通道</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../../user-guide/concepts/index.html">概念</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/concepts/conda-commands.html">命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/concepts/packages.html">软件包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/concepts/pkg-specs.html">软件包规范</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/concepts/pkg-search.html">软件包搜索和安装规范</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/concepts/channels.html">频道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/concepts/environments.html">环境</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/concepts/installing-with-conda.html">使用 conda 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/concepts/conda-performance.html">性能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/concepts/data-science.html">面向数据科学家的 Conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../user-guide/concepts/conda-plugins.html">插件</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../user-guide/troubleshooting.html">故障排除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../user-guide/cheatsheet.html">备忘单</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../configuration.html">配置</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../../commands/index.html">命令</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/activate.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/clean.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">clean</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/compare.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">compare</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/config.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/create.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/deactivate.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/doctor.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">doctor</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../../commands/env/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../../../commands/env/config/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../../../../commands/env/config/vars/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../../commands/env/config/vars/list.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span> <span class="pre">list</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../../commands/env/config/vars/set.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span> <span class="pre">set</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../../commands/env/config/vars/unset.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span> <span class="pre">unset</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../commands/env/create.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../commands/env/export.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../commands/env/list.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../commands/env/remove.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">remove</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../commands/env/update.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">update</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/info.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/init.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">init</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/install.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/list.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/notices.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">notices</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/package.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">package</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../../commands/repoquery/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../commands/repoquery/depends.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span> <span class="pre">depends</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../commands/repoquery/search.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span> <span class="pre">search</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../commands/repoquery/whoneeds.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span> <span class="pre">whoneeds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/remove.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">remove</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/rename.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">rename</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/run.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">run</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/search.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">search</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../commands/update.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../release-notes.html">发行说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../glossary.html">术语</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../../../index.html">开发者指南</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../architecture.html">架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../contributing.html">Contributing to conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../development-environment.html">开发环境</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../deep-dives/index.html">深入探索</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../deep-dives/install.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../deep-dives/activation.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">init</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../deep-dives/context.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span></code> and context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../deep-dives/solvers.html">Solvers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../deep-dives/logging.html">Logging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../writing-tests/index.html">编写测试</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../writing-tests/integration-tests.html">集成测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../writing-tests/windows-applocker.html">使用 Windows AppLocker 进行测试</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../deprecations.html">弃用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../releasing.html">发布</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../plugins/index.html">插件</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../plugins/auth_handlers.html">Auth Handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../plugins/health_checks.html">Health Checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../plugins/request_headers.html">Request Headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../plugins/post_commands.html">Post-commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../plugins/pre_commands.html">Pre-commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../plugins/reporter_backends.html">Reporter Backends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../plugins/settings.html">Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../plugins/solvers.html">Solvers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../plugins/subcommands.html">Subcommands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../plugins/virtual_packages.html">Virtual Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../../specs/index.html">规范</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../specs/solver-state.html">技术规范：求解器状态</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../../../../api.html">API</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../_vendor/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_vendor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../activate/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">activate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">api</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../auxlib/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auxlib</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../auxlib/collection/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collection</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../auxlib/compat/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">compat</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../auxlib/decorators/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">decorators</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../auxlib/entity/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">entity</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../auxlib/exceptions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exceptions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../auxlib/ish/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ish</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../auxlib/logz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logz</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../auxlib/type_coercion/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">type_coercion</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../base/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../base/constants/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">constants</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../base/context/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">context</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../cli/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cli</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/actions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">common</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/conda_argparse/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda_argparse</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/find_commands/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">find_commands</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">helpers</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/install/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">install</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_clean/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_clean</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_commands/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_commands</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_compare/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_compare</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_config/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_config</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_create/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_create</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_env_config/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_config</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_env_create/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_create</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_env_list/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_list</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_env_remove/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_remove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_env_update/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_update</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_env_vars/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_vars</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_export/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_export</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_info/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_info</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_init/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_init</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_install/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_install</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_list/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_list</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_mock_activate/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_mock_activate</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_mock_deactivate/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_mock_deactivate</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_notices/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_notices</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_package/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_package</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_pip/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_pip</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_remove/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_remove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_rename/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_rename</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_run/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_run</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_search/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_search</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/main_update/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_update</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cli/python_api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">python_api</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 current active has-children"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">common</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="../../_logic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_logic</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../_os/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_os</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../_os/linux/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linux</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../_os/osx/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">osx</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../_os/unix/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unix</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../_os/windows/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">windows</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../compat/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">compat</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../configuration/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">configuration</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../constants/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">constants</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../disk/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">disk</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../io/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">io</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../iterators/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iterators</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../logic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logic</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">path</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../path/_cygpath/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_cygpath</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../path/directories/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">directories</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../path/python/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">python</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../path/windows/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">windows</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5 current active has-children"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pkg_formats</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l6 current active"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">python</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../serialize/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">serialize</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../signals/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signals</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../toposort/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">toposort</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../url/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">url</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../core/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../core/envs_manager/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">envs_manager</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../core/index/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">index</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../core/initialize/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">initialize</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../core/link/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">link</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../core/package_cache_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">package_cache_data</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../core/path_actions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">path_actions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../core/portability/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">portability</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../core/prefix_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">prefix_data</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../core/solve/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solve</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../core/subdir_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subdir_data</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../deprecations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">deprecations</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">env</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../env/env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">env</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../env/installers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">installers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../env/installers/base/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../env/installers/conda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../env/installers/pip/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../env/pip_util/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pip_util</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../env/specs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">specs</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../env/specs/binstar/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">binstar</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../env/specs/requirements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">requirements</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../env/specs/yaml_file/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">yaml_file</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../exception_handler/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exception_handler</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../exceptions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exceptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../exports/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exports</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../gateways/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gateways</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../gateways/anaconda_client/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">anaconda_client</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../gateways/connection/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">connection</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6 has-children"><a class="reference internal" href="../../../gateways/connection/adapters/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">adapters</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../gateways/connection/adapters/ftp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ftp</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../gateways/connection/adapters/http/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../gateways/connection/adapters/localfs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">localfs</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../gateways/connection/adapters/s3/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">s3</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../gateways/connection/download/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">download</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../gateways/connection/session/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">session</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../gateways/disk/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">disk</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../gateways/disk/create/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">create</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../gateways/disk/delete/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">delete</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../gateways/disk/link/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">link</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../gateways/disk/lock/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lock</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../gateways/disk/permissions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">permissions</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../gateways/disk/read/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">read</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../gateways/disk/test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../gateways/disk/update/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">update</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../gateways/logging/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../gateways/repodata/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">repodata</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6 has-children"><a class="reference internal" href="../../../gateways/repodata/jlap/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">jlap</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../gateways/repodata/jlap/core/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../gateways/repodata/jlap/fetch/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fetch</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../../../gateways/repodata/jlap/interface/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">interface</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../gateways/repodata/lock/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lock</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../gateways/subprocess/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../history/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">history</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../instructions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">instructions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../misc/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">misc</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">models</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../models/channel/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">channel</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../models/dist/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dist</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../models/enums/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">enums</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../models/leased_path_entry/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">leased_path_entry</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../models/match_spec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">match_spec</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../models/package_info/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">package_info</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../models/prefix_graph/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">prefix_graph</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../models/records/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">records</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../models/version/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">version</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../notices/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">notices</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../notices/cache/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cache</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../notices/core/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../notices/fetch/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fetch</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../notices/types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../notices/views/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">views</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plan/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plan</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../plugins/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plugins</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../plugins/hookspec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">hookspec</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../plugins/manager/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">manager</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../plugins/post_solves/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">post_solves</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../plugins/post_solves/signature_verification/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signature_verification</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../plugins/reporter_backends/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">reporter_backends</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../plugins/reporter_backends/console/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">console</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../plugins/reporter_backends/json/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../plugins/solvers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solvers</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../plugins/subcommands/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subcommands</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6 has-children"><a class="reference internal" href="../../../plugins/subcommands/doctor/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">doctor</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../../plugins/subcommands/doctor/health_checks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_checks</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../plugins/types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../plugins/virtual_packages/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">virtual_packages</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../plugins/virtual_packages/archspec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">archspec</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../plugins/virtual_packages/conda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../plugins/virtual_packages/cuda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../plugins/virtual_packages/freebsd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">freebsd</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../plugins/virtual_packages/linux/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linux</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../plugins/virtual_packages/osx/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">osx</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../plugins/virtual_packages/windows/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">windows</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../reporters/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">reporters</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../resolve/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">resolve</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../testing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">testing</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../testing/cases/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cases</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../testing/fixtures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fixtures</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../testing/gateways/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gateways</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../testing/gateways/fixtures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fixtures</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../testing/helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">helpers</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../testing/integration/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">integration</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../../../testing/notices/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">notices</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../testing/notices/fixtures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fixtures</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../testing/notices/helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">helpers</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../testing/solver_helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solver_helpers</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../trust/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trust</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../trust/constants/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">constants</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../trust/signature_verification/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signature_verification</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../conda_env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda_env</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../conda_env/cli/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cli</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../conda_env/installers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">installers</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../../../index.html" class="nav-link">开发者指南</a></li>
+    
+    
+    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pkg_formats</span></code></a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><code...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="module-conda.common.pkg_formats.python">
+<span id="python"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">python</span></code><a class="headerlink" href="#module-conda.common.pkg_formats.python" title="Link to this heading">#</a></h1>
+<p>Common Python package format utilities.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.PythonDistribution" title="conda.common.pkg_formats.python.PythonDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PythonDistribution</span></code></a></p></td>
+<td><p>Base object describing a python distribution based on path to anchor file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.PythonInstalledDistribution" title="conda.common.pkg_formats.python.PythonInstalledDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PythonInstalledDistribution</span></code></a></p></td>
+<td><p>Python distribution installed via distutils.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.PythonEggInfoDistribution" title="conda.common.pkg_formats.python.PythonEggInfoDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PythonEggInfoDistribution</span></code></a></p></td>
+<td><p>Python distribution installed via setuptools.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.PythonEggLinkDistribution" title="conda.common.pkg_formats.python.PythonEggLinkDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PythonEggLinkDistribution</span></code></a></p></td>
+<td><p>Python distribution installed via setuptools.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.PythonDistributionMetadata" title="conda.common.pkg_formats.python.PythonDistributionMetadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PythonDistributionMetadata</span></code></a></p></td>
+<td><p>Object representing the metada of a Python Distribution given by anchor</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.Evaluator" title="conda.common.pkg_formats.python.Evaluator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evaluator</span></code></a></p></td>
+<td><p>This class is used to evaluate marker expressions.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.norm_package_name" title="conda.common.pkg_formats.python.norm_package_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">norm_package_name</span></code></a>(name)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.pypi_name_to_conda_name" title="conda.common.pkg_formats.python.pypi_name_to_conda_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pypi_name_to_conda_name</span></code></a>(pypi_name)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.norm_package_version" title="conda.common.pkg_formats.python.norm_package_version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">norm_package_version</span></code></a>(version)</p></td>
+<td><p>Normalize a version by removing extra spaces and parentheses.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.split_spec" title="conda.common.pkg_formats.python.split_spec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split_spec</span></code></a>(spec, sep)</p></td>
+<td><p>Split a spec by separator and return stripped start and end parts.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.parse_specification" title="conda.common.pkg_formats.python.parse_specification"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_specification</span></code></a>(spec)</p></td>
+<td><p>Parse a requirement from a python distribution metadata and return a</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.get_site_packages_anchor_files" title="conda.common.pkg_formats.python.get_site_packages_anchor_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_site_packages_anchor_files</span></code></a>(site_packages_path, ...)</p></td>
+<td><p>Get all the anchor files for the site packages directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.get_dist_file_from_egg_link" title="conda.common.pkg_formats.python.get_dist_file_from_egg_link"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dist_file_from_egg_link</span></code></a>(egg_link_file, prefix_path)</p></td>
+<td><p>Return the egg info file path following an egg link.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.parse_marker" title="conda.common.pkg_formats.python.parse_marker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_marker</span></code></a>(marker_string)</p></td>
+<td><p>Parse marker string and return a dictionary containing a marker expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python._is_literal" title="conda.common.pkg_formats.python._is_literal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_is_literal</span></code></a>(o)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.get_default_marker_context" title="conda.common.pkg_formats.python.get_default_marker_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_default_marker_context</span></code></a>()</p></td>
+<td><p>Return the default context dictionary to use when parsing markers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.interpret" title="conda.common.pkg_formats.python.interpret"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interpret</span></code></a>(marker[, execution_context])</p></td>
+<td><p>Interpret a marker and return a result depending on environment.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.PYPI_TO_CONDA" title="conda.common.pkg_formats.python.PYPI_TO_CONDA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYPI_TO_CONDA</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.PYPI_CONDA_DEPS" title="conda.common.pkg_formats.python.PYPI_CONDA_DEPS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYPI_CONDA_DEPS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.PARTIAL_PYPI_SPEC_PATTERN" title="conda.common.pkg_formats.python.PARTIAL_PYPI_SPEC_PATTERN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PARTIAL_PYPI_SPEC_PATTERN</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.PY_FILE_RE" title="conda.common.pkg_formats.python.PY_FILE_RE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PY_FILE_RE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.PySpec" title="conda.common.pkg_formats.python.PySpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PySpec</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.IDENTIFIER" title="conda.common.pkg_formats.python.IDENTIFIER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IDENTIFIER</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.VERSION_IDENTIFIER" title="conda.common.pkg_formats.python.VERSION_IDENTIFIER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VERSION_IDENTIFIER</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.COMPARE_OP" title="conda.common.pkg_formats.python.COMPARE_OP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">COMPARE_OP</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.MARKER_OP" title="conda.common.pkg_formats.python.MARKER_OP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MARKER_OP</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.OR" title="conda.common.pkg_formats.python.OR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OR</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.AND" title="conda.common.pkg_formats.python.AND"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AND</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.NON_SPACE" title="conda.common.pkg_formats.python.NON_SPACE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NON_SPACE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.STRING_CHUNK" title="conda.common.pkg_formats.python.STRING_CHUNK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STRING_CHUNK</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.DEFAULT_MARKER_CONTEXT" title="conda.common.pkg_formats.python.DEFAULT_MARKER_CONTEXT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DEFAULT_MARKER_CONTEXT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#conda.common.pkg_formats.python.evaluator" title="conda.common.pkg_formats.python.evaluator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluator</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PYPI_TO_CONDA">
+<span class="sig-name descname"><span class="pre">PYPI_TO_CONDA</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.PYPI_TO_CONDA" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PYPI_CONDA_DEPS">
+<span class="sig-name descname"><span class="pre">PYPI_CONDA_DEPS</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.PYPI_CONDA_DEPS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PARTIAL_PYPI_SPEC_PATTERN">
+<span class="sig-name descname"><span class="pre">PARTIAL_PYPI_SPEC_PATTERN</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.PARTIAL_PYPI_SPEC_PATTERN" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PY_FILE_RE">
+<span class="sig-name descname"><span class="pre">PY_FILE_RE</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.PY_FILE_RE" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PySpec">
+<span class="sig-name descname"><span class="pre">PySpec</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.PySpec" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.MetadataWarning">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MetadataWarning</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.MetadataWarning" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Warning" title="（在 Python v3.13）"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Warning</span></code></a></p>
+<p>Base class for warning categories.</p>
+<p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PythonDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">anchor_full_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">python_version</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution" title="Link to this definition">#</a></dt>
+<dd><p>Base object describing a python distribution based on path to anchor file.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.norm_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">norm_name</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.norm_name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.conda_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">conda_name</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.conda_name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.version">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.version" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.MANIFEST_FILES">
+<span class="sig-name descname"><span class="pre">MANIFEST_FILES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.MANIFEST_FILES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.REQUIRES_FILES">
+<span class="sig-name descname"><span class="pre">REQUIRES_FILES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.REQUIRES_FILES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.MANDATORY_FILES">
+<span class="sig-name descname"><span class="pre">MANDATORY_FILES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.MANDATORY_FILES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.ENTRY_POINTS_FILES">
+<span class="sig-name descname"><span class="pre">ENTRY_POINTS_FILES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('entry_points.txt',)</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.ENTRY_POINTS_FILES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.init">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anchor_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">python_version</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.init" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution._check_files">
+<span class="sig-name descname"><span class="pre">_check_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution._check_files" title="Link to this definition">#</a></dt>
+<dd><p>Check the existence of mandatory files for a given distribution.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution._check_path_data">
+<span class="sig-name descname"><span class="pre">_check_path_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checksum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution._check_path_data" title="Link to this definition">#</a></dt>
+<dd><p>Normalizes record data content and format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution._parse_requires_file_data">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_parse_requires_file_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_section</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'__global__'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution._parse_requires_file_data" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution._parse_entries_file_data">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_parse_entries_file_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution._parse_entries_file_data" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution._load_requires_provides_file">
+<span class="sig-name descname"><span class="pre">_load_requires_provides_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution._load_requires_provides_file" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.manifest_full_path">
+<span class="sig-name descname"><span class="pre">manifest_full_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.manifest_full_path" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.get_paths">
+<span class="sig-name descname"><span class="pre">get_paths</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.get_paths" title="Link to this definition">#</a></dt>
+<dd><p>Read the list of installed paths from record or source file.</p>
+<p class="rubric">示例</p>
+<dl class="simple">
+<dt>[(u'skdata/__init__.py', u'sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU', 0),</dt><dd><p>(u'skdata/diabetes.py', None, None),
+...</p>
+</dd>
+</dl>
+<p>]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.get_dist_requirements">
+<span class="sig-name descname"><span class="pre">get_dist_requirements</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.get_dist_requirements" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.get_python_requirements">
+<span class="sig-name descname"><span class="pre">get_python_requirements</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.get_python_requirements" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.get_external_requirements">
+<span class="sig-name descname"><span class="pre">get_external_requirements</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.get_external_requirements" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.get_extra_provides">
+<span class="sig-name descname"><span class="pre">get_extra_provides</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.get_extra_provides" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.get_conda_dependencies">
+<span class="sig-name descname"><span class="pre">get_conda_dependencies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.get_conda_dependencies" title="Link to this definition">#</a></dt>
+<dd><p>Process metadata fields providing dependency information.</p>
+<p>This includes normalizing fields, and evaluating environment markers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.get_optional_dependencies">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_optional_dependencies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.get_optional_dependencies" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistribution.get_entry_points">
+<span class="sig-name descname"><span class="pre">get_entry_points</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistribution.get_entry_points" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonInstalledDistribution">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PythonInstalledDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anchor_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">python_version</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonInstalledDistribution" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conda.common.pkg_formats.python.PythonDistribution" title="conda.common.pkg_formats.python.PythonDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PythonDistribution</span></code></a></p>
+<p>Python distribution installed via distutils.</p>
+<p class="rubric">备注</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0376/">https://www.python.org/dev/peps/pep-0376/</a></p></li>
+</ul>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonInstalledDistribution.MANIFEST_FILES">
+<span class="sig-name descname"><span class="pre">MANIFEST_FILES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('RECORD',)</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonInstalledDistribution.MANIFEST_FILES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonInstalledDistribution.REQUIRES_FILES">
+<span class="sig-name descname"><span class="pre">REQUIRES_FILES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonInstalledDistribution.REQUIRES_FILES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonInstalledDistribution.MANDATORY_FILES">
+<span class="sig-name descname"><span class="pre">MANDATORY_FILES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('METADATA',)</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonInstalledDistribution.MANDATORY_FILES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonInstalledDistribution.ENTRY_POINTS_FILES">
+<span class="sig-name descname"><span class="pre">ENTRY_POINTS_FILES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonInstalledDistribution.ENTRY_POINTS_FILES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonInstalledDistribution.is_manageable">
+<span class="sig-name descname"><span class="pre">is_manageable</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonInstalledDistribution.is_manageable" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonEggInfoDistribution">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PythonEggInfoDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">anchor_full_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">python_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sp_reference</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonEggInfoDistribution" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conda.common.pkg_formats.python.PythonDistribution" title="conda.common.pkg_formats.python.PythonDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PythonDistribution</span></code></a></p>
+<p>Python distribution installed via setuptools.</p>
+<p class="rubric">备注</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://peak.telecommunity.com/DevCenter/EggFormats">http://peak.telecommunity.com/DevCenter/EggFormats</a></p></li>
+</ul>
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonEggInfoDistribution.is_manageable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_manageable</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonEggInfoDistribution.is_manageable" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonEggInfoDistribution.MANIFEST_FILES">
+<span class="sig-name descname"><span class="pre">MANIFEST_FILES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('installed-files.txt',</span> <span class="pre">'SOURCES',</span> <span class="pre">'SOURCES.txt')</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonEggInfoDistribution.MANIFEST_FILES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonEggInfoDistribution.REQUIRES_FILES">
+<span class="sig-name descname"><span class="pre">REQUIRES_FILES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('requires.txt',</span> <span class="pre">'depends.txt')</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonEggInfoDistribution.REQUIRES_FILES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonEggInfoDistribution.MANDATORY_FILES">
+<span class="sig-name descname"><span class="pre">MANDATORY_FILES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonEggInfoDistribution.MANDATORY_FILES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonEggInfoDistribution.ENTRY_POINTS_FILES">
+<span class="sig-name descname"><span class="pre">ENTRY_POINTS_FILES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('entry_points.txt',)</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonEggInfoDistribution.ENTRY_POINTS_FILES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonEggLinkDistribution">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PythonEggLinkDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anchor_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">python_version</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonEggLinkDistribution" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conda.common.pkg_formats.python.PythonEggInfoDistribution" title="conda.common.pkg_formats.python.PythonEggInfoDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PythonEggInfoDistribution</span></code></a></p>
+<p>Python distribution installed via setuptools.</p>
+<p class="rubric">备注</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://peak.telecommunity.com/DevCenter/EggFormats">http://peak.telecommunity.com/DevCenter/EggFormats</a></p></li>
+</ul>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonEggLinkDistribution.is_manageable">
+<span class="sig-name descname"><span class="pre">is_manageable</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonEggLinkDistribution.is_manageable" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PythonDistributionMetadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata" title="Link to this definition">#</a></dt>
+<dd><p>Object representing the metada of a Python Distribution given by anchor
+file (or directory) path.</p>
+<p>This metadata is extracted from a single file. Python distributions might
+create additional files that complement this metadata information, but
+that is handled at the python distribution level.</p>
+<p class="rubric">备注</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://packaging.python.org/specifications/core-metadata/">https://packaging.python.org/specifications/core-metadata/</a></p></li>
+<li><p>Metadata 2.1: <a class="reference external" href="https://www.python.org/dev/peps/pep-0566/">https://www.python.org/dev/peps/pep-0566/</a></p></li>
+<li><p>Metadata 2.0: <a class="reference external" href="https://www.python.org/dev/peps/pep-0426/">https://www.python.org/dev/peps/pep-0426/</a> (Withdrawn)</p></li>
+<li><p>Metadata 1.2: <a class="reference external" href="https://www.python.org/dev/peps/pep-0345/">https://www.python.org/dev/peps/pep-0345/</a></p></li>
+<li><p>Metadata 1.1: <a class="reference external" href="https://www.python.org/dev/peps/pep-0314/">https://www.python.org/dev/peps/pep-0314/</a></p></li>
+<li><p>Metadata 1.0: <a class="reference external" href="https://www.python.org/dev/peps/pep-0241/">https://www.python.org/dev/peps/pep-0241/</a></p></li>
+</ul>
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata.version">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.version" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata.FILE_NAMES">
+<span class="sig-name descname"><span class="pre">FILE_NAMES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('METADATA',</span> <span class="pre">'PKG-INFO')</span></em><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.FILE_NAMES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata.SINGLE_USE_KEYS">
+<span class="sig-name descname"><span class="pre">SINGLE_USE_KEYS</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.SINGLE_USE_KEYS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata.MULTIPLE_USE_KEYS">
+<span class="sig-name descname"><span class="pre">MULTIPLE_USE_KEYS</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.MULTIPLE_USE_KEYS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata._process_path">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_process_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata_filenames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata._process_path" title="Link to this definition">#</a></dt>
+<dd><p>Find metadata file inside dist-info folder, or check direct file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata._message_to_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_message_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata._message_to_dict" title="Link to this definition">#</a></dt>
+<dd><p>Convert the RFC-822 headers data into a dictionary.</p>
+<p><cite>message</cite> is an email.parser.Message instance.</p>
+<p>The canonical method to transform metadata fields into such a data
+structure is as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The original key-value format should be read with
+email.parser.HeaderParser</p></li>
+<li><p>All transformed keys should be reduced to lower case. Hyphens
+should be replaced with underscores, but otherwise should retain
+all other characters</p></li>
+<li><p>The transformed value for any field marked with &quot;(Multiple-use&quot;)
+should be a single list containing all the original values for the
+given key</p></li>
+<li><p>The Keywords field should be converted to a list by splitting the
+original value on whitespace characters</p></li>
+<li><p>The message body, if present, should be set to the value of the
+description key.</p></li>
+<li><p>The result should be stored as a string-keyed dictionary.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata._read_metadata">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_read_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fpath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata._read_metadata" title="Link to this definition">#</a></dt>
+<dd><p>Read the original format which is stored as RFC-822 headers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata._get_multiple_data">
+<span class="sig-name descname"><span class="pre">_get_multiple_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata._get_multiple_data" title="Link to this definition">#</a></dt>
+<dd><p>Helper method to get multiple data values by keys.</p>
+<p>Keys is an iterable including the preferred key in order, to include
+values of key that might have been replaced (deprecated), for example
+keys can be ['requires_dist', 'requires'], where the key 'requires' is
+deprecated and replaced by 'requires_dist'.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata.get_dist_requirements">
+<span class="sig-name descname"><span class="pre">get_dist_requirements</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.get_dist_requirements" title="Link to this definition">#</a></dt>
+<dd><p>Changed in version 2.1: The field format specification was relaxed to
+accept the syntax used by popular publishing tools.</p>
+<p>Each entry contains a string naming some other distutils project
+required by this distribution.</p>
+<dl class="simple">
+<dt>The format of a requirement string contains from one to four parts:</dt><dd><ul class="simple">
+<li><p>A project name, in the same format as the Name: field. The only
+mandatory part.</p></li>
+<li><p>A comma-separated list of ‘extra’ names. These are defined by the
+required project, referring to specific features which may need
+extra dependencies.</p></li>
+<li><p>A version specifier. Tools parsing the format should accept
+optional parentheses around this, but tools generating it should
+not use parentheses.</p></li>
+<li><p>An environment marker after a semicolon. This means that the
+requirement is only needed in the specified conditions.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This field may be followed by an environment marker after a semicolon.</p>
+<p class="rubric">示例</p>
+<dl class="simple">
+<dt>frozenset(['pkginfo', 'PasteDeploy', 'zope.interface (&gt;3.5.0)',</dt><dd><p>'pywin32 &gt;1.0; sys_platform == &quot;win32&quot;'])</p>
+</dd>
+</dl>
+<p>Return 'Requires' if 'Requires-Dist' is empty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata.get_python_requirements">
+<span class="sig-name descname"><span class="pre">get_python_requirements</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.get_python_requirements" title="Link to this definition">#</a></dt>
+<dd><p>New in version 1.2.</p>
+<p>This field specifies the Python version(s) that the distribution is
+guaranteed to be compatible with. Installation tools may look at this
+when picking which version of a project to install.</p>
+<p>The value must be in the format specified in Version specifiers.</p>
+<p>This field may be followed by an environment marker after a semicolon.</p>
+<p class="rubric">示例</p>
+<dl class="simple">
+<dt>frozenset(['&gt;=3', '&gt;2.6,!=3.0.*,!=3.1.*', '~=2.6',</dt><dd><p>'&gt;=3; sys_platform == &quot;win32&quot;'])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata.get_external_requirements">
+<span class="sig-name descname"><span class="pre">get_external_requirements</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.get_external_requirements" title="Link to this definition">#</a></dt>
+<dd><p>Changed in version 2.1: The field format specification was relaxed to
+accept the syntax used by popular publishing tools.</p>
+<p>Each entry contains a string describing some dependency in the system
+that the distribution is to be used. This field is intended to serve
+as a hint to downstream project maintainers, and has no semantics
+which are meaningful to the distutils distribution.</p>
+<p>The format of a requirement string is a name of an external dependency,
+optionally followed by a version declaration within parentheses.</p>
+<p>This field may be followed by an environment marker after a semicolon.</p>
+<p>Because they refer to non-Python software releases, version numbers for
+this field are not required to conform to the format specified in PEP
+440: they should correspond to the version scheme used by the external
+dependency.</p>
+<p>Notice that there’s is no particular rule on the strings to be used!</p>
+<p class="rubric">示例</p>
+<p>frozenset(['C', 'libpng (&gt;=1.5)', 'make; sys_platform != &quot;win32&quot;'])</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata.get_extra_provides">
+<span class="sig-name descname"><span class="pre">get_extra_provides</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.get_extra_provides" title="Link to this definition">#</a></dt>
+<dd><p>New in version 2.1.</p>
+<p>A string containing the name of an optional feature. Must be a valid
+Python identifier. May be used to make a dependency conditional on
+hether the optional feature has been requested.</p>
+<p class="rubric">示例</p>
+<p>frozenset(['pdf', 'doc', 'test'])</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata.get_dist_provides">
+<span class="sig-name descname"><span class="pre">get_dist_provides</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.get_dist_provides" title="Link to this definition">#</a></dt>
+<dd><p>New in version 1.2.</p>
+<p>Changed in version 2.1: The field format specification was relaxed to
+accept the syntax used by popular publishing tools.</p>
+<p>Each entry contains a string naming a Distutils project which is
+contained within this distribution. This field must include the project
+identified in the Name field, followed by the version : Name (Version).</p>
+<p>A distribution may provide additional names, e.g. to indicate that
+multiple projects have been bundled together. For instance, source
+distributions of the ZODB project have historically included the
+transaction project, which is now available as a separate distribution.
+Installing such a source distribution satisfies requirements for both
+ZODB and transaction.</p>
+<p>A distribution may also provide a “virtual” project name, which does
+not correspond to any separately-distributed project: such a name might
+be used to indicate an abstract capability which could be supplied by
+one of multiple projects. E.g., multiple projects might supply RDBMS
+bindings for use by a given ORM: each project might declare that it
+provides ORM-bindings, allowing other projects to depend only on having
+at most one of them installed.</p>
+<p>A version declaration may be supplied and must follow the rules
+described in Version specifiers. The distribution’s version number
+will be implied if none is specified.</p>
+<p>This field may be followed by an environment marker after a semicolon.</p>
+<p>Return <cite>Provides</cite> in case <cite>Provides-Dist</cite> is empty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata.get_dist_obsolete">
+<span class="sig-name descname"><span class="pre">get_dist_obsolete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.get_dist_obsolete" title="Link to this definition">#</a></dt>
+<dd><p>New in version 1.2.</p>
+<p>Changed in version 2.1: The field format specification was relaxed to
+accept the syntax used by popular publishing tools.</p>
+<p>Each entry contains a string describing a distutils project’s
+distribution which this distribution renders obsolete, meaning that
+the two projects should not be installed at the same time.</p>
+<p>Version declarations can be supplied. Version numbers must be in the
+format specified in Version specifiers [1].</p>
+<p>The most common use of this field will be in case a project name
+changes, e.g. Gorgon 2.3 gets subsumed into Torqued Python 1.0. When
+you install Torqued Python, the Gorgon distribution should be removed.</p>
+<p>This field may be followed by an environment marker after a semicolon.</p>
+<p>Return <cite>Obsoletes</cite> in case <cite>Obsoletes-Dist</cite> is empty.</p>
+<p class="rubric">示例</p>
+<p>frozenset(['Gorgon', &quot;OtherProject (&lt;3.0) ; python_version == '2.7'&quot;])</p>
+<p class="rubric">备注</p>
+<ul class="simple">
+<li><p>[1] <a class="reference external" href="https://packaging.python.org/specifications/version-specifiers/">https://packaging.python.org/specifications/version-specifiers/</a></p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.PythonDistributionMetadata.get_classifiers">
+<span class="sig-name descname"><span class="pre">get_classifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.get_classifiers" title="Link to this definition">#</a></dt>
+<dd><p>Classifiers are described in PEP 301, and the Python Package Index
+publishes a dynamic list of currently defined classifiers.</p>
+<p>This field may be followed by an environment marker after a semicolon.</p>
+<p class="rubric">示例</p>
+<dl class="simple">
+<dt>frozenset(['Development Status :: 4 - Beta',</dt><dd><p>&quot;Environment :: Console (Text Based) ; os_name == &quot;posix&quot;])</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.norm_package_name">
+<span class="sig-name descname"><span class="pre">norm_package_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.norm_package_name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.pypi_name_to_conda_name">
+<span class="sig-name descname"><span class="pre">pypi_name_to_conda_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pypi_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.pypi_name_to_conda_name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.norm_package_version">
+<span class="sig-name descname"><span class="pre">norm_package_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.norm_package_version" title="Link to this definition">#</a></dt>
+<dd><p>Normalize a version by removing extra spaces and parentheses.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.split_spec">
+<span class="sig-name descname"><span class="pre">split_spec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.split_spec" title="Link to this definition">#</a></dt>
+<dd><p>Split a spec by separator and return stripped start and end parts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.parse_specification">
+<span class="sig-name descname"><span class="pre">parse_specification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.parse_specification" title="Link to this definition">#</a></dt>
+<dd><p>Parse a requirement from a python distribution metadata and return a
+namedtuple with name, extras, constraints, marker and url components.</p>
+<p>This method does not enforce strict specifications but extracts the
+information which is assumed to be <em>correct</em>. As such no errors are raised.</p>
+<p class="rubric">示例</p>
+<dl class="simple">
+<dt>PySpec(name='requests', extras=['security'], constraints='&gt;=3.3.0',</dt><dd><p>marker='foo &gt;= 2.7 or bar == 1', url=''])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.get_site_packages_anchor_files">
+<span class="sig-name descname"><span class="pre">get_site_packages_anchor_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site_packages_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">site_packages_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.get_site_packages_anchor_files" title="Link to this definition">#</a></dt>
+<dd><p>Get all the anchor files for the site packages directory.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.get_dist_file_from_egg_link">
+<span class="sig-name descname"><span class="pre">get_dist_file_from_egg_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">egg_link_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.get_dist_file_from_egg_link" title="Link to this definition">#</a></dt>
+<dd><p>Return the egg info file path following an egg link.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.parse_marker">
+<span class="sig-name descname"><span class="pre">parse_marker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">marker_string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.parse_marker" title="Link to this definition">#</a></dt>
+<dd><p>Parse marker string and return a dictionary containing a marker expression.</p>
+<p>The dictionary will contain keys &quot;op&quot;, &quot;lhs&quot; and &quot;rhs&quot; for non-terminals in
+the expression grammar, or strings. A string contained in quotes is to be
+interpreted as a literal string, and a string not contained in quotes is a
+variable (such as os_name).</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.IDENTIFIER">
+<span class="sig-name descname"><span class="pre">IDENTIFIER</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.IDENTIFIER" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.VERSION_IDENTIFIER">
+<span class="sig-name descname"><span class="pre">VERSION_IDENTIFIER</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.VERSION_IDENTIFIER" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.COMPARE_OP">
+<span class="sig-name descname"><span class="pre">COMPARE_OP</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.COMPARE_OP" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.MARKER_OP">
+<span class="sig-name descname"><span class="pre">MARKER_OP</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.MARKER_OP" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.OR">
+<span class="sig-name descname"><span class="pre">OR</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.OR" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.AND">
+<span class="sig-name descname"><span class="pre">AND</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.AND" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.NON_SPACE">
+<span class="sig-name descname"><span class="pre">NON_SPACE</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.NON_SPACE" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.STRING_CHUNK">
+<span class="sig-name descname"><span class="pre">STRING_CHUNK</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.STRING_CHUNK" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python._is_literal">
+<span class="sig-name descname"><span class="pre">_is_literal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python._is_literal" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.Evaluator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Evaluator</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.Evaluator" title="Link to this definition">#</a></dt>
+<dd><p>This class is used to evaluate marker expressions.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.Evaluator.operations">
+<span class="sig-name descname"><span class="pre">operations</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.Evaluator.operations" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.Evaluator.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.Evaluator.evaluate" title="Link to this definition">#</a></dt>
+<dd><p>Evaluate a marker expression returned by the <code class="xref py py-func docutils literal notranslate"><span class="pre">parse_requirement()</span></code>
+function in the specified context.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.get_default_marker_context">
+<span class="sig-name descname"><span class="pre">get_default_marker_context</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.get_default_marker_context" title="Link to this definition">#</a></dt>
+<dd><p>Return the default context dictionary to use when parsing markers.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.DEFAULT_MARKER_CONTEXT">
+<span class="sig-name descname"><span class="pre">DEFAULT_MARKER_CONTEXT</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.DEFAULT_MARKER_CONTEXT" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.evaluator">
+<span class="sig-name descname"><span class="pre">evaluator</span></span><a class="headerlink" href="#conda.common.pkg_formats.python.evaluator" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="conda.common.pkg_formats.python.interpret">
+<span class="sig-name descname"><span class="pre">interpret</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">marker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conda.common.pkg_formats.python.interpret" title="Link to this definition">#</a></dt>
+<dd><p>Interpret a marker and return a result depending on environment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>marker</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="（在 Python v3.13）"><em>str</em></a>) -- The marker to interpret.</p></li>
+<li><p><strong>execution_context</strong> (<em>mapping</em>) -- The context used for name lookup.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PYPI_TO_CONDA"><code class="docutils literal notranslate"><span class="pre">PYPI_TO_CONDA</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PYPI_CONDA_DEPS"><code class="docutils literal notranslate"><span class="pre">PYPI_CONDA_DEPS</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PARTIAL_PYPI_SPEC_PATTERN"><code class="docutils literal notranslate"><span class="pre">PARTIAL_PYPI_SPEC_PATTERN</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PY_FILE_RE"><code class="docutils literal notranslate"><span class="pre">PY_FILE_RE</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PySpec"><code class="docutils literal notranslate"><span class="pre">PySpec</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.MetadataWarning"><code class="docutils literal notranslate"><span class="pre">MetadataWarning</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution"><code class="docutils literal notranslate"><span class="pre">PythonDistribution</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.name"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.norm_name"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.norm_name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.conda_name"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.conda_name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.version"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.version</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.MANIFEST_FILES"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.MANIFEST_FILES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.REQUIRES_FILES"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.REQUIRES_FILES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.MANDATORY_FILES"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.MANDATORY_FILES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.ENTRY_POINTS_FILES"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.ENTRY_POINTS_FILES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.init"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.init()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution._check_files"><code class="docutils literal notranslate"><span class="pre">PythonDistribution._check_files()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution._check_path_data"><code class="docutils literal notranslate"><span class="pre">PythonDistribution._check_path_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution._parse_requires_file_data"><code class="docutils literal notranslate"><span class="pre">PythonDistribution._parse_requires_file_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution._parse_entries_file_data"><code class="docutils literal notranslate"><span class="pre">PythonDistribution._parse_entries_file_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution._load_requires_provides_file"><code class="docutils literal notranslate"><span class="pre">PythonDistribution._load_requires_provides_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.manifest_full_path"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.manifest_full_path()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.get_paths"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.get_paths()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.get_dist_requirements"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.get_dist_requirements()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.get_python_requirements"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.get_python_requirements()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.get_external_requirements"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.get_external_requirements()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.get_extra_provides"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.get_extra_provides()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.get_conda_dependencies"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.get_conda_dependencies()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.get_optional_dependencies"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.get_optional_dependencies()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistribution.get_entry_points"><code class="docutils literal notranslate"><span class="pre">PythonDistribution.get_entry_points()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonInstalledDistribution"><code class="docutils literal notranslate"><span class="pre">PythonInstalledDistribution</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonInstalledDistribution.MANIFEST_FILES"><code class="docutils literal notranslate"><span class="pre">PythonInstalledDistribution.MANIFEST_FILES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonInstalledDistribution.REQUIRES_FILES"><code class="docutils literal notranslate"><span class="pre">PythonInstalledDistribution.REQUIRES_FILES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonInstalledDistribution.MANDATORY_FILES"><code class="docutils literal notranslate"><span class="pre">PythonInstalledDistribution.MANDATORY_FILES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonInstalledDistribution.ENTRY_POINTS_FILES"><code class="docutils literal notranslate"><span class="pre">PythonInstalledDistribution.ENTRY_POINTS_FILES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonInstalledDistribution.is_manageable"><code class="docutils literal notranslate"><span class="pre">PythonInstalledDistribution.is_manageable</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonEggInfoDistribution"><code class="docutils literal notranslate"><span class="pre">PythonEggInfoDistribution</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonEggInfoDistribution.is_manageable"><code class="docutils literal notranslate"><span class="pre">PythonEggInfoDistribution.is_manageable</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonEggInfoDistribution.MANIFEST_FILES"><code class="docutils literal notranslate"><span class="pre">PythonEggInfoDistribution.MANIFEST_FILES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonEggInfoDistribution.REQUIRES_FILES"><code class="docutils literal notranslate"><span class="pre">PythonEggInfoDistribution.REQUIRES_FILES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonEggInfoDistribution.MANDATORY_FILES"><code class="docutils literal notranslate"><span class="pre">PythonEggInfoDistribution.MANDATORY_FILES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonEggInfoDistribution.ENTRY_POINTS_FILES"><code class="docutils literal notranslate"><span class="pre">PythonEggInfoDistribution.ENTRY_POINTS_FILES</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonEggLinkDistribution"><code class="docutils literal notranslate"><span class="pre">PythonEggLinkDistribution</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonEggLinkDistribution.is_manageable"><code class="docutils literal notranslate"><span class="pre">PythonEggLinkDistribution.is_manageable</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.name"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.version"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata.version</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.FILE_NAMES"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata.FILE_NAMES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.SINGLE_USE_KEYS"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata.SINGLE_USE_KEYS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.MULTIPLE_USE_KEYS"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata.MULTIPLE_USE_KEYS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata._process_path"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata._process_path()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata._message_to_dict"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata._message_to_dict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata._read_metadata"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata._read_metadata()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata._get_multiple_data"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata._get_multiple_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.get_dist_requirements"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata.get_dist_requirements()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.get_python_requirements"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata.get_python_requirements()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.get_external_requirements"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata.get_external_requirements()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.get_extra_provides"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata.get_extra_provides()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.get_dist_provides"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata.get_dist_provides()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.get_dist_obsolete"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata.get_dist_obsolete()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.PythonDistributionMetadata.get_classifiers"><code class="docutils literal notranslate"><span class="pre">PythonDistributionMetadata.get_classifiers()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.norm_package_name"><code class="docutils literal notranslate"><span class="pre">norm_package_name()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.pypi_name_to_conda_name"><code class="docutils literal notranslate"><span class="pre">pypi_name_to_conda_name()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.norm_package_version"><code class="docutils literal notranslate"><span class="pre">norm_package_version()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.split_spec"><code class="docutils literal notranslate"><span class="pre">split_spec()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.parse_specification"><code class="docutils literal notranslate"><span class="pre">parse_specification()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.get_site_packages_anchor_files"><code class="docutils literal notranslate"><span class="pre">get_site_packages_anchor_files()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.get_dist_file_from_egg_link"><code class="docutils literal notranslate"><span class="pre">get_dist_file_from_egg_link()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.parse_marker"><code class="docutils literal notranslate"><span class="pre">parse_marker()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.IDENTIFIER"><code class="docutils literal notranslate"><span class="pre">IDENTIFIER</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.VERSION_IDENTIFIER"><code class="docutils literal notranslate"><span class="pre">VERSION_IDENTIFIER</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.COMPARE_OP"><code class="docutils literal notranslate"><span class="pre">COMPARE_OP</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.MARKER_OP"><code class="docutils literal notranslate"><span class="pre">MARKER_OP</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.OR"><code class="docutils literal notranslate"><span class="pre">OR</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.AND"><code class="docutils literal notranslate"><span class="pre">AND</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.NON_SPACE"><code class="docutils literal notranslate"><span class="pre">NON_SPACE</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.STRING_CHUNK"><code class="docutils literal notranslate"><span class="pre">STRING_CHUNK</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python._is_literal"><code class="docutils literal notranslate"><span class="pre">_is_literal()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.Evaluator"><code class="docutils literal notranslate"><span class="pre">Evaluator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.Evaluator.operations"><code class="docutils literal notranslate"><span class="pre">Evaluator.operations</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.Evaluator.evaluate"><code class="docutils literal notranslate"><span class="pre">Evaluator.evaluate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.get_default_marker_context"><code class="docutils literal notranslate"><span class="pre">get_default_marker_context()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.DEFAULT_MARKER_CONTEXT"><code class="docutils literal notranslate"><span class="pre">DEFAULT_MARKER_CONTEXT</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.evaluator"><code class="docutils literal notranslate"><span class="pre">evaluator</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conda.common.pkg_formats.python.interpret"><code class="docutils literal notranslate"><span class="pre">interpret()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/conda/conda/edit/main/docs/source/dev-guide/api/conda/common/pkg_formats/python/index.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../../../../_sources/dev-guide/api/conda/common/pkg_formats/python/index.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> 显示源代码
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2017, Anaconda, Inc.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7创建。
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+<a href="https://docs-conda-io.goatcounter.com" title="Analytics Dashboard">
+    Analytics Dashboard <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-27761864-11', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,990 @@
+:py:mod:`configuration`
+=======================
+
+.. py:module:: conda.common.configuration
+
+.. autoapi-nested-parse::
+
+   A generalized application configuration utility.
+
+   Features include:
+     - lazy eval
+     - merges configuration files
+     - parameter type validation, with custom validation
+     - parameter aliases
+
+   Easily extensible to other source formats, e.g. json and ini
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   conda.common.configuration.ParameterFlag
+   conda.common.configuration.RawParameter
+   conda.common.configuration.EnvRawParameter
+   conda.common.configuration.ArgParseRawParameter
+   conda.common.configuration.YamlRawParameter
+   conda.common.configuration.DefaultValueRawParameter
+   conda.common.configuration.LoadedParameter
+   conda.common.configuration.PrimitiveLoadedParameter
+   conda.common.configuration.MapLoadedParameter
+   conda.common.configuration.SequenceLoadedParameter
+   conda.common.configuration.ObjectLoadedParameter
+   conda.common.configuration.ConfigurationObject
+   conda.common.configuration.Parameter
+   conda.common.configuration.PrimitiveParameter
+   conda.common.configuration.MapParameter
+   conda.common.configuration.SequenceParameter
+   conda.common.configuration.ObjectParameter
+   conda.common.configuration.ParameterLoader
+   conda.common.configuration.ConfigurationType
+   conda.common.configuration.Configuration
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   conda.common.configuration.pretty_list
+   conda.common.configuration.pretty_map
+   conda.common.configuration.expand_environment_variables
+   conda.common.configuration.raise_errors
+   conda.common.configuration.custom_expandvars
+   conda.common.configuration.unique_sequence_map
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   conda.common.configuration.EMPTY_MAP
+   conda.common.configuration.CONDARC_FILENAMES
+   conda.common.configuration.YAML_EXTENSIONS
+   conda.common.configuration._RE_CUSTOM_EXPANDVARS
+
+
+.. py:data:: EMPTY_MAP
+
+   
+
+.. py:function:: pretty_list(iterable, padding='  ')
+
+
+.. py:function:: pretty_map(dictionary, padding='  ')
+
+
+.. py:function:: expand_environment_variables(unexpanded)
+
+
+.. py:exception:: ConfigurationError(message, caused_by=None, **kwargs)
+
+
+   Bases: :py:obj:`conda.CondaError`
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+.. py:exception:: ConfigurationLoadError(path, message_addition='', **kwargs)
+
+
+   Bases: :py:obj:`ConfigurationError`
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+.. py:exception:: ValidationError(parameter_name, parameter_value, source, msg=None, **kwargs)
+
+
+   Bases: :py:obj:`ConfigurationError`
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+.. py:exception:: MultipleKeysError(source, keys, preferred_key)
+
+
+   Bases: :py:obj:`ValidationError`
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+.. py:exception:: InvalidTypeError(parameter_name, parameter_value, source, wrong_type, valid_types, msg=None)
+
+
+   Bases: :py:obj:`ValidationError`
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+.. py:exception:: CustomValidationError(parameter_name, parameter_value, source, custom_message)
+
+
+   Bases: :py:obj:`ValidationError`
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+.. py:exception:: MultiValidationError(errors, *args, **kwargs)
+
+
+   Bases: :py:obj:`conda.CondaMultiError`, :py:obj:`ConfigurationError`
+
+   Common base class for all non-exit exceptions.
+
+   Initialize self.  See help(type(self)) for accurate signature.
+
+
+.. py:function:: raise_errors(errors)
+
+
+.. py:class:: ParameterFlag(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Create a collection of name/value pairs.
+
+   Example enumeration:
+
+   >>> class Color(Enum):
+   ...     RED = 1
+   ...     BLUE = 2
+   ...     GREEN = 3
+
+   Access them by:
+
+   - attribute access::
+
+   >>> Color.RED
+   <Color.RED: 1>
+
+   - value lookup:
+
+   >>> Color(1)
+   <Color.RED: 1>
+
+   - name lookup:
+
+   >>> Color['RED']
+   <Color.RED: 1>
+
+   Enumerations can be iterated over, and know how many members they have:
+
+   >>> len(Color)
+   3
+
+   >>> list(Color)
+   [<Color.RED: 1>, <Color.BLUE: 2>, <Color.GREEN: 3>]
+
+   Methods can be added to enumerations, and members can have their own
+   attributes -- see the documentation for details.
+
+   .. py:attribute:: final
+      :value: 'final'
+
+      
+
+   .. py:attribute:: top
+      :value: 'top'
+
+      
+
+   .. py:attribute:: bottom
+      :value: 'bottom'
+
+      
+
+   .. py:method:: __str__()
+
+      Return str(self).
+
+
+   .. py:method:: from_name(name)
+      :classmethod:
+
+
+   .. py:method:: from_value(value)
+      :classmethod:
+
+
+   .. py:method:: from_string(string)
+      :classmethod:
+
+
+
+.. py:class:: RawParameter(source, key, raw_value)
+
+
+   .. py:method:: __repr__()
+
+      Return repr(self).
+
+
+   .. py:method:: value(parameter_obj)
+      :abstractmethod:
+
+
+   .. py:method:: keyflag()
+      :abstractmethod:
+
+
+   .. py:method:: valueflags(parameter_obj)
+      :abstractmethod:
+
+
+   .. py:method:: make_raw_parameters(source, from_map)
+      :classmethod:
+
+
+
+.. py:class:: EnvRawParameter(source, key, raw_value)
+
+
+   Bases: :py:obj:`RawParameter`
+
+   .. py:property:: __important_split_value
+
+
+   .. py:attribute:: source
+      :value: 'envvars'
+
+      
+
+   .. py:method:: value(parameter_obj)
+
+
+   .. py:method:: keyflag()
+
+
+   .. py:method:: valueflags(parameter_obj)
+
+
+   .. py:method:: make_raw_parameters(appname)
+      :classmethod:
+
+
+
+.. py:class:: ArgParseRawParameter(source, key, raw_value)
+
+
+   Bases: :py:obj:`RawParameter`
+
+   .. py:attribute:: source
+      :value: 'cmd_line'
+
+      
+
+   .. py:method:: value(parameter_obj)
+
+
+   .. py:method:: keyflag()
+
+
+   .. py:method:: valueflags(parameter_obj)
+
+
+   .. py:method:: make_raw_parameters(args_from_argparse)
+      :classmethod:
+
+
+
+.. py:class:: YamlRawParameter(source, key, raw_value, key_comment)
+
+
+   Bases: :py:obj:`RawParameter`
+
+   .. py:method:: value(parameter_obj)
+
+
+   .. py:method:: keyflag()
+
+
+   .. py:method:: valueflags(parameter_obj)
+
+
+   .. py:method:: _get_yaml_key_comment(commented_dict, key)
+      :staticmethod:
+
+
+   .. py:method:: _get_yaml_list_comments(value)
+      :classmethod:
+
+
+   .. py:method:: _get_yaml_list_comment_item(item)
+      :staticmethod:
+
+
+   .. py:method:: _get_yaml_map_comments(value)
+      :staticmethod:
+
+
+   .. py:method:: make_raw_parameters(source, from_map)
+      :classmethod:
+
+
+   .. py:method:: make_raw_parameters_from_file(filepath)
+      :classmethod:
+
+
+
+.. py:class:: DefaultValueRawParameter(source, key, raw_value)
+
+
+   Bases: :py:obj:`RawParameter`
+
+   Wraps a default value as a RawParameter, for usage in ParameterLoader.
+
+   .. py:method:: value(parameter_obj)
+
+
+   .. py:method:: keyflag()
+
+
+   .. py:method:: valueflags(parameter_obj)
+
+
+
+.. py:class:: LoadedParameter(name, value, key_flag, value_flags, validation=None)
+
+
+   
+   Represents a Parameter that has been loaded with configuration value.
+
+   :param name: name of the loaded parameter
+   :type name: str
+   :param value: the value of the loaded parameter
+   :type value: LoadedParameter or primitive
+   :param key_flag: priority flag for the parameter itself
+   :type key_flag: ParameterFlag or None
+   :param value_flags: priority flags for the parameter values
+   :type value_flags: Any or None
+   :param validation: Given a parameter value as input, return a boolean indicating
+                      validity, or alternately return a string describing an invalid value.
+   :type validation: callable
+
+   .. py:attribute:: _type
+
+      
+
+   .. py:attribute:: _element_type
+
+      
+
+   .. py:method:: __eq__(other)
+
+      Return self==value.
+
+
+   .. py:method:: __hash__()
+
+      Return hash(self).
+
+
+   .. py:method:: collect_errors(instance, typed_value, source='<<merged>>')
+
+      Validate a LoadedParameter typed value.
+
+      :param instance: the instance object used to create the LoadedParameter.
+      :type instance: Configuration
+      :param typed_value: typed value to validate.
+      :type typed_value: Any
+      :param source: string description for the source of the typed_value.
+      :type source: str
+
+
+   .. py:method:: expand()
+
+      Recursively expands any environment values in the Loaded Parameter.
+
+      Returns: LoadedParameter
+
+
+   .. py:method:: merge(matches)
+      :abstractmethod:
+
+      Recursively merges matches into one LoadedParameter.
+
+      :param matches: list of matches of this parameter.
+      :type matches: List<LoadedParameter>
+
+      Returns: LoadedParameter
+
+
+   .. py:method:: typify(source)
+
+      Recursively types a LoadedParameter.
+
+      :param source: string describing the source of the LoadedParameter.
+      :type source: str
+
+      Returns: a primitive, sequence, or map representing the typed value.
+
+
+   .. py:method:: _typify_data_structure(value, source, type_hint=None)
+      :staticmethod:
+
+
+   .. py:method:: _match_key_is_important(loaded_parameter)
+      :staticmethod:
+
+
+   .. py:method:: _first_important_matches(matches)
+      :staticmethod:
+
+
+
+.. py:class:: PrimitiveLoadedParameter(name, element_type, value, key_flag, value_flags, validation=None)
+
+
+   Bases: :py:obj:`LoadedParameter`
+
+   LoadedParameter type that holds a single python primitive value.
+
+   The python primitive types are str, int, float, complex, bool, and NoneType. In addition,
+   python 2 has long and unicode types.
+
+   :param element_type: Type-validation of parameter's value.
+   :type element_type: type or tuple[type]
+   :param value: primitive python value.
+   :type value: primitive value
+
+   .. py:method:: __eq__(other)
+
+      Return self==value.
+
+
+   .. py:method:: __hash__()
+
+      Return hash(self).
+
+
+   .. py:method:: merge(matches)
+
+      Recursively merges matches into one LoadedParameter.
+
+      :param matches: list of matches of this parameter.
+      :type matches: List<LoadedParameter>
+
+      Returns: LoadedParameter
+
+
+
+.. py:class:: MapLoadedParameter(name, value, element_type, key_flag, value_flags, validation=None)
+
+
+   Bases: :py:obj:`LoadedParameter`
+
+   LoadedParameter type that holds a map (i.e. dict) of LoadedParameters.
+
+   :param value: Map of string keys to LoadedParameter values.
+   :type value: Mapping
+   :param element_type: The Parameter type that is held in value.
+   :type element_type: Parameter
+   :param value_flags: Map of priority value flags.
+   :type value_flags: Mapping
+
+   .. py:attribute:: _type
+
+      
+
+   .. py:method:: collect_errors(instance, typed_value, source='<<merged>>')
+
+      Validate a LoadedParameter typed value.
+
+      :param instance: the instance object used to create the LoadedParameter.
+      :type instance: Configuration
+      :param typed_value: typed value to validate.
+      :type typed_value: Any
+      :param source: string description for the source of the typed_value.
+      :type source: str
+
+
+   .. py:method:: merge(parameters: collections.abc.Sequence[MapLoadedParameter]) -> MapLoadedParameter
+
+      Recursively merges matches into one LoadedParameter.
+
+      :param matches: list of matches of this parameter.
+      :type matches: List<LoadedParameter>
+
+      Returns: LoadedParameter
+
+
+
+.. py:class:: SequenceLoadedParameter(name, value, element_type, key_flag, value_flags, validation=None)
+
+
+   Bases: :py:obj:`LoadedParameter`
+
+   LoadedParameter type that holds a sequence (i.e. list) of LoadedParameters.
+
+   :param value: Sequence of LoadedParameter values.
+   :type value: Sequence
+   :param element_type: The Parameter type that is held in the sequence.
+   :type element_type: Parameter
+   :param value_flags: Sequence of priority value_flags.
+   :type value_flags: Sequence
+
+   .. py:attribute:: _type
+
+      
+
+   .. py:method:: collect_errors(instance, typed_value, source='<<merged>>')
+
+      Validate a LoadedParameter typed value.
+
+      :param instance: the instance object used to create the LoadedParameter.
+      :type instance: Configuration
+      :param typed_value: typed value to validate.
+      :type typed_value: Any
+      :param source: string description for the source of the typed_value.
+      :type source: str
+
+
+   .. py:method:: merge(matches)
+
+      Recursively merges matches into one LoadedParameter.
+
+      :param matches: list of matches of this parameter.
+      :type matches: List<LoadedParameter>
+
+      Returns: LoadedParameter
+
+
+
+.. py:class:: ObjectLoadedParameter(name, value, element_type, key_flag, value_flags, validation=None)
+
+
+   Bases: :py:obj:`LoadedParameter`
+
+   LoadedParameter type that holds a mapping (i.e. object) of LoadedParameters.
+
+   :param value: Object with LoadedParameter fields.
+   :type value: Sequence
+   :param element_type: The Parameter type that is held in the sequence.
+   :type element_type: object
+   :param value_flags: Sequence of priority value_flags.
+   :type value_flags: Sequence
+
+   .. py:attribute:: _type
+
+      
+
+   .. py:method:: collect_errors(instance, typed_value, source='<<merged>>')
+
+      Validate a LoadedParameter typed value.
+
+      :param instance: the instance object used to create the LoadedParameter.
+      :type instance: Configuration
+      :param typed_value: typed value to validate.
+      :type typed_value: Any
+      :param source: string description for the source of the typed_value.
+      :type source: str
+
+
+   .. py:method:: merge(parameters: collections.abc.Sequence[ObjectLoadedParameter]) -> ObjectLoadedParameter
+
+      Recursively merges matches into one LoadedParameter.
+
+      :param matches: list of matches of this parameter.
+      :type matches: List<LoadedParameter>
+
+      Returns: LoadedParameter
+
+
+
+.. py:class:: ConfigurationObject
+
+
+   Dummy class to mark whether a Python object has config parameters within.
+
+   .. py:method:: to_json()
+
+      Return a serializable object with defaults filled in
+
+
+
+.. py:class:: Parameter(default, validation=None)
+
+
+   
+   The Parameter class represents an unloaded configuration parameter, holding type, default
+   and validation information until the parameter is loaded with a configuration.
+
+   :param default: the typed, python representation default value given if the Parameter
+                   is not found in a Configuration.
+   :type default: Any
+   :param validation: Given a parameter value as input, return a boolean indicating
+                      validity, or alternately return a string describing an invalid value.
+   :type validation: callable
+
+   .. py:property:: default
+
+      Returns a DefaultValueRawParameter that wraps the actual default value.
+
+   .. py:attribute:: _type
+
+      
+
+   .. py:attribute:: _element_type
+
+      
+
+   .. py:method:: get_all_matches(name, names, instance)
+
+      Finds all matches of a Parameter in a Configuration instance
+
+      :param name: canonical name of the parameter to search for
+      :type name: str
+      :param names: alternative aliases of the parameter
+      :type names: tuple(str)
+      :param instance: instance of the configuration to search within
+      :type instance: Configuration
+
+      Returns (List(RawParameter)): matches of the parameter found in the configuration.
+
+
+   .. py:method:: load(name, match)
+      :abstractmethod:
+
+      Loads a Parameter with the value in a RawParameter.
+
+      :param name: name of the parameter to pass through
+      :type name: str
+      :param match: the value of the RawParameter match
+      :type match: RawParameter
+
+      Returns a LoadedParameter
+
+
+   .. py:method:: typify(name, source, value)
+
+
+
+.. py:class:: PrimitiveParameter(default, element_type=None, validation=None)
+
+
+   Bases: :py:obj:`Parameter`
+
+   Parameter type for a Configuration class that holds a single python primitive value.
+
+   The python primitive types are str, int, float, complex, bool, and NoneType. In addition,
+   python 2 has long and unicode types.
+
+   :param default: default value if the Parameter is not found.
+   :type default: primitive value
+   :param element_type: Type-validation of parameter's value. If None,
+                        type(default) is used.
+   :type element_type: type or tuple[type]
+
+   .. py:method:: load(name, match)
+
+      Loads a Parameter with the value in a RawParameter.
+
+      :param name: name of the parameter to pass through
+      :type name: str
+      :param match: the value of the RawParameter match
+      :type match: RawParameter
+
+      Returns a LoadedParameter
+
+
+
+.. py:class:: MapParameter(element_type, default=frozendict(), validation=None)
+
+
+   Bases: :py:obj:`Parameter`
+
+   Parameter type for a Configuration class that holds a map (i.e. dict) of Parameters.
+
+   :param element_type: The Parameter type held in the MapParameter.
+   :type element_type: Parameter
+   :param default: The parameter's default value. If None, will be an empty dict.
+   :type default: Mapping
+
+   .. py:attribute:: _type
+
+      
+
+   .. py:method:: get_all_matches(name, names, instance)
+
+      Finds all matches of a Parameter in a Configuration instance
+
+      :param name: canonical name of the parameter to search for
+      :type name: str
+      :param names: alternative aliases of the parameter
+      :type names: tuple(str)
+      :param instance: instance of the configuration to search within
+      :type instance: Configuration
+
+      Returns (List(RawParameter)): matches of the parameter found in the configuration.
+
+
+   .. py:method:: load(name, match)
+
+      Loads a Parameter with the value in a RawParameter.
+
+      :param name: name of the parameter to pass through
+      :type name: str
+      :param match: the value of the RawParameter match
+      :type match: RawParameter
+
+      Returns a LoadedParameter
+
+
+
+.. py:class:: SequenceParameter(element_type, default=(), validation=None, string_delimiter=',')
+
+
+   Bases: :py:obj:`Parameter`
+
+   Parameter type for a Configuration class that holds a sequence (i.e. list) of Parameters.
+
+   :param element_type: The Parameter type that is held in the sequence.
+   :type element_type: Parameter
+   :param default: default value, empty tuple if not given.
+   :type default: Sequence
+   :param string_delimiter: separation string used to parse string into sequence.
+   :type string_delimiter: str
+
+   .. py:attribute:: _type
+
+      
+
+   .. py:method:: get_all_matches(name, names, instance)
+
+      Finds all matches of a Parameter in a Configuration instance
+
+      :param name: canonical name of the parameter to search for
+      :type name: str
+      :param names: alternative aliases of the parameter
+      :type names: tuple(str)
+      :param instance: instance of the configuration to search within
+      :type instance: Configuration
+
+      Returns (List(RawParameter)): matches of the parameter found in the configuration.
+
+
+   .. py:method:: load(name, match)
+
+      Loads a Parameter with the value in a RawParameter.
+
+      :param name: name of the parameter to pass through
+      :type name: str
+      :param match: the value of the RawParameter match
+      :type match: RawParameter
+
+      Returns a LoadedParameter
+
+
+
+.. py:class:: ObjectParameter(element_type, default=ConfigurationObject(), validation=None)
+
+
+   Bases: :py:obj:`Parameter`
+
+   Parameter type for a Configuration class that holds an object with Parameter fields.
+
+   :param element_type: The object type with parameter fields held in ObjectParameter.
+   :type element_type: object
+   :param default: default value, empty tuple if not given.
+   :type default: Sequence
+
+   .. py:attribute:: _type
+
+      
+
+   .. py:method:: get_all_matches(name, names, instance)
+
+      Finds all matches of a Parameter in a Configuration instance
+
+      :param name: canonical name of the parameter to search for
+      :type name: str
+      :param names: alternative aliases of the parameter
+      :type names: tuple(str)
+      :param instance: instance of the configuration to search within
+      :type instance: Configuration
+
+      Returns (List(RawParameter)): matches of the parameter found in the configuration.
+
+
+   .. py:method:: load(name, match)
+
+      Loads a Parameter with the value in a RawParameter.
+
+      :param name: name of the parameter to pass through
+      :type name: str
+      :param match: the value of the RawParameter match
+      :type match: RawParameter
+
+      Returns a LoadedParameter
+
+
+
+.. py:class:: ParameterLoader(parameter_type, aliases=(), expandvars=False)
+
+
+   ParameterLoader class contains the top level logic needed to load a parameter from start to
+   finish.
+
+   :param parameter_type: the type of Parameter that is stored in the loader.
+   :type parameter_type: Parameter
+   :param aliases: alternative aliases for the Parameter
+   :type aliases: tuple(str)
+   :param expandvars: whether or not to recursively expand environmental variables.
+   :type expandvars: bool
+
+   .. py:property:: name
+
+
+   .. py:property:: names
+
+
+   .. py:method:: _set_name(name)
+
+
+   .. py:method:: __get__(instance, instance_type)
+
+
+   .. py:method:: _raw_parameters_from_single_source(raw_parameters)
+
+
+   .. py:method:: raw_parameters_from_single_source(name, names, raw_parameters)
+      :staticmethod:
+
+
+
+.. py:class:: ConfigurationType(name, bases, attr)
+
+
+   Bases: :py:obj:`type`
+
+   metaclass for Configuration
+
+
+.. py:data:: CONDARC_FILENAMES
+   :value: ('.condarc', 'condarc')
+
+   
+
+.. py:data:: YAML_EXTENSIONS
+   :value: ('.yml', '.yaml')
+
+   
+
+.. py:data:: _RE_CUSTOM_EXPANDVARS
+
+   
+
+.. py:function:: custom_expandvars(template: str, mapping: collections.abc.Mapping[str, Any] = {}, /, **kwargs) -> str
+
+   Expand variables in a string.
+
+   Inspired by `string.Template` and modified to mirror `os.path.expandvars` functionality
+   allowing custom variables without mutating `os.environ`.
+
+   Expands POSIX and Windows CMD environment variables as follows:
+
+   - $VARIABLE → value of VARIABLE
+   - ${VARIABLE} → value of VARIABLE
+   - %VARIABLE% → value of VARIABLE
+
+   Invalid substitutions are left as-is:
+
+   - $MISSING → $MISSING
+   - ${MISSING} → ${MISSING}
+   - %MISSING% → %MISSING%
+   - $$ → $$
+   - %% → %%
+   - $ → $
+   - % → %
+
+
+.. py:class:: Configuration(search_path=(), app_name=None, argparse_args=None, **kwargs)
+
+
+   .. py:method:: _expand_search_path(search_path: collections.abc.Iterable[pathlib.Path | str], **kwargs) -> collections.abc.Iterable[pathlib.Path]
+      :staticmethod:
+
+
+   .. py:method:: _load_search_path(search_path: collections.abc.Iterable[pathlib.Path]) -> collections.abc.Iterable[tuple[pathlib.Path, dict]]
+      :classmethod:
+
+
+   .. py:method:: _set_search_path(search_path: collections.abc.Iterable[pathlib.Path | str], **kwargs)
+
+
+   .. py:method:: _set_env_vars(app_name=None)
+
+
+   .. py:method:: _set_argparse_args(argparse_args)
+
+
+   .. py:method:: _set_raw_data(raw_data: collections.abc.Mapping[collections.abc.Hashable, dict])
+
+
+   .. py:method:: _reset_cache()
+
+
+   .. py:method:: register_reset_callaback(callback)
+
+
+   .. py:method:: check_source(source)
+
+
+   .. py:method:: validate_all()
+
+
+   .. py:method:: _collect_validation_error(func, *args, **kwargs)
+      :staticmethod:
+
+
+   .. py:method:: validate_configuration()
+
+
+   .. py:method:: post_build_validation()
+
+
+   .. py:method:: collect_all()
+
+
+   .. py:method:: describe_parameter(parameter_name)
+
+
+   .. py:method:: list_parameters()
+
+
+   .. py:method:: typify_parameter(parameter_name, value, source)
+
+
+   .. py:method:: get_descriptions()
+      :abstractmethod:
+
+
+
+.. py:function:: unique_sequence_map(*, unique_key: str)
+
+   Used to validate properties on :class:`Configuration` subclasses defined as a
+   ``SequenceParameter(MapParameter())`` where the map contains a single key that
+   should be regarded as unique. This decorator will handle removing duplicates and
+   merging to a single sequence.
+
+

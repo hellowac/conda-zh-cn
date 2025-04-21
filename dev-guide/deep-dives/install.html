@@ -1,0 +1,1548 @@
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>conda install &#8212; conda 0.0.0.dev0+placeholder 文档</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/style.css?v=e70ed768" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="icon" sizes="16x16" type="image/ico" href="../../_static/favicon.ico?v=92f50989" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/jspanel.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=9c5e1b2e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=d571dea1"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/translations.js?v=beaddf03"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" data-goatcounter="https://docs-conda-io.goatcounter.com/count" src="../../_static/js/count.js?v=ced7a106"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'dev-guide/deep-dives/install';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.conda.io/projects/conda/en/latest/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'stable';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = true;
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/jspanel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.12.0/dist/extensions/modal/jspanel.modal.js"></script>
+    <script src="https://unpkg.com/@panzoom/panzoom@4.4.1/dist/panzoom.min.js"></script>
+    <script src="../../_static/js/panzoom.js?v=74da3ef2"></script>
+    <link rel="canonical" href="https://docs.conda.io/projects/conda/dev-guide/deep-dives/install.html" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="conda init and conda activate" href="activation.html" />
+    <link rel="prev" title="深入探索" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="pst-primary-sidebar-checkbox"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="pst-secondary-sidebar-checkbox"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/conda_logo_full.svg" class="logo__image only-light" alt="conda 0.0.0.dev0+placeholder 文档 - Home"/>
+    <script>document.write(`<img src="../../_static/conda_logo_full.svg" class="logo__image only-dark" alt="conda 0.0.0.dev0+placeholder 文档 - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><ul id="navbar-main-elements" class="navbar-nav">
+    <li class="nav-item current active">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda/">Conda</a>
+    </li>
+    <li class="nav-item ">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda-build">Conda-build</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://docs.anaconda.com/free/miniconda/">Miniconda</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://conda.org">conda.org</a>
+    </li>
+</ul></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/conda/conda" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://bit.ly/conda-chat-room" title="Element" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/element_logo.svg" class="icon-link-image" alt="Element"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://conda.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discourse</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">搜索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><ul id="navbar-main-elements" class="navbar-nav">
+    <li class="nav-item current active">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda/">Conda</a>
+    </li>
+    <li class="nav-item ">
+        <a class="reference internal nav-link" href="https://docs.conda.io/projects/conda-build">Conda-build</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://docs.anaconda.com/free/miniconda/">Miniconda</a>
+    </li>
+    <li class="nav-item">
+        <a class="reference nav-external nav-link" href="https://conda.org">conda.org</a>
+    </li>
+</ul></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/conda/conda" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://bit.ly/conda-chat-room" title="Element" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/element_logo.svg" class="icon-link-image" alt="Element"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://conda.discourse.group/" title="Discourse" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-discourse fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Discourse</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="导航">
+  <p class="bd-links__title" role="heading" aria-level="1">导航</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../user-guide/index.html">用户指南</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/getting-started.html">conda 入门</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../user-guide/install/index.html">安装 conda</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/install/windows.html">在 Windows 上安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/install/macos.html">在 macOS 上安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/install/linux.html">在 Linux 上安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/install/rpm-debian.html">Miniconda 的 RPM 和 Debian 存储库</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../user-guide/tasks/index.html">任务</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/tasks/manage-conda.html">管理 conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/tasks/manage-environments.html">管理环境</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/tasks/manage-channels.html">管理渠道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/tasks/manage-pkgs.html">管理软件包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/tasks/manage-python.html">管理 Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/tasks/manage-virtual.html">管理虚拟软件包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/tasks/create-custom-channels.html">创建自定义渠道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/tasks/creating-projects.html">创建项目</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/tasks/view-command-line-help.html">查看命令行帮助</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../user-guide/configuration/index.html">配置</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/configuration/use-condarc.html">使用 .condarc conda 配置文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/configuration/settings.html">设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/configuration/admin-multi-user-install.html">管理多用户 conda 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/configuration/mirroring.html">镜像渠道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/configuration/disable-ssl-verification.html">禁用 SSL 验证</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/configuration/non-standard-certs.html">使用非标准证书</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/configuration/custom-env-and-pkg-locations.html">使用环境和包缓存的自定义位置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/configuration/pip-interoperability.html">提高与 pip 的互操作性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/configuration/free-channel.html">使用免费通道</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../user-guide/concepts/index.html">概念</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/concepts/conda-commands.html">命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/concepts/packages.html">软件包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/concepts/pkg-specs.html">软件包规范</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/concepts/pkg-search.html">软件包搜索和安装规范</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/concepts/channels.html">频道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/concepts/environments.html">环境</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/concepts/installing-with-conda.html">使用 conda 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/concepts/conda-performance.html">性能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/concepts/data-science.html">面向数据科学家的 Conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/concepts/conda-plugins.html">插件</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/troubleshooting.html">故障排除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/cheatsheet.html">备忘单</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">配置</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../commands/index.html">命令</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/activate.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/clean.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">clean</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/compare.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">compare</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/config.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/create.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/deactivate.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/doctor.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">doctor</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../commands/env/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../commands/env/config/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../commands/env/config/vars/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../commands/env/config/vars/list.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span> <span class="pre">list</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../commands/env/config/vars/set.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span> <span class="pre">set</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../commands/env/config/vars/unset.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span> <span class="pre">unset</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../commands/env/create.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../commands/env/export.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../commands/env/list.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../commands/env/remove.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">remove</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../commands/env/update.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">update</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/info.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/init.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">init</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/install.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/list.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/notices.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">notices</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/package.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">package</span></code></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../commands/repoquery/index.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../commands/repoquery/depends.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span> <span class="pre">depends</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../commands/repoquery/search.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span> <span class="pre">search</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../commands/repoquery/whoneeds.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">repoquery</span> <span class="pre">whoneeds</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/remove.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">remove</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/rename.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">rename</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/run.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">run</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/search.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">search</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/update.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes.html">发行说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">术语</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">开发者指南</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html">架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html">Contributing to conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development-environment.html">开发环境</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">深入探索</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="activation.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">init</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="context.html"><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span></code> and context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="solvers.html">Solvers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html">Logging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../writing-tests/index.html">编写测试</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../writing-tests/integration-tests.html">集成测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../writing-tests/windows-applocker.html">使用 Windows AppLocker 进行测试</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../deprecations.html">弃用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html">发布</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../plugins/index.html">插件</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/auth_handlers.html">Auth Handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/health_checks.html">Health Checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/request_headers.html">Request Headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/post_commands.html">Post-commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/pre_commands.html">Pre-commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/reporter_backends.html">Reporter Backends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/settings.html">Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/solvers.html">Solvers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/subcommands.html">Subcommands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plugins/virtual_packages.html">Virtual Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../specs/index.html">规范</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../specs/solver-state.html">技术规范：求解器状态</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api.html">API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/conda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/__main__/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__main__</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/_vendor/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_vendor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/activate/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">activate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">api</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/conda/auxlib/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">auxlib</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/auxlib/collection/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collection</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/auxlib/compat/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">compat</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/auxlib/decorators/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">decorators</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/auxlib/entity/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">entity</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/auxlib/exceptions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exceptions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/auxlib/ish/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ish</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/auxlib/logz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logz</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/auxlib/type_coercion/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">type_coercion</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/conda/base/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/base/constants/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">constants</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/base/context/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">context</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/conda/cli/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cli</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/actions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">actions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">common</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/conda_argparse/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda_argparse</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/find_commands/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">find_commands</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">helpers</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/install/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">install</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_clean/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_clean</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_commands/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_commands</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_compare/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_compare</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_config/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_config</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_create/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_create</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_env_config/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_config</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_env_create/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_create</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_env_list/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_list</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_env_remove/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_remove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_env_update/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_update</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_env_vars/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_env_vars</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_export/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_export</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_info/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_info</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_init/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_init</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_install/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_install</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_list/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_list</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_mock_activate/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_mock_activate</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_mock_deactivate/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_mock_deactivate</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_notices/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_notices</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_package/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_package</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_pip/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_pip</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_remove/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_remove</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_rename/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_rename</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_run/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_run</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_search/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_search</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/main_update/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_update</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/cli/python_api/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">python_api</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/conda/common/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">common</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/common/_logic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_logic</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/conda/common/_os/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_os</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/common/_os/linux/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linux</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/common/_os/osx/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">osx</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/common/_os/unix/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unix</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/common/_os/windows/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">windows</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/common/compat/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">compat</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/common/configuration/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">configuration</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/common/constants/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">constants</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/common/disk/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">disk</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/common/io/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">io</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/common/iterators/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iterators</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/common/logic/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logic</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/conda/common/path/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">path</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/common/path/_cygpath/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_cygpath</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/common/path/directories/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">directories</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/common/path/python/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">python</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/common/path/windows/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">windows</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/conda/common/pkg_formats/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pkg_formats</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/common/pkg_formats/python/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">python</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/common/serialize/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">serialize</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/common/signals/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signals</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/common/toposort/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">toposort</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/common/url/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">url</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/conda/core/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/core/envs_manager/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">envs_manager</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/core/index/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">index</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/core/initialize/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">initialize</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/core/link/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">link</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/core/package_cache_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">package_cache_data</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/core/path_actions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">path_actions</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/core/portability/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">portability</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/core/prefix_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">prefix_data</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/core/solve/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solve</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/core/subdir_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subdir_data</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/deprecations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">deprecations</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/conda/env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">env</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/env/env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">env</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/conda/env/installers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">installers</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/env/installers/base/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">base</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/env/installers/conda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/env/installers/pip/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pip</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/env/pip_util/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pip_util</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/conda/env/specs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">specs</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/env/specs/binstar/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">binstar</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/env/specs/requirements/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">requirements</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/env/specs/yaml_file/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">yaml_file</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/exception_handler/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exception_handler</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/exceptions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exceptions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/exports/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">exports</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/conda/gateways/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gateways</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/gateways/anaconda_client/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">anaconda_client</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/conda/gateways/connection/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">connection</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6 has-children"><a class="reference internal" href="../api/conda/gateways/connection/adapters/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">adapters</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l7"><a class="reference internal" href="../api/conda/gateways/connection/adapters/ftp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ftp</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../api/conda/gateways/connection/adapters/http/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">http</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../api/conda/gateways/connection/adapters/localfs/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">localfs</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../api/conda/gateways/connection/adapters/s3/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">s3</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/gateways/connection/download/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">download</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/gateways/connection/session/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">session</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/conda/gateways/disk/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">disk</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/gateways/disk/create/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">create</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/gateways/disk/delete/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">delete</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/gateways/disk/link/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">link</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/gateways/disk/lock/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lock</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/gateways/disk/permissions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">permissions</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/gateways/disk/read/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">read</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/gateways/disk/test/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/gateways/disk/update/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">update</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/gateways/logging/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/conda/gateways/repodata/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">repodata</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6 has-children"><a class="reference internal" href="../api/conda/gateways/repodata/jlap/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">jlap</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l7"><a class="reference internal" href="../api/conda/gateways/repodata/jlap/core/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../api/conda/gateways/repodata/jlap/fetch/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fetch</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="../api/conda/gateways/repodata/jlap/interface/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">interface</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/gateways/repodata/lock/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lock</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/gateways/subprocess/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/history/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">history</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/instructions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">instructions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/misc/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">misc</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/conda/models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">models</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/models/channel/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">channel</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/models/dist/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dist</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/models/enums/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">enums</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/models/leased_path_entry/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">leased_path_entry</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/models/match_spec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">match_spec</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/models/package_info/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">package_info</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/models/prefix_graph/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">prefix_graph</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/models/records/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">records</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/models/version/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">version</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/conda/notices/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">notices</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/notices/cache/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cache</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/notices/core/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/notices/fetch/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fetch</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/notices/types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/notices/views/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">views</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/plan/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plan</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/conda/plugins/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plugins</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/plugins/hookspec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">hookspec</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/plugins/manager/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">manager</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/conda/plugins/post_solves/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">post_solves</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/plugins/post_solves/signature_verification/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signature_verification</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/conda/plugins/reporter_backends/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">reporter_backends</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/plugins/reporter_backends/console/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">console</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/plugins/reporter_backends/json/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/plugins/solvers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solvers</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/conda/plugins/subcommands/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">subcommands</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6 has-children"><a class="reference internal" href="../api/conda/plugins/subcommands/doctor/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">doctor</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l7"><a class="reference internal" href="../api/conda/plugins/subcommands/doctor/health_checks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">health_checks</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/plugins/types/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/conda/plugins/virtual_packages/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">virtual_packages</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/plugins/virtual_packages/archspec/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">archspec</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/plugins/virtual_packages/conda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/plugins/virtual_packages/cuda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cuda</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/plugins/virtual_packages/freebsd/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">freebsd</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/plugins/virtual_packages/linux/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linux</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/plugins/virtual_packages/osx/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">osx</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/plugins/virtual_packages/windows/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">windows</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/reporters/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">reporters</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/resolve/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">resolve</span></code></a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/conda/testing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">testing</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/testing/cases/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cases</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/testing/fixtures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fixtures</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/conda/testing/gateways/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gateways</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/testing/gateways/fixtures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fixtures</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/testing/helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">helpers</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/testing/integration/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">integration</span></code></a></li>
+<li class="toctree-l5 has-children"><a class="reference internal" href="../api/conda/testing/notices/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">notices</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/testing/notices/fixtures/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fixtures</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../api/conda/testing/notices/helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">helpers</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/testing/solver_helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solver_helpers</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../api/conda/trust/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trust</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/trust/constants/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">constants</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../api/conda/trust/signature_verification/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">signature_verification</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda/utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/conda_env/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">conda_env</span></code></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda_env/cli/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cli</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/conda_env/installers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">installers</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">开发者指南</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">深入探索</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><code...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <!--
+Author: Jaime Rodríguez-Guerra <@jaimergp>, Quansight Labs.
+
+Some resources that helped draft this document:
+* https://speakerdeck.com/asmeurer/conda-internals
+* https://www.anaconda.com/blog/understanding-and-improving-condas-performance
+-->
+<section class="tex2jax_ignore mathjax_ignore" id="conda-install">
+<h1><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code><a class="headerlink" href="#conda-install" title="Link to this heading">#</a></h1>
+<p>In this document we will explore what happens in Conda from the moment a user types their
+installation command until the process is finished successfully. For the sake of completeness,
+we will consider the following situation:</p>
+<ul class="simple">
+<li><p>The user is running commands on a Linux x64 machine with a working installation of Miniconda.</p></li>
+<li><p>This means we have a <code class="docutils literal notranslate"><span class="pre">base</span></code> environment with <code class="docutils literal notranslate"><span class="pre">conda</span></code>, <code class="docutils literal notranslate"><span class="pre">python</span></code>, and their dependencies.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">base</span></code> environment is already preactivated for Bash. For more details on activation, check
+<a class="reference internal" href="activation.html#deep-dive-activation"><span class="std std-ref">conda init and conda activate</span></a>.</p></li>
+</ul>
+<p>Ok, so… what happens when you run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">numpy</span></code>? Roughly, these steps:</p>
+<ol class="arabic simple">
+<li><p>Command line interface</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">argparse</span></code> parsers</p></li>
+<li><p>Environment variables</p></li>
+<li><p>Configuration files</p></li>
+<li><p>Context initialization</p></li>
+<li><p>Delegation of the task</p></li>
+</ul>
+</li>
+<li><p>Fetching the index</p>
+<ul class="simple">
+<li><p>Retrieving all the channels and platforms</p></li>
+<li><p>A note on channel priorities</p></li>
+</ul>
+</li>
+<li><p>Solving the install request</p>
+<ul class="simple">
+<li><p>Requested packages + prefix state = list of specs</p></li>
+<li><p>Index reduction (sometimes)</p></li>
+<li><p>Running the solver</p></li>
+<li><p>Post-processing the list of packages</p></li>
+</ul>
+</li>
+<li><p>Generating the transaction and the corresponding actions</p></li>
+<li><p>Download and extraction</p></li>
+<li><p>Integrity verification</p></li>
+<li><p>Linking and unlinking files</p></li>
+<li><p>Post-linking and post-activation tasks</p></li>
+</ol>
+<figure class="align-default" id="conda-install-figure">
+<img alt="../../_images/conda-install-deep-dive.png" src="../../_images/conda-install-deep-dive.png" />
+<figcaption>
+<p><span class="caption-text">This figure shows the different processes and objects involved in handling a simple <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>
+command.</span><a class="headerlink" href="#conda-install-figure" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="command-line-interface">
+<h2>Command line interface<a class="headerlink" href="#command-line-interface" title="Link to this heading">#</a></h2>
+<!-- This might be better in a separate deep-dive for the command line alone -->
+<p>First, a quick note on an implementation detail that might be not obvious.</p>
+<p>When you type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">numpy</span></code> in your terminal, Bash takes those three words and looks for a
+<code class="docutils literal notranslate"><span class="pre">conda</span></code> command to pass a list of arguments <code class="docutils literal notranslate"><span class="pre">['conda',</span> <span class="pre">'install',</span> <span class="pre">'numpy']</span></code>. Before finding the
+<code class="docutils literal notranslate"><span class="pre">conda</span></code> executable located at <code class="docutils literal notranslate"><span class="pre">CONDA_HOME/condabin</span></code>, it probably finds the shell function
+defined <a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/shell/etc/profile.d/conda.sh#L62-L76">here</a>. This shell function runs the activation/deactivation
+logic on the shell if requested, or delegates over to the actual Python entry-points otherwise.
+This part of the logic can be found in <a class="reference external" href="https://github.com/conda/conda/tree/4.11.0/conda/shell"><code class="docutils literal notranslate"><span class="pre">conda.shell</span></code></a>.</p>
+<p>Once we are running the Python entry-point, we are in the <a class="reference external" href="https://github.com/conda/conda/tree/4.11.0/conda/cli"><code class="docutils literal notranslate"><span class="pre">conda.cli</span></code></a>
+realm. The function called by the entry point is <a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/cli/main.py#L121"><code class="docutils literal notranslate"><span class="pre">conda.cli.main:main()</span></code></a>.
+Here, another check is done for <code class="docutils literal notranslate"><span class="pre">shell.*</span></code> subcommands, which generate the shell initializers you see
+in <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> and others. If you are curious where this happens, it’s
+<a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/activate.py"><code class="docutils literal notranslate"><span class="pre">conda.activate</span></code></a>.</p>
+<p>Since our command is <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">...</span></code>, we still need to arrive somewhere else. You will notice
+that the rest of the logic is delegated to <code class="docutils literal notranslate"><span class="pre">conda.cli.main:_main()</span></code>, which will invoke the parser
+generators, initialize the context and loggers, and, eventually, pass the argument list over to
+the corresponding command function. These four steps are implemented in four functions/classes:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/cli/conda_argparse.py#L28"><code class="docutils literal notranslate"><span class="pre">conda.cli.conda_argparse:generate_parser()</span></code></a>:
+This uses <code class="docutils literal notranslate"><span class="pre">argparse</span></code> to generate the CLI. Each subcommand is initialized in separate functions.
+Note that the command line options are not generated dynamically from the <code class="docutils literal notranslate"><span class="pre">Context</span></code> object, but
+annotated manually. If this is needed (e.g. <code class="docutils literal notranslate"><span class="pre">--repodata-fn</span></code> is exposed in <code class="docutils literal notranslate"><span class="pre">Context.repodata_fn</span></code>),
+the <code class="docutils literal notranslate"><span class="pre">dest</span></code> variable of each CLI option should
+<a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/cli/conda_argparse.py#L1484">match the target attribute in the context object</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/cli/main.py#L75"><code class="docutils literal notranslate"><span class="pre">conda.base.context.Context</span></code></a>: This object stores the configuration options
+in <code class="docutils literal notranslate"><span class="pre">conda</span></code> and will be initialized taking into account, among other things, the arguments
+parsed in the step above. This is covered in more detail in a separate deep dive:
+<a class="reference internal" href="context.html#deep-dive-context"><span class="std std-ref">conda config and context</span></a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/gateways/logging.py#L162"><code class="docutils literal notranslate"><span class="pre">conda.gateways.logging:initialize_logging()</span></code></a>:
+Not too exciting and easy to follow. This part of the code base is more or less self-explanatory.</p></li>
+<li><p><a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/cli/conda_argparse.py#L77"><code class="docutils literal notranslate"><span class="pre">conda.cli.conda_argparse:do_call()</span></code></a>: The argument parsing
+will populate a <code class="docutils literal notranslate"><span class="pre">func</span></code> value that contains the import path to the function responsible for that
+subcommand. For example, <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> is <a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/cli/conda_argparse.py#L775">taken care of</a> by
+<a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/cli/main_install.py"><code class="docutils literal notranslate"><span class="pre">conda.cli.main_install</span></code></a>. By design, all the modules reported by <code class="docutils literal notranslate"><span class="pre">func</span></code>
+must contain an <code class="docutils literal notranslate"><span class="pre">execute()</span></code> function that implements the command logic. <code class="docutils literal notranslate"><span class="pre">execute()</span></code> takes the
+parsed arguments and the parser itself as arguments. For example, in the case of <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>,
+<code class="docutils literal notranslate"><span class="pre">execute()</span></code> only <a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/cli/main_install.py#L12">redirects</a> to a certain mode in
+<a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/cli/install.py#L107"><code class="docutils literal notranslate"><span class="pre">conda.cli.install:install()</span></code></a>.</p></li>
+</ol>
+<p>Let’s go take a look at that module now. <a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/cli/install.py#L107"><code class="docutils literal notranslate"><span class="pre">conda.cli.install:install()</span></code></a>
+implements the logic behind <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code>, <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>, <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">remove</span></code>.
+In essence, they all deal with the same task: changing which packages are present in an environment.
+If you go and read that function, you will see there are several lines of code handling diverse
+situations (new environments, clones, etc.) before we arrive to the next section. We will not discuss
+them here, but feel free to explore <a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/cli/install.py#L107">that section</a>.
+It’s mostly ensuring that the destination prefix exists, whether we are creating a new environment
+and massaging some command line flags that would allow us to skip the solver (e.g. <code class="docutils literal notranslate"><span class="pre">--clone</span></code>).</p>
+<div class="admonition-more-information-on-environments admonition">
+<p class="admonition-title">More information on environments</p>
+<p>Check the concepts for <a class="reference internal" href="../../user-guide/concepts/environments.html#concepts-conda-environments"><span class="std std-ref">环境</span></a>.</p>
+</div>
+<!-- TODO: Maybe we do want to explain those checks? -->
+</section>
+<section id="fetching-the-index">
+<h2>Fetching the index<a class="headerlink" href="#fetching-the-index" title="Link to this heading">#</a></h2>
+<p>At this point, we are ready to start doing some work! All of the previous code was telling us what to
+do, and now we know. We want <code class="docutils literal notranslate"><span class="pre">conda</span></code> to <em>install</em>  <code class="docutils literal notranslate"><span class="pre">numpy</span></code> on our <code class="docutils literal notranslate"><span class="pre">base</span></code> environment. The first thing
+we need to know is where we can find packages with the name <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. The answer is… the channels!</p>
+<p>Users download packages from <code class="docutils literal notranslate"><span class="pre">conda</span></code> channels. These are normally hosted at <code class="docutils literal notranslate"><span class="pre">anaconda.org</span></code>. A
+channel is essentially a directory structure with these elements:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;channel&gt;
+├── channeldata.json
+├── index.html
+├── &lt;platform&gt; (e.g. linux-64)
+│   ├── current_repodata.json
+│   ├── current_repodata.json.bz2
+│   ├── index.html
+│   ├── repodata.json
+│   ├── repodata.json.bz2
+│   ├── repodata_from_packages.json
+│   └── repodata_from_packages.json.bz2
+└── noarch
+    ├── current_repodata.json
+    ├── current_repodata.json.bz2
+    ├── index.html
+    ├── repodata.json
+    ├── repodata.json.bz2
+    ├── repodata_from_packages.json
+    └── repodata_from_packages.json.bz2
+</pre></div>
+</div>
+<div class="admonition-more-info-on-channels admonition">
+<p class="admonition-title">More info on Channels</p>
+<p>You can find some more user-oriented notes on Channels at <a class="reference internal" href="../../user-guide/concepts/channels.html#concepts-channels"><span class="std std-ref">什么是“频道”？</span></a> and
+<a class="reference internal" href="../../user-guide/concepts/pkg-specs.html#repo-si"><span class="std std-ref">代码库结构和索引</span></a>. If you are interested in more technical details, check the corresponding
+<a class="reference external" href="https://docs.conda.io/projects/conda-build/en/latest/concepts/generating-index.html">documentation pages at conda-build</a>.</p>
+</div>
+<p>The important bits are:</p>
+<ul class="simple">
+<li><p>A channel contains one or more platform-specific directories (<code class="docutils literal notranslate"><span class="pre">linux-64</span></code>, <code class="docutils literal notranslate"><span class="pre">osx-64</span></code>, etc.),
+plus a platform-agnostic directory called <code class="docutils literal notranslate"><span class="pre">noarch</span></code>. In <code class="docutils literal notranslate"><span class="pre">conda</span></code> jargon, these are also
+referred to as channel <em>subdirs</em>. Officially, the <code class="docutils literal notranslate"><span class="pre">noarch</span></code> subdirectory is enough to make it
+a <code class="docutils literal notranslate"><span class="pre">conda</span></code> channel; e.g. no platform subdirectory is necessary.</p></li>
+<li><p>Each <em>subdir</em> contains at least a <code class="docutils literal notranslate"><span class="pre">repodata.json</span></code> file: a gigantic dictionary with <em>all</em> the
+metadata for each package available on that platform.</p></li>
+<li><p>In most cases, the same subdirs also contain the <code class="docutils literal notranslate"><span class="pre">*.tar.bz2</span></code> files for each of the published
+packages. This is what <code class="docutils literal notranslate"><span class="pre">conda</span></code> downloads and extracts once solving is complete. The anatomy
+of these files is well defined, both in content and naming structure. See
+<a class="reference internal" href="../../user-guide/concepts/packages.html#concept-conda-package"><span class="std std-ref">什么是软件包？</span></a>, <a class="reference internal" href="../../user-guide/concepts/pkg-specs.html#package-metadata"><span class="std std-ref">软件包元数据</span></a> and/or <a class="reference external" href="https://docs.conda.io/projects/conda-build/en/latest/concepts/package-naming-conv.html">Package naming
+conventions</a> for more details.</p></li>
+</ul>
+<!-- TODO: Check why and reasons for this file to exist -->
+<p>Additionally, the channel’s main directory might contain a <code class="docutils literal notranslate"><span class="pre">channeldata.json</span></code> file, with channel-wide
+metadata (this is not specific per platform). Not all channels include this, and in general
+it is not currently something that is commonly utilized.</p>
+<p>Since conda’s philosophy is to keep all packages ever published around for reproducibility,
+<code class="docutils literal notranslate"><span class="pre">repodata.json</span></code> is always growing, which presents a problem both for the download itself and the
+solver engine. To reduce download times and bandwidth usage, <code class="docutils literal notranslate"><span class="pre">repodata.json</span></code> is also served as a
+BZIP2 compressed file, <code class="docutils literal notranslate"><span class="pre">repodata.json.bz2</span></code>. This is what most <code class="docutils literal notranslate"><span class="pre">conda</span></code> clients end up downloading.</p>
+<div class="admonition-note-on-current-repodata-json admonition">
+<p class="admonition-title">Note on ‘current_repodata.json’</p>
+<p>More <em>repodatas</em> variations can be found in some channels, but they are always reduced versions
+of the main one for the sake of performance. For example, <code class="docutils literal notranslate"><span class="pre">current_repodata.json</span></code> only contains
+the most recent version of each package, plus their dependencies. The rationale behind this
+optimization trick can be found <a class="reference external" href="https://docs.conda.io/projects/conda-build/en/latest/concepts/generating-index.html#trimming-to-current-repodata">here</a>.</p>
+</div>
+<p>So, in essence, fetching the channel information means it can be expressed in pseudo-code like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">platform</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">noarch</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">channel</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">channels</span><span class="p">):</span>
+    <span class="n">platform_repodata</span> <span class="o">=</span> <span class="n">fetch_extract_and_read</span><span class="p">(</span>
+        <span class="n">channel</span><span class="o">.</span><span class="n">full_url</span> <span class="o">/</span> <span class="n">context</span><span class="o">.</span><span class="n">subdir</span> <span class="o">/</span> <span class="s2">&quot;repodata.json.bz2&quot;</span>
+    <span class="p">)</span>
+    <span class="n">platform</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">platform_repodata</span><span class="p">)</span>
+    <span class="n">noarch_repodata</span> <span class="o">=</span> <span class="n">fetch_extract_and_read</span><span class="p">(</span>
+        <span class="n">channel</span><span class="o">.</span><span class="n">full_url</span> <span class="o">/</span> <span class="s2">&quot;noarch&quot;</span> <span class="o">/</span> <span class="s2">&quot;repodata.json.bz2&quot;</span>
+    <span class="p">)</span>
+    <span class="n">noarch</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">noarch_repodata</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that these dictionaries are keyed by <em>filename</em>, so higher priority channels will overwrite
+entries with the exact same filename (e.g. <code class="docutils literal notranslate"><span class="pre">numpy-1.19-py36h87ha43_0.tar.bz2</span></code>). If they don’t have
+the same <em>filename</em> (e.g., same version and build number but different hash), this ambiguity will
+be resolved later in the solver, taking into account the channel priority mode.</p>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">context.channels</span></code> has been populated through different, cascading mechanisms:</p>
+<ul class="simple">
+<li><p>The default settings as found in <code class="docutils literal notranslate"><span class="pre">~/.condarc</span></code> or equivalent.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">CONDA_CHANNELS</span></code> environment variable (rare usage).</p></li>
+<li><p>The command-line flags, such as <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">&lt;channel&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">--use-local</span></code> or <code class="docutils literal notranslate"><span class="pre">--override-channels</span></code>.</p></li>
+<li><p>The channels present in a command-line <a class="reference internal" href="../../user-guide/concepts/pkg-specs.html#build-version-spec"><span class="std std-ref">spec</span></a>. Remember that users can
+say <code class="docutils literal notranslate"><span class="pre">channel::numpy</span></code> instead of simply <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to require that numpy comes from that specific
+channel. That means that the repodata for such channel needs to be fetched, too!</p></li>
+</ul>
+<p>The items in <code class="docutils literal notranslate"><span class="pre">context.channels</span></code> are supposed to be <code class="docutils literal notranslate"><span class="pre">conda.models.channels.Channel</span></code> objects, but
+the Solver API also allows strings that refer to their name, alias or full URL. In that case,
+you can use <code class="docutils literal notranslate"><span class="pre">Channel</span></code> objects to parse and retrieve the full URL for each subdir using the
+<code class="docutils literal notranslate"><span class="pre">Channel.urls()</span></code> method. Several helper functions can be found in <code class="docutils literal notranslate"><span class="pre">conda.core.index</span></code>, if
+needed.</p>
+<p>Sadly, <code class="docutils literal notranslate"><span class="pre">fetch_extract_and_read()</span></code> does not exist as such, but as a combination of objects. The
+main driving function is actually <a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/core/index.py#L45"><code class="docutils literal notranslate"><span class="pre">get_index()</span></code></a>, which passes the
+channel URLs to <code class="docutils literal notranslate"><span class="pre">fetch_index</span></code>, a wrapper that delegates directly to
+<code class="docutils literal notranslate"><span class="pre">conda.core.subdir_data.SubdirData</span></code> objects. This object implements caching, authentication,
+proxies and other things that complicate the simple idea of “just download the file, please”.
+Most of the logic is in <code class="docutils literal notranslate"><span class="pre">SubdirData._load()</span></code>, which ends up calling
+<code class="docutils literal notranslate"><span class="pre">conda.core.subdir_data.fetch_repodata_remote_request()</span></code> to process the request. Finally,
+<code class="docutils literal notranslate"><span class="pre">SubdirData._process_raw_repodata_str()</span></code> does the parsing and loading.</p>
+<p>Internally, the <code class="docutils literal notranslate"><span class="pre">SubdirData</span></code> stores all the package metadata as a list of <code class="docutils literal notranslate"><span class="pre">PackageRecord</span></code>
+objects. Its main usage is via <code class="docutils literal notranslate"><span class="pre">.query()</span></code> (one result at a time) or <code class="docutils literal notranslate"><span class="pre">.query_all()</span></code> (all
+possible matches). These <code class="docutils literal notranslate"><span class="pre">.query*</span></code> methods accept spec strings (e.g. <code class="docutils literal notranslate"><span class="pre">numpy</span> <span class="pre">=1.14</span></code>),
+<code class="docutils literal notranslate"><span class="pre">MatchSpec</span></code> and <code class="docutils literal notranslate"><span class="pre">PackageRecord</span></code> instances. Alternatively, if you want <em>all</em> records with no
+queries, use <code class="docutils literal notranslate"><span class="pre">SubdirData.iter_records()</span></code>.</p>
+<div class="admonition-tricks-to-reduce-the-size-of-the-index admonition" id="index-reduction-tricks">
+<p class="admonition-title">Tricks to reduce the size of the index</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span></code> supports the notion of trying with different versions of the index in an effort to minimize
+the solution space. A smaller index means a faster search, after all! The default logic starts with
+<code class="docutils literal notranslate"><span class="pre">current_repodata.json</span></code> files in the channel, which contain only the latest versions of each package
+plus their dependencies. If that fails, then the full <code class="docutils literal notranslate"><span class="pre">repodata.json</span></code> is used. This happens <em>before</em>
+the <code class="docutils literal notranslate"><span class="pre">Solver</span></code> is even invoked.</p>
+<p>The second trick is done within the classic solver logic (pycosat): an informed index reduction. In essence, the
+index (whether it’s <code class="docutils literal notranslate"><span class="pre">current_repodata.json</span></code> or full <code class="docutils literal notranslate"><span class="pre">repodata.json</span></code>) is pruned by the solver,
+trying to keep only the parts that it anticipates will be needed. More details can be found on
+<a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/core/index.py#L246">the <code class="docutils literal notranslate"><span class="pre">get_reduced_index</span></code> function</a>. Interestingly, this
+optimization step also takes longer the bigger the index gets.</p>
+</div>
+<section id="channel-priorities">
+<h3>Channel priorities<a class="headerlink" href="#channel-priorities" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">context.channels</span></code> returns an <code class="docutils literal notranslate"><span class="pre">IndexedSet</span></code> of <code class="docutils literal notranslate"><span class="pre">Channel</span></code> objects; essentially a list of unique
+items. The different channels in this list can have overlapping or even conflicting information
+for the same package name. For example, <code class="docutils literal notranslate"><span class="pre">defaults</span></code> and <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> will for sure contain
+packages that fullfil the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">numpy</span></code> request. Which one is chosen by <code class="docutils literal notranslate"><span class="pre">conda</span></code> in this
+case? It depends on the <code class="docutils literal notranslate"><span class="pre">context.channel_priority</span></code> setting: From the help message:</p>
+<blockquote>
+<div><p>Accepts values of ‘strict’, ‘flexible’, and ‘disabled’. The default value is ‘flexible’. With
+strict channel priority, packages in lower priority channels are not considered if a package
+with the same name appears in a higher priority channel. With flexible channel priority, the
+solver may reach into lower priority channels to fulfill dependencies, rather than raising an
+unsatisfiable error. With channel priority disabled, package version takes precedence, and
+the configured priority of channels is used only to break ties.</p>
+</div></blockquote>
+<p>In practice, <code class="docutils literal notranslate"><span class="pre">channel_priority=strict</span></code> is often the recommended setting for most users. It’s faster
+to solve and causes fewer problems down the line. Check more details
+<a class="reference internal" href="../../user-guide/concepts/conda-performance.html#concepts-performance-channel-priority"><span class="std std-ref">here</span></a>.</p>
+</section>
+</section>
+<section id="solving-the-install-request">
+<h2>Solving the install request<a class="headerlink" href="#solving-the-install-request" title="Link to this heading">#</a></h2>
+<p>At this point, we can start asking the solver things. After all, we have loaded the
+channels into our index, building the catalog of available packages and versions we can
+install. We also have the command line instructions and configurations needed to customize the
+solver request. So, let’s just do it: “Solver, please install numpy on this prefix using these
+channels as package sources”.</p>
+<p>The details are complicated, but in essence, the <code class="docutils literal notranslate"><span class="pre">Solver</span></code> will:</p>
+<ol class="arabic simple">
+<li><p>Express the requested packages, command line options and prefix state as <code class="docutils literal notranslate"><span class="pre">MatchSpec</span></code> objects</p></li>
+<li><p>Query the index for the best possible match that satisfy those constraints</p></li>
+<li><p>Return a list of <code class="docutils literal notranslate"><span class="pre">PackageRecord</span></code> objects</p></li>
+</ol>
+<p>The full details are covered in <a class="reference internal" href="solvers.html"><span class="doc">Solvers</span></a> if you are curious. Just keep in mind that
+point (1) is conda-specific, while (2) can be tackled, in principle, by any SAT solver.</p>
+</section>
+<section id="generating-the-transaction-and-the-corresponding-actions">
+<span id="solver-api-transactions"></span><h2>Generating the transaction and the corresponding actions<a class="headerlink" href="#generating-the-transaction-and-the-corresponding-actions" title="Link to this heading">#</a></h2>
+<p>The Solver API defines three public methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.solve_final_state()</span></code>: this is the core function, described in the section above. Given some
+input state, it returns an <code class="docutils literal notranslate"><span class="pre">IndexedSet</span></code> of <code class="docutils literal notranslate"><span class="pre">PackageRecord</span></code> objects that reflect what the final
+state of the environment should look like. This is the largest method, and its details are
+fully covered <a class="reference internal" href="solvers.html#details-solve-final-state"><span class="std std-ref">here</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.solve_for_diff()</span></code>: this method takes the final state and diffs it with the current state of the
+environment, discovering which old records need to be removed, and which ones need to be added.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.solve_for_transaction()</span></code>: this method takes the diff and creates a <code class="docutils literal notranslate"><span class="pre">Transaction</span></code> object for this
+operation. This is what the main CLI logic expects back from the solver.</p></li>
+</ul>
+<p>So what is a <code class="docutils literal notranslate"><span class="pre">Transaction</span></code> object and why is it needed? <a class="reference external" href="https://github.com/conda/conda/pull/3833">Transactional actions</a>
+were introduced in conda 4.3. They seem to be the last iteration of a set of changes designed to
+check whether <code class="docutils literal notranslate"><span class="pre">conda</span></code> would be able to download and link the needed packages (e.g. check that
+there is enough space on disk, whether the user has enough permissions for the target paths, etc.).
+For more info, refer to PRs <a class="reference external" href="https://github.com/conda/conda/pull/3571">#3571</a>, <a class="reference external" href="https://github.com/conda/conda/pull/3301">#3301</a>, and <a class="reference external" href="https://github.com/conda/conda/pull/3034">#3034</a>.</p>
+<p>The transaction is essentially a set of <code class="docutils literal notranslate"><span class="pre">action</span></code> objects. Each action is allowed to run some
+checks to determine whether it can be executed successfully. If that’s not the case, the failed
+checks will signal the parent transaction that the whole operation needs to be aborted and
+rolled back to leave things in the state they were before running that <code class="docutils literal notranslate"><span class="pre">conda</span></code> command. It is also
+responsible for some of the messages you will see in the CLI output, like the reports of what will
+be installed, updated or removed.</p>
+<div class="admonition-transactions-and-parallelism admonition">
+<p class="admonition-title">Transactions and parallelism</p>
+<p>Since the transaction object knows about all the actions that need to happen, it also enables
+parallelism for verifying, downloading and (un)linking tasks. The level of parallelism
+can be changed through the following <code class="docutils literal notranslate"><span class="pre">context</span></code> settings:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">default_threads</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verify_threads</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">execute_threads</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">repodata_threads</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fetch_threads</span></code></p></li>
+</ul>
+</div>
+<p>There’s only one class of transaction in <code class="docutils literal notranslate"><span class="pre">conda</span></code>:
+<a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/core/link.py#L156"><code class="docutils literal notranslate"><span class="pre">LinkUnlinkTransaction</span></code></a>. It only accepts one input parameter:
+a list of <code class="docutils literal notranslate"><span class="pre">PrefixSetup</span></code> objects, which are just <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code> objects with the following fields.
+These are populated by <code class="docutils literal notranslate"><span class="pre">Solver.solve_for_transaction</span></code> after running <code class="docutils literal notranslate"><span class="pre">Solver.solve_for_diff</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">target_prefix</span></code>: the environment path the command is running on.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unlink_precs</span></code>: <code class="docutils literal notranslate"><span class="pre">PackageRecord</span></code> objects that need to be unlinked (removed).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">link_precs</span></code>: <code class="docutils literal notranslate"><span class="pre">PackageRecord</span></code> objects that need to be linked (added).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove_specs</span></code>: <code class="docutils literal notranslate"><span class="pre">MatchSpec</span></code> objects that need to be marked as removed in the history (the user
+asked for these packages to be uninstalled).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">update_specs</span></code>: <code class="docutils literal notranslate"><span class="pre">MatchSpec</span></code> objects that need to be marked as added in the history (the user
+asked for these packages to be installed or updated).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">neutered_specs</span></code>: <code class="docutils literal notranslate"><span class="pre">MatchSpec</span></code> objects that were already in history but had to be relaxed in order
+to avoid solving conflicts.</p></li>
+</ul>
+<p>Whatever happens after instantiation depends on the content of these <code class="docutils literal notranslate"><span class="pre">PrefixSetup</span></code> objects.
+Sometimes, the transaction results in no actions (see the <a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/core/link.py#L184"><code class="docutils literal notranslate"><span class="pre">nothing_to_do</span></code></a>
+property) because the request asked by the user is already fulfilled by the current state
+of the environment.</p>
+<p>However, most of the time the transaction will involve a number of actions. This is done via two
+public methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">download_and_extract()</span></code>: essentially a forwarder to instantiate and call
+<code class="docutils literal notranslate"><span class="pre">ProgressiveFetchExtract</span></code>, responsible for deciding which <code class="docutils literal notranslate"><span class="pre">PackageRecords</span></code> need to be
+downloaded and extracted to the packages cache.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">execute()</span></code>: the core logic is layed out here. It involves preparing, verifying and
+performing the rest of the actions. Among others:</p>
+<ul>
+<li><p>Unlinking packages (removing a package from the environment)</p></li>
+<li><p>Linking (adding a package to the environment)</p></li>
+<li><p>Compiling bytecode (generating the <code class="docutils literal notranslate"><span class="pre">pyc</span></code> counterpart for each <code class="docutils literal notranslate"><span class="pre">py</span></code> module)</p></li>
+<li><p>Adding entry points (generate command line executables for the configured functions)</p></li>
+<li><p>Adding the JSON records (for each package, a JSON file is added to <code class="docutils literal notranslate"><span class="pre">conda-meta/</span></code>)</p></li>
+<li><p>Make menu items (create shortcuts for packages featuring a JSON file under <code class="docutils literal notranslate"><span class="pre">Menu/</span></code>)</p></li>
+<li><p>Remove menu items (remove the shortcuts created by that package)</p></li>
+</ul>
+</li>
+</ul>
+<p>It’s important to notice that download and extraction happen separately from all the other actions.
+This separation is important and core to the idea of what a <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment is. Essentially,
+when you create a new <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment, you are not necessarily <em>copying</em> files over to the target
+prefix location. Instead, <code class="docutils literal notranslate"><span class="pre">conda</span></code> maintains a cache of every package ever downloaded to disk (both
+the tarball and the extracted contents). To save space and speed up environment creation and
+deletion, files are not copied over, but instead they are linked (usually via a hardlink). That’s
+why these two tasks are separated in the transaction logic: you don’t need to download and extract
+packages that are already in the cache; you only need to link them!</p>
+<div class="admonition-transactions-also-drive-reports admonition">
+<p class="admonition-title">Transactions also drive reports</p>
+<p>The type and number of actions can also be calculated by <code class="docutils literal notranslate"><span class="pre">_make_legacy_action_groups()</span></code>, which
+returns a list of <em>action groups</em> (one per <code class="docutils literal notranslate"><span class="pre">PrefixSetup</span></code>). Each action group is a just a dictionary
+following this specification:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;FETCH&quot;</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">PackageRecord</span><span class="p">],</span>  <span class="c1"># estimated by `ProgressiveFetchExtract`</span>
+  <span class="s2">&quot;PREFIX&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+  <span class="s2">&quot;UNLINK&quot;</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">PackageRecord</span><span class="p">],</span>
+  <span class="s2">&quot;LINK: Iterable[PackageRecord],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>These simpler action groups are only used for reporting, either via a processed text report
+(via <code class="docutils literal notranslate"><span class="pre">print_transaction_summary</span></code>) or just the raw JSON (via <code class="docutils literal notranslate"><span class="pre">stdout_json_success</span></code>). As you can see,
+they do not know anything about other types of tasks.</p>
+</div>
+</section>
+<section id="download-and-extraction">
+<h2>Download and extraction<a class="headerlink" href="#download-and-extraction" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span></code> maintains a cache of downloaded tarballs and their extracted contents to save disk space
+and improve the performance of environment modifications. This requires some code to check whether
+a given <code class="docutils literal notranslate"><span class="pre">PackageRecord</span></code> is already present in the cache, and, if it’s not, how to download the
+tarball and extract its contents in a performant way. This is all handled by the
+<code class="docutils literal notranslate"><span class="pre">ProgressiveFetchExtract</span></code> class, which can instantiate up to two <code class="docutils literal notranslate"><span class="pre">Action</span></code> objects for each
+passed <code class="docutils literal notranslate"><span class="pre">PackageRecord</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CacheUrlAction</span></code>: downloads (if remote) or copies (if local) a tarball to the cache location.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ExtractPackageAction</span></code>: extracts the contents of the tarball.</p></li>
+</ul>
+<p>These two actions only take place <em>if</em> the package is not in cache yet and if it has already been
+extracted, respectively. They can also revert the changes if the transaction is aborted (either
+due to an error or because the user pressed Ctrl+C).</p>
+<!-- TODO: Add "Anatomy of the conda caches" admonition-->
+</section>
+<section id="populating-the-prefix">
+<h2>Populating the prefix<a class="headerlink" href="#populating-the-prefix" title="Link to this heading">#</a></h2>
+<p>When all the necessary packages have been downloaded and extracted to the cache, it is time to
+start populating the prefix with the needed files. This means we need to:</p>
+<ol class="arabic simple">
+<li><p>For each package that needs to be unlinked, run the pre-unlink logic (<code class="docutils literal notranslate"><span class="pre">deactivate</span></code> and
+<code class="docutils literal notranslate"><span class="pre">pre-unlink</span></code> scripts, as well as shortcut removal, if needed) and then unlink the package files.</p></li>
+<li><p>For each package that needs to be linked, create the links and run the post-link logic
+(<code class="docutils literal notranslate"><span class="pre">post-link</span></code> and <code class="docutils literal notranslate"><span class="pre">activate</span></code> scripts, as well as creating the shortcuts, if needed).</p></li>
+</ol>
+<blockquote>
+<div><p>Note that when you are updating a package version, you are actually removing the installed version
+entirely and then adding the new one. In other words, an update is just unlink+link.</p>
+</div></blockquote>
+<p>How is this implemented? For each <code class="docutils literal notranslate"><span class="pre">PrefixSetup</span></code> object passed to <code class="docutils literal notranslate"><span class="pre">UnlinkLinkTransaction</span></code>, a
+number of <code class="docutils literal notranslate"><span class="pre">ActionGroup</span></code> namedtuples (one per task <em>category</em>) will be instantiated and grouped
+together in a <code class="docutils literal notranslate"><span class="pre">PrefixActionGroup</span></code> namedtuple. These are then passed to <code class="docutils literal notranslate"><span class="pre">.verify()</span></code>. This method
+will take each action, run its checks and, if all of them passed, will allow us to perform the
+actual execution in <code class="docutils literal notranslate"><span class="pre">.execute()</span></code>. If one of them fails, the transaction can be aborted and
+rolled back.</p>
+<p>For all this to work, each action object follows the
+<a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/core/path_actions.py#L61"><code class="docutils literal notranslate"><span class="pre">PathAction</span></code> API contract</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PathAction</span><span class="p">:</span>
+    <span class="n">_verified</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">verify</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Run checks to assess if the action can proceed&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Perform the action&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">reverse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Undo execute&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;Remove artifacts from verification, execution or reversal&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">verified</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;True if verification was run and successful&quot;</span>
+</pre></div>
+</div>
+<p>Additional <code class="docutils literal notranslate"><span class="pre">PathAction</span></code> subclasses will add more methods and properties, but this is what the
+transaction execution logic expects. To support all the different actions involved in populating
+the prefix, the <code class="docutils literal notranslate"><span class="pre">PathAction</span></code> class tree holds quite the graph:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PathAction</span>
+  <span class="n">PrefixPathAction</span>
+    <span class="n">CreateInPrefixPathAction</span>
+      <span class="n">LinkPathAction</span>
+        <span class="n">PrefixReplaceLinkAction</span>
+      <span class="n">MakeMenuAction</span>
+      <span class="n">CreatePythonEntryPointAction</span>
+      <span class="n">CreatePrefixRecordAction</span>
+      <span class="n">UpdateHistoryAction</span>
+    <span class="n">RemoveFromPrefixPathAction</span>
+      <span class="n">UnlinkPathAction</span>
+        <span class="n">RemoveLinkedPackageRecordAction</span>
+      <span class="n">RemoveMenuAction</span>
+  <span class="n">RegisterEnvironmentLocationAction</span>
+  <span class="n">UnregisterEnvironmentLocationAction</span>
+  <span class="n">CacheUrlAction</span>
+  <span class="n">ExtractPackageAction</span>
+
+<span class="n">MultiPathAction</span>
+  <span class="n">CompileMultiPycAction</span>
+    <span class="n">AggregateCompileMultiPycAction</span>
+
+</pre></div>
+</div>
+<p>You are welcome to read on the docstring for each of those classes to understand which each one
+is doing; all of them are listed under <code class="docutils literal notranslate"><span class="pre">conda.core.path_actions</span></code>. In the following sections, we will
+only comment on the most important ones.</p>
+</section>
+<section id="linking-the-files-in-the-environment">
+<h2>Linking the files in the environment<a class="headerlink" href="#linking-the-files-in-the-environment" title="Link to this heading">#</a></h2>
+<p>When conda <em>links</em> a file from the cache location to the prefix location, it can actually mean
+three different actions:</p>
+<ol class="arabic simple">
+<li><p>Creating a soft link</p></li>
+<li><p>Creating a hard link</p></li>
+<li><p>Copying the file</p></li>
+</ol>
+<p>The difference between soft links and hard links is subtle, but important. You can find more info on
+the differences elsewhere (e.g. <a class="reference external" href="https://askubuntu.com/questions/108771/what-is-the-difference-between-a-hard-link-and-a-symbolic-link">here</a>), but for our purposes it means that:</p>
+<ul class="simple">
+<li><p>Hard links are cheaper to resolve, behave like a real file, but can only link files in the same
+mount point.</p></li>
+<li><p>Soft links can link files across mount points, but they don’t behave exactly like files (more like
+forwarders), so it’s possible that they break assumptions made in certain pieces of code.</p></li>
+</ul>
+<p>Most of the time, <code class="docutils literal notranslate"><span class="pre">conda</span></code> will try to hard link files and, if that fails, it will copy them over.
+Copying a file is an expensive disk operation, both in terms of time and space, so it should be
+the last option. However, sometimes it’s the only way. Especially, when the file needs to be
+modified to be used in the target prefix.</p>
+<p>Ummm… what? Why would <code class="docutils literal notranslate"><span class="pre">conda</span></code> modify a file to install it? This has to do with relocatability.
+When a <code class="docutils literal notranslate"><span class="pre">conda</span></code> package is created, <code class="docutils literal notranslate"><span class="pre">conda-build</span></code> creates up to three temporary environments:</p>
+<ul class="simple">
+<li><p>Build environment: where compilers and other build tools are installed, separate from the
+host environment to support cross-compilation.</p></li>
+<li><p>Host environment: where build-time dependencies are installed, together with the package you
+are building.</p></li>
+<li><p>Test environment: where run-time dependencies are installed, together with the package you just
+built. It simulates what will happen when a user installs the package so you can run arbitrary
+checks on your package.</p></li>
+</ul>
+<p>When you are building a package, references to the build-time paths can leak into the content of
+some files, both text and binary. This is not a problem for users who build their own packages
+from source, since they can choose this path and leave the files there. However, this is almost
+never true for <code class="docutils literal notranslate"><span class="pre">conda</span></code> packages. They are created in one machine and installed in another. To avoid
+“path not found” issues and other problems, <code class="docutils literal notranslate"><span class="pre">conda-build</span></code> marks those packages that hold references
+to the build-time paths by replacing them with placeholders. At install-time, <code class="docutils literal notranslate"><span class="pre">conda</span></code> will replace
+those placeholders with the target prefix and everything works!</p>
+<p>But there’s a problem: we can’t modify the files on the cache location because they might be used
+across environments (with obviously different paths). In these cases, files are not linked, but
+copied; the path replacement only happens on the target copy, of course!</p>
+<p>How does <code class="docutils literal notranslate"><span class="pre">conda</span></code> know how to link a given package or, more precisely, its extracted files? All
+of this is determined in the preparation routines contained in
+<a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/core/link.py#L266"><code class="docutils literal notranslate"><span class="pre">UnlinkLinkTransaction._prepare()</span></code></a> (more specifically, through
+<a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/core/link.py#L50"><code class="docutils literal notranslate"><span class="pre">determine_link_type()</span></code></a>), as well as
+<a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/core/path_actions.py#L190"><code class="docutils literal notranslate"><span class="pre">LinkPathAction.create_file_link_actions()</span></code></a>.</p>
+<p>Note that the (un)linking actions also include the execution of pre-(un)link and post-(un)link
+scripts, if listed.</p>
+</section>
+<section id="action-groups-and-actions-in-detail">
+<h2>Action groups and actions, in detail<a class="headerlink" href="#action-groups-and-actions-in-detail" title="Link to this heading">#</a></h2>
+<p>Once the old packages have been removed and the new ones have been linked through the appropriate
+means, we are done, right? Not yet! There’s one step left: the post-linking logic.</p>
+<p>It turns out that there’s a number of smaller tasks that need to happen to make <code class="docutils literal notranslate"><span class="pre">conda</span></code> as
+convenient as it is. You can find all of them listed a few paragraphs above, but we’ll cover
+them here, too. The execution order is determined in
+<a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/core/link.py#L602"><code class="docutils literal notranslate"><span class="pre">UnlinLinkTransaction._execute</span></code></a>.
+All the possible groups are listed under <a class="reference external" href="https://github.com/conda/conda/blob/4.11.0/conda/core/link.py#L123"><code class="docutils literal notranslate"><span class="pre">PrefixActionGroup</span></code></a>.
+Their order is roughly how they happen in practice:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">remove_menu_action_groups</span></code>, composed of <code class="docutils literal notranslate"><span class="pre">RemoveMenuAction</span></code> actions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unlink_action_groups</span></code>, includes <code class="docutils literal notranslate"><span class="pre">UnlinkPathAction</span></code>, <code class="docutils literal notranslate"><span class="pre">RemoveLinkedPackageRecordAction</span></code>, as well
+as the logic to run the pre- and post-unlink scripts.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unregister_action_groups</span></code>, basically a single <code class="docutils literal notranslate"><span class="pre">UnregisterEnvironmentLocationAction</span></code> action.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">link_action_groups</span></code>, includes <code class="docutils literal notranslate"><span class="pre">LinkPathAction</span></code>, <code class="docutils literal notranslate"><span class="pre">PrefixReplaceLinkAction</span></code>, as well as the logic
+to run pre- and post-link scripts.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">entry_point_action_groups</span></code>, a collection of <code class="docutils literal notranslate"><span class="pre">CreatePythonEntryPointAction</span></code> actions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">register_action_groups</span></code>, a single <code class="docutils literal notranslate"><span class="pre">RegisterEnvironmentLocationAction</span></code> action.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compile_action_groups</span></code>, several <code class="docutils literal notranslate"><span class="pre">CompileMultiPycAction</span></code> that end up aggregated as a
+<code class="docutils literal notranslate"><span class="pre">AggregateCompileMultiPycAction</span></code> for performance.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make_menu_action_groups</span></code>, composed of <code class="docutils literal notranslate"><span class="pre">MakeMenuAction</span></code> actions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prefix_record_groups</span></code>, records installed packages in the environment via
+<code class="docutils literal notranslate"><span class="pre">CreatePrefixRecordAction</span></code> actions.</p></li>
+</ol>
+<p>Let’s discuss these actions groups for the command we are describing in this guide: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">numpy</span></code>. The solution given by the solver says we need to:</p>
+<ul class="simple">
+<li><p>unlink Python 3.9.6</p></li>
+<li><p>link Python 3.9.9</p></li>
+<li><p>link numpy 1.19</p></li>
+</ul>
+<p>This is what would happen:</p>
+<ol class="arabic simple">
+<li><p>No menu items are removed because Python 3.9.6 didn’t create any.</p></li>
+<li><p>Pre-unlink scripts for Python 3.9.6 would run, but in this case there are none.</p></li>
+<li><p>Python 3.9.6 files are removed from the environment. This can be parallelized.</p></li>
+<li><p>Post-unlink scripts are run, if any.</p></li>
+<li><p>Pre-link scripts are run for Python 3.9.9 and numpy 1.19, if any.</p></li>
+<li><p>Files in the Python 3.9.9 and numpy 1.19 packages are linked and/or copied to the prefix. This
+can be parallelized.</p></li>
+<li><p>Entry points are created for the new packages, if any.</p></li>
+<li><p>Post-link scripts are run.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pyc</span></code> files are generated for the new packages.</p></li>
+<li><p>The new packages are registered under <code class="docutils literal notranslate"><span class="pre">conda-meta/</span></code>.</p></li>
+<li><p>The menu shortcuts are created for the new packages, if any.</p></li>
+</ol>
+<p>Any of these steps can fail with a given exception. If that’s the case, the first of those
+exceptions is printed to STDOUT. Additionally, if <code class="docutils literal notranslate"><span class="pre">rollback_enabled</span></code> is properly configured in
+the <code class="docutils literal notranslate"><span class="pre">context</span></code>, the transaction will be rolled back by calling the <code class="docutils literal notranslate"><span class="pre">.reverse()</span></code> method in each
+action, from last to first.</p>
+<p>If no exceptions are reported, then the actions can run their cleanup routines.</p>
+<p>And that’s it! If this command had resulted in a new environment being created, you would get a
+message telling you how to activate the newly created environment.</p>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>This is what happens when you type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>. It might be a bit more involved than you
+initially thought, but it all boils down to only some steps. TL;DR:</p>
+<ol class="arabic simple">
+<li><p>Parse arguments and initialize the context</p></li>
+<li><p>Download and build the index</p></li>
+<li><p>Tell the solver what we want</p></li>
+<li><p>Convert the solution into a transaction</p></li>
+<li><p>Verify and run each action contained in the transaction</p></li>
+</ol>
+<!-- Links and references -->
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-interface">Command line interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-the-index">Fetching the index</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#channel-priorities">Channel priorities</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-install-request">Solving the install request</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-transaction-and-the-corresponding-actions">Generating the transaction and the corresponding actions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-extraction">Download and extraction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#populating-the-prefix">Populating the prefix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linking-the-files-in-the-environment">Linking the files in the environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#action-groups-and-actions-in-detail">Action groups and actions, in detail</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/conda/conda/edit/main/docs/source/dev-guide/deep-dives/install.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/dev-guide/deep-dives/install.md.txt">
+      <i class="fa-solid fa-file-lines"></i> 显示源代码
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2017, Anaconda, Inc.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7创建。
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+<a href="https://docs-conda-io.goatcounter.com" title="Analytics Dashboard">
+    Analytics Dashboard <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-27761864-11', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
