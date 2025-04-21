@@ -46,7 +46,7 @@ Quickstart
     :header-rows: 0
     :file: cheatsheets/quickstart.csv
 
-频道和软件包
+渠道和软件包
 =====================
 
 Channels and Packages

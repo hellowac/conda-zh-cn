@@ -604,7 +604,7 @@ conda.models.prefix_graph --> conda.models.match_spec
 conda.models.records --> conda.models.channel
 conda.models.records --> conda.models.enums
 conda.models.records --> conda.models.match_spec
-conda.notices --> conda.notices.core
+conda.notices --> conda.core
 conda.notices.cache --> conda.notices.types
 conda.notices.core --> conda.notices.types
 conda.notices.fetch --> conda.notices.cache

@@ -62,7 +62,7 @@ Install  :octicon:`download;1em;sd-text-primary`
     
         .. grid-item-card:: Miniforge
     
-            Miniforge 是由 `conda-forge 社区 <https://conda-forge.org>`__ 维护的安装程序，已预先配置为与 conda-forge 频道一起使用。
+            Miniforge 是由 `conda-forge 社区 <https://conda-forge.org>`__ 维护的安装程序，已预先配置为与 conda-forge 渠道一起使用。
     
             .. button-link:: https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe
                 :color: primary
